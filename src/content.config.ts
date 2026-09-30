@@ -27,8 +27,8 @@ const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     ...sharedFields,
-    cover: z.string().optional(),
-    series: z.string().optional()
+    series: z.string().optional(),
+    cover: z.string().optional()
   })
 });
 
@@ -37,9 +37,12 @@ const notes = defineCollection({
   schema: z.object({
     ...sharedFields,
     mood: z.string().optional(),
-    location: z.string().optional()
+    location: z.string().optional(),
+    cover: z.string().optional()
   })
 });
 
 export const collections = { weekly, blog, notes };
+
+
 

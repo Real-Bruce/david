@@ -7,6 +7,7 @@ tags:
   - Markdown
   - 工作流
 draft: false
+cover: /images/blog/markdown-writing-workflow.svg
 ---
 
 ## 文件即内容
@@ -34,3 +35,4 @@ tags:
 1. 随笔随时写。
 2. 周刊每周固定整理一次。
 3. 当一个想法足够成熟，再扩展成完整博客。
+

@@ -11,7 +11,7 @@ const latest = posts.slice(0, 6);
   <main>
     <section class="hero">
       <div class="container">
-        <h1>把看到的好东西，写成长久的记录。</h1>
+        <h1>Easy to say. Do it. Write it down.</h1>
         <p>这里收录我的周刊、完整博客和随时写下的随笔。内容用 Markdown 写作，网站由 GitHub 自动构建发布。</p>
       </div>
     </section>
@@ -22,13 +22,14 @@ const latest = posts.slice(0, 6);
           <h2 class="section-title">最新内容</h2>
           <a class="section-more" href="/archive/">查看全部归档</a>
         </div>
-        <div class="grid">
+        <div class="card-grid">
           {latest.map(post => (
             <PostCard
               href={getPostHref(post)}
               title={post.data.title}
               description={post.data.description}
               date={post.data.pubDate}
+              cover={post.data.cover}
               tags={post.data.tags}
               kind={getPostKindLabel(getPostKind(post))}
             />
@@ -38,3 +39,5 @@ const latest = posts.slice(0, 6);
     </section>
   </main>
 </BaseLayout>
+
+

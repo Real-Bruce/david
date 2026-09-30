@@ -25,13 +25,14 @@ const { tag, posts } = Astro.props;
       <p>共 {posts.length} 篇内容。</p>
     </section>
     <section class="section">
-      <div class="grid">
+      <div class="card-grid">
         {posts.map(post => (
           <PostCard
             href={getPostHref(post)}
             title={post.data.title}
             description={post.data.description}
             date={post.data.pubDate}
+              cover={post.data.cover}
             tags={post.data.tags}
             kind={getPostKindLabel(getPostKind(post))}
           />
@@ -40,3 +41,5 @@ const { tag, posts } = Astro.props;
     </section>
   </main>
 </BaseLayout>
+
+

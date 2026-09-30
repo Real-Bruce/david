@@ -7,6 +7,7 @@ tags:
   - Astro
   - 架构
 draft: false
+cover: /images/blog/static-blog-architecture.svg
 ---
 
 ## 为什么选择静态博客
@@ -39,3 +40,4 @@ draft: false
 ## 后续演进
 
 如果国内访问速度不理想，可以把同一份静态产物迁移到其他 CDN 或国内节点，不需要重写网站代码。
+

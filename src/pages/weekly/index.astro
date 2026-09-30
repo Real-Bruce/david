@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import WeeklyCard from '../../components/WeeklyCard.astro';
+import PostCard from '../../components/PostCard.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('weekly', ({ data }) => !data.draft))
@@ -15,15 +15,16 @@ const posts = (await getCollection('weekly', ({ data }) => !data.draft))
     </section>
 
     <section class="weekly-feed">
-      <div class="weekly-grid">
+      <div class="card-grid">
         {posts.map(post => (
-          <WeeklyCard
+          <PostCard
             href={`/weekly/${post.id}/`}
             title={post.data.title}
             description={post.data.description}
             date={post.data.pubDate}
             cover={post.data.cover}
-            issue={post.data.issue}
+            tags={post.data.tags}
+            kind={`第 ${post.data.issue} 期`}
           />
         ))}
       </div>

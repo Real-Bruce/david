@@ -14,13 +14,14 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
       <p>完整成体系的长文，适合沉淀思考、方案和复盘。</p>
     </section>
     <section class="section">
-      <div class="grid">
+      <div class="card-grid">
         {posts.map(post => (
           <PostCard
             href={`/blog/${post.id}/`}
             title={post.data.title}
             description={post.data.description}
             date={post.data.pubDate}
+              cover={post.data.cover}
             tags={post.data.tags}
             kind="博客"
           />
@@ -29,3 +30,5 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     </section>
   </main>
 </BaseLayout>
+
+
