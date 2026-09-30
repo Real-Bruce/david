@@ -14,6 +14,7 @@ const weekly = defineCollection({
   schema: z.object({
     ...sharedFields,
     issue: z.number(),
+    cover: z.string(),
     links: z.array(z.object({
       title: z.string(),
       url: z.string().url(),
@@ -41,3 +42,4 @@ const notes = defineCollection({
 });
 
 export const collections = { weekly, blog, notes };
+

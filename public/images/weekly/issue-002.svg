@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="384" viewBox="0 0 640 384">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="55%" stop-color="#4338ca"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="384" fill="url(#g2)"/>
+  <path d="M0 300h640v84H0z" fill="#ffffff" opacity=".12"/>
+  <circle cx="500" cy="90" r="90" fill="#ffffff" opacity=".18"/>
+  <text x="40" y="80" font-family="MiSans, Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff">第 002 期</text>
+  <text x="40" y="126" font-family="MiSans, Arial, sans-serif" font-size="20" fill="#ffffff" opacity=".86">设计灵感和阅读</text>
+</svg>

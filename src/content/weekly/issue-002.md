@@ -2,6 +2,7 @@
 title: 第 002 期：设计灵感和阅读
 description: 一些关于排版、配色和写作体验的网站。
 issue: 2
+cover: /images/weekly/issue-002.svg
 pubDate: 2026-09-27
 tags:
   - 周刊
@@ -24,3 +25,4 @@ links:
 这周看了不少排版和设计相关的内容。
 
 个人博客不需要复杂动效，更重要的是可读性和稳定的视觉层级。
+
