@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="搜索" description="搜索博客、周刊和随笔内容。">
+  <main class="container">
+    <section class="hero">
+      <h1>搜索</h1>
+      <p>输入关键词，查找站内内容。搜索索引会在网站构建后自动生成。</p>
+    </section>
+    <section class="section">
+      <div class="search-box">
+        <input id="search-input" class="search-input" type="search" placeholder="例如：Astro、周刊、工具" autocomplete="off" />
+        <div id="search-results" class="search-results" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script is:inline>
+  const input = document.getElementById('search-input');
+  const resultsBox = document.getElementById('search-results');
+  let pagefind = null;
+
+  async function ensureIndex() {
+    if (pagefind) return pagefind;
+    try {
+      pagefind = await import('/pagefind/pagefind.js');
+      await pagefind.options?.();
+      return pagefind;
+    } catch (error) {
+      resultsBox.innerHTML = '<p class="empty">搜索索引暂不可用，请先执行完整构建。</p>';
+      return null;
+    }
+  }
+
+  async function search(value) {
+    if (!value.trim()) {
+      resultsBox.innerHTML = '';
+      return;
+    }
+
+    const index = await ensureIndex();
+    if (!index) return;
+
+    const results = await index.search(value);
+    if (!results?.results?.length) {
+      resultsBox.innerHTML = '<p class="empty">没有找到相关内容。</p>';
+      return;
+    }
+
+    const items = await Promise.all(results.results.slice(0, 20).map(result => result.data()));
+    resultsBox.innerHTML = items.map(item => `
+      <article class="search-result">
+        <h3><a href="${item.url}">${item.meta?.title || item.url}</a></h3>
+        <p class="empty">${item.excerpt}</p>
+      </article>
+    `).join('');
+  }
+
+  let timer;
+  input.addEventListener('input', event => {
+    clearTimeout(timer);
+    timer = setTimeout(() => search(event.target.value), 180);
+  });
+</script>

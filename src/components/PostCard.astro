@@ -1,0 +1,29 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  date: Date;
+  tags?: string[];
+  kind?: string;
+}
+
+const { href, title, description, date, tags = [], kind } = Astro.props;
+const dateText = date.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
+---
+
+<article class="card">
+  <div class="meta">
+    {kind && <span class="kind">{kind}</span>}
+    <time datetime={date.toISOString()}>{dateText}</time>
+  </div>
+  <a href={href}>
+    <h3 class="card-title">{title}</h3>
+  </a>
+  <p class="card-desc">{description}</p>
+  {tags.length > 0 && (
+    <div class="tags">
+      {tags.map(tag => <a class="tag" href={`/tags/${tag}/`}>#{tag}</a>)}
+    </div>
+  )}
+</article>

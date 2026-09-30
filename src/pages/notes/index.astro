@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('notes', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="随笔" description="随时记录的碎片想法与短篇随笔。">
+  <main class="container">
+    <section class="hero">
+      <h1>随笔</h1>
+      <p>不追求完整结构，想到什么就先记下来。</p>
+    </section>
+    <section class="section">
+      <div class="grid">
+        {posts.map(post => (
+          <PostCard
+            href={`/notes/${post.id}/`}
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.pubDate}
+            tags={post.data.tags}
+            kind="随笔"
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

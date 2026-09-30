@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('notes', ({ data }) => !data.draft);
+  return posts.map(post => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <main class="article">
+    <div class="meta">
+      <span class="kind">随笔</span>
+      <time datetime={post.data.pubDate.toISOString()}>
+        {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </time>
+      {post.data.mood && <span>· {post.data.mood}</span>}
+    </div>
+    <h1>{post.data.title}</h1>
+    <div class="article-meta">
+      {post.data.tags.map(tag => <a class="tag" href={`/tags/${tag}/`}>#{tag}</a>)}
+    </div>
+    <div class="prose">
+      <Content />
+    </div>
+  </main>
+</BaseLayout>
