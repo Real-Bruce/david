@@ -225,3 +225,8 @@ img { max-width: 100%; }
     order: 3;
   }
 }
+
+/* Remove top RSS and home entries */
+.rss-button {
+  display: none;
+}

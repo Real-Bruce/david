@@ -7,7 +7,6 @@ const normalize = (href: string) => href === '/' ? '/' : href.replace(/\/$/, '/'
 const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(normalize(href));
 
 const primaryNav = [
-  { href: '/', label: '首页', icon: 'home' },
   { href: '/weekly/', label: '周刊', icon: 'weekly' },
   { href: '/blog/', label: '博客', icon: 'blog' },
   { href: '/notes/', label: '随笔', icon: 'notes' }
@@ -22,7 +21,7 @@ const utilityNav = [
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/">
+    <a class="brand" href="/" title="返回首页">
       <span class="brand-mark">D</span>
       <span>{siteConfig.title}</span>
     </a>
@@ -35,7 +34,7 @@ const utilityNav = [
             class:list={[{ active: isActive(link.href) }]}
             title={link.label}
           >
-            <Icon name={link.icon as 'home' | 'weekly' | 'blog' | 'notes'} />
+            <Icon name={link.icon as 'weekly' | 'blog' | 'notes'} />
             <span>{link.label}</span>
           </a>
         ))}
@@ -55,11 +54,6 @@ const utilityNav = [
           </a>
         ))}
       </nav>
-
-      <a class="rss-button" href="/rss.xml">
-        <Icon name="rss" size={15} />
-        <span>RSS</span>
-      </a>
     </div>
   </div>
 </header>
