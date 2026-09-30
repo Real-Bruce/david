@@ -1,9 +1,23 @@
 ---
 import { siteConfig } from '../site.config';
+import Icon from './Icon.astro';
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '/') || '/';
 const normalize = (href: string) => href === '/' ? '/' : href.replace(/\/$/, '/') + '/';
 const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(normalize(href));
+
+const primaryNav = [
+  { href: '/', label: '首页', icon: 'home' },
+  { href: '/weekly/', label: '周刊', icon: 'weekly' },
+  { href: '/blog/', label: '博客', icon: 'blog' },
+  { href: '/notes/', label: '随笔', icon: 'notes' }
+];
+
+const utilityNav = [
+  { href: '/archive/', label: '归档', icon: 'archive' },
+  { href: '/search/', label: '搜索', icon: 'search' },
+  { href: '/about/', label: '关于', icon: 'user' }
+];
 ---
 
 <header class="site-header">
@@ -12,10 +26,40 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
       <span class="brand-mark">D</span>
       <span>{siteConfig.title}</span>
     </a>
-    <nav class="nav" aria-label="主导航">
-      {siteConfig.nav.map(link => (
-        <a href={link.href} class:list={[{ active: isActive(link.href) }]}>{link.label}</a>
-      ))}
-    </nav>
+
+    <div class="header-actions">
+      <nav class="nav nav-text" aria-label="主导航">
+        {primaryNav.map(link => (
+          <a
+            href={link.href}
+            class:list={[{ active: isActive(link.href) }]}
+            title={link.label}
+          >
+            <Icon name={link.icon as 'home' | 'weekly' | 'blog' | 'notes'} />
+            <span>{link.label}</span>
+          </a>
+        ))}
+      </nav>
+
+      <div class="nav-divider" aria-hidden="true"></div>
+
+      <nav class="nav-icons" aria-label="功能导航">
+        {utilityNav.map(link => (
+          <a
+            href={link.href}
+            class:list={['icon-button', { active: isActive(link.href) }]}
+            aria-label={link.label}
+            title={link.label}
+          >
+            <Icon name={link.icon as 'archive' | 'search' | 'user'} />
+          </a>
+        ))}
+      </nav>
+
+      <a class="rss-button" href="/rss.xml">
+        <Icon name="rss" size={15} />
+        <span>RSS</span>
+      </a>
+    </div>
   </div>
 </header>
