@@ -2,10 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import ArchiveSearch from '../components/ArchiveSearch.astro';
-import { getPublishedPosts, getPostHref } from '../lib/posts';
+import { getPublishedPosts, getPostHref, type AnyPost } from '../lib/posts';
 
 const posts = await getPublishedPosts();
-const years = [...new Set(posts.map(post => post.data.pubDate.getFullYear()))].sort((a, b) => b - a);
+
+const groupedPosts = posts.reduce((acc, post) => {
+  const year = String(post.data.pubDate.getFullYear());
+  const month = String(post.data.pubDate.getMonth() + 1).padStart(2, '0');
+
+  if (!acc.has(year)) acc.set(year, new Map<string, AnyPost[]>());
+  const yearMap = acc.get(year)!;
+  if (!yearMap.has(month)) yearMap.set(month, []);
+  yearMap.get(month)!.push(post);
+
+  return acc;
+}, new Map<string, Map<string, AnyPost[]>>());
+
+const years = [...groupedPosts.keys()].sort((a, b) => Number(b) - Number(a));
 ---
 
 <BaseLayout title="归档" description="按时间浏览全部博客、周刊和随笔，也可以直接搜索。">
@@ -21,22 +34,26 @@ const years = [...new Set(posts.map(post => post.data.pubDate.getFullYear()))].s
 
     <div id="archive-list">
       {years.map(year => (
-        <section class="section">
-          <div class="section-head">
-            <h2 class="section-title">{year}</h2>
-          </div>
-          <div class="card-grid">
-            {posts.filter(post => post.data.pubDate.getFullYear() === year).map(post => (
-              <PostCard
-                href={getPostHref(post)}
-                title={post.data.title}
-                description={post.data.description}
-                date={post.data.pubDate}
-                cover={post.data.cover}
-                tags={post.data.tags}
-              />
-            ))}
-          </div>
+        <section class="archive-year">
+          <h2 class="section-title">{year}</h2>
+
+          {[...groupedPosts.get(year)!.keys()].sort((a, b) => Number(b) - Number(a)).map(month => (
+            <section class="archive-month">
+              <h3 class="archive-month-title">{month} 月</h3>
+              <div class="card-grid">
+                {groupedPosts.get(year)!.get(month)!.map(post => (
+                  <PostCard
+                    href={getPostHref(post)}
+                    title={post.data.title}
+                    description={post.data.description}
+                    date={post.data.pubDate}
+                    cover={post.data.cover}
+                    tags={post.data.tags}
+                  />
+                ))}
+              </div>
+            </section>
+          ))}
         </section>
       ))}
     </div>

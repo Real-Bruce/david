@@ -20,21 +20,15 @@ const utilityNav = [
 
 <header class="site-header">
   <div class="container header-inner">
-    <div class="brand-block">
-      <a class="brand" href="/" title="返回首页">
-        <span class="brand-mark">D</span>
-        <span>{siteConfig.title}</span>
-      </a>
-      <p class="site-description">{siteConfig.description}</p>
-    </div>
+    <a class="brand" href="/" title="返回首页">
+      <span class="brand-mark">D</span>
+      <span>{siteConfig.title}</span>
+    </a>
 
     <div class="header-actions">
       <nav class="nav nav-text" aria-label="主导航">
         {primaryNav.map(link => (
-          <a
-            href={link.href}
-            class:list={[{ active: isActive(link.href) }]}
-          >
+          <a href={link.href} class:list={[{ active: isActive(link.href) }]}>
             {link.label}
           </a>
         ))}
