@@ -566,3 +566,85 @@ img { max-width: 100%; }
 .card {
   padding: 0;
 }
+
+/* Header layout refinement */
+.header-actions {
+  gap: 18px;
+}
+
+.nav-text {
+  gap: 4px;
+}
+
+.nav-text a {
+  padding: 9px 14px;
+  letter-spacing: .01em;
+}
+
+.nav-icons {
+  gap: 8px;
+}
+
+.nav-divider {
+  margin-inline: 2px;
+}
+
+/* Archive search integration */
+.archive-search-section {
+  margin-top: -18px;
+  margin-bottom: 44px;
+}
+
+.archive-search {
+  width: min(720px, 100%);
+}
+
+#archive-list[hidden] {
+  display: none;
+}
+
+/* About contact list */
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-list li:last-child {
+  border-bottom: 0;
+}
+
+.contact-label {
+  min-width: 78px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.contact-list a {
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .contact-list li {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .contact-label {
+    min-width: 0;
+  }
+}
+
+.contact-list li {
+  margin: 0;
+}

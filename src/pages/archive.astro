@@ -1,39 +1,45 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
+import ArchiveSearch from '../components/ArchiveSearch.astro';
 import { getPublishedPosts, getPostHref, getPostKind, getPostKindLabel } from '../lib/posts';
 
 const posts = await getPublishedPosts();
 const years = [...new Set(posts.map(post => post.data.pubDate.getFullYear()))].sort((a, b) => b - a);
 ---
 
-<BaseLayout title="归档" description="按时间浏览全部博客、周刊和随笔。">
+<BaseLayout title="归档" description="按时间浏览全部博客、周刊和随笔，也可以直接搜索。">
   <main class="container">
     <section class="hero">
       <h1>归档</h1>
-      <p>按时间查看所有内容。</p>
+      <p>按时间查看所有内容，也可以直接搜索。</p>
     </section>
-    {years.map(year => (
-      <section class="section">
-        <div class="section-head">
-          <h2 class="section-title">{year}</h2>
-        </div>
-        <div class="card-grid">
-          {posts.filter(post => post.data.pubDate.getFullYear() === year).map(post => (
-            <PostCard
-              href={getPostHref(post)}
-              title={post.data.title}
-              description={post.data.description}
-              date={post.data.pubDate}
-              cover={post.data.cover}
-              tags={post.data.tags}
-              kind={getPostKindLabel(getPostKind(post))}
-            />
-          ))}
-        </div>
-      </section>
-    ))}
+
+    <section class="section archive-search-section">
+      <ArchiveSearch />
+    </section>
+
+    <div id="archive-list">
+      {years.map(year => (
+        <section class="section">
+          <div class="section-head">
+            <h2 class="section-title">{year}</h2>
+          </div>
+          <div class="card-grid">
+            {posts.filter(post => post.data.pubDate.getFullYear() === year).map(post => (
+              <PostCard
+                href={getPostHref(post)}
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.pubDate}
+                cover={post.data.cover}
+                tags={post.data.tags}
+                kind={getPostKindLabel(getPostKind(post))}
+              />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
   </main>
 </BaseLayout>
-
-

@@ -18,7 +18,6 @@ export const siteConfig = {
     { href: '/blog/', label: '博客' },
     { href: '/notes/', label: '随笔' },
     { href: '/archive/', label: '归档' },
-    { href: '/search/', label: '搜索' },
     { href: '/about/', label: '关于' }
   ]
 };

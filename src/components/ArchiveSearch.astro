@@ -1,25 +1,21 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="搜索" description="搜索博客、周刊和随笔内容。">
-  <main class="container">
-    <section class="hero">
-      <h1>搜索</h1>
-      <p>输入关键词，查找站内内容。搜索索引会在网站构建后自动生成。</p>
-    </section>
-    <section class="section">
-      <div class="search-box">
-        <input id="search-input" class="search-input" type="search" placeholder="例如：Astro、周刊、工具" autocomplete="off" />
-        <div id="search-results" class="search-results" aria-live="polite"></div>
-      </div>
-    </section>
-  </main>
-</BaseLayout>
+<div class="archive-search">
+  <input
+    id="archive-search-input"
+    class="search-input"
+    type="search"
+    placeholder="搜索标题、内容或标签"
+    autocomplete="off"
+  />
+  <div id="archive-search-results" class="search-results" aria-live="polite"></div>
+</div>
 
 <script is:inline>
-  const input = document.getElementById('search-input');
-  const resultsBox = document.getElementById('search-results');
+  const input = document.getElementById('archive-search-input');
+  const resultsBox = document.getElementById('archive-search-results');
+  const archiveList = document.getElementById('archive-list');
   let pagefind = null;
 
   async function ensureIndex() {
@@ -37,8 +33,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   async function search(value) {
     if (!value.trim()) {
       resultsBox.innerHTML = '';
+      if (archiveList) archiveList.hidden = false;
       return;
     }
+
+    if (archiveList) archiveList.hidden = true;
 
     const index = await ensureIndex();
     if (!index) return;
@@ -49,7 +48,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       return;
     }
 
-    const items = await Promise.all(results.results.slice(0, 20).map(result => result.data()));
+    const items = await Promise.all(results.results.slice(0, 24).map(result => result.data()));
     resultsBox.innerHTML = items.map(item => `
       <article class="search-result">
         <h3><a href="${item.url}">${item.meta?.title || item.url}</a></h3>

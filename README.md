@@ -19,7 +19,7 @@ src/content/
 - `/notes/` 随笔列表
 - `/archive/` 时间归档
 - `/tags/xxx/` 标签页
-- `/search/` 全站搜索
+- `/archive/` 时间归档与站内搜索
 - `/about/` 关于页
 - `/rss.xml` RSS
 
@@ -78,3 +78,4 @@ draft: false
 站点名称、简介、作者、导航和社交链接统一配置在 `src/site.config.ts`。后续要改站点身份，只需要修改这个文件。
 
 当前 `astro.config.mjs` 和 `public/robots.txt` 中的域名还是占位地址，拿到正式域名后需要替换。
+

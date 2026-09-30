@@ -7,14 +7,13 @@ const normalize = (href: string) => href === '/' ? '/' : href.replace(/\/$/, '/'
 const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(normalize(href));
 
 const primaryNav = [
-  { href: '/weekly/', label: '周刊', icon: 'weekly' },
-  { href: '/blog/', label: '博客', icon: 'blog' },
-  { href: '/notes/', label: '随笔', icon: 'notes' }
+  { href: '/weekly/', label: '周刊' },
+  { href: '/blog/', label: '博客' },
+  { href: '/notes/', label: '随笔' }
 ];
 
 const utilityNav = [
   { href: '/archive/', label: '归档', icon: 'archive' },
-  { href: '/search/', label: '搜索', icon: 'search' },
   { href: '/about/', label: '关于', icon: 'user' }
 ];
 ---
@@ -32,10 +31,8 @@ const utilityNav = [
           <a
             href={link.href}
             class:list={[{ active: isActive(link.href) }]}
-            title={link.label}
           >
-            <Icon name={link.icon as 'weekly' | 'blog' | 'notes'} />
-            <span>{link.label}</span>
+            {link.label}
           </a>
         ))}
       </nav>
@@ -50,7 +47,7 @@ const utilityNav = [
             aria-label={link.label}
             title={link.label}
           >
-            <Icon name={link.icon as 'archive' | 'search' | 'user'} />
+            <Icon name={link.icon as 'archive' | 'user'} />
           </a>
         ))}
       </nav>
