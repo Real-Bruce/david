@@ -7,7 +7,12 @@ import { siteConfig } from '../site.config';
   <main class="article">
     <h1>关于</h1>
     <div class="prose">
-      <p>这是一个用 Markdown 写作、用 Astro 构建、托管在静态平台上的个人博客。</p>
+      <h2>站点</h2>
+      <ul>
+        <li>这是一个用 Markdown 写作的个人博客。</li>
+        <li>网站由 Astro 构建，并托管在静态平台上。</li>
+        <li>内容通过 Git 管理，方便长期沉淀和回溯。</li>
+      </ul>
 
       <h2>内容结构</h2>
       <ul>
@@ -17,19 +22,10 @@ import { siteConfig } from '../site.config';
       </ul>
 
       <h2>联系与订阅</h2>
-      <ul class="contact-list">
-        <li>
-          <span class="contact-label">Email</span>
-          <a href={siteConfig.social.email}>{siteConfig.author.email}</a>
-        </li>
-        <li>
-          <span class="contact-label">GitHub</span>
-          <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">GitHub 主页</a>
-        </li>
-        <li>
-          <span class="contact-label">RSS</span>
-          <a href="/rss.xml">订阅本站更新</a>
-        </li>
+      <ul>
+        <li><strong>Email</strong>：<a href={siteConfig.social.email}>{siteConfig.author.email}</a></li>
+        <li><strong>GitHub</strong>：<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">GitHub 主页</a></li>
+        <li><strong>RSS</strong>：<a href="/rss.xml">订阅本站更新</a></li>
       </ul>
     </div>
   </main>
