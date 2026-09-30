@@ -1,0 +1,60 @@
+---
+title: 第 090 期： - 
+description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
+issue: 90
+pubDate: 
+cover: /images/weekly/issue-090.svg
+tags:
+  - 周刊
+draft: false
+---
+## 📜有价值的文章
+
+没找到！
+
+## 🛸开源项目
+
+#### [pocket id](https://github.com/pocket-id/pocket-id)
+
+需要自搭建的 OIDC 身份认证服务，支持 Passkey 无密码登录，设置参考 [这篇文章](https://runtimeterror.dev/pocket-id-easy-passkey-authentication/)。
+
+#### [r2 web](https://github.com/vikiboss/r2-web)
+
+轻盈优雅的 Web 原生 Cloudflare R2 文件管理器，一切皆在浏览器中完成。
+
+#### [wereadexporter](https://github.com/onyas/weread-exporter)
+
+将微信读书的划线、笔记和书评导出为 Markdown 文件。
+
+#### [JadeAI](https://github.com/twwch/JadeAI)
+
+基于 Next.js 的智能简历生成器，支持拖拽编辑、实时 AI 优化、50 套专业模板打造简历。
+
+## 🚀网站&工具
+
+#### [ass subset](https://subs.js.org/ass-subset/)
+
+ASS 字幕字体嵌入的网页工具，可以减少字幕文件的体积。
+
+#### [get design](https://getdesign.md/)
+
+收集了各种网站的设计系统的描述文档（design.md），可以给 AI 进行参考使用。
+
+#### [web check](https://web-check.xyz/)
+
+输入网址，可以检查该网站的各种信息。
+
+#### [ipaddress](https://ipaddress.to/lookup/)
+
+ IP 地址、域名的各种信息查询，还提供了免费的 API。
+
+## ⛵资料&博文
+
+#### [whats_ai](https://wmyskxz.cn/wiki/whats_ai/)
+
+通俗 AI 原理教程，作者详细介绍了关于 AI 使用和研究中的思考。
+
+#### [Learn Claude Code](https://learn.shareai.run/zh/)
+
+从 0 到 1 构建 nano Claude Code-like agent，每次只加一个机制。
+
