@@ -4,7 +4,7 @@ import 'misans/lib/Normal/MiSans-Demibold.min.css';
 import 'misans/lib/Normal/MiSans-Bold.min.css';
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
-import SiteFooter from '../components/SiteFooter.astro';
+import BackToTop from '../components/BackToTop.astro';
 import { siteConfig } from '../site.config';
 
 interface Props {
@@ -58,6 +58,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? siteConfig.url);
   <body>
     <SiteHeader />
     <slot />
-    <SiteFooter />
+    <BackToTop />
   </body>
 </html>

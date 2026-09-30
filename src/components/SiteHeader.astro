@@ -20,10 +20,13 @@ const utilityNav = [
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/" title="返回首页">
-      <span class="brand-mark">D</span>
-      <span>{siteConfig.title}</span>
-    </a>
+    <div class="brand-block">
+      <a class="brand" href="/" title="返回首页">
+        <span class="brand-mark">D</span>
+        <span>{siteConfig.title}</span>
+      </a>
+      <p class="site-description">{siteConfig.description}</p>
+    </div>
 
     <div class="header-actions">
       <nav class="nav nav-text" aria-label="主导航">
@@ -36,8 +39,6 @@ const utilityNav = [
           </a>
         ))}
       </nav>
-
-      <div class="nav-divider" aria-hidden="true"></div>
 
       <nav class="nav-icons" aria-label="功能导航">
         {utilityNav.map(link => (
