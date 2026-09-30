@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
-import { getPublishedPosts, getPostHref, getPostKind, getPostKindLabel } from '../../lib/posts';
+import { getPublishedPosts, getPostHref } from '../../lib/posts';
 
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
@@ -34,12 +34,10 @@ const { tag, posts } = Astro.props;
             date={post.data.pubDate}
               cover={post.data.cover}
             tags={post.data.tags}
-            kind={getPostKindLabel(getPostKind(post))}
           />
         ))}
       </div>
     </section>
   </main>
 </BaseLayout>
-
 

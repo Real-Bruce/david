@@ -24,7 +24,6 @@ const posts = (await getCollection('weekly', ({ data }) => !data.draft))
             date={post.data.pubDate}
             cover={post.data.cover}
             tags={post.data.tags}
-            kind={`第 ${post.data.issue} 期`}
           />
         ))}
       </div>
