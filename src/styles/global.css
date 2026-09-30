@@ -8,7 +8,7 @@
   --accent-soft: #eff6ff;
   --radius: 16px;
   --max: 1120px;
-  --font-sans: "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-sans: "MiSans", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
 }
 
@@ -44,7 +44,7 @@ img { max-width: 100%; }
   border-bottom: 1px solid var(--border);
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 24px; }
-.brand { display: flex; align-items: center; gap: 12px; font-weight: 750; font-size: 18px; }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 18px; }
 .brand-mark {
   display: grid; place-items: center; width: 34px; height: 34px;
   border-radius: 11px; background: var(--accent); color: white; font-family: var(--font-mono);
@@ -52,7 +52,7 @@ img { max-width: 100%; }
 .nav { display: flex; gap: 6px; flex-wrap: wrap; }
 .nav a { padding: 9px 13px; border-radius: 999px; color: var(--muted); font-size: 15px; }
 .nav a:hover { color: var(--fg); background: var(--accent-soft); }
-.nav a.active { color: var(--fg); background: var(--accent-soft); font-weight: 650; }
+.nav a.active { color: var(--fg); background: var(--accent-soft); font-weight: 600; }
 .hero { padding: 72px 0 48px; }
 .hero h1 { max-width: 760px; margin: 0; font-size: clamp(36px, 6vw, 62px); line-height: 1.08; letter-spacing: -0.04em; }
 .hero p { max-width: 650px; color: var(--muted); font-size: 18px; }
@@ -230,3 +230,4 @@ img { max-width: 100%; }
 .rss-button {
   display: none;
 }
+
