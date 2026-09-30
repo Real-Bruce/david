@@ -67,7 +67,7 @@ img { max-width: 100%; }
   background: var(--card); box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
   transition: transform .2s ease, border-color .2s ease;
 }
-.card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+.card:hover { transform: translateY(-3px); border-color: var(--border); }
 .card-title { margin: 0; font-size: 20px; line-height: 1.35; }
 .card-desc { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
 .meta { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px; }
@@ -272,8 +272,8 @@ img { max-width: 100%; }
 }
 
 .weekly-card:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
+  transform: translateY(-3px);
+  border-color: var(--border);
   box-shadow: 0 12px 28px -8px rgb(0 0 0 / 16%);
 }
 
@@ -422,9 +422,9 @@ img { max-width: 100%; }
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
-  box-shadow: 0 14px 30px -12px rgb(0 0 0 / 18%);
+  transform: translateY(-3px);
+  border-color: var(--border);
+  box-shadow: 0 10px 24px -12px rgb(0 0 0 / 14%);
 }
 
 .card:active {
