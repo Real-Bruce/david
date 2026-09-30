@@ -72,3 +72,9 @@ draft: false
 ```
 
 `draft: true` 的文章不会被发布。
+
+## 站点信息
+
+站点名称、简介、作者、导航和社交链接统一配置在 `src/site.config.ts`。后续要改站点身份，只需要修改这个文件。
+
+当前 `astro.config.mjs` 和 `public/robots.txt` 中的域名还是占位地址，拿到正式域名后需要替换。

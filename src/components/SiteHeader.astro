@@ -1,13 +1,6 @@
 ---
-const links = [
-  { href: '/', label: '首页' },
-  { href: '/weekly/', label: '周刊' },
-  { href: '/blog/', label: '博客' },
-  { href: '/notes/', label: '随笔' },
-  { href: '/archive/', label: '归档' },
-  { href: '/search/', label: '搜索' },
-  { href: '/about/', label: '关于' }
-];
+import { siteConfig } from '../site.config';
+
 const currentPath = Astro.url.pathname.replace(/\/$/, '/') || '/';
 const normalize = (href: string) => href === '/' ? '/' : href.replace(/\/$/, '/') + '/';
 const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(normalize(href));
@@ -16,11 +9,11 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="/">
-      <span class="brand-mark">B</span>
-      <span>Personal Blog</span>
+      <span class="brand-mark">D</span>
+      <span>{siteConfig.title}</span>
     </a>
     <nav class="nav" aria-label="主导航">
-      {links.map(link => (
+      {siteConfig.nav.map(link => (
         <a href={link.href} class:list={[{ active: isActive(link.href) }]}>{link.label}</a>
       ))}
     </nav>

@@ -1,12 +1,13 @@
 import rss from '@astrojs/rss';
 import { getPublishedPosts, getPostHref } from '../lib/posts';
+import { siteConfig } from '../site.config';
 
 export async function GET(context) {
   const posts = await getPublishedPosts();
 
   return rss({
-    title: 'Personal Blog',
-    description: '个人博客：周刊、长文与随笔。',
+    title: siteConfig.title,
+    description: siteConfig.description,
     site: context.site,
     items: posts.map(post => ({
       title: post.data.title,

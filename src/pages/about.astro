@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../site.config';
 ---
 
-<BaseLayout title="关于" description="关于这个博客和作者。">
+<BaseLayout title="关于" description={`关于 ${siteConfig.author.name} 和这个博客。`}>
   <main class="article">
     <h1>关于</h1>
     <div class="prose">
@@ -13,8 +14,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li><strong>博客</strong>：完整的长文，适合沉淀方案、复盘和思考。</li>
         <li><strong>随笔</strong>：碎片化记录，不追求完整结构。</li>
       </ul>
-      <h2>写作方式</h2>
-      <p>所有内容都以 Markdown 文件保存在仓库中。提交到 GitHub 后自动构建并发布。</p>
+      <h2>联系我</h2>
+      <p>如果你想交流，可以通过 <a href={siteConfig.social.email}>邮件</a> 或 <a href={siteConfig.social.github}>GitHub</a> 找到我。</p>
     </div>
   </main>
 </BaseLayout>
