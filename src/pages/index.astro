@@ -13,12 +13,12 @@ const notePosts = await getCollection('notes', ({ data }) => !data.draft);
 const latest = weeklyPosts.slice(0, 5);
 ---
 
-<BaseLayout description="周刊负责有趣，博客负责深度，随笔负责随手记下的人间时刻。">
+<BaseLayout description="记录每周发现、长期思考与随手灵感。">
   <main>
     <section class="hero">
       <div class="container">
         <h1>降低期待，积极行动</h1>
-        <p>周刊负责有趣，博客负责深度，随笔负责随手记下的人间时刻。</p>
+        <p>记录每周发现、长期思考与随手灵感。</p>
       </div>
     </section>
 
@@ -34,7 +34,6 @@ const latest = weeklyPosts.slice(0, 5);
               href={withBase(`/weekly/${post.id}/`)}
               title={post.data.title}
               description={post.data.description}
-              date={post.data.pubDate}
               issue={post.data.issue}
               insights={getWeeklyInsights(post)}
               featured={index === 0}

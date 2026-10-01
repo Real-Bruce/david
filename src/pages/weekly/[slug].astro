@@ -18,13 +18,12 @@ const { Content } = await render(post);
   <main class="article weekly-article">
     <header class="weekly-banner">
       <div class="weekly-banner-top">
-        <span class="weekly-banner-no">Vol.{post.data.issue}</span>
+        <h1 class="weekly-banner-no">Vol.{post.data.issue}</h1>
         <time datetime={post.data.pubDate.toISOString()}>
           {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
         </time>
       </div>
 
-      <h1>{post.data.title}</h1>
       <p class="weekly-banner-desc">{post.data.description}</p>
 
       <div class="article-meta">

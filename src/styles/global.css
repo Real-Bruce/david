@@ -330,9 +330,21 @@ main { padding-top: 32px; }
 
 a.tag:hover { color: var(--accent); border-color: var(--accent); }
 /* ==========================================================================
-   周刊轨道：最新看点卡（正文推荐前置） + 往期期刊墙（数字方格）
+   周刊：分类推荐整合 + 全部期刊卡片
    ========================================================================== */
 .weekly-page { padding-bottom: 80px; }
+
+.weekly-page .archive-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.weekly-page .weekly-issue-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+
+.weekly-page .insight-card {
+  padding: 20px 22px 16px;
+}
+
+.weekly-page .weekly-issue-grid .ic-links li { font-size: 13px; }
+.weekly-page .archive-card { min-height: 240px; padding: 28px 30px 22px; }
+.weekly-page .archive-card .ic-no { font-size: 36px; }
+.weekly-page .archive-card .ic-links { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
 
 
 /* ---------- 看点卡 ---------- */
@@ -385,24 +397,40 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   font-size: 30px;
   font-weight: 700;
   line-height: 1;
+  white-space: nowrap;
 }
 
-.ic-head time {
+.ic-meta {
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 12px;
   white-space: nowrap;
 }
 
+.ic-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
+}
+
 .ic-stats { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .ic-stat {
-  padding: 3px 9px;
-  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 40px;
+  padding: 3px 8px;
   border-radius: 999px;
+  background: color-mix(in srgb, var(--weekly) 9%, var(--card));
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
 }
 
 .ic-links {
@@ -414,6 +442,7 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 }
 
 .ic-links li {
+  min-width: 0;
   display: flex;
   gap: 8px;
   align-items: baseline;
@@ -424,6 +453,12 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   text-overflow: ellipsis;
 }
 
+.ic-links li span {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .ic-links li::before {
   content: "";
   width: 5px;
@@ -446,8 +481,9 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 }
 
 .ic-more {
-  margin: 4px 0 0;
-  padding-top: 10px;
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px dashed color-mix(in srgb, var(--border) 85%, transparent);
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 12px;
@@ -466,135 +502,12 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 
 .insight-card.featured .ic-no { font-size: 42px; }
 
-/* ---------- 期刊墙（按年月分组，每行 6 个，与看点卡 3 列对齐） ---------- */
-.wall-group + .wall-group { margin-top: 30px; }
-
-.wall-group-label {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin: 0 0 12px;
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: .15em;
+.insight-card.featured .ic-links {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 20px;
 }
 
-.wall-group-label .wall-year {
-  color: var(--weekly);
-  font-weight: 600;
-}
-
-.issue-wall {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.wall-tile {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  padding: 14px 16px 12px;
-  border-radius: 12px;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 45%, var(--bg)), color-mix(in srgb, var(--card) 8%, var(--bg)));
-  box-shadow: var(--card-shadow);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.wall-tile::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(180deg, transparent 30%, color-mix(in srgb, var(--weekly) 13%, transparent));
-  opacity: 0;
-  transition: opacity .2s ease;
-  pointer-events: none;
-}
-
-.wall-tile:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--card-shadow-hover), 0 18px 34px -22px color-mix(in srgb, var(--weekly) 24%, transparent);
-}
-
-.wall-tile:hover::after { opacity: 1; }
-
-.wall-tile-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.wall-no {
-  color: var(--weekly);
-  font-family: var(--font-serif);
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.wall-tile-head time {
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  white-space: nowrap;
-}
-
-.wall-links {
-  display: grid;
-  gap: 5px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.wall-links li {
-  display: flex;
-  gap: 6px;
-  align-items: baseline;
-  overflow: hidden;
-  font-size: 11.5px;
-  line-height: 1.5;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.wall-links li::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--weekly);
-  flex: none;
-  transform: translateY(-1.5px);
-}
-
-.wall-links li.wall-fallback { color: var(--muted); }
-.wall-links li.wall-fallback::before { background: var(--border-strong); }
-
-.wall-count {
-  margin-top: auto;
-  padding-top: 7px;
-  border-top: 1px dashed var(--border);
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-}
-
-@media (max-width: 1100px) {
-  .insight-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .issue-wall { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
-
-@media (max-width: 700px) {
-  .insight-grid { grid-template-columns: 1fr; }
-  .insight-card.featured { grid-column: span 1; }
-  .page-head + .insight-grid, .page-head + .entry-list { margin-top: 28px; }
-  .issue-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
+.insight-card.featured .ic-links li { font-size: 14px; }
 /* ---------- 周刊文章头图（纯排版横幅） ---------- */
 .weekly-article { margin-top: 56px; }
 
@@ -627,13 +540,6 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 .weekly-banner-top time {
   color: var(--muted);
   font-size: 13px;
-}
-
-.weekly-banner h1 {
-  margin: 22px 0 0;
-  font-size: clamp(28px, 4.5vw, 42px);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
 }
 
 .weekly-banner-desc {
@@ -1102,4 +1008,21 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   .weekly-banner { padding: 32px 24px 28px; border-radius: 16px; }
   .entry-link { padding: 20px 6px 16px; }
   .entry .tags { padding: 0 6px 18px; }
+}
+
+.weekly-archive-page { padding-bottom: 80px; }
+.weekly-archive-page .page-head-desc a:hover { color: var(--weekly); }
+.weekly-archive-content { margin-top: 24px; }
+.weekly-archive-content > h1 { display: none; }
+
+@media (max-width: 1100px) {
+  .insight-grid, .weekly-page .weekly-issue-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+  .insight-grid, .weekly-page .archive-grid, .weekly-page .weekly-issue-grid { grid-template-columns: 1fr; }
+  .insight-card.featured { grid-column: span 1; }
+  .page-head + .insight-grid, .page-head + .entry-list { margin-top: 28px; }
+  .weekly-page .archive-card { min-height: 0; padding: 22px 24px 18px; }
+  .weekly-page .archive-card .ic-links { grid-template-columns: 1fr; }
 }

@@ -1,16 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArchiveCard from '../../components/ArchiveCard.astro';
 import WeeklyCard from '../../components/WeeklyCard.astro';
-import IssueWall from '../../components/IssueWall.astro';
 import { getWeeklyInsights } from '../../lib/weekly';
+import { getWeeklyArchiveSummaries } from '../../lib/weekly-archives';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('weekly', ({ data }) => !data.draft))
   .sort((a, b) => b.data.issue - a.data.issue);
 
-const latest = posts.slice(0, 6);
-const rest = posts.slice(6);
+const archiveSummaries = getWeeklyArchiveSummaries();
 ---
 
 <BaseLayout title="周刊" description="每周收集的有趣网站、工具和阅读材料。">
@@ -23,27 +23,34 @@ const rest = posts.slice(6);
       <p class="page-head-desc">每周收集一次好玩的网站、工具、文章和灵感。</p>
     </header>
 
-    <div class="insight-grid">
-      {latest.map(post => (
-        <WeeklyCard
-          href={withBase(`/weekly/${post.id}/`)}
-          title={post.data.title}
-          description={post.data.description}
-          date={post.data.pubDate}
-          issue={post.data.issue}
-          insights={getWeeklyInsights(post)}
-        />
-      ))}
-    </div>
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">推荐整合</h2>
+        <span class="section-more">{archiveSummaries.length} 类</span>
+      </div>
+      <div class="insight-grid archive-grid">
+        {archiveSummaries.map(summary => (
+          <ArchiveCard summary={summary} />
+        ))}
+      </div>
+    </section>
 
-    {rest.length > 0 && (
-      <section class="section">
-        <div class="section-head">
-          <h2 class="section-title">往期</h2>
-          <span class="section-more">{rest.length} 期</span>
-        </div>
-        <IssueWall posts={rest} />
-      </section>
-    )}
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">全部周刊</h2>
+        <span class="section-more">{posts.length} 期</span>
+      </div>
+      <div class="insight-grid weekly-issue-grid">
+        {posts.map(post => (
+          <WeeklyCard
+            href={withBase(`/weekly/${post.id}/`)}
+            title={post.data.title}
+            description={post.data.description}
+            issue={post.data.issue}
+            insights={getWeeklyInsights(post)}
+          />
+        ))}
+      </div>
+    </section>
   </main>
 </BaseLayout>

@@ -1,0 +1,343 @@
+# blogs
+
+## 【36】20260831 - 20260906
+
+#### [GPS Glitched Across The US by as Much as 33 Feet. Scientists Have Never Seen This Before.](https://www.sciencealert.com/gps-glitched-across-the-us-by-as-much-as-33-feet-scientists-have-never-seen-this-before)
+
+太阳风暴导致美国的 GPS 系统产生定位偏差，偏差距离超过 10 米，对农业生产和自动驾驶产生严重影响，这篇博文是对这个事件的介绍，很有意思的博客。
+
+## 【35】20260824 - 20260830
+
+#### [xorshift generators](https://www.alanzucconi.com/2026/08/15/xorshift-generators/)
+
+计算机中的随机数，大部分是由 Xorshift 算法生成的：通过对种子值进行 Xor 运算和位移，得到随机数。本文介绍具体的实现细节。
+
+#### [对 OpenAI / Hugging Face 入侵事件中智能体行为、推理与协作的简要独立调查](https://metr.org/zh-hans/blog/2026-08-26-openai-hugging-face-incident-investigation/#july-9th-phaseone10841-passes-on-its-work-to-phaseonebig-which-establishes-several-ambitious-workstreams)
+
+一份关于 OpenAI 内部 Agent 逃逸攻击 Hugging Face 的调查报告，里面详细介绍了攻击的细节，很有趣的一点是内部沙箱相互隔离的 Agent 竟然通过 Artifactory 漏洞在内部搭建起未经授权的“留言板”，Agent 之间的协作让人感到惊奇。
+
+## 【34】20260817 - 20260823
+
+#### [线性代数应该这样学](https://linear.axler.net/)
+
+免费的中文版线性代数教程。
+
+#### [Parallel development without the headaches using Git worktree](https://barrd.dev/article/parallel-development-without-the-headaches-using-git-worktree/)
+
+介绍 git worktree 命令使用的文章，帮你掌握这个功能强大的命令。
+
+## 【33】20260810 - 20260816
+
+#### [elevators](https://john.fun/elevators)
+
+一篇关于电梯算法的文章，用大量交互的动画展示算法。
+
+#### [a complete guide to agents-md](https://www.aihero.dev/a-complete-guide-to-agents-md)
+
+一篇关于 Agents.md 应当怎样书写的文章，有很多实用的小技巧，值得一读。
+## 【32】20260803 - 20260809
+
+#### [tls-ca-linux](https://previnder.com/tls-ca-linux/)
+
+本文是一篇教程，介绍在 Linux 建立自己的证书颁发机构，将它的根证书加入操作系统的受信任证书列表。
+
+#### [continuous voice interaction with gpt live](https://openai.com/zh-Hans-CN/index/continuous-voice-interaction-with-gpt-live/)
+
+OpenAI 官方博客的一篇文章，讲他们 voice AI 的实现方式，值得一看。
+
+
+## 【31】20260727 - 20260802
+
+#### [美国政府是如何没收大量比特币的](https://brainz.fun/blog/2026/06/01/mei-guo-zheng-fu-shi-ru-he-mei-shou-da-liang-bi-te-bi-de/)
+
+从美国政府没收比特币为背景，讲为什么号称去中心化的货币会被没收，由此引申出来的比特币加密算法相关博客，很有意思，值得一读。
+
+#### [How Anthropic runs large-scale code migrations with Claude Code](https://claude.com/blog/ai-code-migration)
+
+Anthropic 官方发布的博客，讲团队怎样借助 Claude 将 Bun 项目从 Zig 代码升级为 Rust 的过程，对需要借助 AI 做老旧项目升级迁移来说很有参考价值。
+
+
+## 【30】20260720 - 20260726
+
+本周偷懒了(T_T)
+
+## 【29】20260713 - 20260719
+
+#### [Stop Naming Your Variables "Flag": The Art of Boolean Prefixes](https://thatamazingprogrammer.com/posts/stop-naming-your-variables-flag-the-art-of-boolean-prefixes/)
+
+一篇关于布尔型变量取名的博客，博客建议使用 `is\has\can\should` 这类单词作为前缀，方便阅读和识别，但是有一点文章没有提到，很多开发框架会使用 `is` 前缀作为默认约定，如果代码内使用会出现问题。
+
+## 【28】20260706 - 20260712
+
+#### [存储技术书](https://github.com/Lularible/storage-book/tree/master/chapters)
+
+开源技术书，从存储的本质讲到文件系统设计与实现。
+
+#### [git commands before reading code](https://piechowski.io/post/git-commands-before-reading-code/)
+
+博客建议在你准备开始读项目代码的时候，建议先运行文章中的几个命令查看项目的情况，对项目的整体有大致的了解。
+
+## 【27】20260629 - 20260705
+
+#### [words are a byproduct of consciousness](https://ranpara.net/posts/words-are-a-byproduct-of-consciousness/)
+
+一篇很有趣的博文，对于人类来说文字是思考的副产品，但是 LLM 是反过来的，因为大量的文字输入而产生了智能。
+
+#### [cloudflare 2025 Year in Review](https://radar.cloudflare.com/year-in-review/2025)
+
+Cloudflare 的 2025 年互联网年度回顾，很有意思的一份报告。
+
+## 【26】20260622 - 20260628
+
+#### [使用llama.cpp部署本地大模型](https://blog.quickso.cn/2026/06/30/%E4%BD%BF%E7%94%A8llama-cpp%E9%83%A8%E7%BD%B2%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/)
+
+如题，详细介绍了搭建过程和其中可能会遇到的一些坑。
+
+#### [终端里的异常字符是什么意思](https://blog.mxdyeah.com/post/strange-terminal-characters)
+
+解释关于你粘贴命令时出现的莫名奇妙的字符是什么的博文，很有趣。
+
+## 【25】20260615 - 20260621
+
+#### [markov chains](https://setosa.io/blog/2014/07/26/markov-chains/)
+
+本文使用大量动画，解释什么是马尔可夫链。
+
+#### [微积分其实很容易](https://keen-ginger-62hw.here.now/)
+
+著名教材《Calculus Made Easy》非官方中文版，一本易读的微积分入门小书，可以 [在线阅读](https://keen-ginger-62hw.here.now/)。
+
+## 【24】20260608 - 20260614
+
+#### [你缺失的那门计算机课](https://www.criwits.top/missing/)
+
+这是一份适合电脑小白入门的电脑使用课程。它平易近人，娓娓道来，介绍了从基本的文件管理，到软件的寻找安装，再到各类使用技巧与优良软件推荐的许多内容，旨在帮助读者在信息化时代更灵活地使用电脑。
+
+#### [你不知道的具身智能：从小机器狗到 Optimus](https://tw93.fun/2026-06-07/robot.html)
+
+TW93 大佬的最新博客，从小机器狗讲到具身智能的相关技术，很有意思的一篇文章，推荐阅读。
+
+## 【23】20260601 - 20260607
+
+#### [Learn Claude Code by doing, not reading.](https://claude.nagdy.me/)
+
+Claude Code 在线学习网站，一步一步引导学习。
+
+#### [Agent：原理、架构与工程实践](https://tw93.fun/2026-03-21/agent.html)
+
+TW93 大佬写的 Angent 原理、架构和工程实践，建议搭配 [你不知道的 Claude Code：架构、治理与工程实践](https://tw93.fun/2026-03-12/claude.html) 一起查看，写的特别好相信你也会很有收获。
+
+## 【22】20260525 - 20260530
+
+#### [whats_ai](https://wmyskxz.cn/wiki/whats_ai/)
+
+通俗 AI 原理教程，作者详细介绍了关于 AI 使用和研究中的思考。
+
+#### [Learn Claude Code](https://learn.shareai.run/zh/)
+
+从 0 到 1 构建 nano Claude Code-like agent，每次只加一个机制。
+
+## 【21】20260518 - 20260524
+
+#### [Modern CPP Programming](https://github.com/federico-busato/Modern-CPP-Programming)
+
+开源英文教程，通过详细的 PPT，帮助学过 C 语言的程序员掌握 C++。
+
+#### [how llms work](https://ynarwal.github.io/how-llms-work/)
+
+大模型原理的长篇讲解，带有可互动的图形解释，针对初学者，基于 Andrej Karpathy 的技术深度分析文章。
+
+## 【20】20260511 - 20260517
+
+#### [I Left Port 22 Open on the Internet for 54 Days. Here's Who Showed Up](https://arman-bd.hashnode.dev/i-left-port-22-open-on-the-internet-for-54-days-here-s-who-showed-up)
+
+很有趣的一篇博客，作者把 22 端口暴露在公网上，在一个月内受到不同 IP 的攻击和访问，作者统计了这些数据，得到了很多有意思的事情。
+
+#### [你不知道的 GEO：AI 可见性的原理、实践与取舍](https://tw93.fun/2026-05-01/ai-visibility.html)
+
+TW93 老师最新的博客，将 AI 搜索逻辑相关的文章。
+
+## 【19】20260504 - 20260510
+
+#### [why is the sky blue](https://explainers.blog/posts/why-is-the-sky-blue/)
+
+很有趣的一篇科普文章，介绍地球上的天空为什么是蓝色的，夕阳为什么是红色的，以及火星的天空为什么是红色的，而夕阳却是蓝色的。
+
+#### [stop using ollama](https://sleepingrobots.com/dreams/stop-using-ollama/)
+
+Ollama 是一个运行本地大模型的工具，作者提出它存在的诸多问题，并建议改用 [llama.cpp](https://github.com/ggml-org/llama.cpp) 和 [LM Studio](https://lmstudio.ai/)。
+
+## 【18】20260427 - 20260503
+
+#### [谈谈不受欢迎的博客技术特征](https://blog.zhilu.site/2025/unpopular-blog-tech)
+
+作者列举了一些不受欢迎的技术博客的特点，可以参考看看，作为自己博客的正向优化案例。
+
+#### [Machine Learning: A Practitioner's Mental Model](https://github.com/dreddnafious/thereisnospoon/blob/main/ml-primer.md)
+
+工程师的机器学习教程，解释基本概念。
+
+## 【17】20260420 - 20260426
+
+#### [你不知道的 AI Coding：非技术人的上手、场景与实战](https://tw93.fun/2026-04-26/ai-coding.html)
+
+TW93 大佬的新文章，写给非技术人的 AI Coding 指南，文章提出了很多 AI 的使用指南，很值得好好读读的文章。
+
+#### [Good Sleep, good Learning, good life](https://super-memory.com/articles/sleep.htm)
+
+一篇关于睡眠的文章，作者论证和介绍了很多关于睡眠的研究，很有意思的一篇博文。
+
+## 【16】20260413 - 20260419
+
+#### [anatomy-of-the-claude-folder](https://blog.dailydoseofds.com/p/anatomy-of-the-claude-folder)
+
+Claude Code 内文件作用解析，帮助你更好的理解和使用 Claude Code，文章也给出了很多使用的建议。
+
+#### [Get inspired by what you can do with Claude](https://claude.com/resources/use-cases)
+
+从这些用 Claude 做的项目获取灵感，包括从研究、写作、编程、分析，日常工作中的各种案例，内容比我想的要深入不少。
+
+#### [你不知道的大模型训练：原理、路径与新实践](https://tw93.fun/2026-04-03/llm.html)
+
+TW93 大佬的第三篇 AI 文章，更加面向普通使用这，很推荐看看。
+
+## 【15】20260406 - 20260412
+
+#### [Claude Code Unpacked](https://ccunpacked.dev/)
+
+Claude Code 源码解读，从按键到渲染的响应，一步步带你深入源码，揭开 Agent Loop 的全貌，帮你深入理解 Claude Code。
+
+#### [the-concise-typescript-book](https://gibbok.github.io/typescript-book/zh-cn/book/the-concise-typescript-book/)
+
+《Concise TypeScript Book》全面而简洁地概述了 TypeScript 的功能。它提供了清晰的解释，涵盖了该语言最新版本中的所有方面，从强大的类型系统到高级功能。无论您是初学者还是经验丰富的开发人员，本书都是增强您对 TypeScript 的理解和熟练程度的宝贵资源。
+
+## 【14】20260330 - 20260405
+
+#### [i designed some more user friendly methods for multi factor authentication](https://tesseral.com/blog/i-designed-some-more-user-friendly-methods-for-multi-factor-authentication)
+
+很有趣的一篇博客，作者设计了很多有意思的多因素验证器，比如：从 52 张扑克牌内每次按顺序选出 5 张牌、每次用同样的方法和验证器下一盘国际象棋、每次按一定的速度打字等等。
+
+#### [microgpt](https://growingswe.com/blog/microgpt)
+
+这个是基于 Andrej Karpathy 用大约 200 行 Python 代码实现的 GPT，并以可视化的方式解释了语言模型的工作原理的学习网站，值得看看。
+
+## 【13】20260323 - 20260329
+
+#### [nicar-2026-coding-agents](https://simonw.github.io/nicar-2026-coding-agents/index.html)
+
+著名开发者 Simon Willison 的培训班讲课资料，通过 AI 工具进行数据分析，有详细步骤。
+
+#### [2026 企业级AI编程实践手册](https://lcnziv86vkx6.feishu.cn/wiki/XZOSwI51wi5a5okxCF4cAxHSnBh)
+
+字节 TRAE 团队发布的《2026 企业级 AI 编程实践手册》。
+
+## 【12】20260316 - 20260322
+
+#### [ Claude Code：架构、治理与工程实践](https://tw93.fun/2026-03-12/claude.html)
+
+TW93 大佬写的，围绕上下文管理、Skills、Hooks、Subagents、Prompt Caching 以及 CLAUDE.md 的设计展开，重点讨论怎样让协作过程更稳定、更可控，偏工程师技术视角的最佳实践，欢迎大伙一起最佳交流。
+
+#### [Claude-Code-x-OpenClaw-Guide-Zh](https://github.com/KimYx0207/Claude-Code-x-OpenClaw-Guide-Zh)
+
+包含 10 个完整章节的 Claude Code 中文教程仓库。
+
+## 【11】20260309 - 20260315
+
+#### [我把自己做成了一个 AI](https://luolei.org/luolei-ai)
+
+作者记录了，如何将自己十几年的博客、视频和社交媒体，训练成一个数字版的个人分身，对外提供聊天服务。他分别用 6 个模型训练，就可以 6 个版本的分身。
+
+## 【10】20260302 - 20260308
+
+#### [MicroGPT explained interactively](https://growingswe.com/blog/microgpt)
+
+本文使用互动式动画分析 MicroGPT，适合初学者了解大模型算法。
+
+## 【09】20260223 - 20260301
+
+#### [claude code in action](https://anthropic.skilljar.com/claude-code-in-action)
+
+Anthropic 官方的 Claude Code 免费入门教程，一共 15 节视频课，总长约 1 小时。
+
+## 【07 08】20260209 - 20260222
+
+#### [datacenters in space are a terrible horrible no good idea](https://taranis.ie/datacenters-in-space-are-a-terrible-horrible-no-good-idea/)
+
+一篇很有意思的科普文章，质疑关于在太空创建数据中心的合理性，太空数据中心建设的成本和需要克服的困难远大于在地面建设的成本，比如需要更大面积的散热、数据传输的时间延迟等。
+
+#### [一小时之内了解金融和投资的知识](https://www.youtube.com/watch?v=WEDIj9JBTC8)
+
+这个视频很适合投资小白，来源 Pershing Square 资本管理公司 CEO William Ackman，虽然是 13 年前的分享，但是很有价值，他用柠檬水生意把金融和投资讲得很简单易懂，很多结论放到今天依然成立。
+
+#### [http caching refresher](https://danburzo.ro/http-caching-refresher/)
+
+HTTP 缓存机制的一个总体介绍，梳理浏览器缓存的处理逻辑。
+
+## 【06】20260202 - 20260208
+
+#### [Book Mathematical Foundation of Reinforcement Learning](https://github.com/MathFoundationRL/Book-Mathematical-Foundation-of-Reinforcement-Learning)
+
+开源的英文电子书，介绍强化学习的基础数学知识。
+
+#### [huggingface](https://huggingface.co/learn)
+
+`HuggingFace` 推出 9 门全免费开源 AI 课程，涵盖大模型、智能代理、视觉、3D、音频、游戏等前沿领域，助力从入门到进阶的系统化学习。
+
+## 【05】20260126 - 20260201
+
+#### [一个半月高强度 Claude Code 使用后感受](https://onevcat.com/2025/08/claude-code/)
+
+很有深度的一篇博文，讲了很多 Claude 的使用技巧，最让人值得思考的是这句话：在 vibe coding 时代，千万别让工具把自己逼死。技术是为人服务的，不是相反；工作是让人有机会追寻和思考自我的，而不是让自己迷失。保持这份清醒，可能比掌握任何具体的技巧都更重要。
+
+#### [change gitignore](https://rgbcu.be/blog/gitignore/)
+
+作者提供了一个很有意思的思路，将 `.gitignore` 的规则更改为白名单模式，默认不允许任何文件提交，仅能提交符合条件的文件，很有趣的一个思路。
+
+## 【04】2026019 - 20260125
+
+#### [Agentic Design Patterns](https://adp.xindoo.xyz/)
+
+《Agentic Design Patterns》探讨了构建智能 AI Agent 系统的核心设计模式，包括：
+
+- 提示链、路由、并行化等基础模式
+- 反思、工具使用、规划等进阶模式
+- 多智能体协作、记忆管理、知识检索等高级模式
+- 安全防护、评估监控等实践模式
+
+#### [when tokenization becomes token](https://www.paradedb.com/blog/when-tokenization-becomes-token)
+
+一篇介绍搜索引擎将查询文本转换成标准词元的文章，很通俗易懂推荐阅读。
+
+## 【03】20260112 - 20260118
+
+#### [年轻的朋友们不要太心急](https://sspai.com/post/101302)
+
+作者分享了关于自己的三件事，讨论关于耐心的话题，关于时间、关于试错、关于长期主义，很有价值的文章，值得深入阅读。
+
+#### [new colors](https://dynomight.net/colors/)
+
+一篇关于眼睛感受颜色的科普文章，作者介绍了眼睛上三种视锥细胞感受器，当两种感受器同时被激发时，会看到第三种颜色，作者还制作了一些小动画让你能看到这中神奇的现象。
+
+#### [用n8n搭建「Reddit商机雷达」](https://mp.weixin.qq.com/s/x1irNmUH45HTmgpBkTuSzw)
+
+作者用 n8n 搭建了一个监控 reddit 论坛商业机会的工作流，实现自动筛选有价值的帖子，通过 AI 进行多维度分析，最终汇总形成表格，帮你发现新的商业机会。
+
+## 【02】20260105 - 20260111
+
+#### [random tastemaker](https://random.tastemaker.design/)
+
+网站给出一系列方法，测试某种随机数生成器是否足够随机，所有测试方法都有详细易懂的解释，可以用来学习统计学。
+
+#### [liquid glass css svg](https://kube.io/blog/liquid-glass-css-svg/)
+
+作者使用 CSS 和 SVG 实现了苹果的液态玻璃效果，最终的效果很惊艳。
+
+## 【01】20251228 - 20260104
+
+#### [gemini-cli-tips](https://github.com/addyosmani/gemini-cli-tips)
+
+作者给出了使用 Gemini Cli 的一些小技巧，很有趣能帮你更好的使用 AI。
+
+#### [A system to organise your life](https://johnnydecimal.com/)
+
+博主在文中提出了一种很有趣的整理资料的方式，采用「编号 + 索引」方式来组织你所有资料/事项的系统，利用总索引创建合适的空间，然后将所有的东西分门别类的放好，这样每个资料都有了自己的唯一编号，非常适合做自己资料的管理。

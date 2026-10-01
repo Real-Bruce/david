@@ -56,7 +56,8 @@ src/content/            # Markdown 内容
 ## 当前页面约定
 
 - `/` 首页只展示最新周刊，并提供博客、随笔、归档入口。
-- `/weekly/` 周刊列表，最新看点卡 + 往期期刊墙。
+- `/weekly/` 周刊列表，上方展示推荐分类整合卡，下方以每行四张的看点卡展示全部周刊。
+- `/weekly/archives/xxx/` 周刊推荐分类详情，渲染 `src/content/weekly/archives/` 对应 Markdown 全文。
 - `/blog/` 博客列表，目录式条目列表。
 - `/notes/` 随笔列表，目录式条目列表（含心情与地点）。
 - `/archive/` 归档页，按「年份 → 月份」分组，并集成站内搜索。
@@ -73,7 +74,7 @@ src/content/            # Markdown 内容
 | `SiteHeader.astro` | 半浮动顶部导航 |
 | `PostCard.astro` | 目录式条目行，用于博客、随笔、标签与归档页 |
 | `WeeklyCard.astro` | 周刊看点卡（解析正文推荐，无封面图） |
-| `IssueWall.astro` | 往期期刊墙（数字方格跳转） |
+| `ArchiveCard.astro` | 推荐分类卡，链接到完整分类归档 |
 | `TOC.astro` | 博客长文侧栏目录 |
 | `ReadingProgress.astro` | 阅读进度条 |
 | `ArchiveSearch.astro` | 归档页搜索 |
@@ -83,17 +84,18 @@ src/content/            # Markdown 内容
 注意：
 
 - 全站不使用封面图，卡片和条目均为纯排版设计。
-- 周刊最新期使用 `WeeklyCard.astro` 看点卡，往期使用 `IssueWall.astro`；博客/随笔/标签/归档使用 `PostCard.astro`，不要另起一套列表结构。
+- 周刊列表全部期数使用 `WeeklyCard.astro`，推荐分类使用 `ArchiveCard.astro`；博客/随笔/标签/归档使用 `PostCard.astro`。
 
 ## 内容约定
 
 内容集合在 `src/content.config.ts` 中定义：
 
 - `weekly`
+- `weeklyArchives`（分类推荐 Markdown，路径为 `src/content/weekly/archives/*.md`）
 - `blog`
 - `notes`
 
-公共字段：
+除 `weeklyArchives` 外，文章集合的公共字段：
 
 ```md
 title
@@ -129,6 +131,8 @@ location
 2. 按现有 front matter 结构填写字段。
 3. 不需要手动维护索引或列表。
 4. `draft: true` 的内容不会发布。
+
+分类整合直接更新 `src/content/weekly/archives/` 下的 Markdown；该集合不使用文章 front matter，新增分类时同步更新 `src/lib/weekly-archives.ts` 的标题和顺序。
 
 ## 样式约定
 
@@ -213,10 +217,11 @@ src/components/SiteHeader.astro
 ```text
 src/components/PostCard.astro
 src/components/WeeklyCard.astro
+src/components/ArchiveCard.astro
 src/styles/global.css
 ```
 
-博客/随笔/标签/归档共享 `PostCard.astro` 条目结构，周刊使用 `WeeklyCard.astro`。
+博客/随笔/标签/归档共享 `PostCard.astro` 条目结构；全部周刊使用 `WeeklyCard.astro`，推荐整合卡使用 `ArchiveCard.astro`，数据提取在 `src/lib/weekly-archives.ts`。
 
 ### 修改归档分组
 

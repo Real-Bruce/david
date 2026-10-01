@@ -1,0 +1,649 @@
+# article
+
+## 【36】20260831 - 20260906
+
+本周偷懒了(T_T)
+
+## 【35】20260824 - 20260830
+
+#### [把焦虑放到最后一天](https://blog.solazy.me/20260903/)
+
+很多人日常感受到的疲惫，根本不是因为事情本身有多难，而是因为「事情还没开始干，情绪已经预热了一万年」。
+
+这种超前焦虑，本质上是一种低效的心理代偿。你在心里反复琢磨，潜意识里会觉得自己「已经在为这件事努力了」，但实际上产出依然是零。除了把自己的日常切割得支离破碎，让原本属于休息、吃饭、陪家人的时间全泡在浑浊的情绪里，没有任何积极作用。你以为提前准备会更从容，但事实证明，过长的准备周期往往只会滋生出更多无意义的纠结和自我怀疑。
+
+人能拥有的最高级的生产力，不是什么花哨的敏捷管理工具，也不是能把一天切成几百个番茄钟，而是对自己的注意力有一种底层的掌控感：该切断的时候，能干净利落地把闸拉下来。
+
+这需要一点对自己能力的客观信任。你得清楚自己的交付边界在哪里，明白什么体量的事情花多大代价能搞定。只要边界算准了，就别把未来的麻烦预支到今天来买单。
+
+## 【34】20260817 - 20260823
+
+#### [ai and chauffeur knowledge](https://www.aaron-gray.com/ai-and-chauffeur-knowledge/)
+
+One of the things people are realizing is that if you use AI to learn something new, you can learn things far faster than traditional methods because it is so good at summarizing lots of diverse amounts of info, but your comprehension and memory is far worse than traditional methods of learning because you spent such a short amount of time learning it, and since your brain was not actively engaged in the act of learning. The way the human brain works, [learning things in spirals](https://medium.com/inspired-ideas-prek-12/why-a-spiral-curriculum-works-f1f4214f04ab) is one of the best ways to remember them.
+>人们意识到的一件事是，如果你使用人工智能来学习新东西，你可以比传统方法更快地学习东西，因为它擅长总结大量不同数量的信息，但你的理解力和记忆力远远不如传统学习方法，因为你花了很短的时间学习它，因为你的大脑并没有积极地参与学习。人类大脑的工作方式，螺旋式学习是记住它们的最好方法之一。
+
+But AI totally short circuits this because it just investigates and summarizes everything for you and then you make a decision and move on. So maybe you make a pretty good decision, but you never truly learn the nuance and details behind it because your brain never had to work for it. For something like researching a purchase, that's great.
+>但人工智能完全短路了这一点，因为它只是为你调查和总结一切，然后你做出决定，继续前进。所以也许你做出了一个很好的决定，但你从来没有真正了解它背后的细微差别和细节，因为你的大脑从来没有为它工作。
+
+Contrast this with reading a book, where you keep coming back to the same topic over a period of weeks in spiral cycles. Or with traditional software engineering, where you are immersed in the code, actively using your brain to learn where things are and gluing them together, a little bit every day over the course of months and years. This creates Planck knowledge.
+>相比之下，阅读一本书，你会在几周的时间里不断地回到同一个话题，或者传统的软件工程，你会沉浸在代码中，积极地用你的大脑去学习东西在哪里，然后把它们粘在一起，在几个月或几年的时间里，每天都有一点。
+
+I'm not saying that AI is not useful and it doesn't have its place. It can help you get started on a problem that you have no idea where to start. It can help you gain a surface level understanding very rapidly. It can help you tackle a particularly thorny issue by rapidly teaching you new things you didn't know. But don't outsource your brain to it. Don't become dependent on it. Don't use it for more than limited scope tasks without rigorous personal review. Don't turn it into a required translation layer for every decision, every meeting, every communication, and every codebase change.
+>我并不是说人工智能没有用处，它没有自己的位置。它可以帮助你开始解决一个你不知道从哪里开始的问题。它可以帮助你非常迅速地获得表面水平的理解。它可以帮助你解决一个特别棘手的问题，通过快速教你你不知道的新东西。但是不要把你的大脑外包给它。不要依赖它。不要把它用于不经过严格的个人审核，就可以完成范围有限的任务。不要将其变成每个决策、每次会议、每次沟通和每次代码库更改所需的翻译层。
+
+## 【33】20260810 - 20260816
+
+#### [放弃自证的减负感](https://blog.solazy.me/20260816/)
+
+试图纠正别人对你的误解，是一件投资回报率极低的事情。
+
+绝大多数人对你的评价，并不是建立在对你完整人生的审视上，而是建立在他自己有限的认知框架、当下的情绪，以及你在他世界里投射出的那一点点碎片上。
+
+你花一个小时去解释背景、动机、底层逻辑，对方听进去的可能只有百分之十，剩下的百分之九十依然会被他自己的认知系统过滤掉。最后的结果往往是：你耗尽了心力，试图捍卫一个「客观真实的我」，而在对方眼里，你只是在急于自证。
+
+自证是人最容易踩进去的陷阱。一旦你开始向别人证明自己「不是那样的人」，你就已经把定义权交出去了。
+
+我后来想了想，人之所以害怕被误解，本质上还是对自己的边界不够笃定。你需要外界的反馈来确认自己的坐标，所以当外界给出的坐标系发生偏离时，你才会感到恐慌。但事实是，除了极少数真正和你深度协作、利益捆绑，或者在精神上有深层共鸣的人之外，剩下绝大多数人对你的看法，对你的生活根本构不成任何实质性的影响。
+
+允许别人对你有一个错误的认识，其实是一种非常高级的减负。
+
+这意味着你承认了信息传递的必然损耗，承认了人与人之间理解的局限性，也承认了你没有义务在每个人的脑海里都维持一个完美、清晰、高保真的形象。别人觉得你算计也好，觉得你冷血也罢，觉得你江郎才尽或者不近人情，都随他去。
+
+这事儿其实没那么复杂。真实的自我不是靠口头争辩捍卫出来的，而是靠你日复一日的产出和选择堆出来的。把精力收回到自己的物理现实里，至于别人怎么拼凑你的碎片，那是他们的自由。
+
+
+## 【32】20260803 - 20260809
+
+#### [Blog about things you don't understand yet](https://www.seangoedecke.com/blog-about-things-you-dont-understand-yet/)
+
+**Writing is the best way to think clearly about a topic.** It’s easy to believe you understand something when you’re just turning it over in your head. When you have to condense that down into words, you find out exactly how much you do or don’t understand. I am constantly having moments where I type something, stop myself, and think “wait, that can’t actually be right”, or “is that really true?”  
+
+>**写作是清晰思考一个话题的最佳方式。** 当你只是在脑子里转一转的时候，你很容易相信你理解了一些东西。当你必须把它浓缩成文字时，你会发现你到底理解了多少，还是不理解多少。我经常有这样的时刻，我输入一些东西，停下来，想“等等，这不可能是真的”，或者“这是真的吗？”
+
+Even if nobody reads what you write, writing is still a good discipline for getting your thoughts in order. But another big reason why writing is a great learning tool is that **you can get feedback**.  
+>即使没有人读你写的东西，写作仍然是一种很好的训练，可以让你的思想井然有序。但是写作是一种很好的学习工具的另一个重要原因是**你可以得到反馈**。
+
+
+## 【31】20260727 - 20260802
+
+#### [the illusion of explanatory depth](https://thedecisionlab.com/biases/the-illusion-of-explanatory-depth)
+
+The _illusion of explanatory depth (IOED)_ describes our belief that we understand more about the world than we actually do. It’s often not until we are asked to explain a concept that we come face to face with our limited understanding of it.  
+>**深度的错觉（IOED）** 描述了我们相信自己对世界的理解比实际更多的认知。往往只有当我们被要求解释一个概念时，才会正面对我们有限的理解。
+
+The illusion has two parts. First, the “explanatory” part refers to our belief that we can provide a clear, detailed explanation of how something works. The “depth” part reflects our assumption that the explanation will be thorough and complex enough to convey what we’re trying to explain. In reality, however, when we try to dig into the details, we often find that our explanatory knowledge is much shallower than we initially thought. What we actually end up with is the _reality of explanatory shallowness_.  
+
+>幻觉分为两部分。首先，“解释性”部分指的是我们相信能够清晰、详细地解释某物是如何运作的。“深度”部分反映了我们假设解释会足够详尽且复杂，以传达我们想要解释的内容。然而，实际上，当我们试图深入细节时，常常发现我们的解释知识远比最初想象的要浅薄。我们最终得到的，是解释性浅薄的原因。
+
+Both parts are important to the illusion. That is, it’s only when we _explain_ something that the gaps in our knowledge become apparent to us. Before that, we might still believe in our minds that we possess a depth of knowledge. The illusion of the explanatory gap is something that we’re subject to from an early age, with studies showing that children as young as kindergarten overestimate their explanatory knowledge. 
+>这两部分对幻觉都很重要。也就是说，只有当我们 _解释_ 某件事时，知识的空白才会显现出来。在此之前，我们可能仍然相信自己拥有深厚的知识。解释性差距的错觉是我们从小就面临的问题，研究显示，连幼儿园的孩子都高估了自己的解释能力。
+
+The illusion of explanatory depth can cause people to make important decisions based on limited information, as we consistently believe we have much more information to work with than we really do.
+>解释深度的错觉可能导致人们基于有限信息做出重要决策，因为我们总是相信自己掌握的信息远比实际多得多。
+
+On the whole, people far too often hold strong opinions about topics for which they have limited information. This can cause social and political movements to have plenty of people behind them with limited ideas of what they are even fighting for.
+>总体来说，人们往往对自己信息有限的话题持有强烈的看法。这可能导致社会和政治运动背后有大量对自己为何而战的想法有限的人
+
+ People rely on sparse, simplified causal explanations called 'intuitive theories' to understand complex systems. These intuitive theories provide a sense of coherence and structure, even when they lack detailed or mechanistic accuracy. We're very rarely asked to give explicit explanations that conform to our intuitive theories of everyday phenomena.
+>人们依赖简约、简洁的因果解释，称为“直觉理论”来理解复杂系统。这些直观的理论即使缺乏细节或机制性准确性，也能带来连贯性和结构感。我们很少被要求给出符合我们对日常现象直觉理论的明确解释。
+
+The extent to which we interact with other opinions and ideas can also impact the illusion. If we exist in an insulated community and never seek to challenge our opinions or ideas, we can be left feeling overly confident in our knowledge of a topic.
+>我们与他人观点和想法的互动程度也会影响幻觉。如果我们生活在一个封闭的社区，从不挑战自己的观点或想法，我们可能会对自己对某个话题的知识过于自信。
+
+ Subjects and concepts catch us when we’re thinking fast and running high on passion, meaning our feelings don’t necessarily translate succinctly into explanation. In these cases, we can make rash decisions without thinking them through, and being asked to explain ourselves can help get us in touch with our own thoughts.  
+>当我们思考快速、充满激情时，主题和概念会抓住我们，这意味着我们的感受不一定能简洁地转化为解释。在这种情况下，我们可能会在没有经过深思的情况下做出冲动的决定，而被要求解释自己，可以帮助我们与自己的想法相连。
+
+The illusion of explanatory depth happens for four reasons:  
+
+1. When information is not in front of us, our memories of it are foggy, but we aren’t aware of this gap.  
+2. Believing that we can briefly explain multiple parts or levels of a concept leads us to believe we understand the entire concept better.  
+3. Not having a natural endpoint for explanations feeds our ego and leads us to believe we can explain anything well, since there is no such thing as “complete.” 
+4. We rarely explain things, and therefore don’t get the practice or feedback we need to understand our own shortcomings.  
+
+解释深度的错觉由四个原因产生：
+1. 当信息不在我们面前时，我们的记忆会模糊，但我们并未意识到这个空白。
+2. 相信自己能简要解释一个概念的多个部分或层次，会让我们误以为自己对整个概念理解得更好。
+3. 没有一个自然的解释终点，滋养了我们的自我，让我们相信自己能很好地解释任何事情，因为没有所谓的“完整”。
+4. 我们很少解释事情，因此得不到足够的练习和反馈来理解自己的不足。
+
+
+## 【30】20260720 - 20260726
+
+本周偷懒了(T_T)
+
+## 【29】20260713 - 20260719
+
+本周偷懒了(T_T)
+
+## 【28】20260706 - 20260712
+
+#### [拧巴](https://blog.solazy.me/20260710/)
+
+如果真的不在乎结果，那就接受自己只是参与者。如果认为自己的判断很重要，那就把观点讲清楚，承担说服别人以及判断失误的成本。两种选择都没什么问题。最消耗人的，是嘴上说着无所谓，行动上却要求所有人证明他很重要。
+
+有人说自己喜欢自由，却希望别人替他安排好所有事情；说自己不在乎评价，却会记住每一句没有得到认可的话；说讨厌复杂的人际关系，又总喜欢让别人猜他的真实想法；说只看结果，轮到自己负责时却开始强调过程有多困难。
+
+拧巴不等于纠结。人当然可以犹豫，也可以在不同选择之间摇摆。很多事情本来就没有立刻能看清的答案，我自己也经常推翻前一天的判断。真正的问题不是改变，而是一个人不愿意承认自己的真实需求。
+
+想要自主权，就要承担决定错误的风险。想要被照顾，就要承认自己确实有所依赖。想让别人重视自己的意见，就应该把意见讲明白，而不是先说「随便」，再因为别人真的随便处理而生气。一个人可以软弱，可以在意，可以需要别人，但最好不要一边否认这些东西，一边要求周围的人准确识别并满足它们。
+
+不满就说不满，在意就承认在意，做不到就直接说做不到。别人可能不喜欢这个答案，但至少他拿到的是一条真实信息。真实信息可以被处理，可以被拒绝，也可以拿来谈条件。模糊的暗示只能制造猜测，最后每个人都觉得自己受了委屈。
+
+我不要求自己永远正确，也不要求每个选择都干净利落。我只希望下一次说「无所谓」之前，先确认自己真的能够接受任何结果。如果不能，那就把想要的东西说出来。
+
+## 【27】20260629 - 20260705
+
+#### [why i stopped arguing with people](https://wangcong.org/2026-06-30-why-i-stopped-arguing-with-people.html)
+
+When you argue with someone, you think you’re debating an idea. Often you’re not. You’re challenging their sense of self.  
+>当你和别人争论时，你会以为自己在辩论一个观点。很多时候并不是这样的。你是在挑战他们的自我认知。
+
+Most people don’t reason their way to conclusions and then feel accordingly. They feel first, then reason backward to justify the feeling. They follow the crowd, mistake confidence for correctness, and adopt whatever the people around them already believe. Independent thinking is rare, far rarer than we admit.  
+>大多数人不会通过推理得出结论然后做出相应的感受。他们先感受，然后回溯推理来合理化这种感觉。他们跟随人群，把自信误认为正确，采纳周围人已经相信的东西。独立思考很少见，远比我们承认的要少得多。
+
+The most respectful thing you can often do is let people meet their own consequences, because that’s the only teacher they’ll actually listen to.
+>你能做的最尊重的事情往往是让别人自己承担后果，因为那是他们唯一真正会听的老师。
+
+When someone asks, the cause and effect reverse. You’re no longer imposing your judgment on someone who never wanted it. Their asking is the cause; your helping is the effect. Now there’s an opening, a real one, because they’ve decided they’re ready to hear it. The ego is lowered. The defenses are down. The advice lands.  
+>当有人问起时，因果关系会反转。你不再强加对一个从未想要评判的人。他们的请求是原因; 你的帮助就是效果。现在有了真正的机会，因为他们决定准备好听这个机会了。自尊心被降低。防御已经失效。建议确实生效了。
+
+In this world, there is no one you can change. Not your spouses, not your friends, not your kids, and of course not strangers on the internet. Only yourself.  
+>在这个世界上，没有人是你能改变的。不是你的配偶，不是你的朋友，不是你的孩子，当然也不是网络上的陌生人。只有你自己。
+
+Stay humble. Keep asking.
+>保持谦逊，持续发问。
+
+## 【26】20260622 - 20260628
+
+#### [别把道德当武器](https://blog.solazy.me/20260627/)
+
+道德和规则这东西，从来都不是为了约束别人而存在的，它们更像是一种自我保护的工具和防御机制。在当今这个颗粒度极粗糙的社会环境里，你把道德当成武器扔向别人，往往只会被反弹回来，砸伤自己。
+
+因为道德的本质是一种自我约束。它建立在高度的自我觉察和相似的认知背景之上。当你试图用它去规范一个完全不在同一个认知维度、甚至连生存问题都没解决的人时，这种『规范』在对方眼里，就是一种高高在上的冒犯，甚至是一种挑衅。
+
+遇到不讲道理的客户或者甩锅的同事，我不再去试图跟他们争论『这样做事合不合理』。这毫无意义。我只会启动我的『防御性工作机制』，把邮件留痕做好，把边界划清楚，然后冷眼旁观他们自己把事情搞砸。只要不影响到我的核心利益和交付结果，他们怎么折腾，那都是他们的自由。
+
+成年人最大的美德之一，就是收回自己那点泛滥的责任心，不要试图去教育任何人。
+
+在这个信息繁杂、情绪一点就着的时代，保护好自己的注意力和情绪配额，比什么都重要。把道德留给自己当盾牌，把评判别人的权力还给这个社会。别人逆行，有交警和意外去教育他；别人插队，有比他更横的人去治他；别人在专业上装傻，自然会有现实的毒打去等他。
+
+## 【25】20260615 - 20260621
+
+#### [职场中的「可预期性」](https://blog.solazy.me/20260615/)
+
+可预期性，说白了，就是「凡事有交代，件件有着落，事事有回音」在职业协作层面的高阶版本。它意味着你像一个标准的物理实体，外界给你施加多大的力，你就能在确定的时间、确定的轨道上，产生确定的位移。
+
+一个可预期性高的人，在接下一个任务时，会给出合理的排期；在执行过程中，会按照既定的节奏同步进度；如果遇到了无法克服的阻碍，他会在第一时间踩刹车、拉警报，而不是等到最后关头才摊手说「我搞不定」。
+
+现代商业和技术体系的底层逻辑是高度分工。你负责的只是乐高积木里的一个凸起，只有这个凸起的尺寸、位置是绝对标准且可预期的，其他模块才能顺利拼装上来。你的「超常发挥」如果破坏了接口标准，其破坏力等同于「彻底摆烂」。
+
+按时交付、主动同步，意味着你要在阳光下暴露自己的真实进度和能力边界。如果方案写得不完美，你得承认；如果进度落后了，你得承认是自己高估了效率。而憋大招，本质上是一种逃避即时反馈的心理防御机制。只要我不交付，我就永远处于「我正在憋一个完美的方案」的安全感里。
+
+但我现在越来越觉得，承认自己的有限，才是职业化的开始。
+
+允许自己做不到，并提前把这个事实告诉合作方，比硬撑到最后一秒然后崩盘，要体面得多，也靠谱得多。
+
+戒掉那种「等我完全想好了再动笔」或者「等我把所有 Bug 改完了再同步」的坏习惯。在完成度 50% 的时候把初稿丢给协作者，并附上一句「这是粗稿，框架已定，细节待补」，比在 99% 的时候丢过去一个对方根本来不及反馈的「完美成品」，要高效得多。
+
+## 【24】20260608 - 20260614
+
+#### [睡眠是第二天的预算](https://blog.solazy.me/20260610/)
+
+你以为睡眠是白天的补偿，其实恰恰相反，睡眠不是休息，它是你第二天的预算。
+
+你今晚睡得怎么样，直接决定了你明天拥有多少脑力带宽、多少情绪管理能力，以及多少能进行深度思考的筹码。
+
+更糟糕的是，这透支了第二天的预算。第二天早上醒来，脑子像灌了铅。原本半小时能写完的代码，得拖上两个小时；原本可以冷静处理的沟通，因为情绪带宽不足，变得极其容易烦躁，甚至产生冲突。
+
+说白了，用熬夜换来的那点可怜的「自主感」，在第二天要用数倍的低效、焦虑和挫败感来偿还。这是一笔极其愚蠢的负债交易。
+
+我们的意志力和注意力，每天都是限量供应的，就像一个固定的账户。而睡眠，就是给这个账户充值的唯一渠道。
+
+如果你每天带着极低的预算出门，你根本没有余力去应对任何突发状况。你会本能地选择最不费脑子的执行方式，拒绝任何有深度的思考，甚至在面对别人的提议时，连多问一句「为什么」的力气都没有。长此以往，你的生活和工作就会退化成纯粹的、低水平的应激反应。
+
+我不去计算今天还有多少事情没做完，也不去纠结今天过得是不是不够完美。时间到了，就把灯关掉。那些没写完的方案、没回完的信息，就让它们留在那里。因为我非常清楚，带着疲惫的脑子强行去写，只会产出一堆垃圾，最后还要花更多的时间去重构。
+
+## 【23】20260601 - 20260607
+
+#### [three ways to get paid](https://jasonzweig.com/three-ways-to-get-paid/)
+
+1) Lie to people who want to be lied to, and you’ll get rich.  
+2) 2) Tell the truth to those who want the truth, and you’ll make a living.  
+3) Tell the truth to those who want to be lied to, and you’ll go broke.  
+
+> 1）对那些想被欺骗的人撒谎，你会发财。
+> 2）对那些想知道真相的人说实话，你就能谋生。
+> 3）对那些想被欺骗的人说实话，你会破产。
+
+## 【22】20260525 - 20260530
+
+没找到！
+
+## 【21】20260518 - 20260524
+
+#### [why facts don't change minds](https://jamesclear.com/why-facts-dont-change-minds)
+
+The people who are most likely to change our minds are the ones we agree with on 98 percent of topics.
+
+>最有可能改变我们观点的人，往往是那些在 98% 的话题上都与我们意见一致的人
+
+Books resolve this tension. With a book, the conversation takes place inside someone's head and without the risk of being judged by others. It's easier to be open-minded when you aren't feeling defensive.  
+
+>书籍化解了这种紧张。有了书，对话发生在别人的脑海中，没有被他人评判的风险。当你不再感到防御时，更容易保持开放心态。
+
+Arguments are like a full frontal attack on a person's identity. Reading a book is like slipping the seed of an idea into a person's brain and letting it grow on their own terms. There's enough wrestling going on in someone's head when they are overcoming a pre-existing belief. They don't need to wrestle with you too.  
+
+>争吵就像对一个人身份的全面攻击。读书就像把一个想法的种子悄悄植入一个人的脑海，让它按自己的方式成长。当一个人克服一个既有信念时，脑子里已经有足够的挣扎了。他们不需要和你一起挣扎。
+
+There is another reason bad ideas continue to live on, which is that people continue to talk about them.  
+
+>坏想法之所以持续存在，还有一个原因是人们还在谈论它们。
+
+Silence is death for any idea. An idea that is never spoken or written down dies with the person who conceived it. Ideas can only be remembered when they are repeated. They can only be _believed_ when they are repeated.  
+
+>沉默对任何想法来说都是死亡。一个从未被说出口或书写的想法，随着构思者一同消亡。思想只有在被重复时才能被记住。只有在被重复时才能被 _ 相信 _。
+
+People also repeat bad ideas when they complain about them. Before you can criticize an idea, you have to reference that idea. You end up repeating the ideas you’re hoping people will forget—but, of course, people can’t forget them because you keep talking about them. The more you repeat a bad idea, the more likely people are to believe it.[](https://jamesclear.com/why-facts-dont-change-minds#)  
+
+>人们抱怨时也会重复糟糕的想法。在批评一个想法之前，你必须先引用那个观点。你最终会重复那些你希望人们忘记的想法——但当然，人们不会忘记它们，因为你一直在谈论它们。你重复的坏观点越多，人们就越可能相信它。
+
+Let's call this phenomenon **Clear's Law of Recurrence:** The number of people who believe an idea is directly proportional to the number of times it has been repeated during the last year—even if the idea is false.[](https://jamesclear.com/why-facts-dont-change-minds#)  
+
+>我们称这种现象为**克利尔的复归定律**：相信一个观点的人数与过去一年中该观点被重复的次数成正比——即使该观点是错误的。
+
+Your time is better spent championing good ideas than tearing down bad ones. Don't waste time explaining why bad ideas are bad. You are simply fanning the flame of ignorance and stupidity.  
+
+>你花时间去支持好主意，而不是拆毁坏主意。别浪费时间解释为什么坏主意是坏的。你只是在助长无知和愚蠢的火焰。
+
+Most people argue to win, not to learn. As Julia Galef so aptly puts it: people often act like soldiers rather than scouts. Soldiers are on the intellectual attack, looking to defeat the people who differ from them. Victory is the operative emotion. Scouts, meanwhile, are like intellectual explorers, slowly trying to map the terrain with others. Curiosity is the driving force.  
+
+>大多数人争论是为了赢，而不是为了学习。正如朱莉娅·加莱夫恰如其分地说的：人们往往表现得像士兵而非侦察兵。士兵们在智力上发起攻击，试图击败与他们不同的人。胜利是关键的情感。而侦察兵则像智力探险者，慢慢地与他人一起绘制地形图。好奇心是驱动力。
+
+## 【20】20260511 - 20260517
+
+#### [我对你无能的细节没兴趣](https://blog.solazy.me/20260512/)
+
+假如你觉得一项工作可以用 5 分钟概括完，而对方却汇报了 20 分钟，那么对方一定是在展示「他无能的细节」。
+
+说实话，工作中的过程是留给自己的，而结果才是留给团队和向上汇报的。假如老板需要事无巨细地了解各项事务的琐碎过程，而你又恰好拿不出结果，你讲这些过程的初衷无非是想告诉老板：这个过程中有太多的难点，你为了攻克它们付出了巨大的心力。
+
+当你试图用过程的艰辛去掩盖结果的缺失时，你就是在展示无能的细节。
+
+把过程留给自己消化，把成效交给别人评判。这不仅仅是一种职业素养，更是一种对自己专业能力的起码尊重。如果你习惯了用「我做了多少」去抵消「我做成了什么」，那么这种职业路径大概率会越走越窄。
+
+## 【19】20260504 - 20260510
+
+#### [误会是表达者的宿命](https://blog.solazy.me/20260507/)
+
+如果深入审视人与人之间传递信息的本质，或许会发现，误解其实并不是一种意外，而是一种必然，甚至可以说，误解就是表达者的宿命。
+
+我一直有一个观点：一个人其实并没有所谓的优点和缺点，存在的只有特征。这些特征本身是中性的，它们像是一块块原石，并没有高下之分，只有在被放入特定的场景、面对特定的人时，才会因为观察者的眼光而被定义为优点或缺点。
+
+**特征始终如一，变幻的只是评价的尺度。**
+
+将这个逻辑延伸到表达这件事上，道理是相通的。表达本身同样没有绝对的对错，它只是思想通过语言或文字进行的一次外化输出。但为什么社会上总流传着「说多错多」或者「言多必失」的说法？
+
+本质上，这并不是因为表达行为本身产生了错误，而是因为表达在进入不同的场景、经过不同人的大脑后，被赋予了截然不同的含义和情感色彩。所谓的「错」，往往不是你表达得不对，而是你的信息在对方的认知体系里产生了负面的化学反应。当你输出的「特征」与对方的「预期」或「立场」发生碰撞时，误解就产生了。
+
+每一个听到你说话的人，都不是一张白纸。他们会根据自己所在的处境、过往的阅历、当下的心情，甚至是他们自身的认知局限和偏见，来对你的话语进行二次甚至多次加工。
+
+如果因为害怕被误解就停止表达，这无异于一种对自我的消减。如果我们因为担心听众的偏见而不断地修正自己的话语，直到它变得圆滑、平庸且毫无棱角，那么这种表达也就失去了它存在的意义。
+
+我们无法要求所有人都站在同一个维度去理解自己，这本身就是违背客观规律的奢求。表达的意义，有时并不在于获得百分之百的认同，也不在于消灭所有的误读，**而在于完成那次输出本身**。 在这个充满杂讯的世界里，我们持续地表达，其实是在发射一种属于自己的信号。虽然绝大多数信号都会消失在噪音中，或者被扭曲成奇怪的形状，但总有一些信号，能够穿透误解的迷雾，找到那些与你同频的人。
+
+那些无法避免的误解，本质上是表达过程中必须支付的成本。既然误解是表达者的宿命，那么与其在战战兢兢中保持沉默，不如接受这种不确定性。理解了这一点，我们反而能获得一种表达的自由：**我只管真诚地讲述，至于如何被解读，那是属于听众的自由。**
+
+## 【18】20260427 - 20260503
+
+出去玩了！
+
+## 【17】20260420 - 20260426
+
+#### [expansion artifacts](https://mattstromawn.com/writing/expansion-artifacts/)
+
+A well-designed compression algorithm keeps data _perceptually_ identical while making files much more efficient to store and transmit.  
+>设计良好的压缩算法能保持数据感知上的一致性，同时使文件的存储和传输效率大大提升。
+
+Compression always changes data permanently. Common formats (JPG, MP3, MP4) make changes slowly and gently: it usually takes hundreds of cycles of saving, sharing, and re-uploading before the tool marks, called **compression artifacts**, become apparent. [Re-save a JPG enough times](https://www.youtube.com/watch?v=jjhomJ04S18) and it goes blocky and washed out; [iterate an MP3](https://parkerhiggins.net/2015/10/mad-generation-loss/) and metallic tones bleed through the music; [re-upload a YouTube video a thousand times](https://www.youtube.com/watch?v=icruGcSsPp0) and you end up with a blobby mess over unintelligible audio.  
+>压缩总是会永久改变数据。常见格式（JPG、MP3、MP4）做的修改缓慢而温和：通常需要数百个周期的保存、分享和重新上传，才会出现称为**压缩伪影**的工具痕迹。[重复保存JPG](https://www.youtube.com/watch?v=jjhomJ04S18) 会变得块状且褪色;[重复MP3](https://parkerhiggins.net/2015/10/mad-generation-loss/) 时，金属音调会渗透音乐;[重新上传YouTube视频一千次](https://www.youtube.com/watch?v=icruGcSsPp0)，最终会变成一团混乱且难以理解的音频。
+
+This kind of Gell-Mann Amnesia for expansion artifacts leads to runaway feedback loops:
+1. A CEO dictates a five-minute voice memo
+2. Claude expands it into a strategy doc
+3. Notion’s AI turns the strategy doc into product specs
+4. Cursor vibe-codes a prototype
+5. Devin gives feedback on the PR
+6. ChatGPT writes the launch copy
+7. Intercom’s Fin support agent fields support questions.
+
+>这种对扩展伪影的盖尔曼遗忘会导致失控的反馈循环：
+>1. CEO 口述五分钟的语音备忘录；
+>2. Claude Code 将其扩展为战略文档；
+>3. Notion 的 AI 将战略文档转化为产品规格；
+>4. Cursor 编码原型；
+>5. Devin 对 PR 给出反馈
+>6. ChatGPT 编写发布文案；
+>7. Intercom 的 Fin 负责回答相关问题；
+
+Compression made the information age possible by stripping things down to fit the pipes. Expansion made the AI age possible by blowing data back up again. Both operations leave marks; we’ve learned to spot compression artifacts, but we’ve only just begun to reckon with expansion artifacts. Until we do, there’s a lot of risk to manage.  
+>压缩通过简化内容以适应管道，使信息时代成为可能。扩展通过重新爆破数据，使人工智能时代成为可能。这两种操作都会留下痕迹; 我们学会了识别压缩伪影，但我们才刚刚开始面对扩展伪影。在我们发现之前，风险很大。
+
+## 【16】20260413 - 20260419
+
+#### [brainrot industrial complex](https://jshamsul.com/essays/2026-04-12-brainrot-industrial-complex)
+
+Brainrot is the gradual erosion of one’s ability to think, focus, and reflect, caused by continuous exposure to high-stimulation, low-substance digital input.  
+>脑腐是由于持续接触高刺激、低物质的数字输入，导致一个人思考、专注和反思能力逐渐丧失。
+
+ The **“brainrot industrial complex”** is a whole industry designed to hijack your attention, by making your brain’s reward centers produce dopamine as cheaply and abundantly as possible to maximise profits.  
+>**“脑腐产业综合体”**是一个专门设计来劫持你注意力的产业，通过让你大脑的奖赏中枢尽可能低廉且大量地产生多巴胺，以最大化利润。
+
+The modern internet is no longer designed to inform you, it is now designed to dissolve your ability to think clearly. The **“brainrot”** phenomena is not just distraction, but decay.  
+>现代互联网不再是用来告诉你信息的，而是用来消解你清晰思考的能力。**“脑腐”**现象不仅仅是分心，更是腐朽。
+
+Most important is to be more intentional in your digital media consumption. Do not let the algorithm decide what you should indulge. Choose consciously what enters your mind.  
+>最重要的是在数字媒体消费上更加有意识地消费。不要让算法决定你该放纵什么。有意识地选择进入你脑海的事物。
+
+Understand that you are not bored, you are being processed. It is not that you are lacking discipline that makes you easily distracted, it is because you are in the machine optimised for brainrot.  
+>要明白你不是无聊，而是在被处理。你容易分心并不是缺乏自律，而是因为你身处一台为大脑腐朽优化的机器中。
+
+_Stay glitched, stay human._  
+> 保持漏洞，保持人性.。
+
+## 【15】20260406 - 20260412
+
+#### [The machines are fine. I'm worried about us.](https://ergosphere.blog/posts/the-machines-are-fine/)
+
+作者是一位天体物理学家，讲了两个博士生的例子，一位全程用 AI 工具完成任务，另一位则在和各种论文错误调试中成长，他们都能毕业，但是收获是不一样的。坚持自己做的那位会在错误中成长，会积累自己的经验结构，但是将思考方式全部交给 AI 则不会体会到，这也就引申出 AI 的使用，如果你用 AI 仅仅作为工具，完成那些你早熟悉的事情，或是作为字典查询一些知识，那他就是最好的工具，但是当你把自己的思考也交给 AI 时，只当那个点击授权按钮的人，那你什么也收获不到。我摘录了其中一些内容：
+
+What matters is the process of getting them: the development and application of methods, the training of minds, the creation of people who know how to think about hard problems. If you hand that process to a machine, you haven't accelerated science. You've removed the only part of it that anyone actually needed.
+
+>重要的是获得这些问题的过程：方法的发展与应用，头脑的培养，培养懂得思考难题的人。如果你把这个过程交给机器，你并没有加速科学。你已经把唯一真正需要的部分都拿掉了。
+
+The models are already powerful enough to produce publishable results under competent supervision. That's not the bottleneck. The bottleneck is the supervision. Stronger models won't eliminate the need for a human who understands the physics; they'll just broaden the range of problems that a supervised agent can tackle. The supervisor still needs to know what the answer should look like, still needs to know which checks to demand, still needs to have the instinct that something is off before they can articulate why. That instinct doesn't come from a subscription. It comes from years of failing at exactly the kind of work that people keep calling grunt work. Making the models smarter doesn't solve the problem. It makes the problem harder to see.
+
+>这些模型已经足够强大，可以在有能力的监督下产生可发表的结果。这不是瓶颈。瓶颈是监督。更强的模型并不能消除对理解物理的人类的需求; 他们只是扩大了受监督代理人能解决的问题范围。主管仍然需要知道答案应该是什么样子，仍然需要知道该要求哪些检查，仍然需要有直觉觉得哪里不对劲，才能清楚说明原因。这种本能不是来自订阅。这源于多年在人们称之为苦力活的那种工作上失败的结果。让模型更智能并不能解决问题。这让问题更难察觉。
+
+What's great about science is its people. The slow, stubborn, sometimes painful process by which a confused student becomes an independent thinker. If we use these tools to bypass that process in favor of faster output, we don't just risk taking away what's great about science. We take away the only part of it that wasn't replaceable in the first place.
+
+>科学的伟大之处在于经历它的人 。一个缓慢、固执、有时痛苦的过程，让一个迷茫的学生成为独立思考者。如果我们利用这些工具绕过这一过程，转而追求更快的产出，我们不仅会冒着剥夺科学伟大之处的风险。我们剥夺了唯一一部分本来就无法替代的部分。
+
+when you look at how they use them, there's a pattern: they know what the code should do before they ask the agent to write it. They know what the paper should say before they let it help with the phrasing. They can explain every function, every parameter, every modeling choice, because they built that knowledge over years of doing things the slow way. If every AI company went bankrupt tomorrow, these people would be slower. They would not be lost. They came to the tools after the training, not instead of it. That sequence matters more than anything else in this conversation.
+
+>当你观察他们如何使用这些工具时，有一个模式：他们在让代理写代码之前就知道代码应该做什么。他们知道论文应该写什么，才会让它帮助措辞。他们能解释每一个函数、每一个参数、每一个建模选择，因为他们是多年慢慢做事积累的知识。如果明天所有 AI 公司都破产，这些人会变慢。他们不会迷失。他们是在训练之后才接触到工具的，而不是代替训练。这段序列在这场对话中比其他任何事情都重要。
+
+The error messages are the syllabus. Every hour you spend confused is an hour you spend building the infrastructure inside your own head that will eventually let you do original work. There is no shortcut through that process that doesn't leave you diminished on the other side.
+
+>错误信息就是教学大纲。你每花一小时困惑，就等于花一小时在脑海中构建基础设施，最终能让你做出原创性工作。在这个过程中没有捷径，不会让你在另一端变得被削弱。
+
+The boring parts and the important parts are tangled together in a way that you can't separate in advance. You don't know which afternoon of debugging was the one that taught you something fundamental about your data until three years later, when you're working on a completely different problem and the insight surfaces. Serendipity doesn't come from efficiency. It comes from spending time in the space where the problem lives, getting your hands dirty, making mistakes that nobody asked you to make and learning things nobody assigned you to learn.
+
+>枯燥的部分和重要的部分纠缠在一起，无法提前分开。你不会知道是哪一个调试下午教会了你关于数据的根本性知识，直到三年后，当你在处理完全不同的问题时，洞见才浮现出来。巧合不来自效率。它来自于在问题所在的空间里度过时间，亲自动手，犯下没人要求你犯的错误，学到没人让你学的东西。
+
+We have centuries of accumulated pedagogical wisdom telling us that the attempt, including the failed attempt, is where the learning lives.
+
+>我们积累了数百年的教学智慧，告诉我们，尝试，包括失败的尝试，才是学习的所在。
+
+## 【14】20260330 - 20260405
+
+#### [dont let ai write for you](https://alexhwoods.com/dont-let-ai-write-for-you/)
+
+作者在文中讨论了不要让 AI 代替你写作，因为写作的过程是提升自己理解力的过程，同时也是提升能力的机会，每当你输出新的文章都是在挑战自己的能力边界，作者提倡使用 AI 作为灵感生成器，快速产生灵感并保留其中一个。下面是我摘录的内容：
+
+The goal of writing is not to have written. It is to have increased your understanding, and then the understanding of those around you. When you are tasked to write something, your job is to go into the murkiness and come out of it with structure and understanding. [To conquer the unknown](https://essay.app/guide/).  
+
+>写作的目标不是写过。那就是提升了你的理解力，进而加深了周围人的理解。当你被指派写作时，你的任务是进入模糊的领域，并带着结构和理解走出来。[征服未知](https://essay.app/guide/)。
+
+The second order goal of writing is to become more capable. It is like working out. Every time you do a rep on the boundary of what you can do, you get stronger. It is uncomfortable and effortful.  
+
+>写作的第二级目标是提升能力。这就像锻炼一样。每次你在自己能做的边界上做一次，你就会变得更强壮。这既不舒服又费力。
+
+## 【13】20260323 - 20260329
+
+#### [如何获得内心的安宁](https://www.geedea.pro/library/2026/how-to-find-peace/)
+
+塞涅卡认为一切可以被失去的东西，都不是自己的。他认为，为了迎接命运可能带来的一切打击，要学会提前做好思想上的准备，**预设「一切都有可能发生」，并且「一切也都有可能不会发生」**，如此一来，无论命运给自己带来什么灾难，自己都能先其一步，不会感到意外和震惊，如果早已做好了准备、已经接受事实，继而也不会感到痛苦。
+
+> 死亡从不计较年岁。我们无法知道它会在哪里等着我们。因此，你应当随时随地都准备好迎接他。
+
+> 束缚我们的，只有一条锁链，那就是对生命的热爱。我们并不需要彻底摈弃这种热爱，但必须学会适度削弱它
+
+削弱对生命的热爱，从某种角度来看，就是「节制」，而「节制」也是我印象中的古典哲学常讨论的主题，在塞涅卡的书信中也反复出现。在《如何通往哲学？》这封书信中，他表示：**「在某些情况下，相比于有节制地加以控制，彻底戒掉反而更不需要意志的努力。」** 这不难理解。如果一个人从没吃过精加工食品，就不会渴望冰淇凌，而戒断之后，过不了多久就会恢复到近似于「从没吃过」的状态，忘记此类食物的味道；而「有节制地加以控制」，意味着人会被不断地提醒冰淇淋的味道，从而更难抑制渴望。
+
+塞涅卡在《如何阅读？》中写到，**阅读不应该走马观花，要忠诚地阅读一位作者，参透他的思想。
+
+## 【12】20260316 - 20260322
+
+💁本周偷懒了！
+
+## 【11】20260309 - 20260315
+
+#### [把无期变成有期](https://www.bmpi.dev/self/my-retirement-plan/)
+
+> **工作和上班完全是两码事。** 工作是创造价值、实现自我乃至改变世界；而上班，本质上是你把自己的时间和精力打包，批发卖给一家公司以换取生存资料。很多人即使退休了依然会拼命工作，但他们绝不会再去上班。
+
+除了现金，我们常常追求的其他安全感，其实也经不起推敲。
+
+比如买房，社会告诉你这是刚需安家最踏实的选择。但翻译成资产配置，这就是**高杠杆 ALL IN 单一城市的资产，锁仓二三十年，流动性接近为零**。你必须同时赌对人口、产业、政策甚至这个城市的命运，只要一个变量出错，你就无法退出。而社会叙事却把这包装成了稳定。
+
+再比如这两年极度火热的考编进体制。长辈会告诉你，铁饭碗最踏实。从现金流贴现模型（DCF）来看，一个二线城市综合年收入 15 万的公务员，加上退休后的养老金和极低的失业风险，其终身人力资本现值确实相当于 400 到 500 万的金融资产。
+
+真正高明的叙事，不是骗你，而是让你相信，你根本没有在下注。只有当大趋势（比如 AI 自动化或者行业大迁徙）发生时，那些被掩盖在稳定之下的重仓单点风险，才会一次性爆发。
+
+上班的意义并不仅仅是自我图存或者追求一份虚无的安全感。它有一个异常现实的目的：储备真正的资产，将高收入的现金流转化为可选性，把由于必须出卖时间而造成的“无期徒刑”拆解成有期徒刑，从而夺回只选择“工作（创造）”而不去“上班（被雇佣）”的权利。
+
+> **退休不是由年龄决定的，更不是国家规定的 60 岁或 65 岁才能领取的通关文牒。** 退休是一种独立的财务状态，完全可以不依赖任何组织。
+
+## 【10】20260302 - 20260308
+
+#### [Hoard things you know how to do](https://simonwillison.net/guides/agentic-engineering-patterns/hoard-things-you-know-how-to-do/)
+
+Many of my tips for working productively with coding agents are extensions of advice I've found useful in my career without them. Here's a great example of that: **hoard things you know how to do**.
+
+> 我许多关于高效与编码代理合作的建议，都是我职业生涯中发现有用的建议的延伸，没有他们。这里有一个很好的例子：**囤积你会做的事情**。
+
+A big part of the skill in building software is understanding what's possible and what isn't, and having at least a rough idea of how those things can be accomplished.
+
+> 构建软件的很大一部分技能是理解什么是可能，什么是不可能，并且至少对这些事情有个大致的理解。
+
+Knowing that something is theoretically possible is not the same as having seen it done for yourself. A key asset to develop as a software professional is a deep collection of answers to questions like this, ideally illustrated by running code.
+
+> 知道某件事理论上可能，和亲眼见过它做过是不一样的。作为软件专业人士，培养的关键资产之一是对这类问题有丰富的答案，最好通过运行代码来展示。
+
+Why collect all of this stuff? Aside from helping you build and extend your own abilities, the assets you generate along the way become incredibly powerful inputs for your coding agents.
+
+> 为什么要收集这么多东西？除了帮助你构建和扩展自身能力外，你在过程中生成的资产也成为编码代理极具影响力的输入。
+
+One of my favorite prompting patterns is to tell an agent to build something new by combining two or more existing working examples.
+
+> 我最喜欢的提示模式之一是告诉代理通过结合两个或多个现有的工作示例来构建新东西。
+
+The key idea here is that coding agents mean we only ever need to figure out a useful trick _once_. If that trick is then documented somewhere with a working code example our agents can consult that example and use it to solve any similar shaped project in the future.
+
+> 关键思想是编码代理意味着我们只需要弄出 _一次_ 有用的技巧。如果这个技巧在某处有文档并附有可行的代码示例，我们的代理可以参考该示例，并用它来解决未来类似的项目。
+
+## 【09】20260223 - 20260301
+
+#### [不必用自己的认知替人规划](https://blog.solazy.me/20260224/)
+
+很多朋友从相识到相知都是一个非常垂直的场景，比如我们在生活中会认识在一起吃吃喝喝的朋友，会在公司认识一群作为同事的朋友，每一个场景的朋友都只适合在那个场景保留。假如一个生活中的伙伴，甚至是好朋友，成为了我们抬头不见低头见的同事，你能够确保你们在生活中建立的友谊，能够经得起工作中的推敲，让你们在工作中也保持和睦么？
+
+很多人在一家公司或者一个温水煮青蛙的环境里待久了，往往会失去对外部真实市场的感知能力。他们对自身价值的评估是静态的，觉得我付出了时间，有了这么些年的资历，理所应当要换取更高的回报。但在残酷的职场规则里，混日子的经验并不等同于市场价值。
+
+作为朋友，在对方抱怨时提供一点情绪价值或者倾听就已经足够；而作为管理者，把宝贵的资源和机会留给真正懂得它的价值、并且有强烈自我驱动力的人，才是对团队和自己最负责任的做法。认清自己的边界，尊重他人的命运，大概是我们走向成熟必须接受的一点。
+
+## 【07 08】20260209 - 20260222
+
+春节放假啦！
+
+## 【06】20260202 - 20260208
+
+#### [your job isnt disappearing its shrinking](https://newsletter.jantegze.com/p/your-job-isnt-disappearing-its-shrinking)
+
+The problem isn’t that the robots are coming. **It’s that you don’t know what you’re supposed to be good at anymore.**
+>问题不在于机器人会来。 **而是你已经不知道自己应该擅长什么了。**
+
+The meta-skill is this: **learning to spot what becomes possible when a constraint disappears**, then building your value around that new possibility.  
+>元技能是：**学会识别约束消失后可能发生的事**，然后围绕这个新可能性构建你的价值。
+
+You’re not going to solve this by being better at your current job. That job is dissolving under you in real time.  
+>你不会通过在当前工作上变得更好来解决这个问题。这份工作正在你眼前实时消散。
+
+You’re not going to solve it by learning the tools better. The tools will get easier to use without you.  
+>你不会通过更好地学习工具来解决这个问题。没有你，这些工具会变得更容易使用。
+
+You’re not going to solve it by going deeper into your specialty. That specialty is being automated.  
+>你不会通过深入你的专业领域来解决这个问题。这个专业正在自动化。
+
+What works is this: **become the person who spots what just became possible and builds your value around that new capabilit**y. Use agents to remove constraints that previously limited what you could do. Become the orchestrator of scale that didn’t exist before.  
+>有效的方法是：**成为那个发现刚刚可能实现的东西，并围绕这个新能力 y 构建价值的人**。利用代理消除之前限制你行动的限制。成为以前不存在的规模协调者。
+
+This isn’t a permanent solution. In three to five years, you’ll need to do it again. **The meta-skill is learning to continuously spot the next evolution and position yourself at the edge of what’s newly possible**.  
+>这不是永久的解决方案。三到五年后，你还得再做一次。**元技能是学会不断发现下一个进化，并将自己定位在新可能的边缘**。
+
+This will separate people who were genuinely strategic from people who were just thorough. There’s no way around that. The system that rewarded thoroughness is breaking down. The new system rewards the ability to see what constraints just disappeared and build something new in that space.  
+>这会区分真正有策略的人和单纯细致的人。这是无法回避的。奖励细致调查的体系正在崩溃。新系统奖励那些看到哪些限制刚刚消失，并在该领域构建新事物的能力。
+
+You still have time. But not much. The speed mismatch between agent capability and human adaptation is real. The companies won’t save you because they’re optimized for short-term cost reduction, not long-term workforce transformation. The educational system won’t save you because it’s too slow.  
+>你还有时间。但不多。智能体能力与人类适应速度之间的速度不匹配是真实存在的。这些公司不会帮你省钱，因为它们更注重短期成本降低，而不是长期的劳动力转型。教育系统救不了你，因为它太慢了。
+
+You have to save yourself. And the way you do that is by stopping trying to defend your current role and starting to build the role that didn’t exist six months ago.  
+>你得救自己。而做到这一点的方法，就是停止为现有角色辩护，开始建立六个月前还不存在的职位。
+
+Monday morning will keep coming. The question is whether you’re still wondering what you’re supposed to be good at, or whether you’ve already built the answer.  
+>周一早晨还会继续。问题是你是否还在想自己应该擅长什么，还是已经找到了答案。
+
+## 【05】20260126 - 20260201
+
+#### [they lied to you building software is really hard](https://blog.nordcraft.com/they-lied-to-you-building-software-is-really-hard)
+
+一篇关于开发工程师学习的内容，讲到目前 AI 编程工具让代码开发变的更简单，但是频繁使用 AI 生成代码，会导致开发工程师自身的能力下降。那些让你头疼痛苦的学习过程让你对知识的理解更深刻，那些你学过的可能已经过时的代码让你后面的学习速度变得更快，所以：“投资你自己！”做哪些困难的事情，一定会有收获的。类似的文章还有这一篇：[I tried coding with ai i became lazy and stupid](https://thomasorus.com/i-tried-coding-with-ai-i-became-lazy-and-stupid)
+下面是我摘抄的内容：
+
+The reality is that if your goal is to become a software developer, relying on these tools early on often ends up slowing you down. You get the illusion of progress early on, but the flat learning curve just means that it will take much longer to learn all the things you need.  When you eventually face a problem that the tool cannot solve for you, you will be back at where you started having to learn everything from scratch.  
+>现实是，如果你的目标是成为软件开发者，过早依赖这些工具往往会拖慢你的速度。你一开始会有进步的错觉，但平坦的学习曲线意味着你学完所有需要的东西会花更长时间。 当你最终遇到工具无法帮你解决的问题时，你又回到了必须从零开始学习一切的状态。
+
+The great thing about a steep learning curve is that you progress a lot faster.  
+>陡峭的学习曲线的好处是你进步得更快。
+
+The true value of a software engineer is in our ability to analyze problems as well as design and implement creative solutions. To get good at these skills you need to understand not just the tools at your disposal but also the technologies you are building on top of. If you don’t understand how an application works then you have no chance of fixing its bugs and issues.   
+>软件工程师的真正价值在于我们分析问题的能力，以及设计和实施创造性解决方案的能力。要掌握这些技能，你不仅需要了解手头的工具，还要了解你所构建的技术。如果你不了解应用的工作原理，就没有修复它的 bug 和问题的机会。
+
+Invest in yourself.   
+>投资于自己。 
+
+Your skills and experience as a developer have value. The harder it is to acquire a set of skills the more valuable they tend to be. Even though some of the things you will pick up along the way will become outdated, the experience you gained while using them will stay with you. Each language or technology you use makes the next one a little easier to learn.  
+>你作为开发者的技能和经验是有价值的。一套技能越难掌握，它们通常就越有价值。即使你在过程中学到的一些东西会变得过时，但你通过使用它们获得的经验会一直伴随你。你使用的每种语言或技术都会让下一种语言更容易学习。
+
+## 【04】2026019 - 20260125
+
+#### [终其一生，我们都在与自己的惰性对抗](https://blog.solazy.me/20260122/)
+
+我们常说人是有惰性的，这种情绪其实挺有意思。它并不完全等同于懒散，而更像是一种心理上的重力。人总有一种想要回归舒适、回归静止的本能。这种本能让我们在面对需要消耗脑力的思考时，会下意识地选择回避，或者寻找各种借口去延迟。就像物理学中的惯性一样，保持现状不需要付出代价，而改变现状、开启一段输出，则需要打破那种宁静。这种对「不动」的渴望，就是我们血液里自带的惰性。
+
+也正因为这种惰性的普遍存在，才让天赋和勤奋显得弥足珍贵。
+
+勤奋和天赋不同，它是完全主观的努力。但它们也有共同点，只要运用得当，都能带来显著的成果。勤奋和惰性是一对冤家，如果你选择纵容惰性，勤奋自然就会退缩，反之亦然。
+
+在很多成功学的叙事里，勤奋被塑造成了一种只要投入就能产出的「等价交换」。但现实的逻辑往往要残酷得多。勤奋本身其实只是一个中性词，它代表了能量的持续消耗，却并不等同于结果的必然达成。就像天赋未必会被激活一样，很多时候，一个人的勤奋更像是在黑暗中对着虚空挥拳。如果没有找对那个发力点，或者说如果没有那一丁点运气的加持，单纯的、机械式的重复努力，往往只能感动自己。
+
+这种「努力后的颗粒无收」在生活中其实并不罕见。我们见过太多人在错误的方向上深耕，最终只是把自己耗尽在那些毫无意义的琐碎里。这种勤奋，更像是一种为了逃避思考而进行的体力透支。
+
+更扎心的是，勤奋和正向结果之间，从来都不是线性的对应关系。有时候你付出了 100% 的精力，收获的可能只是 1% 的进展，甚至可能因为方法不对而南辕北辙。但这并不意味着勤奋没有价值。它的残酷之处在于，它是通往成功的「入场券」，而非「兑换券」。你手握这张票，未必能换来想要的奖杯，但如果没有这张票，你连后续的可能性可能都没有。
+
+然而，天赋在这个比喻里，就更像是不用参加预赛的种子选手。虽然两位选手最后未必谁能夺冠，但是起点与心态的差异是显而易见的。勤奋者往往需要在一场场预选赛中拼尽全力，去争夺那个站在聚光灯下的机会，而天赋型选手似乎天然就拥有那张通往决赛圈的直通卡。
+
+这种对比确实让人感到不公，但也揭示了博弈的本质。天赋能让人跳过那些枯燥的、极度消耗意志力的基础对抗，直接进入更高层级的思考与博弈。但别忘了，种子选手虽然能避开预赛，却也因此少了一层在底层摸爬滚打出的韧性。
+
+天赋赋予的是一种「高上限」的可能，而勤奋保障的是一个「保底」的尊严。如果一个只有天赋却被惰性侵蚀的人，和一位虽然天赋平平但极其勤奋的人同台竞技，结果往往充满了变数。虽然起点不同，但最终决定一个人能走多远的，往往是看他在那个关键的节点上，是让天赋与勤奋达成了共识，还是让惰性在那场漫长的马拉松里耗尽了所有的潜力。
+
+虽然承认勤奋的局限性很痛苦，但认清这一点，反而能让我们从那种「自我感动的勤奋」中清醒过来。我们不仅要对抗惰性，更要学会在对抗惰性的过程中，时刻审视自己的勤奋是否仅仅是另一种形式的消极怠工。毕竟，让惰性彻底战胜自己固然没戏，但若只是在无意义的勤奋中原地踏步，其实也是在浪费我们那点本就不多的、与生俱来的灵气。
+
+但即便如此，我们也不能因此就心安理得地投向惰性的怀抱。如果没有天赋，也不愿勤奋，彻底让惰性战胜了自己，那么任何正向的结果基本上也就彻底没戏了。所以，即便明知道勤奋可能无功而返，我依然选择在第二天补上昨天的债，继续在这条日更的路上和自己死磕。
+
+## 【03】20260112 - 20260118
+
+。。。。
+
+## 【02】20260105 - 20260111
+
+没有文章。。。
+
+## 【01】20251228 - 20260104
+
+#### [how social media shortens your life](https://www.gurwinder.blog/p/how-social-media-shortens-your-life)
+
+一篇讲社交媒体危害的文章，分析了社交媒体让人上瘾的原因，也指出了社交媒体的对人的危害，作者最后还给出了建议，非常值得深入阅读的文章。
+
+自己在这一点上很有体会，有的时候总会刷各类社交媒体刷到忘记时间，刷的脑子空空，甚至被迫停止时还会出现严重的截断反应，很多次都意识到这类问题但是从没有解决。然而最近开始看纸质书的时候，忽然发现自己的原来戒不掉的各类社交媒体内容原来是那样的浅薄，甚至会产生完全看不下去的感觉，这也是作者在文中的一个观点，故事的连续性会让你的感受更深刻，对时间的体验也越长。当你更多的感受当下的存在时，你对生活的掌控也就越多，自然会脱离社交媒体不被打扰。自己也摘录了很多内容，希望与君共勉：
+
+##### I. THE NORMALISATION OF AMNESIA
+
+Social media platforms have been stealing our time using a sneaky trick: they’ve been speeding up our sense of time — effectively shortening our lives — so we think we had less than we did, and don’t notice some of it was pilfered.
+>社交媒体平台用一个狡猾的手段偷走了我们的时间：它们加快了我们的时间感知——实际上缩短了我们的寿命——让我们以为自己拥有的时间比实际更少，却没注意到其中有些时间被偷走了。
+
+our sense of retrospective time is determined by awareness of the past: in other words, by memory. The more we remember of a certain period, the longer that period feels, and the slower time seems to have passed.
+>我们对回顾时间的感知则由对过去的觉知决定：换句话说，就是记忆。我们越记得某个时期，那个时期就越长，时间似乎也越慢。
+
+Now, a sinister thing about social media is that it speeds up your time both in the moment and in retrospect. It does this by simultaneously impairing your awareness of the present and your memory of the past.  
+>社交媒体有个阴险的地方，就是它让你在当下和事后回头都加快了你的时间。它通过同时削弱你对当下的意识和对过去的记忆来实现这一点。
+
+##### II. THE GREATEST HEIST OF ALL TIME
+
+_Gruen effect_: the moment when a shopper loses track of what they entered the store for, and begins aimlessly wandering and impulse-buying.
+>_格鲁恩效应_：购物者失去进店目的，开始漫无目的地游荡和冲动购物的瞬间。
+
+A key component of Friedman’s mazes was for pathways to have as few right-angle turns as possible. This is because sharp bends jolt pedestrians into awareness, since a decision must now be made to change direction. And when someone has to decide where to go, they’re liable to think about the time and whether they should in fact be heading for the exit. Thus, Friedman advocated for curvilinear paths that had no discernible corners, beginnings, or ends, and could thus be perpetually navigated on autopilot.  
+>弗里德曼迷宫的一个关键组成部分是让路径尽可能少有直角转弯。这是因为急弯会让行人意识到，因为必须决定改变方向。当有人必须决定去哪里时，他们往往会考虑时间，以及是否真的应该朝出口走去。因此，弗里德曼主张曲线路径，没有明显的拐角、起点或终点，可以自动导航。
+
+##### III. THE LABYRINTH OF SHATTERED HOURS
+
+Now here’s the issue: your social media feed resists emplotment because it’s the opposite of a story. It’s a chronological maze. It has no beginning, middle, or end, and each post is unrelated to the next, so that scrolling is like trying to read a book in a windstorm, the pages constantly flapping, abruptly switching the current scene with an unrelated one, so you can never connect the dots into a coherent and memorable narrative.  
+>问题来了：你的社交媒体动态抗拒被填满，因为它与故事相反。这就像一个按时间顺序排列的迷宫。它没有开头、中间或结尾，每篇文章都与下一篇毫无关联，所以滚动就像在风暴中读书，书页不断翻动，突然将当前场景与无关场景切换，永远无法将线索串联成连贯且令人难忘的叙事。
+
+Thus, not only do you forget time while scrolling through posts, but you also forget the posts themselves. We have no problem recounting the plot of a good book we read or movie we saw last year, yet we can barely remember what we saw on social media yesterday.  
+>因此，你不仅在浏览帖子时忘记时间，还会忘记帖子本身。我们讲述去年读过的好书或电影的剧情完全没问题，但我们几乎记不清昨天在社交媒体上看到的内容。
+
+Despite not having much memory of your social media feed, you may have a vague sense that you at least enjoy scrolling. This, too, is likely a trick. [Research](https://www.researchgate.net/publication/43348188_You're_Having_Fun_When_Time_Flies_The_Hedonic_Consequences_of_Subjective_Time_Progression) suggests that people judge an experience as being more enjoyable if they believe they underestimated its duration. In other words, not only does time fly when we’re having fun, but we also believe we had fun if time flies. So, by speeding up time on social media, attention engineers don’t just make you waste more time, they might also reduce your likelihood of regretting it.  
+>尽管你对社交媒体动态记忆不多，但你或许会隐约感觉自己至少喜欢刷屏。这很可能也是个骗局。[研究表明](https://www.researchgate.net/publication/43348188_You're_Having_Fun_When_Time_Flies_The_Hedonic_Consequences_of_Subjective_Time_Progression)，如果人们认为自己低估了一次体验的持续时间，他们会认为体验更愉快。换句话说，不仅当我们玩得开心时时间飞逝，我们也相信自己玩得开心。因此，通过加快社交媒体时间，注意力工程师不仅让你浪费更多时间，还可能降低你后悔的可能性。
+
+But even if you do regret it, social media excels at making you return. A physical casino can only warp your time while you’re within its walls. Social media is always within arm’s reach. And it has ways of making you reach for it.  
+>但即使你后悔，社交媒体也非常擅长让你回归。实体赌场只能在你身处其内时扭曲你的时间。社交媒体总是触手可及。而且它总能让你去追求它。
+
+This creates problems of its own. Continually dividing your attention between two worlds means you can never fully settle in either, creating constant anxiety and stress. And when attention is constantly switching between concurrent tasks, it imposes a “[switch-cost effect](https://www.apa.org/topics/research/multitasking)” that can make people [lose track of time](https://link.springer.com/article/10.3758/BF03205526). Thus, by constantly interrupting you, social media platforms can impair your awareness and shorten your days even while you’re not on them, so that you end up scrolling through the real world as shallowly as the virtual one.  
+>这本身就带来了问题。不断将注意力分散在两个世界之间，意味着你永远无法真正安顿下来，带来持续的焦虑和压力。当注意力不断在同时进行的任务间切换时，会产生“[切换成本效应](https://www.apa.org/topics/research/multitasking)”，可能导致人们 [忘记时间。](https://link.springer.com/article/10.3758/BF03205526) 因此，社交媒体平台不断打断你，可能会削弱你的意识，缩短你的一天，即使你不在它们上，也会让你在现实世界中像虚拟世界一样浅薄地浏览。
+
+##### IV. TAKING TIME BACK
+
+We’ve already learned the techniques that attention engineers use to speed up time. So, if we can adopt the _opposite_ techniques, we might just be able to slow time, and in so doing, experience longer, richer lives.  
+>我们已经学会了注意力工程师用来加快时间的技巧。所以，如果我们能采用 _ 相反 _ 的技巧，或许就能减缓时间，从而体验更长、更丰富的生命。
+
+Curvilinear mazes speed up time because little within them sticks out to attention or into memory. So what does stick out and in? Salient stimuli: surprises, stories, (strong) sentiments, and selections. Social media gives you the illusion of these things, but it’s actually their killer.  
+>曲线迷宫加快了时间，因为其中几乎没有什么特别突出或记忆中的元素。那么，哪些是突出的，哪些是内侧的？显著刺激：惊喜、故事、（强烈的）情感和选择。社交媒体给你制造这些幻象，但实际上它是杀手。
+
+The “stories” on your feed are really just hints of stories that collectively form an incoherent jumble. Any “sentiments” become dulled when your feed is full of ragebait and scaremongering, while the “surprises” cease to surprise when you’re seeing twenty a minute. And the “selections” you make on social media, such as deciding when to scroll, are instinctual rather than intentional — there are no right-angle turns in your feed, and you’re just following the gently snaking path.  
+>你动态里的“故事”其实只是故事的暗示，整体上形成了一个不连贯的混乱。当你的动态充满愤怒诱饵和恐吓时，任何“情感”都会变得黯淡，而当你看到每分钟二十个时，“惊喜”也不再令人惊讶。你在社交媒体上做出的“选择”，比如决定何时滑动，更多是本能而非有意为之——你的动态里没有直角转弯，你只是沿着这条缓缓蜿蜒的路径前行。
+
+For instance, when faced with a choice of experiences, choose the option that’s most likely to lead to a good story. Read books instead of scrolling social media feeds. Go on adventures instead of staying home. The more stories you experience, the richer your memory will be.  
+>例如，当面临经历选择时，选择最有可能带来好故事的选项。多读书，而不是刷社交媒体。去冒险，而不是呆在家里。你经历的故事越多，记忆就越丰富。
+
+Be deliberate not just in your experiences, but also your actions. Make a habit of resisting habit, choose a life of choices. Continually question why you’re doing things, and stop when you don’t have a good answer. Instead of instinctively checking your phone every five minutes, only pull it out when you have a clear idea what you want to see, otherwise keep it in your pocket. The more you avoid living on autopilot, the more of life you’ll remember.  
+>不仅要在经历上有意识，也要在行动上有意识。养成抗拒习惯的习惯，选择选择的生活。不断质疑自己为什么要做这些事，当你没有好答案时就停止。不要每五分钟本能地查看手机，只有在你清楚想看什么时才拿出来，否则就放在口袋里。你越是避免活在自动驾驶中，就越会记得更多生活。
+
+To make life feel longer, choose experiences that are novel over familiar, intentional over habitual, narrative over disjointed, and emotional over neutral.  
+>为了让生命感觉更长，选择新颖而非熟悉的体验，有意为之而非习惯性的体验，叙事性的而非支离破碎的体验，情感性的而非中性的。
+
+##### V. REMEMBERING TO REMEMBER
+
+Modern research is starting to confirm what the ancients had long known; that reminding yourself that you’ll die doesn’t typically increase anxiety for the future (it might [actually](https://www.researchgate.net/publication/353452316_Memento_mori_Effects_of_mortality_awareness_on_attitudes_toward_dying_and_death_and_meaning_in_life) [reduce](https://www.researchgate.net/publication/328763634_Memento_Mori_The_development_and_validation_of_the_Death_Reflection_Scale) it), but it does [increase](https://www.tandfonline.com/doi/full/10.1080/17439760.2011.558848) [appreciation](https://lifestorylab.psych.ufl.edu/wp-content/uploads/sites/84/Reflecting-on-death-Priorities-for-living-well-1.pdf) [for](https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2024.1477479/full) [the](https://www.tandfonline.com/doi/full/10.1080/07481187.2023.2230549) [present](https://www.sciencedaily.com/releases/2012/04/120419102516.htm). Without remembering our own impermanence, we’re liable to live as if we’d never die, and hence, die as if we’d never lived.  
+>现代研究开始证实古人早已知道的事实：提醒自己你会死，通常不会增加对未来的焦虑（实际上 [](https://www.researchgate.net/publication/353452316_Memento_mori_Effects_of_mortality_awareness_on_attitudes_toward_dying_and_death_and_meaning_in_life) 可能会 [减轻](https://www.researchgate.net/publication/328763634_Memento_Mori_The_development_and_validation_of_the_Death_Reflection_Scale)），但会 [增加](https://www.tandfonline.com/doi/full/10.1080/17439760.2011.558848) 对 [当下](https://www.sciencedaily.com/releases/2012/04/120419102516.htm) 的 [感激](https://lifestorylab.psych.ufl.edu/wp-content/uploads/sites/84/Reflecting-on-death-Priorities-for-living-well-1.pdf) [感](https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2024.1477479/full) 激 [](https://www.tandfonline.com/doi/full/10.1080/07481187.2023.2230549)。如果不记得自己的无常，我们很容易活得仿佛永远不会死去，因此也会像从未活过一样死去。
+
+The key to maintaining a memorable life is to fill your feeds, and life, with these right-angle turns.  
+>保持难忘生活的关键是用这些直角转折来填满你的信息流和生活。
+
+Life is short and anxious for those who forget the past, neglect the present, and fear the future.
+>那些忘记过去、忽视现在、害怕未来的人，生命短暂而焦虑。
+
+This moment is the youngest you’ll ever be. It’s a moment your future-selves will wish they could have back. Don’t waste it scrolling through posts you won’t even remember tomorrow.  
+>这一刻是你这辈子最年轻的时候。这是你未来的自己会希望能找回的时刻。别浪费时间刷那些明天都记不起来的帖子。

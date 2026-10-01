@@ -5,7 +5,6 @@ interface Props {
   href: string;
   title: string;
   description: string;
-  date: Date;
   issue: number;
   insights: WeeklyInsights;
   featured?: boolean;
@@ -15,38 +14,44 @@ const {
   href,
   title,
   description,
-  date,
   issue,
   insights,
   featured = false
 } = Astro.props;
 
-const dateText = date.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
 const sampleLinks = insights.links.slice(0, featured ? 5 : 3);
 const hasLinks = sampleLinks.length > 0;
+const statIcon = (name: string) => {
+  const match = name.match(/\p{Extended_Pictographic}/u);
+  return match?.[0] ?? '•';
+};
 ---
 
 <a class:list={['insight-card', { featured }]} href={href} title={title}>
   <div class="ic-head">
     <span class="ic-no">Vol.{issue}</span>
-    <time datetime={date.toISOString()}>{dateText}</time>
   </div>
 
-  {insights.stats.length > 0 && (
-    <div class="ic-stats">
-      {insights.stats.map(stat => (
-        <span class="ic-stat">{stat.name} {stat.count}</span>
-      ))}
-    </div>
-  )}
+  <div class="ic-body">
+    {insights.stats.length > 0 && (
+      <div class="ic-stats">
+        {insights.stats.map(stat => (
+          <span class="ic-stat" title={stat.name} aria-label={`${stat.name} ${stat.count}`}>
+            <span aria-hidden="true">{statIcon(stat.name)}</span>
+            <span aria-hidden="true">{stat.count}</span>
+          </span>
+        ))}
+      </div>
+    )}
 
-  {hasLinks ? (
-    <ul class="ic-links">
-      {sampleLinks.map(link => <li>{link}</li>)}
-    </ul>
-  ) : (
-    <p class="ic-fallback">{description}</p>
-  )}
+    {hasLinks ? (
+      <ul class="ic-links">
+        {sampleLinks.map(link => <li title={link}><span>{link}</span></li>)}
+      </ul>
+    ) : (
+      <p class="ic-fallback">{description}</p>
+    )}
+  </div>
 
   {insights.total > 0 && (
     <p class="ic-more">共 {insights.total} 条推荐 →</p>

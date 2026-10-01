@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ReadingProgress from '../../../components/ReadingProgress.astro';
+import { getWeeklyArchiveSummaries } from '../../../lib/weekly-archives';
+import { withBase } from '../../../lib/base';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const summaries = getWeeklyArchiveSummaries();
+  const entries = await getCollection('weeklyArchives');
+  return entries.map(entry => ({
+    params: { category: entry.id },
+    props: { entry, summary: summaries.find(item => item.id === entry.id) }
+  }));
+}
+
+const { entry, summary } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${summary.title}推荐整合`} description={`周刊收录的${summary.title}推荐，共 ${summary.total} 条。`}>
+  <ReadingProgress />
+  <main class="article weekly-archive-page">
+    <header class="page-head">
+      <div class="page-head-row">
+        <h1>{summary.title}推荐整合</h1>
+        <span class="page-head-meta">共 {summary.total} 条</span>
+      </div>
+      <p class="page-head-desc"><a href={withBase('/weekly/')}>← 返回全部周刊</a></p>
+    </header>
+    <div class="prose weekly-archive-content">
+      <Content />
+    </div>
+  </main>
+</BaseLayout>
