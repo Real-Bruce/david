@@ -24,20 +24,12 @@ const { Content } = await render(post);
 
       <h1>{post.data.title}</h1>
 
-      {(post.data.mood || post.data.location) && (
-        <div class="article-context" aria-label="随笔信息">
-          {post.data.mood && (
-            <span class="article-context-item">
-              <span class="article-context-label">心情</span>
-              <span>{post.data.mood}</span>
-            </span>
-          )}
-          {post.data.location && (
-            <span class="article-context-item">
-              <span class="article-context-label">地点</span>
-              <span>{post.data.location}</span>
-            </span>
-          )}
+      {post.data.location && (
+        <div class="article-context" aria-label="随笔地点">
+          <span class="article-context-item">
+            <span class="article-context-label">地点</span>
+            <span>{post.data.location}</span>
+          </span>
         </div>
       )}
 
