@@ -16,8 +16,8 @@
   --accent: #9a5b2e;
   --accent-soft: #f5efe3;
 
-  --weekly: #c2410c;
-  --weekly-soft: #fdf0e4;
+  --weekly: #502408;
+  --weekly-soft: #efe9e2;
   --blog: #44613d;
   --blog-soft: #edf1e9;
   --notes: #6f5f96;
@@ -25,8 +25,8 @@
 
   --radius: 14px;
   --max: 1386px;
-  --font-sans: "LXGW WenKai", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-  --font-serif: "LXGW WenKai", "Noto Serif SC", "Source Han Serif SC", "STZhongsong", serif;
+  --font-sans: "LXGW WenKai", "KaiTi", "STKaiti", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-serif: "LXGW WenKai", "KaiTi", "STKaiti", "Noto Serif SC", "Source Han Serif SC", serif;
   --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
 }
 
@@ -42,8 +42,8 @@
     --accent: #d9a06b;
     --accent-soft: #2a2419;
 
-    --weekly: #f09a5f;
-    --weekly-soft: #2d2114;
+    --weekly: #cf9e75;
+    --weekly-soft: #261b10;
     --blog: #9ec29a;
     --blog-soft: #1d2420;
     --notes: #b0a3d9;

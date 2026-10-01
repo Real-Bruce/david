@@ -2,6 +2,27 @@
 import 'lxgw-wenkai-webfont/lxgwwenkai-regular.css';
 import 'lxgw-wenkai-webfont/lxgwwenkai-bold.css';
 import '../styles/global.css';
+
+// 预加载各页共用的核心字体子集，避免刷新时的字体切换闪烁
+import fontRegular111 from 'lxgw-wenkai-webfont/files/lxgwwenkai-regular-subset-111.woff2?url';
+import fontRegular112 from 'lxgw-wenkai-webfont/files/lxgwwenkai-regular-subset-112.woff2?url';
+import fontRegular113 from 'lxgw-wenkai-webfont/files/lxgwwenkai-regular-subset-113.woff2?url';
+import fontRegular114 from 'lxgw-wenkai-webfont/files/lxgwwenkai-regular-subset-114.woff2?url';
+import fontRegular115 from 'lxgw-wenkai-webfont/files/lxgwwenkai-regular-subset-115.woff2?url';
+import fontRegular116 from 'lxgw-wenkai-webfont/files/lxgwwenkai-regular-subset-116.woff2?url';
+import fontRegular117 from 'lxgw-wenkai-webfont/files/lxgwwenkai-regular-subset-117.woff2?url';
+import fontRegular118 from 'lxgw-wenkai-webfont/files/lxgwwenkai-regular-subset-118.woff2?url';
+import fontRegular119 from 'lxgw-wenkai-webfont/files/lxgwwenkai-regular-subset-119.woff2?url';
+import fontBold112 from 'lxgw-wenkai-webfont/files/lxgwwenkai-bold-subset-112.woff2?url';
+import fontBold116 from 'lxgw-wenkai-webfont/files/lxgwwenkai-bold-subset-116.woff2?url';
+import fontBold117 from 'lxgw-wenkai-webfont/files/lxgwwenkai-bold-subset-117.woff2?url';
+import fontBold119 from 'lxgw-wenkai-webfont/files/lxgwwenkai-bold-subset-119.woff2?url';
+
+const preloadedFonts = [
+  fontRegular111, fontRegular112, fontRegular113, fontRegular114, fontRegular115,
+  fontRegular116, fontRegular117, fontRegular118, fontRegular119,
+  fontBold112, fontBold116, fontBold117, fontBold119
+];
 import SiteHeader from '../components/SiteHeader.astro';
 import BackToTop from '../components/BackToTop.astro';
 import { siteConfig } from '../site.config';
@@ -40,6 +61,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? siteConfig.url);
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
+    {preloadedFonts.map(href => (
+      <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />
+    ))}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
