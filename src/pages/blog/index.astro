@@ -9,25 +9,25 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 
 <BaseLayout title="博客" description="完整的长文博客与技术、生活方式记录。">
   <main class="container">
-    <section class="hero">
-      <p class="hero-kicker">慢下来 · 读进去</p>
-      <h1>博客</h1>
-      <p>完整成体系的长文，适合沉淀思考、方案和复盘。</p>
-    </section>
-
-    <section class="section">
-      <div class="entry-list">
-        {posts.map(post => (
-          <PostCard
-            href={`/blog/${post.id}/`}
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.pubDate}
-            tags={post.data.tags}
-            kind="blog"
-          />
-        ))}
+    <header class="page-head">
+      <div class="page-head-row">
+        <h1>博客</h1>
+        <span class="page-head-meta">{posts.length} 篇长文</span>
       </div>
-    </section>
+      <p class="page-head-desc">完整成体系的长文，适合沉淀思考、方案和复盘。</p>
+    </header>
+
+    <div class="entry-list">
+      {posts.map(post => (
+        <PostCard
+          href={`/blog/${post.id}/`}
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.pubDate}
+          tags={post.data.tags}
+          kind="blog"
+        />
+      ))}
+    </div>
   </main>
 </BaseLayout>

@@ -23,11 +23,13 @@ const years = [...groupedPosts.keys()].sort((a, b) => Number(b) - Number(a));
 
 <BaseLayout title="归档" description="按时间浏览全部博客、周刊和随笔，也可以直接搜索。">
   <main class="container">
-    <section class="hero">
-      <p class="hero-kicker">共 {posts.length} 篇内容</p>
-      <h1>归档</h1>
-      <p>按时间查看所有内容，也可以直接搜索。</p>
-    </section>
+    <header class="page-head">
+      <div class="page-head-row">
+        <h1>归档</h1>
+        <span class="page-head-meta">共 {posts.length} 篇</span>
+      </div>
+      <p class="page-head-desc">按时间查看所有内容，也可以直接搜索。</p>
+    </header>
 
     <section class="section archive-search-section">
       <ArchiveSearch />

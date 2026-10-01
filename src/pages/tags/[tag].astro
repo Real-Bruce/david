@@ -20,25 +20,24 @@ const { tag, posts } = Astro.props;
 
 <BaseLayout title={`标签：${tag}`} description={`包含 ${tag} 标签的内容。`}>
   <main class="container">
-    <section class="hero">
-      <p class="hero-kicker">标签</p>
-      <h1>#{tag}</h1>
-      <p>共 {posts.length} 篇内容。</p>
-    </section>
-
-    <section class="section">
-      <div class="entry-list">
-        {posts.map(post => (
-          <PostCard
-            href={getPostHref(post)}
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.pubDate}
-            tags={post.data.tags}
-            kind={getPostKind(post)}
-          />
-        ))}
+    <header class="page-head">
+      <div class="page-head-row">
+        <h1>#{tag}</h1>
+        <span class="page-head-meta">共 {posts.length} 篇</span>
       </div>
-    </section>
+    </header>
+
+    <div class="entry-list">
+      {posts.map(post => (
+        <PostCard
+          href={getPostHref(post)}
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.pubDate}
+          tags={post.data.tags}
+          kind={getPostKind(post)}
+        />
+      ))}
+    </div>
   </main>
 </BaseLayout>

@@ -14,29 +14,26 @@ const rest = posts.slice(6);
 
 <BaseLayout title="周刊" description="每周收集的有趣网站、工具和阅读材料。">
   <main class="container weekly-page">
-    <section class="weekly-hero">
-      <p class="hero-kicker">每周更新 · 共 {posts.length} 期</p>
-      <h1>周刊</h1>
-      <p>每周收集一次好玩的网站、工具、文章和灵感。</p>
-    </section>
+    <header class="page-head">
+      <div class="page-head-row">
+        <h1>周刊</h1>
+        <span class="page-head-meta">共 {posts.length} 期 · 每周更新</span>
+      </div>
+      <p class="page-head-desc">每周收集一次好玩的网站、工具、文章和灵感。</p>
+    </header>
 
-    <section class="section">
-      <div class="section-head">
-        <h2 class="section-title">最新看点</h2>
-      </div>
-      <div class="insight-grid">
-        {latest.map(post => (
-          <WeeklyCard
-            href={`/weekly/${post.id}/`}
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.pubDate}
-            issue={post.data.issue}
-            insights={getWeeklyInsights(post)}
-          />
-        ))}
-      </div>
-    </section>
+    <div class="insight-grid">
+      {latest.map(post => (
+        <WeeklyCard
+          href={`/weekly/${post.id}/`}
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.pubDate}
+          issue={post.data.issue}
+          insights={getWeeklyInsights(post)}
+        />
+      ))}
+    </div>
 
     {rest.length > 0 && (
       <section class="section">
