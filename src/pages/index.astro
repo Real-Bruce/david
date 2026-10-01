@@ -1,65 +1,48 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import WeeklyCard from '../components/WeeklyCard.astro';
-import { getWeeklyInsights } from '../lib/weekly';
+import { getWeeklyDigest } from '../lib/weekly';
 import { withBase } from '../lib/base';
 import { getCollection } from 'astro:content';
 
 const weeklyPosts = (await getCollection('weekly', ({ data }) => !data.draft))
   .sort((a, b) => b.data.issue - a.data.issue);
-const blogPosts = await getCollection('blog', ({ data }) => !data.draft);
-const notePosts = await getCollection('notes', ({ data }) => !data.draft);
 
-const latest = weeklyPosts.slice(0, 5);
+const latest = weeklyPosts.slice(0, 5).map(post => ({ post, digest: getWeeklyDigest(post) }));
+const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-', '.');
 ---
 
 <BaseLayout description="记录每周发现、长期思考与随手灵感。">
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>降低期待，积极行动</h1>
-        <p>记录每周发现、长期思考与随手灵感。</p>
+  <main class="container home-page">
+    <header class="page-head home-intro">
+      <h1>降低期待，积极行动</h1>
+      <p class="page-head-desc">记录每周发现、长期思考与随手灵感。</p>
+    </header>
+
+    <section class="home-weekly" aria-labelledby="home-weekly-title">
+      <div class="weekly-list-head">
+        <h2 id="home-weekly-title">周刊</h2>
+        <a class="section-more" href={withBase('/weekly/')}>查看全部 →</a>
       </div>
+      <ol class="weekly-entries">
+        {latest.map(({ post, digest }) => (
+          <li>
+            <a class="weekly-entry" href={withBase(`/weekly/${post.id}/`)}>
+              <div class="weekly-entry-meta">
+                <span>第 {post.data.issue} 期</span>
+                <time datetime={post.data.pubDate.toISOString()}>{dateText(post.data.pubDate)}</time>
+              </div>
+              <h3>{digest.title}</h3>
+              <span class="weekly-entry-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ol>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">最新周刊</h2>
-          <a class="section-more" href={withBase('/weekly/')}>全部 {weeklyPosts.length} 期 →</a>
-        </div>
-        <div class="insight-grid">
-          {latest.map((post, index) => (
-            <WeeklyCard
-              href={withBase(`/weekly/${post.id}/`)}
-              title={post.data.title}
-              description={post.data.description}
-              issue={post.data.issue}
-              insights={getWeeklyInsights(post)}
-              featured={index === 0}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="section home-more">
-      <div class="container">
-        <div class="home-more-row">
-          <a class="home-more-item" href={withBase('/blog/')}>
-            <span class="home-more-title">去读长文</span>
-            <p class="home-more-sub">{blogPosts.length} 篇完整思考</p>
-          </a>
-          <a class="home-more-item" href={withBase('/notes/')}>
-            <span class="home-more-title">翻翻随笔</span>
-            <p class="home-more-sub">{notePosts.length} 条碎片记录</p>
-          </a>
-          <a class="home-more-item" href={withBase('/archive/')}>
-            <span class="home-more-title">完整归档</span>
-            <p class="home-more-sub">按时间检索全部内容</p>
-          </a>
-        </div>
-      </div>
-    </section>
+    <nav class="home-more" aria-label="更多内容">
+      <a href={withBase('/blog/')}>博客 <span aria-hidden="true">↗</span></a>
+      <a href={withBase('/notes/')}>随笔 <span aria-hidden="true">↗</span></a>
+      <a href={withBase('/archive/')}>归档 <span aria-hidden="true">↗</span></a>
+    </nav>
   </main>
 </BaseLayout>
