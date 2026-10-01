@@ -1,7 +1,6 @@
 ---
-import 'misans/lib/Normal/MiSans-Regular.min.css';
-import 'misans/lib/Normal/MiSans-Demibold.min.css';
-import 'misans/lib/Normal/MiSans-Bold.min.css';
+import 'lxgw-wenkai-webfont/lxgwwenkai-regular.css';
+import 'lxgw-wenkai-webfont/lxgwwenkai-bold.css';
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import BackToTop from '../components/BackToTop.astro';
@@ -30,7 +29,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? siteConfig.url);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="author" content={siteConfig.author.name} />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8f3" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15130f" />
     <meta property="og:site_name" content={siteConfig.title} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />

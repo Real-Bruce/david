@@ -2,7 +2,6 @@
 title: 第 001 期：静态博客的起点
 description: 本周收集到的几个适合个人博客和写作工具的网站。
 issue: 1
-cover: /images/weekly/issue-001.svg
 pubDate: 2026-09-20
 tags:
   - 周刊

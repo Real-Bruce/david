@@ -3,7 +3,6 @@ title: 第 093 期：2026/06/15 - 2026/06/21
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 93
 pubDate: 2026-06-15
-cover: /images/weekly/issue-093.svg
 tags:
   - 周刊
 draft: false

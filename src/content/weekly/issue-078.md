@@ -3,7 +3,6 @@ title: 第 078 期：2026/03/02 - 2026/03/08
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 78
 pubDate: 2026-03-02
-cover: /images/weekly/issue-078.svg
 tags:
   - 周刊
 draft: false

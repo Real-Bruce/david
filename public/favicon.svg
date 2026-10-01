@@ -1,4 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#2563eb"/>
-  <text x="32" y="43" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="white" text-anchor="middle">D</text>
+  <style>
+    .bg { fill: #2b2a26; }
+    .fg { fill: #faf8f3; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #ece8dc; }
+      .fg { fill: #15130f; }
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="20"/>
+  <path class="fg" fill-rule="evenodd" d="M21 19 H30 A13 13 0 0 1 30 45 H21 Z M27 25 H30 A7 7 0 0 1 30 39 H27 Z"/>
 </svg>

@@ -3,7 +3,6 @@ title: 第 095 期：2026/06/29 - 2026/07/05
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 95
 pubDate: 2026-06-29
-cover: /images/weekly/issue-095.svg
 tags:
   - 周刊
 draft: false

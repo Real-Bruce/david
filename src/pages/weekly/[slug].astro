@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReadingProgress from '../../components/ReadingProgress.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -12,43 +13,41 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
+  <ReadingProgress />
   <main class="article weekly-article">
-    <div class="weekly-cover-hero">
-      <img src={post.data.cover} alt={post.data.title} width="1200" height="720" loading="eager" decoding="async" />
-    </div>
-
-    <div class="weekly-article-body">
-      <div class="meta">
-        <span class="kind">第 {post.data.issue} 期</span>
+    <header class="weekly-banner">
+      <div class="weekly-banner-top">
+        <span class="weekly-banner-no">№ {post.data.issue}</span>
         <time datetime={post.data.pubDate.toISOString()}>
           {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
         </time>
       </div>
 
       <h1>{post.data.title}</h1>
+      <p class="weekly-banner-desc">{post.data.description}</p>
 
       <div class="article-meta">
         {post.data.tags.map(tag => <a class="tag" href={`/tags/${tag}/`}>#{tag}</a>)}
       </div>
+    </header>
 
-      <div class="prose">
-        <Content />
-      </div>
-
-      {post.data.links.length > 0 && (
-        <section class="section">
-          <h2>本期推荐</h2>
-          <div class="link-list">
-            {post.data.links.map(item => (
-              <article class="link-item">
-                <strong>{item.title}</strong>
-                <a href={item.url} target="_blank" rel="noopener noreferrer">{item.url}</a>
-                {item.note && <p>{item.note}</p>}
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
+    <div class="prose">
+      <Content />
     </div>
+
+    {post.data.links.length > 0 && (
+      <section class="section">
+        <h2 class="section-title">本期推荐</h2>
+        <div class="link-list">
+          {post.data.links.map(item => (
+            <article class="link-item">
+              <strong>{item.title}</strong>
+              <a href={item.url} target="_blank" rel="noopener noreferrer">{item.url}</a>
+              {item.note && <p>{item.note}</p>}
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
   </main>
 </BaseLayout>

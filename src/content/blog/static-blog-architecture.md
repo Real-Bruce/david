@@ -7,7 +7,6 @@ tags:
   - Astro
   - 架构
 draft: false
-cover: /images/blog/static-blog-architecture.svg
 ---
 
 ## 为什么选择静态博客

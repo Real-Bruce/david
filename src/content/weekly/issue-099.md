@@ -3,7 +3,6 @@ title: 第 099 期：2026/07/27 - 2026/08/02
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 99
 pubDate: 2026-07-27
-cover: /images/weekly/issue-099.svg
 tags:
   - 周刊
 draft: false

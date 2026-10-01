@@ -4,8 +4,10 @@ interface Props {
   title: string;
   description: string;
   date: Date;
-  cover?: string;
   tags?: string[];
+  kind: 'weekly' | 'blog' | 'notes';
+  mood?: string;
+  location?: string;
 }
 
 const {
@@ -13,27 +15,26 @@ const {
   title,
   description,
   date,
-  cover = '/images/placeholders/card.svg',
-  tags = []
+  tags = [],
+  kind,
+  mood,
+  location
 } = Astro.props;
 
 const dateText = date.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
+const kindLabel = kind === 'weekly' ? '周刊' : kind === 'blog' ? '博客' : '随笔';
 ---
 
-<article class="card">
-  <a class="card-link" href={href}>
-    <div class="card-cover">
-      <img src={cover} alt={title} width="640" height="360" loading="lazy" decoding="async" />
+<article class="entry" data-kind={kind}>
+  <a class="entry-link" href={href}>
+    <div class="entry-meta">
+      <time datetime={date.toISOString()}>{dateText}</time>
+      <span class={`kind kind-${kind}`}>{kindLabel}</span>
+      {mood && <span class="entry-mood" aria-label="心情">{mood}</span>}
+      {location && <span class="entry-loc" aria-label="地点">{location}</span>}
     </div>
-
-    <div class="card-body">
-      <div class="card-header">
-        <h3 class="card-title">{title}</h3>
-        <time class="card-date" datetime={date.toISOString()}>{dateText}</time>
-      </div>
-
-      <p class="card-desc">{description}</p>
-    </div>
+    <h3 class="entry-title">{title}</h3>
+    <p class="entry-desc">{description}</p>
   </a>
 
   {tags.length > 0 && (

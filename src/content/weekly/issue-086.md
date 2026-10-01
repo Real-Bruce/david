@@ -3,7 +3,6 @@ title: 第 086 期：2026/04/27 - 2026/05/03
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 86
 pubDate: 2026-04-27
-cover: /images/weekly/issue-086.svg
 tags:
   - 周刊
 draft: false

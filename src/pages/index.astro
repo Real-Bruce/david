@@ -1,38 +1,64 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
-import { getPublishedPosts, getPostHref } from '../lib/posts';
+import WeeklyCard from '../components/WeeklyCard.astro';
+import { getCollection } from 'astro:content';
 
-const posts = await getPublishedPosts();
-const latest = posts.slice(0, 16);
+const weeklyPosts = (await getCollection('weekly', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.issue - a.data.issue);
+const blogPosts = await getCollection('blog', ({ data }) => !data.draft);
+const notePosts = await getCollection('notes', ({ data }) => !data.draft);
+
+const latest = weeklyPosts.slice(0, 5);
 ---
 
-<BaseLayout description="记录周刊、长文与随笔的个人博客。">
+<BaseLayout description="周刊负责有趣，博客负责深度，随笔负责随手记下的人间时刻。">
   <main>
     <section class="hero">
       <div class="container">
+        <p class="hero-kicker">个人品味 · 每周更新</p>
         <h1>Easy to say. Do it. Write it down.</h1>
-        <p>这里收录我的周刊、完整博客和随时写下的随笔。内容用 Markdown 写作，网站由 GitHub 自动构建发布。</p>
+        <p>周刊负责有趣，博客负责深度，随笔负责随手记下的人间时刻。</p>
+        <p class="hero-stats">周刊 {weeklyPosts.length} 期 · 长文 {blogPosts.length} 篇 · 随笔 {notePosts.length} 条</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-title">最新内容</h2>
-          <a class="section-more" href="/archive/">查看全部归档</a>
+          <h2 class="section-title">最新周刊</h2>
+          <a class="section-more" href="/weekly/">全部 {weeklyPosts.length} 期 →</a>
         </div>
-        <div class="card-grid">
-          {latest.map(post => (
-            <PostCard
-              href={getPostHref(post)}
+        <div class="weekly-grid">
+          {latest.map((post, index) => (
+            <WeeklyCard
+              href={`/weekly/${post.id}/`}
               title={post.data.title}
               description={post.data.description}
               date={post.data.pubDate}
-              cover={post.data.cover}
+              issue={post.data.issue}
               tags={post.data.tags}
+              featured={index === 0}
             />
           ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section home-more">
+      <div class="container">
+        <div class="home-more-row">
+          <a class="home-more-item" href="/blog/">
+            <span class="home-more-title">去读长文</span>
+            <p class="home-more-sub">{blogPosts.length} 篇完整思考</p>
+          </a>
+          <a class="home-more-item" href="/notes/">
+            <span class="home-more-title">翻翻随笔</span>
+            <p class="home-more-sub">{notePosts.length} 条碎片记录</p>
+          </a>
+          <a class="home-more-item" href="/archive/">
+            <span class="home-more-title">完整归档</span>
+            <p class="home-more-sub">按时间检索全部内容</p>
+          </a>
         </div>
       </div>
     </section>

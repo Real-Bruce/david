@@ -3,7 +3,6 @@ title: 第 104 期：2026/08/31 - 2026/09/06
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 104
 pubDate: 2026-08-31
-cover: /images/weekly/issue-104.svg
 tags:
   - 周刊
 draft: false

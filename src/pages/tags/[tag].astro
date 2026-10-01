@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
-import { getPublishedPosts, getPostHref } from '../../lib/posts';
+import { getPublishedPosts, getPostHref, getPostKind } from '../../lib/posts';
 
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
@@ -21,23 +21,24 @@ const { tag, posts } = Astro.props;
 <BaseLayout title={`标签：${tag}`} description={`包含 ${tag} 标签的内容。`}>
   <main class="container">
     <section class="hero">
+      <p class="hero-kicker">标签</p>
       <h1>#{tag}</h1>
       <p>共 {posts.length} 篇内容。</p>
     </section>
+
     <section class="section">
-      <div class="card-grid">
+      <div class="entry-list">
         {posts.map(post => (
           <PostCard
             href={getPostHref(post)}
             title={post.data.title}
             description={post.data.description}
             date={post.data.pubDate}
-              cover={post.data.cover}
             tags={post.data.tags}
+            kind={getPostKind(post)}
           />
         ))}
       </div>
     </section>
   </main>
 </BaseLayout>
-

@@ -3,7 +3,6 @@ title: 第 070 期：2025/12/28 - 2026/01/04
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 70
 pubDate: 2025-12-28
-cover: /images/weekly/issue-070.svg
 tags:
   - 周刊
 draft: false

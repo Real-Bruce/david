@@ -21,7 +21,12 @@ const utilityNav = [
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="/" title="返回首页">
-      <span class="brand-mark">D</span>
+      <span class="brand-mark" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+          <rect width="32" height="32" rx="10" fill="var(--fg)" />
+          <path fill="var(--bg)" fill-rule="evenodd" d="M10.5 9.5 H15 A6.5 6.5 0 0 1 15 22.5 H10.5 Z M13.5 12.5 H15 A3.5 3.5 0 0 1 15 19.5 H13.5 Z" />
+        </svg>
+      </span>
       <span>{siteConfig.title}</span>
     </a>
 

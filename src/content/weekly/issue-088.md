@@ -3,7 +3,6 @@ title: 第 088 期：2026/05/11 - 2026/05/17
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 88
 pubDate: 2026-05-11
-cover: /images/weekly/issue-088.svg
 tags:
   - 周刊
 draft: false

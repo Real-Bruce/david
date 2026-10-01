@@ -3,7 +3,6 @@ title: 第 103 期：2026/08/24 - 2026/08/30
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 103
 pubDate: 2026-08-24
-cover: /images/weekly/issue-103.svg
 tags:
   - 周刊
 draft: false

@@ -14,16 +14,20 @@ const { Content } = await render(post);
 <BaseLayout title={post.data.title} description={post.data.description}>
   <main class="article">
     <div class="meta">
-      <span class="kind">随笔</span>
+      <span class="kind kind-notes">随笔</span>
       <time datetime={post.data.pubDate.toISOString()}>
         {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
       </time>
-      {post.data.mood && <span>· {post.data.mood}</span>}
+      {post.data.mood && <span>{post.data.mood}</span>}
+      {post.data.location && <span>{post.data.location}</span>}
     </div>
+
     <h1>{post.data.title}</h1>
+
     <div class="article-meta">
       {post.data.tags.map(tag => <a class="tag" href={`/tags/${tag}/`}>#{tag}</a>)}
     </div>
+
     <div class="prose">
       <Content />
     </div>

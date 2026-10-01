@@ -3,7 +3,6 @@ title: 第 084 期：2026/04/13 - 2026/04/19
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 84
 pubDate: 2026-04-13
-cover: /images/weekly/issue-084.svg
 tags:
   - 周刊
 draft: false

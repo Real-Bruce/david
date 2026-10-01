@@ -5,7 +5,6 @@ pubDate: 2026-09-29
 tags:
   - 随笔
 draft: false
-cover: /images/notes/first-note.svg
 mood: 平静
 ---
 

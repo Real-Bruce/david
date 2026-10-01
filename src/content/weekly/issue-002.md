@@ -2,7 +2,6 @@
 title: 第 002 期：设计灵感和阅读
 description: 一些关于排版、配色和写作体验的网站。
 issue: 2
-cover: /images/weekly/issue-002.svg
 pubDate: 2026-09-27
 tags:
   - 周刊

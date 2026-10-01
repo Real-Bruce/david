@@ -3,7 +3,6 @@ title: 第 081 期：2026/03/23 - 2026/03/29
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 81
 pubDate: 2026-03-23
-cover: /images/weekly/issue-081.svg
 tags:
   - 周刊
 draft: false

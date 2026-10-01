@@ -7,7 +7,6 @@ tags:
   - Markdown
   - 工作流
 draft: false
-cover: /images/blog/markdown-writing-workflow.svg
 ---
 
 ## 文件即内容

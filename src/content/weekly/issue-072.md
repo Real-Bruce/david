@@ -3,7 +3,6 @@ title: 第 072 期：2026/01/12 - 2026/01/18
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 72
 pubDate: 2026-01-12
-cover: /images/weekly/issue-072.svg
 tags:
   - 周刊
 draft: false

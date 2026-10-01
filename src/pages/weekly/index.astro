@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PostCard from '../../components/PostCard.astro';
+import WeeklyCard from '../../components/WeeklyCard.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('weekly', ({ data }) => !data.draft))
@@ -10,20 +10,22 @@ const posts = (await getCollection('weekly', ({ data }) => !data.draft))
 <BaseLayout title="周刊" description="每周收集的有趣网站、工具和阅读材料。">
   <main class="container weekly-page">
     <section class="weekly-hero">
+      <p class="hero-kicker">每周更新 · 共 {posts.length} 期</p>
       <h1>周刊</h1>
       <p>每周收集一次好玩的网站、工具、文章和灵感。</p>
     </section>
 
-    <section class="weekly-feed">
-      <div class="card-grid">
-        {posts.map(post => (
-          <PostCard
+    <section>
+      <div class="weekly-grid">
+        {posts.map((post, index) => (
+          <WeeklyCard
             href={`/weekly/${post.id}/`}
             title={post.data.title}
             description={post.data.description}
             date={post.data.pubDate}
-            cover={post.data.cover}
+            issue={post.data.issue}
             tags={post.data.tags}
+            featured={index === 0}
           />
         ))}
       </div>

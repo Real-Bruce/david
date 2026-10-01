@@ -3,7 +3,6 @@ title: 第 087 期：2026/05/04 - 2026/05/10
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 87
 pubDate: 2026-05-04
-cover: /images/weekly/issue-087.svg
 tags:
   - 周刊
 draft: false

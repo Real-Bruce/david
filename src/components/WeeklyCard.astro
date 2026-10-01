@@ -4,21 +4,36 @@ interface Props {
   title: string;
   description: string;
   date: Date;
-  cover: string;
   issue: number;
+  tags?: string[];
+  featured?: boolean;
 }
 
-const { href, title, description, date, cover, issue } = Astro.props;
+const {
+  href,
+  title,
+  description,
+  date,
+  issue,
+  tags = [],
+  featured = false
+} = Astro.props;
+
 const dateText = date.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
 ---
 
-<a class="weekly-card" href={href}>
-  <div class="weekly-cover">
-    <img src={cover} alt={title} width="640" height="384" loading="lazy" decoding="async" />
-  </div>
-  <div class="weekly-card-meta">
-    <span class="weekly-title">第 {issue} 期 · {title}</span>
+<a class:list={['weekly-card', { featured }]} href={href}>
+  <div class="weekly-card-top">
+    <span class="weekly-no">№ {issue}</span>
     <time datetime={date.toISOString()}>{dateText}</time>
   </div>
+
+  <h3 class="weekly-title">{title}</h3>
   <p class="weekly-desc">{description}</p>
+
+  {tags.length > 0 && (
+    <div class="tags">
+      {tags.map(tag => <span class="tag">#{tag}</span>)}
+    </div>
+  )}
 </a>

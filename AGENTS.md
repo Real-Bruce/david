@@ -11,7 +11,7 @@
 - **框架**：Astro 7
 - **内容**：Astro Content Collections
 - **搜索**：Pagefind
-- **字体**：MiSans，来自 `misans` npm 包
+- **字体**：霞鹜文楷 LXGW WenKai（全站统一），来自 `lxgw-wenkai-webfont` npm 包
 - **样式**：原生 CSS，集中在 `src/styles/global.css`
 - **部署**：Cloudflare Pages / GitHub Actions
 
@@ -45,7 +45,6 @@ src/pages/              # 路由
 src/lib/posts.ts        # 内容排序、分组、路径工具
 src/styles/global.css   # 全局样式和设计变量
 src/content/            # Markdown 内容
-public/images/          # 封面图和静态图片
 ```
 
 不要修改：
@@ -56,12 +55,12 @@ public/images/          # 封面图和静态图片
 
 ## 当前页面约定
 
-- `/` 首页展示约四行内容，按时间倒序。
-- `/weekly/` 周刊列表，使用统一卡片布局。
-- `/blog/` 博客列表，使用统一卡片布局。
-- `/notes/` 随笔列表，使用统一卡片布局。
+- `/` 首页只展示最新周刊，并提供博客、随笔、归档入口。
+- `/weekly/` 周刊列表，杂志感卡片网格（期号大字排版，无封面图）。
+- `/blog/` 博客列表，目录式条目列表。
+- `/notes/` 随笔列表，目录式条目列表（含心情与地点）。
 - `/archive/` 归档页，按「年份 → 月份」分组，并集成站内搜索。
-- `/tags/xxx/` 标签页，使用统一卡片布局。
+- `/tags/xxx/` 标签页，目录式条目列表。
 - `/about/` 关于页，采用「标题 + 无序列表」结构。
 - 站点没有独立搜索页，搜索能力集中在归档页。
 - 站点底部没有页脚。
@@ -72,15 +71,18 @@ public/images/          # 封面图和静态图片
 | --- | --- |
 | `BaseLayout.astro` | 全局布局、SEO、字体、返回顶部按钮 |
 | `SiteHeader.astro` | 半浮动顶部导航 |
-| `PostCard.astro` | 统一封面卡片，用于所有列表页 |
+| `PostCard.astro` | 目录式条目行，用于博客、随笔、标签与归档页 |
+| `WeeklyCard.astro` | 周刊杂志感卡片（期号排版，无封面图） |
+| `TOC.astro` | 博客长文侧栏目录 |
+| `ReadingProgress.astro` | 阅读进度条 |
 | `ArchiveSearch.astro` | 归档页搜索 |
 | `BackToTop.astro` | 返回顶部按钮 |
 | `Icon.astro` | 通用 SVG 图标 |
 
 注意：
 
-- `WeeklyCard.astro` 和 `PageHeader.astro` 目前基本不再使用，可在后续清理时评估删除。
-- 新的列表展示应优先复用 `PostCard.astro`，不要另起一套卡片结构。
+- 全站不使用封面图，卡片和条目均为纯排版设计。
+- 周刊卡片使用 `WeeklyCard.astro`，博客/随笔/标签/归档使用 `PostCard.astro`，不要另起一套列表结构。
 
 ## 内容约定
 
@@ -104,21 +106,18 @@ draft
 
 ```md
 issue
-cover
 links
 ```
 
 博客额外字段：
 
 ```md
-cover
 series
 ```
 
 随笔额外字段：
 
 ```md
-cover
 mood
 location
 ```
@@ -127,9 +126,8 @@ location
 
 1. 放入对应集合目录。
 2. 按现有 front matter 结构填写字段。
-3. 封面图放入 `public/images/<集合名>/`。
-4. 不需要手动维护索引或列表。
-5. `draft: true` 的内容不会发布。
+3. 不需要手动维护索引或列表。
+4. `draft: true` 的内容不会发布。
 
 ## 样式约定
 
@@ -146,6 +144,7 @@ src/styles/global.css
 - 卡片
 - 边框
 - 主色
+- 三种内容类型色（周刊暖橙 / 博客墨绿 / 随笔灰紫）
 - 圆角
 - 最大宽度
 - 字体
@@ -153,14 +152,13 @@ src/styles/global.css
 修改视觉时应遵循以下原则：
 
 - 优先使用现有 CSS 变量。
-- 保持卡片、导航、按钮和排版的统一性。
+- 保持导航、按钮和排版的统一性。
 - 避免新增大量分散的局部样式。
-- 避免过度使用蓝色强调色。
-- 卡片悬浮效果保持中性边框和柔和阴影。
+- 避免使用蓝色强调色。
+- 周刊卡片保持杂志感网格节奏，博客/随笔保持正式条目列表。
 - 顶部保持半浮动、非吸顶、底部带柔和阴影。
 - 页面滚动条保持隐藏，但不要破坏滚动能力。
 - 返回顶部按钮位于右侧约 `75vh`，向下滚动后显示。
-- 首页和列表页保持统一卡片流布局。
 - 归档页保持「年 → 月」分组。
 
 ## 常见修改
@@ -207,16 +205,17 @@ src/components/SiteHeader.astro
 
 当前顶部不显示站点描述，不使用分割线，整体是半浮动效果。
 
-### 修改卡片样式
+### 修改列表样式
 
 编辑：
 
 ```text
 src/components/PostCard.astro
+src/components/WeeklyCard.astro
 src/styles/global.css
 ```
 
-所有列表页应共享同一套卡片结构。
+博客/随笔/标签/归档共享 `PostCard.astro` 条目结构，周刊使用 `WeeklyCard.astro`。
 
 ### 修改归档分组
 
@@ -289,7 +288,7 @@ src/site.config.ts
 
 - 当前域名仍是 `https://example.com`。
 - 周刊已包含 `issue-070` 到 `issue-104`，以及两篇示例内容。
-- 周刊封面多为自动生成的 SVG 占位图，可按需替换。
+- `links`（本期推荐）目前只有示例内容使用，真实期数未填写。
 - 站点默认中文，不做 i18n。
 - 不要新增页脚。
 - 不要把搜索拆回独立页面。

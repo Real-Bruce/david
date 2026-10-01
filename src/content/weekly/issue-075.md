@@ -3,7 +3,6 @@ title: 第 075 期： -
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 75
 pubDate: 
-cover: /images/weekly/issue-075.svg
 tags:
   - 周刊
 draft: false

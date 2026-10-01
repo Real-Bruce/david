@@ -3,7 +3,6 @@ title: 第 071 期：2026/01/05 - 2026/01/11
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 71
 pubDate: 2026-01-05
-cover: /images/weekly/issue-071.svg
 tags:
   - 周刊
 draft: false

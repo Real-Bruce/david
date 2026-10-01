@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import ArchiveSearch from '../components/ArchiveSearch.astro';
-import { getPublishedPosts, getPostHref, type AnyPost } from '../lib/posts';
+import { getPublishedPosts, getPostHref, getPostKind, type AnyPost } from '../lib/posts';
 
 const posts = await getPublishedPosts();
 
@@ -24,6 +24,7 @@ const years = [...groupedPosts.keys()].sort((a, b) => Number(b) - Number(a));
 <BaseLayout title="归档" description="按时间浏览全部博客、周刊和随笔，也可以直接搜索。">
   <main class="container">
     <section class="hero">
+      <p class="hero-kicker">共 {posts.length} 篇内容</p>
       <h1>归档</h1>
       <p>按时间查看所有内容，也可以直接搜索。</p>
     </section>
@@ -40,15 +41,15 @@ const years = [...groupedPosts.keys()].sort((a, b) => Number(b) - Number(a));
           {[...groupedPosts.get(year)!.keys()].sort((a, b) => Number(b) - Number(a)).map(month => (
             <section class="archive-month">
               <h3 class="archive-month-title">{month} 月</h3>
-              <div class="card-grid">
+              <div class="entry-list">
                 {groupedPosts.get(year)!.get(month)!.map(post => (
                   <PostCard
                     href={getPostHref(post)}
                     title={post.data.title}
                     description={post.data.description}
                     date={post.data.pubDate}
-                    cover={post.data.cover}
                     tags={post.data.tags}
+                    kind={getPostKind(post)}
                   />
                 ))}
               </div>

@@ -6,7 +6,6 @@ tags:
   - 随笔
   - 设计
 draft: false
-cover: /images/notes/design-direction.svg
 mood: 专注
 ---
 

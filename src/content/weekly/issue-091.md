@@ -3,7 +3,6 @@ title: 第 091 期：2026/06/01 - 2026/06/07
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 91
 pubDate: 2026-06-01
-cover: /images/weekly/issue-091.svg
 tags:
   - 周刊
 draft: false

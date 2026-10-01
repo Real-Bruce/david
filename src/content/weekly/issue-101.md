@@ -3,7 +3,6 @@ title: 第 101 期：2026/08/10 - 2026/08/16
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 101
 pubDate: 2026-08-10
-cover: /images/weekly/issue-101.svg
 tags:
   - 周刊
 draft: false

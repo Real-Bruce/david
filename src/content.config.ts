@@ -14,7 +14,6 @@ const weekly = defineCollection({
   schema: z.object({
     ...sharedFields,
     issue: z.number(),
-    cover: z.string(),
     links: z.array(z.object({
       title: z.string(),
       url: z.string().url(),
@@ -27,8 +26,7 @@ const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     ...sharedFields,
-    series: z.string().optional(),
-    cover: z.string().optional()
+    series: z.string().optional()
   })
 });
 
@@ -37,12 +35,8 @@ const notes = defineCollection({
   schema: z.object({
     ...sharedFields,
     mood: z.string().optional(),
-    location: z.string().optional(),
-    cover: z.string().optional()
+    location: z.string().optional()
   })
 });
 
 export const collections = { weekly, blog, notes };
-
-
-
