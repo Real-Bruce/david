@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../site.config';
+import { withBase } from '../lib/base';
 ---
 
 <BaseLayout title="关于" description={`关于 ${siteConfig.author.name} 和这个博客。`}>
@@ -25,7 +26,7 @@ import { siteConfig } from '../site.config';
       <ul>
         <li><strong>Email</strong>：<a href={siteConfig.social.email}>{siteConfig.author.email}</a></li>
         <li><strong>GitHub</strong>：<a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">GitHub 主页</a></li>
-        <li><strong>RSS</strong>：<a href="/rss.xml">订阅本站更新</a></li>
+        <li><strong>RSS</strong>：<a href={withBase('/rss.xml')}>订阅本站更新</a></li>
       </ul>
     </div>
   </main>

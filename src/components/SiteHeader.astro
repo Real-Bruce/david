@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../site.config';
+import { withBase } from '../lib/base';
 import Icon from './Icon.astro';
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '/') || '/';
@@ -20,7 +21,7 @@ const utilityNav = [
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/" title="返回首页">
+    <a class="brand" href={withBase("/")} title="返回首页">
       <span class="brand-mark" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
           <rect width="32" height="32" rx="10" fill="var(--fg)" />
@@ -33,7 +34,7 @@ const utilityNav = [
     <div class="header-actions">
       <nav class="nav nav-text" aria-label="主导航">
         {primaryNav.map(link => (
-          <a href={link.href} class:list={[{ active: isActive(link.href) }]}>
+          <a href={withBase(link.href)} class:list={[{ active: isActive(link.href) }]}>
             {link.label}
           </a>
         ))}
@@ -42,7 +43,7 @@ const utilityNav = [
       <nav class="nav-icons" aria-label="功能导航">
         {utilityNav.map(link => (
           <a
-            href={link.href}
+            href={withBase(link.href)}
             class:list={['icon-button', { active: isActive(link.href) }]}
             aria-label={link.label}
             title={link.label}

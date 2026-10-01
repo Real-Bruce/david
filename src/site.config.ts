@@ -6,7 +6,7 @@ export const siteConfig = {
     email: 'davidbruce1379@gmail.com'
   },
   locale: 'zh-CN',
-  url: 'https://example.com',
+  url: 'https://real-bruce.github.io/weekly',
   social: {
     github: 'https://github.com/',
     email: 'mailto:davidbruce1379@gmail.com'

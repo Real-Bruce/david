@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { withBase } from '../../lib/base';
 
 export async function getStaticPaths() {
   const posts = await getCollection('notes', ({ data }) => !data.draft);
@@ -25,7 +26,7 @@ const { Content } = await render(post);
     <h1>{post.data.title}</h1>
 
     <div class="article-meta">
-      {post.data.tags.map(tag => <a class="tag" href={`/tags/${tag}/`}>#{tag}</a>)}
+      {post.data.tags.map(tag => <a class="tag" href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}
     </div>
 
     <div class="prose">

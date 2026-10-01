@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getWeeklyInsights } from '../lib/weekly';
+import { withBase } from '../lib/base';
 
 interface Props {
   posts: CollectionEntry<'weekly'>[];
@@ -37,7 +38,7 @@ const keys = [...groups.keys()].sort((a, b) => b.localeCompare(a));
           const samples = insights.links.slice(0, 2);
 
           return (
-            <a class="wall-tile" href={`/weekly/${post.id}/`} title={post.data.title}>
+            <a class="wall-tile" href={withBase(`/weekly/${post.id}/`)} title={post.data.title}>
               <span class="wall-tile-head">
                 <span class="wall-no">Vol.{post.data.issue}</span>
                 <time datetime={post.data.pubDate.toISOString()}>

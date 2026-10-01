@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TOC from '../../components/TOC.astro';
 import ReadingProgress from '../../components/ReadingProgress.astro';
 import { getCollection, render } from 'astro:content';
+import { withBase } from '../../lib/base';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -33,7 +34,7 @@ const readingTime = Math.max(1, Math.ceil(charCount / 400));
       <h1>{post.data.title}</h1>
 
       <div class="article-meta">
-        {post.data.tags.map(tag => <a class="tag" href={`/tags/${tag}/`}>#{tag}</a>)}
+        {post.data.tags.map(tag => <a class="tag" href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}
       </div>
 
       <div class="prose">

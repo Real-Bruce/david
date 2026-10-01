@@ -13,7 +13,7 @@
 - **搜索**：Pagefind
 - **字体**：霞鹜文楷 LXGW WenKai（全站统一），来自 `lxgw-wenkai-webfont` npm 包
 - **样式**：原生 CSS，集中在 `src/styles/global.css`
-- **部署**：Cloudflare Pages / GitHub Actions
+- **部署**：GitHub Pages（GitHub Actions 自动构建）
 
 不要在未明确要求时引入 React、Vue、Tailwind 或其他大型前端方案。
 
@@ -277,7 +277,13 @@ npm run build
 dist
 ```
 
-正式上线前必须替换以下文件中的占位域名：
+站点部署在 GitHub Pages 子路径 `https://real-bruce.github.io/weekly/`：
+
+- `astro.config.mjs` 中 `base: '/weekly'` 与仓库路径对应
+- 站内链接统一通过 `src/lib/base.ts` 的 `withBase()` 添加前缀，新增链接时必须使用
+- 归档搜索的 pagefind 导入路径按 `import.meta.env.BASE_URL` 拼接，勿写死
+
+如需切换自定义域名，同步修改以下三个文件：
 
 ```text
 astro.config.mjs
@@ -287,7 +293,7 @@ src/site.config.ts
 
 ## 维护提醒
 
-- 当前域名仍是 `https://example.com`。
+- 当前部署地址是 `https://real-bruce.github.io/weekly/`（仓库与路由同名，周刊页 URL 为 `/weekly/weekly/`）。
 - 周刊已包含 `issue-070` 到 `issue-104`，以及两篇示例内容。
 - `links`（本期推荐）目前只有示例内容使用，真实期数未填写。
 - 站点默认中文，不做 i18n。

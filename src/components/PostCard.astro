@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../lib/base';
+
 interface Props {
   href: string;
   title: string;
@@ -39,7 +41,7 @@ const kindLabel = kind === 'weekly' ? '周刊' : kind === 'blog' ? '博客' : '�
 
   {tags.length > 0 && (
     <div class="tags">
-      {tags.map(tag => <a class="tag" href={`/tags/${tag}/`}>#{tag}</a>)}
+      {tags.map(tag => <a class="tag" href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}
     </div>
   )}
 </article>

@@ -26,6 +26,7 @@ const preloadedFonts = [
 import SiteHeader from '../components/SiteHeader.astro';
 import BackToTop from '../components/BackToTop.astro';
 import { siteConfig } from '../site.config';
+import { withBase } from '../lib/base';
 
 interface Props {
   title?: string;
@@ -64,7 +65,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? siteConfig.url);
     {preloadedFonts.map(href => (
       <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />
     ))}
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'WebSite',

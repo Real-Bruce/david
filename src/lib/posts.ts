@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { withBase } from './base';
 
 export type AnyPost =
   | CollectionEntry<'weekly'>
@@ -23,5 +24,5 @@ export function getPostKind(post: AnyPost): 'weekly' | 'blog' | 'notes' {
 
 export function getPostHref(post: AnyPost): string {
   const kind = getPostKind(post);
-  return `/${kind}/${post.id}/`;
+  return withBase(`/${kind}/${post.id}/`);
 }

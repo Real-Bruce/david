@@ -1,5 +1,4 @@
 ---
----
 
 <div class="archive-search">
   <input
@@ -12,7 +11,7 @@
   <div id="archive-search-results" class="search-results" aria-live="polite"></div>
 </div>
 
-<script is:inline>
+<script>
   const input = document.getElementById('archive-search-input');
   const resultsBox = document.getElementById('archive-search-results');
   const archiveList = document.getElementById('archive-list');
@@ -21,7 +20,11 @@
   async function ensureIndex() {
     if (pagefind) return pagefind;
     try {
-      pagefind = await import('/pagefind/pagefind.js');
+      const base = import.meta.env.BASE_URL;
+      const pagefindUrl = `${base.endsWith("/") ? base : `${base}/`}pagefind/pagefind.js`;
+      // 用 new Function 绕过 Vite 的动态导入改写，保持运行时按 URL 导入
+      const importPagefind = new Function("url", "return import(url)");
+      pagefind = await importPagefind(pagefindUrl);
       await pagefind.options?.();
       return pagefind;
     } catch (error) {
