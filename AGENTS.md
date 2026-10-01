@@ -251,7 +251,8 @@ src/styles/global.css
 
 ## Git 约定
 
-- 修改后先运行 `npm run build`。
+- 修改后先清理无用代码、无效样式和未使用文件。
+- 清理后运行 `npm run build`。
 - 构建通过后再提交。
 - 提交信息使用简洁英文祈使句。
 - 不要提交 `dist/`、`.astro/` 或 `node_modules/`。

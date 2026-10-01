@@ -12,6 +12,7 @@ const primaryNav = [
   { href: '/blog/', label: '博客' },
   { href: '/notes/', label: '随笔' }
 ];
+const primaryActive = primaryNav.some(link => isActive(link.href));
 
 const utilityNav = [
   { href: '/archive/', label: '归档', icon: 'archive' },
@@ -28,7 +29,8 @@ const utilityNav = [
           <path fill="var(--bg)" fill-rule="evenodd" d="M10.5 9.5 H15 A6.5 6.5 0 0 1 15 22.5 H10.5 Z M13.5 12.5 H15 A3.5 3.5 0 0 1 15 19.5 H13.5 Z" />
         </svg>
       </span>
-      <span>{siteConfig.title}</span>
+      <span class="brand-title">{siteConfig.title}</span>
+      <span class="brand-title-short">{siteConfig.shortTitle}</span>
     </a>
 
     <div class="header-actions">
@@ -51,6 +53,25 @@ const utilityNav = [
             <Icon name={link.icon as 'archive' | 'user'} />
           </a>
         ))}
+      </nav>
+
+      <nav class="mobile-nav" aria-label="移动端主导航">
+        <details>
+          <summary
+            class:list={['icon-button', 'mobile-nav-trigger', { active: primaryActive }]}
+            aria-label="主导航"
+            title="主导航"
+          >
+            <Icon name="menu" />
+          </summary>
+          <div class="mobile-nav-list">
+            {primaryNav.map(link => (
+              <a href={withBase(link.href)} class:list={[{ active: isActive(link.href) }]}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </details>
       </nav>
     </div>
   </div>
