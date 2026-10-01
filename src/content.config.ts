@@ -14,6 +14,10 @@ const weekly = defineCollection({
   schema: z.object({
     ...sharedFields,
     issue: z.number(),
+    digest: z.object({
+      title: z.string().trim().min(1),
+      highlights: z.array(z.string().trim().min(1)).max(2).default([])
+    }).optional(),
     links: z.array(z.object({
       title: z.string(),
       url: z.string().url(),

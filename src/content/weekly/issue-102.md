@@ -2,6 +2,8 @@
 title: 第 102 期：2026/08/17 - 2026/08/23
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 102
+digest:
+  title: 古建筑、折纸地球仪与线性代数
 pubDate: 2026-08-17
 tags:
   - 周刊
@@ -68,4 +70,3 @@ macOS 工具，可以压缩**图片**、**视频**和**PDF**。放文件进去�
 #### [Parallel development without the headaches using Git worktree](https://barrd.dev/article/parallel-development-without-the-headaches-using-git-worktree/)
 
 介绍 git worktree 命令使用的文章，帮你掌握这个功能强大的命令。
-

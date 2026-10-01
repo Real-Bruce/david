@@ -2,6 +2,8 @@
 title: 第 100 期：2026/08/03 - 2026/08/09
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 100
+digest:
+  title: 从不懂的事开始写作，逛一座三维大教堂
 pubDate: 2026-08-03
 tags:
   - 周刊
@@ -66,4 +68,3 @@ File Viewer 是面向业务系统的浏览器原生文件预览组件。它的�
 #### [continuous voice interaction with gpt live](https://openai.com/zh-Hans-CN/index/continuous-voice-interaction-with-gpt-live/)
 
 OpenAI 官方博客的一篇文章，讲他们 voice AI 的实现方式，值得一看。
-

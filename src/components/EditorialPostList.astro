@@ -1,0 +1,52 @@
+---
+import { withBase } from '../lib/base';
+
+interface EditorialPost {
+  href: string;
+  title: string;
+  description: string;
+  date: Date;
+  tags: string[];
+  mood?: string;
+  location?: string;
+}
+
+interface Props {
+  kind: 'blog' | 'notes';
+  posts: EditorialPost[];
+}
+
+const { kind, posts } = Astro.props;
+const isNotes = kind === 'notes';
+const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-', '.');
+---
+
+{posts.length > 0 ? (
+  <section class:list={['editorial-list', `editorial-${kind}`]}>
+    <ol class="editorial-entries">
+      {posts.map(post => (
+        <li>
+          <article class="editorial-entry">
+            <div class="editorial-entry-meta">
+              <time datetime={post.date.toISOString()}>{dateText(post.date)}</time>
+              {isNotes && post.mood && <span>心情 · {post.mood}</span>}
+              {isNotes && post.location && <span>地点 · {post.location}</span>}
+            </div>
+            <a class="editorial-entry-content" href={post.href}>
+              <h3>{post.title}</h3>
+              <p>{post.description}</p>
+            </a>
+            <a class="editorial-entry-arrow" href={post.href} aria-label={`阅读全文：${post.title}`}>↗</a>
+            {post.tags.length > 0 && (
+              <div class="editorial-entry-tags" aria-label="文章标签">
+                {post.tags.map(tag => <a href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}
+              </div>
+            )}
+          </article>
+        </li>
+      ))}
+    </ol>
+  </section>
+) : (
+  <p class="editorial-empty">这里还没有内容，第一篇很快就会出现。</p>
+)}

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PostCard from '../../components/PostCard.astro';
+import EditorialPostList from '../../components/EditorialPostList.astro';
 import { getCollection } from 'astro:content';
 import { withBase } from '../../lib/base';
 
@@ -9,28 +9,26 @@ const posts = (await getCollection('notes', ({ data }) => !data.draft))
 ---
 
 <BaseLayout title="随笔" description="随时记录的碎片想法与短篇随笔。">
-  <main class="container">
+  <main class="container editorial-page">
     <header class="page-head">
-      <div class="page-head-row">
+      <div class="weekly-heading">
         <h1>随笔</h1>
-        <span class="page-head-meta">{posts.length} 条记录</span>
+        <span class="weekly-count">{posts.length} 条记录</span>
       </div>
       <p class="page-head-desc">不追求完整结构，记录当下的心情、地点和一闪而过的念头。</p>
     </header>
 
-    <div class="entry-list">
-      {posts.map(post => (
-        <PostCard
-          href={withBase(`/notes/${post.id}/`)}
-          title={post.data.title}
-          description={post.data.description}
-          date={post.data.pubDate}
-          tags={post.data.tags}
-          kind="notes"
-          mood={post.data.mood}
-          location={post.data.location}
-        />
-      ))}
-    </div>
+    <EditorialPostList
+      kind="notes"
+      posts={posts.map(post => ({
+        href: withBase(`/notes/${post.id}/`),
+        title: post.data.title,
+        description: post.data.description,
+        date: post.data.pubDate,
+        tags: post.data.tags,
+        mood: post.data.mood,
+        location: post.data.location
+      }))}
+    />
   </main>
 </BaseLayout>

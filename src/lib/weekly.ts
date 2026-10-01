@@ -11,6 +11,17 @@ export interface WeeklyInsights {
   total: number;
 }
 
+/** 列表页优先使用人工导读；历史期数仍可直接从正文生成入口。 */
+export function getWeeklyDigest(post: CollectionEntry<'weekly'>) {
+  if (post.data.digest) return post.data.digest;
+
+  const { links } = getWeeklyInsights(post);
+  return {
+    title: links.slice(0, 2).join(' · ') || post.data.description,
+    highlights: [] as string[]
+  };
+}
+
 /**
  * 从周刊正文中提取看点：
  * - `## 板块名` 下的 `#### [标题](链接)` 计为该板块的推荐

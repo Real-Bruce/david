@@ -2,6 +2,8 @@
 title: 第 103 期：2026/08/24 - 2026/08/30
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 103
+digest:
+  title: 把焦虑放到最后一天，听听 Radio Garden
 pubDate: 2026-08-24
 tags:
   - 周刊
@@ -64,4 +66,3 @@ draft: false
 #### [对 OpenAI / Hugging Face 入侵事件中智能体行为、推理与协作的简要独立调查](https://metr.org/zh-hans/blog/2026-08-26-openai-hugging-face-incident-investigation/#july-9th-phaseone10841-passes-on-its-work-to-phaseonebig-which-establishes-several-ambitious-workstreams)
 
 一份关于 OpenAI 内部 Agent 逃逸攻击 Hugging Face 的调查报告，里面详细介绍了攻击的细节，很有趣的一点是内部沙箱相互隔离的 Agent 竟然通过 Artifactory 漏洞在内部搭建起未经授权的“留言板”，Agent 之间的协作让人感到惊奇。
-

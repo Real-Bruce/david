@@ -26,6 +26,8 @@ npm run build
 npm run preview
 ```
 
+周刊导读逻辑的测试：`node --experimental-strip-types --test tests/weekly.test.ts`。
+
 修改代码或内容后，应至少执行：
 
 ```bash
@@ -56,10 +58,10 @@ src/content/            # Markdown 内容
 ## 当前页面约定
 
 - `/` 首页只展示最新周刊，并提供博客、随笔、归档入口。
-- `/weekly/` 周刊列表，上方展示推荐分类整合卡，下方以每行四张的看点卡展示全部周刊。
+- `/weekly/` 周刊列表，依次展示轻量分类入口和按期数倒序排列的完整目录，不单独突出最新一期。
 - `/weekly/archives/xxx/` 周刊推荐分类详情，渲染 `src/content/weekly/archives/` 对应 Markdown 全文。
-- `/blog/` 博客列表，目录式条目列表。
-- `/notes/` 随笔列表，目录式条目列表（含心情与地点）。
+- `/blog/` 博客列表，开放式编辑排版，按发布时间倒序展示全部长文、摘要和标签。
+- `/notes/` 随笔列表，开放式编辑排版，按发布时间倒序展示全部随笔及心情、地点信息。
 - `/archive/` 归档页，按「年份 → 月份」分组，并集成站内搜索。
 - `/tags/xxx/` 标签页，目录式条目列表。
 - `/about/` 关于页，采用「标题 + 无序列表」结构。
@@ -73,8 +75,8 @@ src/content/            # Markdown 内容
 | `BaseLayout.astro` | 全局布局、SEO、字体、返回顶部按钮 |
 | `SiteHeader.astro` | 半浮动顶部导航 |
 | `PostCard.astro` | 目录式条目行，用于博客、随笔、标签与归档页 |
-| `WeeklyCard.astro` | 周刊看点卡（解析正文推荐，无封面图） |
-| `ArchiveCard.astro` | 推荐分类卡，链接到完整分类归档 |
+| `WeeklyCard.astro` | 首页周刊看点卡（解析正文推荐，无封面图） |
+| `EditorialPostList.astro` | 博客与随笔列表（按时间倒序的目录式条目） |
 | `TOC.astro` | 博客长文侧栏目录 |
 | `ReadingProgress.astro` | 阅读进度条 |
 | `ArchiveSearch.astro` | 归档页搜索 |
@@ -84,7 +86,7 @@ src/content/            # Markdown 内容
 注意：
 
 - 全站不使用封面图，卡片和条目均为纯排版设计。
-- 周刊列表全部期数使用 `WeeklyCard.astro`，推荐分类使用 `ArchiveCard.astro`；博客/随笔/标签/归档使用 `PostCard.astro`。
+- 首页继续使用 `WeeklyCard.astro`；周刊列表目录位于 `src/pages/weekly/index.astro`；博客与随笔列表使用 `EditorialPostList.astro`；标签与归档继续使用 `PostCard.astro`。
 
 ## 内容约定
 
@@ -110,6 +112,7 @@ draft
 ```md
 issue
 links
+digest # 可选，含 title 和最多两条 highlights，仅用于周刊列表
 ```
 
 博客额外字段：
@@ -133,6 +136,8 @@ location
 4. `draft: true` 的内容不会发布。
 
 分类整合直接更新 `src/content/weekly/archives/` 下的 Markdown；该集合不使用文章 front matter，新增分类时同步更新 `src/lib/weekly-archives.ts` 的标题和顺序。
+
+周刊可通过 `digest.title` 为目录条目编写一句导读；未填写时，从正文前两条推荐生成标题，无推荐时使用 `description`。`digest.highlights` 保留为可选内容数据，不在列表页单独突出显示，也不改变首页卡片或文章正文。
 
 ## 样式约定
 
@@ -160,7 +165,7 @@ src/styles/global.css
 - 保持导航、按钮和排版的统一性。
 - 避免新增大量分散的局部样式。
 - 避免使用蓝色强调色。
-- 周刊卡片保持杂志感网格节奏，博客/随笔保持正式条目列表。
+- 首页周刊卡片保持杂志感网格节奏；周刊、博客与随笔列表采用一致的开放式目录排版，按时间或期数倒序排列，不单独突出最新内容；博客使用墨绿强调，随笔使用灰紫强调。
 - 顶部保持半浮动、非吸顶、底部带柔和阴影。
 - 页面滚动条保持隐藏，但不要破坏滚动能力。
 - 返回顶部按钮位于右侧约 `75vh`，向下滚动后显示。
@@ -217,11 +222,11 @@ src/components/SiteHeader.astro
 ```text
 src/components/PostCard.astro
 src/components/WeeklyCard.astro
-src/components/ArchiveCard.astro
+src/pages/weekly/index.astro
 src/styles/global.css
 ```
 
-博客/随笔/标签/归档共享 `PostCard.astro` 条目结构；全部周刊使用 `WeeklyCard.astro`，推荐整合卡使用 `ArchiveCard.astro`，数据提取在 `src/lib/weekly-archives.ts`。
+标签与归档继续使用 `PostCard.astro` 条目结构；博客与随笔列表共享 `EditorialPostList.astro`；首页周刊使用 `WeeklyCard.astro`；周刊列表由 `src/pages/weekly/index.astro` 和 `src/lib/weekly.ts` 管理，分类入口数据位于 `src/lib/weekly-archives.ts`。
 
 ### 修改归档分组
 

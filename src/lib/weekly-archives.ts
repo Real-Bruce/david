@@ -3,7 +3,6 @@
 export interface WeeklyArchiveSummary {
   id: string;
   title: string;
-  links: string[];
   total: number;
 }
 
@@ -25,14 +24,12 @@ const categoryOrder = ['article', 'blogs', 'software', 'website'];
 export function getWeeklyArchiveSummaries(): WeeklyArchiveSummary[] {
   const summaries = Object.entries(archiveFiles).map(([filePath, content]) => {
     const id = filePath.split('/').pop()?.replace(/\.md$/, '') ?? '';
-    const links = [...content.matchAll(/^#### \[(.+?)\]\((.+?)\)$/gm)]
-      .map(match => match[1].trim());
+    const total = [...content.matchAll(/^#### \[(.+?)\]\((.+?)\)$/gm)].length;
 
     return {
       id,
       title: categoryTitles[id] ?? id,
-      links: links.slice(0, 5),
-      total: links.length
+      total
     };
   });
 

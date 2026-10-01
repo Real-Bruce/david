@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArchiveCard from '../../components/ArchiveCard.astro';
-import WeeklyCard from '../../components/WeeklyCard.astro';
-import { getWeeklyInsights } from '../../lib/weekly';
+import { getWeeklyDigest } from '../../lib/weekly';
 import { getWeeklyArchiveSummaries } from '../../lib/weekly-archives';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
@@ -11,46 +9,52 @@ const posts = (await getCollection('weekly', ({ data }) => !data.draft))
   .sort((a, b) => b.data.issue - a.data.issue);
 
 const archiveSummaries = getWeeklyArchiveSummaries();
+const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-', '.');
 ---
 
 <BaseLayout title="周刊" description="每周收集的有趣网站、工具和阅读材料。">
   <main class="container weekly-page">
     <header class="page-head">
-      <div class="page-head-row">
+      <div class="weekly-heading">
         <h1>周刊</h1>
-        <span class="page-head-meta">共 {posts.length} 期 · 每周更新</span>
+        <span class="weekly-count">共 {posts.length} 期</span>
       </div>
-      <p class="page-head-desc">每周收集一次好玩的网站、工具、文章和灵感。</p>
+      <p class="page-head-desc">每周一些新发现，留给好奇心一点时间。</p>
     </header>
 
-    <section class="section">
-      <div class="section-head">
-        <h2 class="section-title">推荐整合</h2>
-        <span class="section-more">{archiveSummaries.length} 类</span>
-      </div>
-      <div class="insight-grid archive-grid">
+    <nav class="weekly-categories" aria-label="周刊推荐分类">
+      <span class="weekly-categories-label">分类浏览</span>
+      <div class="weekly-category-links">
         {archiveSummaries.map(summary => (
-          <ArchiveCard summary={summary} />
+          <a href={withBase(`/weekly/archives/${summary.id}/`)}>
+            {summary.title}<span aria-hidden="true">↗</span>
+          </a>
         ))}
       </div>
-    </section>
+    </nav>
 
-    <section class="section">
-      <div class="section-head">
-        <h2 class="section-title">全部周刊</h2>
-        <span class="section-more">{posts.length} 期</span>
-      </div>
-      <div class="insight-grid weekly-issue-grid">
-        {posts.map(post => (
-          <WeeklyCard
-            href={withBase(`/weekly/${post.id}/`)}
-            title={post.data.title}
-            description={post.data.description}
-            issue={post.data.issue}
-            insights={getWeeklyInsights(post)}
-          />
-        ))}
-      </div>
-    </section>
+    {posts.length > 0 ? (
+      <section class="weekly-list" aria-labelledby="weekly-list-title">
+        <div class="weekly-list-head">
+          <h2 id="weekly-list-title">全部期数</h2>
+        </div>
+        <ol class="weekly-entries">
+          {posts.map(post => (
+            <li>
+              <a class="weekly-entry" href={withBase(`/weekly/${post.id}/`)}>
+                <div class="weekly-entry-meta">
+                  <span>第 {post.data.issue} 期</span>
+                  <time datetime={post.data.pubDate.toISOString()}>{dateText(post.data.pubDate)}</time>
+                </div>
+                <h3>{getWeeklyDigest(post).title}</h3>
+                <span class="weekly-entry-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ) : (
+      <p class="weekly-empty">第一期正在路上，回头来看看。</p>
+    )}
   </main>
 </BaseLayout>

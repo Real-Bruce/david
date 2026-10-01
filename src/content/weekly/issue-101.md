@@ -2,6 +2,8 @@
 title: 第 101 期：2026/08/10 - 2026/08/16
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 101
+digest:
+  title: 放弃自证、识别鸟鸣与滚动动画
 pubDate: 2026-08-10
 tags:
   - 周刊
@@ -75,4 +77,3 @@ MAC 上的 YouTube music 三方客户端，界面很简洁漂亮。
 #### [a complete guide to agents-md](https://www.aihero.dev/a-complete-guide-to-agents-md)
 
 一篇关于 Agents.md 应当怎样书写的文章，有很多实用的小技巧，值得一读。
-

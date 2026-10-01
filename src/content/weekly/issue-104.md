@@ -2,6 +2,11 @@
 title: 第 104 期：2026/08/31 - 2026/09/06
 description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
 issue: 104
+digest:
+  title: 从 RSS 阅读器到传统纹样
+  highlights:
+    - FeedFuse：把 RSS 阅读、全文抓取与 AI 辅助理解放在一起。
+    - 中国传统纹样图鉴：收录 100 多种传统纹样，留作学习与创作参考。
 pubDate: 2026-08-31
 tags:
   - 周刊
@@ -52,4 +57,3 @@ OpenConnector 是面向 AI Agent 的开源 connector gateway，也是 Composio �
 #### [GPS Glitched Across The US by as Much as 33 Feet. Scientists Have Never Seen This Before.](https://www.sciencealert.com/gps-glitched-across-the-us-by-as-much-as-33-feet-scientists-have-never-seen-this-before)
 
 太阳风暴导致美国的 GPS 系统产生定位偏差，偏差距离超过 10 米，对农业生产和自动驾驶产生严重影响，这篇博文是对这个事件的介绍，很有意思的博客。
-
