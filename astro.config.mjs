@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://real-bruce.github.io',
-  base: '/weekly',
+  base: '/david',
   trailingSlash: 'ignore',
   integrations: [sitemap()],
   markdown: {

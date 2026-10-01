@@ -277,9 +277,9 @@ npm run build
 dist
 ```
 
-站点部署在 GitHub Pages 子路径 `https://real-bruce.github.io/weekly/`：
+站点部署在 GitHub Pages 子路径 `https://real-bruce.github.io/david/`：
 
-- `astro.config.mjs` 中 `base: '/weekly'` 与仓库路径对应
+- `astro.config.mjs` 中 `base: '/david'` 与仓库路径对应
 - 站内链接统一通过 `src/lib/base.ts` 的 `withBase()` 添加前缀，新增链接时必须使用
 - 归档搜索的 pagefind 导入路径按 `import.meta.env.BASE_URL` 拼接，勿写死
 
@@ -293,7 +293,7 @@ src/site.config.ts
 
 ## 维护提醒
 
-- 当前部署地址是 `https://real-bruce.github.io/weekly/`（仓库与路由同名，周刊页 URL 为 `/weekly/weekly/`）。
+- 当前部署地址是 `https://real-bruce.github.io/david/`，仓库 `Real-Bruce/david` 与路由 `/weekly/` 不同名，URL 无双前缀问题。
 - 周刊已包含 `issue-070` 到 `issue-104`，以及两篇示例内容。
 - `links`（本期推荐）目前只有示例内容使用，真实期数未填写。
 - 站点默认中文，不做 i18n。
