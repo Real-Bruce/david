@@ -13,21 +13,40 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <main class="article">
-    <div class="meta">
-      <span class="kind kind-notes">随笔</span>
-      <time datetime={post.data.pubDate.toISOString()}>
-        {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
-      </time>
-      {post.data.mood && <span>{post.data.mood}</span>}
-      {post.data.location && <span>{post.data.location}</span>}
-    </div>
+  <main class="article article-notes">
+    <header class="article-header article-header-notes">
+      <div class="meta">
+        <span class="kind kind-notes">随笔</span>
+        <time datetime={post.data.pubDate.toISOString()}>
+          {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+      </div>
 
-    <h1>{post.data.title}</h1>
+      <h1>{post.data.title}</h1>
 
-    <div class="article-meta">
-      {post.data.tags.map(tag => <a class="tag" href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}
-    </div>
+      {(post.data.mood || post.data.location) && (
+        <div class="article-context" aria-label="随笔信息">
+          {post.data.mood && (
+            <span class="article-context-item">
+              <span class="article-context-label">心情</span>
+              <span>{post.data.mood}</span>
+            </span>
+          )}
+          {post.data.location && (
+            <span class="article-context-item">
+              <span class="article-context-label">地点</span>
+              <span>{post.data.location}</span>
+            </span>
+          )}
+        </div>
+      )}
+
+      {post.data.tags.length > 0 && (
+        <div class="article-meta" aria-label="文章标签">
+          {post.data.tags.map(tag => <a class="tag" href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}
+        </div>
+      )}
+    </header>
 
     <div class="prose">
       <Content />

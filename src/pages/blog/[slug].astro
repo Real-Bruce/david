@@ -23,19 +23,23 @@ const readingTime = Math.max(1, Math.ceil(charCount / 400));
     <TOC headings={headings} />
 
     <div class="article-main">
-      <div class="meta">
-        <span class="kind kind-blog">博客</span>
-        <time datetime={post.data.pubDate.toISOString()}>
-          {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </time>
-        <span class="reading-time">约 {readingTime} 分钟</span>
-      </div>
+      <header class="article-header article-header-blog">
+        <div class="meta">
+          <span class="kind kind-blog">博客</span>
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <span class="reading-time">约 {readingTime} 分钟</span>
+        </div>
 
-      <h1>{post.data.title}</h1>
+        <h1>{post.data.title}</h1>
 
-      <div class="article-meta">
-        {post.data.tags.map(tag => <a class="tag" href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}
-      </div>
+        {post.data.tags.length > 0 && (
+          <div class="article-meta" aria-label="文章标签">
+            {post.data.tags.map(tag => <a class="tag" href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}
+          </div>
+        )}
+      </header>
 
       <div class="prose">
         <Content />

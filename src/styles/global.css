@@ -704,7 +704,17 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   letter-spacing: -0.01em;
 }
 
-.article-main .prose { margin-top: 40px; }
+.article-header { min-width: 0; }
+.article-header-blog { --article-accent: var(--blog); }
+.article-header-notes { --article-accent: var(--notes); }
+.article-header .meta { gap: 8px 18px; }
+.article-header h1 { margin: 26px 0 0; line-height: 1.24; }
+.article-header .article-meta { margin: 26px 0 0; padding-top: 18px; border-top: 1px solid var(--border); gap: 8px 10px; }
+.article-header .tag:hover { color: var(--article-accent); border-color: var(--article-accent); }
+.article-context { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 20px; color: var(--muted); font-size: 14px; }
+.article-context-item { display: inline-flex; flex-wrap: wrap; gap: 8px; }
+.article-context-label { color: var(--article-accent); font-size: 12px; }
+.article-header + .prose { margin-top: 36px; }
 
 @media (max-width: 1000px) {
   .article-layout { display: block; width: min(700px, calc(100% - 40px)); }
@@ -1038,4 +1048,9 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   .editorial-entry { grid-template-columns: minmax(0, 1fr) 18px; grid-template-areas: "meta meta" "content arrow" "tags tags"; gap: 8px 14px; padding: 20px 0; align-items: start; }
   .editorial-entry-meta { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 6px 16px; }
   .editorial-entry-content h3 { font-size: 17px; }
+  .article-header .meta { gap: 8px 12px; }
+  .article-header h1 { margin-top: 20px; line-height: 1.25; }
+  .article-header .article-meta { margin-top: 22px; padding-top: 14px; }
+  .article-context { margin-top: 16px; gap: 8px 18px; }
+  .article-header + .prose { margin-top: 28px; }
 }
