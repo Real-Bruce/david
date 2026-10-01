@@ -9,15 +9,17 @@ interface EditorialPost {
   tags: string[];
   mood?: string;
   location?: string;
+  postKind?: 'weekly' | 'blog' | 'notes';
 }
 
 interface Props {
-  kind: 'blog' | 'notes';
+  kind: 'blog' | 'notes' | 'archive';
   posts: EditorialPost[];
 }
 
 const { kind, posts } = Astro.props;
 const isNotes = kind === 'notes';
+const typeLabels = { weekly: '周刊', blog: '博客', notes: '随笔' };
 const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-', '.');
 ---
 
@@ -26,9 +28,17 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
     <ol class="editorial-entries">
       {posts.map(post => (
         <li>
-          <article class="editorial-entry">
+          <article
+            class:list={[
+              'editorial-entry',
+              kind === 'archive' && post.postKind && `editorial-entry-${post.postKind}`
+            ]}
+          >
             <div class="editorial-entry-meta">
               <time datetime={post.date.toISOString()}>{dateText(post.date)}</time>
+              {kind === 'archive' && post.postKind && (
+                <span class="editorial-entry-type">{typeLabels[post.postKind]}</span>
+              )}
               {isNotes && post.mood && <span>心情 · {post.mood}</span>}
               {isNotes && post.location && <span>地点 · {post.location}</span>}
             </div>

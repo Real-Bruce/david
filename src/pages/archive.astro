@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
+import EditorialPostList from '../components/EditorialPostList.astro';
 import ArchiveSearch from '../components/ArchiveSearch.astro';
 import { getPublishedPosts, getPostHref, getPostKind, type AnyPost } from '../lib/posts';
 
@@ -18,15 +18,22 @@ const groupedPosts = posts.reduce((acc, post) => {
   return acc;
 }, new Map<string, Map<string, AnyPost[]>>());
 
-const years = [...groupedPosts.keys()].sort((a, b) => Number(b) - Number(a));
+const archiveYears = [...groupedPosts.keys()]
+  .sort((a, b) => Number(b) - Number(a))
+  .map(year => ({
+    year,
+    months: [...groupedPosts.get(year)!.keys()]
+      .sort((a, b) => Number(b) - Number(a))
+      .map(month => ({ month, posts: groupedPosts.get(year)!.get(month)! }))
+  }));
 ---
 
 <BaseLayout title="归档" description="按时间浏览全部博客、周刊和随笔，也可以直接搜索。">
-  <main class="container">
+  <main class="container editorial-page archive-page">
     <header class="page-head">
-      <div class="page-head-row">
+      <div class="weekly-heading">
         <h1>归档</h1>
-        <span class="page-head-meta">共 {posts.length} 篇</span>
+        <span class="weekly-count">共 {posts.length} 篇</span>
       </div>
       <p class="page-head-desc">按时间查看所有内容，也可以直接搜索。</p>
     </header>
@@ -35,26 +42,27 @@ const years = [...groupedPosts.keys()].sort((a, b) => Number(b) - Number(a));
       <ArchiveSearch />
     </section>
 
-    <div id="archive-list">
-      {years.map(year => (
+    <div id="archive-list" class="archive-groups">
+      {archiveYears.map(({ year, months }) => (
         <section class="archive-year">
-          <h2 class="section-title">{year}</h2>
+          <header class="archive-year-heading">
+            <h2>{year}</h2>
+          </header>
 
-          {[...groupedPosts.get(year)!.keys()].sort((a, b) => Number(b) - Number(a)).map(month => (
+          {months.map(({ month, posts: monthPosts }) => (
             <section class="archive-month">
               <h3 class="archive-month-title">{month} 月</h3>
-              <div class="entry-list">
-                {groupedPosts.get(year)!.get(month)!.map(post => (
-                  <PostCard
-                    href={getPostHref(post)}
-                    title={post.data.title}
-                    description={post.data.description}
-                    date={post.data.pubDate}
-                    tags={post.data.tags}
-                    kind={getPostKind(post)}
-                  />
-                ))}
-              </div>
+              <EditorialPostList
+                kind="archive"
+                posts={monthPosts.map(post => ({
+                  href: getPostHref(post),
+                  title: post.data.title,
+                  description: post.data.description,
+                  date: post.data.pubDate,
+                  tags: post.data.tags,
+                  postKind: getPostKind(post)
+                }))}
+              />
             </section>
           ))}
         </section>
