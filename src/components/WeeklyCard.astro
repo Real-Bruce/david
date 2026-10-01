@@ -1,11 +1,13 @@
 ---
+import type { WeeklyInsights } from '../lib/weekly';
+
 interface Props {
   href: string;
   title: string;
   description: string;
   date: Date;
   issue: number;
-  tags?: string[];
+  insights: WeeklyInsights;
   featured?: boolean;
 }
 
@@ -15,25 +17,38 @@ const {
   description,
   date,
   issue,
-  tags = [],
+  insights,
   featured = false
 } = Astro.props;
 
 const dateText = date.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
+const sampleLinks = insights.links.slice(0, featured ? 5 : 3);
+const hasLinks = sampleLinks.length > 0;
 ---
 
-<a class:list={['weekly-card', { featured }]} href={href}>
-  <div class="weekly-card-top">
-    <span class="weekly-no">№ {issue}</span>
+<a class:list={['insight-card', { featured }]} href={href} title={title}>
+  <div class="ic-head">
+    <span class="ic-no">Vol.{issue}</span>
     <time datetime={date.toISOString()}>{dateText}</time>
   </div>
 
-  <h3 class="weekly-title">{title}</h3>
-  <p class="weekly-desc">{description}</p>
-
-  {tags.length > 0 && (
-    <div class="tags">
-      {tags.map(tag => <span class="tag">#{tag}</span>)}
+  {insights.stats.length > 0 && (
+    <div class="ic-stats">
+      {insights.stats.map(stat => (
+        <span class="ic-stat">{stat.name} {stat.count}</span>
+      ))}
     </div>
+  )}
+
+  {hasLinks ? (
+    <ul class="ic-links">
+      {sampleLinks.map(link => <li>{link}</li>)}
+    </ul>
+  ) : (
+    <p class="ic-fallback">{description}</p>
+  )}
+
+  {insights.total > 0 && (
+    <p class="ic-more">共 {insights.total} 条推荐 →</p>
   )}
 </a>

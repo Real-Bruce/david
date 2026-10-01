@@ -17,7 +17,7 @@ const { Content } = await render(post);
   <main class="article weekly-article">
     <header class="weekly-banner">
       <div class="weekly-banner-top">
-        <span class="weekly-banner-no">№ {post.data.issue}</span>
+        <span class="weekly-banner-no">Vol.{post.data.issue}</span>
         <time datetime={post.data.pubDate.toISOString()}>
           {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
         </time>

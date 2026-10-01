@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WeeklyCard from '../components/WeeklyCard.astro';
+import { getWeeklyInsights } from '../lib/weekly';
 import { getCollection } from 'astro:content';
 
 const weeklyPosts = (await getCollection('weekly', ({ data }) => !data.draft))
@@ -28,7 +29,7 @@ const latest = weeklyPosts.slice(0, 5);
           <h2 class="section-title">最新周刊</h2>
           <a class="section-more" href="/weekly/">全部 {weeklyPosts.length} 期 →</a>
         </div>
-        <div class="weekly-grid">
+        <div class="insight-grid">
           {latest.map((post, index) => (
             <WeeklyCard
               href={`/weekly/${post.id}/`}
@@ -36,7 +37,7 @@ const latest = weeklyPosts.slice(0, 5);
               description={post.data.description}
               date={post.data.pubDate}
               issue={post.data.issue}
-              tags={post.data.tags}
+              insights={getWeeklyInsights(post)}
               featured={index === 0}
             />
           ))}

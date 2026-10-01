@@ -1,10 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WeeklyCard from '../../components/WeeklyCard.astro';
+import IssueWall from '../../components/IssueWall.astro';
+import { getWeeklyInsights } from '../../lib/weekly';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('weekly', ({ data }) => !data.draft))
   .sort((a, b) => b.data.issue - a.data.issue);
+
+const latest = posts.slice(0, 6);
+const rest = posts.slice(6);
 ---
 
 <BaseLayout title="周刊" description="每周收集的有趣网站、工具和阅读材料。">
@@ -15,20 +20,32 @@ const posts = (await getCollection('weekly', ({ data }) => !data.draft))
       <p>每周收集一次好玩的网站、工具、文章和灵感。</p>
     </section>
 
-    <section>
-      <div class="weekly-grid">
-        {posts.map((post, index) => (
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">最新看点</h2>
+      </div>
+      <div class="insight-grid">
+        {latest.map(post => (
           <WeeklyCard
             href={`/weekly/${post.id}/`}
             title={post.data.title}
             description={post.data.description}
             date={post.data.pubDate}
             issue={post.data.issue}
-            tags={post.data.tags}
-            featured={index === 0}
+            insights={getWeeklyInsights(post)}
           />
         ))}
       </div>
     </section>
+
+    {rest.length > 0 && (
+      <section class="section">
+        <div class="section-head">
+          <h2 class="section-title">往期</h2>
+          <span class="section-more">{rest.length} 期</span>
+        </div>
+        <IssueWall posts={rest} />
+      </section>
+    )}
   </main>
 </BaseLayout>

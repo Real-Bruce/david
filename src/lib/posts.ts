@@ -25,7 +25,3 @@ export function getPostHref(post: AnyPost): string {
   const kind = getPostKind(post);
   return `/${kind}/${post.id}/`;
 }
-
-export function getPostKindLabel(kind: 'weekly' | 'blog' | 'notes'): string {
-  return kind === 'weekly' ? '周刊' : kind === 'blog' ? '博客' : '随笔';
-}

@@ -1,5 +1,4 @@
 export const siteConfig = {
-  name: "David's Blog",
   title: "David's Blog",
   description: '记录每周发现、长期思考与随手灵感。',
   author: {
@@ -12,12 +11,4 @@ export const siteConfig = {
     github: 'https://github.com/',
     email: 'mailto:davidbruce1379@gmail.com'
   },
-  nav: [
-    { href: '/', label: '首页' },
-    { href: '/weekly/', label: '周刊' },
-    { href: '/blog/', label: '博客' },
-    { href: '/notes/', label: '随笔' },
-    { href: '/archive/', label: '归档' },
-    { href: '/about/', label: '关于' }
-  ]
 };

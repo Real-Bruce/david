@@ -38,7 +38,7 @@ npm run build
 
 ```text
 src/content.config.ts   # 内容集合和 schema
-src/site.config.ts      # 站点身份、导航、联系方式
+src/site.config.ts      # 站点身份、联系方式
 src/layouts/            # 全局布局
 src/components/         # 可复用组件
 src/pages/              # 路由
@@ -56,7 +56,7 @@ src/content/            # Markdown 内容
 ## 当前页面约定
 
 - `/` 首页只展示最新周刊，并提供博客、随笔、归档入口。
-- `/weekly/` 周刊列表，杂志感卡片网格（期号大字排版，无封面图）。
+- `/weekly/` 周刊列表，最新看点卡 + 往期期刊墙。
 - `/blog/` 博客列表，目录式条目列表。
 - `/notes/` 随笔列表，目录式条目列表（含心情与地点）。
 - `/archive/` 归档页，按「年份 → 月份」分组，并集成站内搜索。
@@ -72,7 +72,8 @@ src/content/            # Markdown 内容
 | `BaseLayout.astro` | 全局布局、SEO、字体、返回顶部按钮 |
 | `SiteHeader.astro` | 半浮动顶部导航 |
 | `PostCard.astro` | 目录式条目行，用于博客、随笔、标签与归档页 |
-| `WeeklyCard.astro` | 周刊杂志感卡片（期号排版，无封面图） |
+| `WeeklyCard.astro` | 周刊看点卡（解析正文推荐，无封面图） |
+| `IssueWall.astro` | 往期期刊墙（数字方格跳转） |
 | `TOC.astro` | 博客长文侧栏目录 |
 | `ReadingProgress.astro` | 阅读进度条 |
 | `ArchiveSearch.astro` | 归档页搜索 |
@@ -82,7 +83,7 @@ src/content/            # Markdown 内容
 注意：
 
 - 全站不使用封面图，卡片和条目均为纯排版设计。
-- 周刊卡片使用 `WeeklyCard.astro`，博客/随笔/标签/归档使用 `PostCard.astro`，不要另起一套列表结构。
+- 周刊最新期使用 `WeeklyCard.astro` 看点卡，往期使用 `IssueWall.astro`；博客/随笔/标签/归档使用 `PostCard.astro`，不要另起一套列表结构。
 
 ## 内容约定
 
@@ -163,7 +164,7 @@ src/styles/global.css
 
 ## 常见修改
 
-### 修改站点名称、作者、导航
+### 修改站点名称、作者
 
 编辑：
 
