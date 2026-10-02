@@ -1,12 +1,13 @@
 ---
-title: 古建筑、折纸地球仪与线性代数
-description: 人类大脑的工作方式，螺旋式学习是记住它们的最好方法之一。
+title: "ai and chauffeur knowledge"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 4 个、网站工具 4 个、资料博文 2 篇。
 issue: 102
-pubDate: 2026-08-17
+pubDate: 2026-08-23
 tags:
   - 周刊
 draft: false
 ---
+
 ## 📜有价值的文章
 
 #### [ai and chauffeur knowledge](https://www.aaron-gray.com/ai-and-chauffeur-knowledge/)

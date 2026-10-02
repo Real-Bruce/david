@@ -1,6 +1,6 @@
 # software
 
-## 【36】20260831 - 20260906
+## Vol.104 / 2026.09.06
 
 #### [open-connector](https://github.com/oomol-lab/open-connector)
 
@@ -18,7 +18,7 @@ OpenConnector 是面向 AI Agent 的开源 connector gateway，也是 Composio �
 
 开源 Web 应用，将城市地图变成海报
 
-## 【35】20260824 - 20260830
+## Vol.103 / 2026.08.30
 
 #### [witr](https://github.com/pranshuparmar/witr)
 
@@ -36,7 +36,7 @@ OpenConnector 是面向 AI Agent 的开源 connector gateway，也是 Composio �
 
 白板录制的网页应用，在浏览器中直接绘制、演示、录制白板风格的内容。
 
-## 【34】20260817 - 20260823
+## Vol.102 / 2026.08.23
 
 #### [dinky](https://github.com/heyderekj/dinky)
 
@@ -54,7 +54,7 @@ macOS 工具，可以压缩**图片**、**视频**和**PDF**。放文件进去�
 
 专为 DeepSeek 设计的终端 AI 编程 agent，充分利用了缓存机制，可以极大降低费用，只支持 DeepSeek 的付费 API。
 
-## 【33】20260810 - 20260816
+## Vol.101 / 2026.08.16
 
 #### [BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi)
 
@@ -73,7 +73,7 @@ macOS 工具，可以压缩**图片**、**视频**和**PDF**。放文件进去�
 MAC 上的 YouTube music 三方客户端，界面很简洁漂亮。
 
 
-## 【32】20260803 - 20260809
+## Vol.100 / 2026.08.09
 
 #### [davit](https://davit.app/)
 
@@ -92,7 +92,7 @@ File Viewer 是面向业务系统的浏览器原生文件预览组件。它的�
 **DNS** + **pick**）是一个跨平台命令行工具：它并发基准测试一批主流及自定义 DNS 服务器（涵盖 UDP、DoT、DoH），对一组常用的国内/国外域名反复查询，结合**平均延迟**与**成功率**智能评分。
 
 
-## 【31】20260727 - 20260802
+## Vol.99 / 2026.08.02
 
 #### [peek-cli](https://github.com/puffinsoft/peek-cli)
 
@@ -111,7 +111,7 @@ File Viewer 是面向业务系统的浏览器原生文件预览组件。它的�
 JS 的 Markdown 引擎，使用 Rust 语言开发，可以快速把 Markdown 语法转为 HTML，提供众多插件。
 
 
-## 【30】20260720 - 20260726
+## Vol.98 / 2026.07.26
 
 #### [handmux](https://github.com/handmux/handmux)
 
@@ -129,7 +129,7 @@ JS 的 Markdown 引擎，使用 Rust 语言开发，可以快速把 Markdown 语
 
 Flint 是一种可视化中间语言，使 AI 代理能够可靠地从简单、可人工编辑的图表规格中，创建富有表现力、画面美观的图表。Flint 编译器无需依赖冗长的底层参数，如比例、轴、间距和布局，而是从数据、语义类型、图表类型和编码中推导出优化的图表设置。Flint 支持 46 种图表类型，并支持 Vega-Lite、ECharts 和 Chart.js 的渲染。
 
-## 【29】20260713 - 20260719
+## Vol.97 / 2026.07.19
 
 #### [gpt-crawler](https://github.com/BuilderIO/gpt-crawler)
 
@@ -147,7 +147,7 @@ mac 开源应用，识别插入的 USB 线缆支持那些协议，帮你识别�
 
 教你识别常见的 AI Slop 并给出修改建议和 Skill，项目很不错。
 
-## 【28】20260706 - 20260712
+## Vol.96 / 2026.07.12
 
 #### [FineTune](https://github.com/ronitsingh10/FineTune)
 
@@ -165,7 +165,7 @@ macOS 本来就该自带的音量混音器，真正做到按应用独立音量�
 
 一个命令行工具，用于追踪和分析 AI 编码助手在你的代码库（macOS/Linux/Windows）中的贡献。支持 **Claude Code**、**Codex CLI**、**Cursor**、**Gemini CLI** 和 **Opencode**。
 
-## 【27】20260629 - 20260705
+## Vol.95 / 2026.07.05
 
 #### [penpot](https://github.com/penpot/penpot)
 
@@ -179,7 +179,7 @@ macOS 本来就该自带的音量混音器，真正做到按应用独立音量�
 
 通过一个控制面接入 OpenAI-Compatible、Responses、Messages、Gemini 等协议。用虚拟模型按策略路由多服务商 / 多模型，捕获完整请求响应日志，并支持个人桌面端零配置启用与企业容器化部署。
 
-## 【26】20260622 - 20260628
+## Vol.94 / 2026.06.28
 
 #### [lore](https://github.com/EpicGames/lore)
 
@@ -197,7 +197,7 @@ GEO Citation Lab 是一个面向 GEO 研究的公开资料仓库。
 
 生成可编辑 PPT 的 haness 工具，支持对接各种模型。
 
-## 【25】20260615 - 20260621
+## Vol.93 / 2026.06.21
 
 #### [blog helper](https://github.com/thinkycx/blog-helper)
 
@@ -215,7 +215,7 @@ GEO Citation Lab 是一个面向 GEO 研究的公开资料仓库。
 
 对小龙虾（OpenClaw，能执行多种任务的 AI 助理）进行 PUA 的话术。
 
-## 【24】20260608 - 20260614
+## Vol.92 / 2026.06.14
 
 #### [flipbook-app](https://github.com/imcuttle/flipbook-app)
 
@@ -233,7 +233,7 @@ GEO Citation Lab 是一个面向 GEO 研究的公开资料仓库。
 
 微信读书数据面板 -- 连接微信读书 Skill API，可视化书架、阅读统计、笔记划线，一键导出到 Notion 和 Flomo。
 
-## 【23】20260601 - 20260607
+## Vol.91 / 2026.06.07
 
 #### [dive](https://github.com/wagoodman/dive)
 
@@ -251,7 +251,7 @@ GEO Citation Lab 是一个面向 GEO 研究的公开资料仓库。
 
 移除 AI 水印的开源项目，支持移除 Google Gemini（Nano Banana）、ChatGPT / DALL-E、Stable Diffusion、Adobe Firefly、Midjourney 及其他 AI 模型生成的图像中的**可见**和**不可见** AI 水印。
 
-## 【22】20260525 - 20260530
+## Vol.90 / 2026.05.30
 
 #### [pocket id](https://github.com/pocket-id/pocket-id)
 
@@ -269,7 +269,7 @@ GEO Citation Lab 是一个面向 GEO 研究的公开资料仓库。
 
 基于 Next.js 的智能简历生成器，支持拖拽编辑、实时 AI 优化、50 套专业模板打造简历。
 
-## 【21】20260518 - 20260524
+## Vol.89 / 2026.05.24
 
 #### [kami](https://github.com/tw93/kami)
 
@@ -287,7 +287,7 @@ OpenAI 隐私过滤器是一种双向令牌分类模型，用于文本中的个�
 
 基于 Wails v3 打造、面向桌面端的 K8S 多集群管理工具。
 
-## 【20】20260511 - 20260517
+## Vol.88 / 2026.05.17
 
 #### [agent-safehouse](https://github.com/eugene1g/agent-safehouse)
 
@@ -301,7 +301,7 @@ OpenAI 隐私过滤器是一种双向令牌分类模型，用于文本中的个�
 
 WSL Distro Manager 是一个免费的开源应用程序，它提供了一个用户友好的图形界面来管理 Windows Subsystem for Linux（WSL）发行版。通过 WSL 发行版管理器，你可以轻松地安装、卸载、更新、备份和恢复 WSL 发行版，以及配置它们的设置，并通过一次点击启动它们。
 
-## 【19】20260504 - 20260510
+## Vol.87 / 2026.05.10
 
 #### [animal island ui](https://github.com/guokaigdg/animal-island-ui)
 
@@ -319,7 +319,7 @@ GPT Image 2 提示库，具有像素完美的文本渲染、跨图像一致性�
 
 一套经过工程实践的 Skill，作者提出了一套很严密的 Skill 流程，并用这套 Skill 完成了很多作品，值得尝试下。
 
-## 【18】20260427 - 20260503
+## Vol.86 / 2026.05.03
 
 #### [rename](https://github.com/chenz24/rename.tools)
 
@@ -339,7 +339,7 @@ FontInAss 是一个开源的字幕字体子集化工具。将 ASS/SSA/SRT 字幕
 
 一个开源免费的简历编辑工具，数据保存在浏览器本地。
 
-## 【17】20260420 - 20260426
+## Vol.85 / 2026.04.26
 
 #### [TokenTracker](https://github.com/mm7894215/TokenTracker)
 
@@ -361,7 +361,7 @@ macOS 语音输入工具 — 按住快捷键录音，松开后自动转写、优
 
 基于 Wails (Go + Vue 3) 的静态博客写作客户端，永久开源免费！
 
-## 【16】20260413 - 20260419
+## Vol.84 / 2026.04.19
 
 #### [adaptive-browser](https://github.com/jonnonz1/adaptive-browser)
 
@@ -379,7 +379,7 @@ TW93 开源的一组 Skill，可以熟悉的工程习惯，并转化为 Claude C
 
 开源的微信机器人消息管理平台，自带应用市场，通过点击安装应用，给微信 Bot 加功能。
 
-## 【15】20260406 - 20260412
+## Vol.83 / 2026.04.12
 
 #### [tunelo](https://github.com/jiweiyuan/tunelo)
 
@@ -397,7 +397,7 @@ Rust 语言构建的搜索引擎，对标 ElasticSearch 性能会更好一点，
 
 墨墨背单词 Skills，通过调用学习数据查询接口，获取学习进度、需要背的单词、复习的单词等数据。
 
-## 【14】20260330 - 20260405
+## Vol.82 / 2026.04.05
 
 #### [project-nomad](https://github.com/Crosstalk-Solutions/project-nomad)
 
@@ -415,7 +415,7 @@ macOS 的 Claude 资源（Skills、MCP、Agent）桌面管理工具，提供一�
 
 开源的 Win/Mac 桌面应用，在后台持续记录当天使用过的应用、访问过的网站等。
 
-## 【13】20260323 - 20260329
+## Vol.81 / 2026.03.29
 
 #### [AIComicBuilder](https://github.com/twwch/AIComicBuilder)
 
@@ -433,7 +433,7 @@ AICheck 通过分析文件元数据和隐形水印来回答这些问题。不需
 
 APTUI 是一个用 Go 编写的终端用户界面（TUI），用于管理 APT 包。浏览、搜索、安装、移除和升级套餐——全程无需离开终端。
 
-## 【12】20260316 - 20260322
+## Vol.80 / 2026.03.22
 
 #### [obsidian-copy-to-mp](https://github.com/Spute/obsidian-copy-to-mp)
 
@@ -451,7 +451,7 @@ homebrew 的替代品，号称可以将软件包的安装速度提高到 5 倍�
 
 Linux 基础命令 cp 的增强版，拷贝文件时带进度条，支持并发拷贝和断点续传。
 
-## 【11】20260309 - 20260315
+## Vol.79 / 2026.03.15
 
 #### [Deck](https://github.com/yuzeguitarist/Deck)
 
@@ -469,7 +469,7 @@ macOS 剪贴板管理的开源桌面应用，支持 Touch ID 保护和端到端�
 
 **MemOS** 是一个面向大型语言模型（LLM）和人工智能代理的内存作系统，统一了**存储/检索/管理**，实现**了长期记忆**的上下文**感知和个性化**交互，内置了知识库、**多模态**、**工具存储**器和**企业级**优化功能。
 
-## 【10】20260302 - 20260308
+## Vol.78 / 2026.03.08
 
 #### [pure genealogy](https://github.com/yunfengsa/pure-genealogy)
 
@@ -491,7 +491,7 @@ macOS 剪贴板管理的开源桌面应用，支持 Touch ID 保护和端到端�
 
 macos 小工具，统计键盘敲击次数。
 
-## 【09】20260223 - 20260301
+## Vol.77 / 2026.03.01
 
 #### [nano banana pro 提示词大全](https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts/blob/main/README_zh.md)
 
@@ -509,7 +509,7 @@ OceanBase 团队推出的一款开源 AI 数据库，支持向量计算，兼容
 
 一个基于 Next.js 的静态博客网站模版。
 
-## 【07 08】20260209 - 20260222
+## Vol.76 / 2026.02.22
 
 #### [davia](https://github.com/davialabs/davia)
 
@@ -535,7 +535,7 @@ MAC 空间清理工具，能深度扫描缓存文件，彻底卸载应用程序�
 
 Rust 技术栈开发的网站管理后台，采用 Axum 框架 + Sea ORM。
 
-## 【06】20260202 - 20260208
+## Vol.75 / 2026.02.08
 
 #### [GreenWall](https://github.com/zmrlft/GreenWall)
 
@@ -553,7 +553,7 @@ Termix 是一个开源、永久免费、自托管的一体化服务器管理平�
 
 将几乎任何设备变成文件服务器，使用任何网络浏览器可以恢复上传/下载，支持 https、webdav、ftp 等多种协议。
 
-## 【05】20260126 - 20260201
+## Vol.74 / 2026.02.01
 
 #### [tinyauth](https://github.com/steveiliop56/tinyauth)
 
@@ -571,7 +571,7 @@ Termix 是一个开源、永久免费、自托管的一体化服务器管理平�
 
 AI 开发平台 [Dify](https://dify.ai/) 的插件，让 AI 修改简历，很有趣的一个项目，项目还公开了他的提示词。
 
-## 【04】2026019 - 20260125
+## Vol.73 / 2026.01.25
 
 #### [cc-switch](https://github.com/farion1231/cc-switch)
 
@@ -589,7 +589,7 @@ tailspin 使用正则去扫内容，把时间戳、数字、严重级别等关�
 
 使用 **Rust** 🦀 和 **GPUI** ⚡️ 构建的高性能、GPU 加速的 Redis 客户端。
 
-## 【03】20260112 - 20260118
+## Vol.72 / 2026.01.18
 
 #### [musix](https://github.com/coolcode/musix)
 
@@ -607,7 +607,7 @@ CSS 练习题仓库，分成初级、中级、高级，提供每道题的答案�
 
 订阅管理系统，开源的 web 应用，管理和订阅各类订阅服务的费用和续费，支持多币种。
 
-## 【02】20260105 - 20260111
+## Vol.71 / 2026.01.11
 
 #### [lumma](https://github.com/geosmart/lumma)
 
@@ -625,7 +625,7 @@ Flutter 构建的移动端日记应用，可以通过 AI 对话的方式写日�
 
 最强大和模块化的可视化 AI 引擎和应用程序，ComfyUI 允许您使用基于图形/节点/流程图的界面设计和执行高级稳定的扩散管道。适用于 Windows、Linux 和 macOS
 
-## 【01】20251228 - 20260104
+## Vol.70 / 2026.01.04
 
 #### [CodexBar](https://github.com/steipete/CodexBar)
 

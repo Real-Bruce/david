@@ -1,12 +1,13 @@
 ---
-title: Blog about things you don't understand yet
-description: 写作是清晰思考一个话题的最佳方式。
+title: "Blog about things you don't understand yet"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 4 个、网站工具 4 个、资料博文 2 篇。
 issue: 100
 pubDate: 2026-08-09
 tags:
   - 周刊
 draft: false
 ---
+
 ## 📜有价值的文章
 
 #### [Blog about things you don't understand yet](https://www.seangoedecke.com/blog-about-things-you-dont-understand-yet/)

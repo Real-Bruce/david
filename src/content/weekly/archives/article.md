@@ -1,10 +1,6 @@
 # article
 
-## Vol.104 20260831 - 20260906
-
-本周偷懒了(T_T)
-
-## Vol.103 20260824 - 20260830
+## Vol.103 / 2026.08.30
 
 #### [把焦虑放到最后一天](https://blog.solazy.me/20260903/)
 
@@ -16,7 +12,7 @@
 
 这需要一点对自己能力的客观信任。你得清楚自己的交付边界在哪里，明白什么体量的事情花多大代价能搞定。只要边界算准了，就别把未来的麻烦预支到今天来买单。
 
-## 【34】20260817 - 20260823
+## Vol.102 / 2026.08.23
 
 #### [ai and chauffeur knowledge](https://www.aaron-gray.com/ai-and-chauffeur-knowledge/)
 
@@ -32,7 +28,7 @@ Contrast this with reading a book, where you keep coming back to the same topic 
 I'm not saying that AI is not useful and it doesn't have its place. It can help you get started on a problem that you have no idea where to start. It can help you gain a surface level understanding very rapidly. It can help you tackle a particularly thorny issue by rapidly teaching you new things you didn't know. But don't outsource your brain to it. Don't become dependent on it. Don't use it for more than limited scope tasks without rigorous personal review. Don't turn it into a required translation layer for every decision, every meeting, every communication, and every codebase change.
 >我并不是说人工智能没有用处，它没有自己的位置。它可以帮助你开始解决一个你不知道从哪里开始的问题。它可以帮助你非常迅速地获得表面水平的理解。它可以帮助你解决一个特别棘手的问题，通过快速教你你不知道的新东西。但是不要把你的大脑外包给它。不要依赖它。不要把它用于不经过严格的个人审核，就可以完成范围有限的任务。不要将其变成每个决策、每次会议、每次沟通和每次代码库更改所需的翻译层。
 
-## 【33】20260810 - 20260816
+## Vol.101 / 2026.08.16
 
 #### [放弃自证的减负感](https://blog.solazy.me/20260816/)
 
@@ -52,8 +48,7 @@ I'm not saying that AI is not useful and it doesn't have its place. It can help 
 
 这事儿其实没那么复杂。真实的自我不是靠口头争辩捍卫出来的，而是靠你日复一日的产出和选择堆出来的。把精力收回到自己的物理现实里，至于别人怎么拼凑你的碎片，那是他们的自由。
 
-
-## 【32】20260803 - 20260809
+## Vol.100 / 2026.08.09
 
 #### [Blog about things you don't understand yet](https://www.seangoedecke.com/blog-about-things-you-dont-understand-yet/)
 
@@ -64,8 +59,7 @@ I'm not saying that AI is not useful and it doesn't have its place. It can help 
 Even if nobody reads what you write, writing is still a good discipline for getting your thoughts in order. But another big reason why writing is a great learning tool is that **you can get feedback**.  
 >即使没有人读你写的东西，写作仍然是一种很好的训练，可以让你的思想井然有序。但是写作是一种很好的学习工具的另一个重要原因是**你可以得到反馈**。
 
-
-## 【31】20260727 - 20260802
+## Vol.99 / 2026.08.02
 
 #### [the illusion of explanatory depth](https://thedecisionlab.com/biases/the-illusion-of-explanatory-depth)
 
@@ -107,16 +101,7 @@ The illusion of explanatory depth happens for four reasons:
 3. 没有一个自然的解释终点，滋养了我们的自我，让我们相信自己能很好地解释任何事情，因为没有所谓的“完整”。
 4. 我们很少解释事情，因此得不到足够的练习和反馈来理解自己的不足。
 
-
-## 【30】20260720 - 20260726
-
-本周偷懒了(T_T)
-
-## 【29】20260713 - 20260719
-
-本周偷懒了(T_T)
-
-## 【28】20260706 - 20260712
+## Vol.96 / 2026.07.12
 
 #### [拧巴](https://blog.solazy.me/20260710/)
 
@@ -132,7 +117,7 @@ The illusion of explanatory depth happens for four reasons:
 
 我不要求自己永远正确，也不要求每个选择都干净利落。我只希望下一次说「无所谓」之前，先确认自己真的能够接受任何结果。如果不能，那就把想要的东西说出来。
 
-## 【27】20260629 - 20260705
+## Vol.95 / 2026.07.05
 
 #### [why i stopped arguing with people](https://wangcong.org/2026-06-30-why-i-stopped-arguing-with-people.html)
 
@@ -154,7 +139,7 @@ In this world, there is no one you can change. Not your spouses, not your friend
 Stay humble. Keep asking.
 >保持谦逊，持续发问。
 
-## 【26】20260622 - 20260628
+## Vol.94 / 2026.06.28
 
 #### [别把道德当武器](https://blog.solazy.me/20260627/)
 
@@ -168,7 +153,7 @@ Stay humble. Keep asking.
 
 在这个信息繁杂、情绪一点就着的时代，保护好自己的注意力和情绪配额，比什么都重要。把道德留给自己当盾牌，把评判别人的权力还给这个社会。别人逆行，有交警和意外去教育他；别人插队，有比他更横的人去治他；别人在专业上装傻，自然会有现实的毒打去等他。
 
-## 【25】20260615 - 20260621
+## Vol.93 / 2026.06.21
 
 #### [职场中的「可预期性」](https://blog.solazy.me/20260615/)
 
@@ -186,7 +171,7 @@ Stay humble. Keep asking.
 
 戒掉那种「等我完全想好了再动笔」或者「等我把所有 Bug 改完了再同步」的坏习惯。在完成度 50% 的时候把初稿丢给协作者，并附上一句「这是粗稿，框架已定，细节待补」，比在 99% 的时候丢过去一个对方根本来不及反馈的「完美成品」，要高效得多。
 
-## 【24】20260608 - 20260614
+## Vol.92 / 2026.06.14
 
 #### [睡眠是第二天的预算](https://blog.solazy.me/20260610/)
 
@@ -204,7 +189,7 @@ Stay humble. Keep asking.
 
 我不去计算今天还有多少事情没做完，也不去纠结今天过得是不是不够完美。时间到了，就把灯关掉。那些没写完的方案、没回完的信息，就让它们留在那里。因为我非常清楚，带着疲惫的脑子强行去写，只会产出一堆垃圾，最后还要花更多的时间去重构。
 
-## 【23】20260601 - 20260607
+## Vol.91 / 2026.06.07
 
 #### [three ways to get paid](https://jasonzweig.com/three-ways-to-get-paid/)
 
@@ -216,11 +201,11 @@ Stay humble. Keep asking.
 > 2）对那些想知道真相的人说实话，你就能谋生。
 > 3）对那些想被欺骗的人说实话，你会破产。
 
-## 【22】20260525 - 20260530
+## Vol.90 / 2026.05.30
 
 没找到！
 
-## 【21】20260518 - 20260524
+## Vol.89 / 2026.05.24
 
 #### [why facts don't change minds](https://jamesclear.com/why-facts-dont-change-minds)
 
@@ -260,7 +245,7 @@ Most people argue to win, not to learn. As Julia Galef so aptly puts it: people 
 
 >大多数人争论是为了赢，而不是为了学习。正如朱莉娅·加莱夫恰如其分地说的：人们往往表现得像士兵而非侦察兵。士兵们在智力上发起攻击，试图击败与他们不同的人。胜利是关键的情感。而侦察兵则像智力探险者，慢慢地与他人一起绘制地形图。好奇心是驱动力。
 
-## 【20】20260511 - 20260517
+## Vol.88 / 2026.05.17
 
 #### [我对你无能的细节没兴趣](https://blog.solazy.me/20260512/)
 
@@ -272,7 +257,7 @@ Most people argue to win, not to learn. As Julia Galef so aptly puts it: people 
 
 把过程留给自己消化，把成效交给别人评判。这不仅仅是一种职业素养，更是一种对自己专业能力的起码尊重。如果你习惯了用「我做了多少」去抵消「我做成了什么」，那么这种职业路径大概率会越走越窄。
 
-## 【19】20260504 - 20260510
+## Vol.87 / 2026.05.10
 
 #### [误会是表达者的宿命](https://blog.solazy.me/20260507/)
 
@@ -294,11 +279,11 @@ Most people argue to win, not to learn. As Julia Galef so aptly puts it: people 
 
 那些无法避免的误解，本质上是表达过程中必须支付的成本。既然误解是表达者的宿命，那么与其在战战兢兢中保持沉默，不如接受这种不确定性。理解了这一点，我们反而能获得一种表达的自由：**我只管真诚地讲述，至于如何被解读，那是属于听众的自由。**
 
-## 【18】20260427 - 20260503
+## Vol.86 / 2026.05.03
 
 出去玩了！
 
-## 【17】20260420 - 20260426
+## Vol.85 / 2026.04.26
 
 #### [expansion artifacts](https://mattstromawn.com/writing/expansion-artifacts/)
 
@@ -329,7 +314,7 @@ This kind of Gell-Mann Amnesia for expansion artifacts leads to runaway feedback
 Compression made the information age possible by stripping things down to fit the pipes. Expansion made the AI age possible by blowing data back up again. Both operations leave marks; we’ve learned to spot compression artifacts, but we’ve only just begun to reckon with expansion artifacts. Until we do, there’s a lot of risk to manage.  
 >压缩通过简化内容以适应管道，使信息时代成为可能。扩展通过重新爆破数据，使人工智能时代成为可能。这两种操作都会留下痕迹; 我们学会了识别压缩伪影，但我们才刚刚开始面对扩展伪影。在我们发现之前，风险很大。
 
-## 【16】20260413 - 20260419
+## Vol.84 / 2026.04.19
 
 #### [brainrot industrial complex](https://jshamsul.com/essays/2026-04-12-brainrot-industrial-complex)
 
@@ -351,7 +336,7 @@ Understand that you are not bored, you are being processed. It is not that you a
 _Stay glitched, stay human._  
 > 保持漏洞，保持人性.。
 
-## 【15】20260406 - 20260412
+## Vol.83 / 2026.04.12
 
 #### [The machines are fine. I'm worried about us.](https://ergosphere.blog/posts/the-machines-are-fine/)
 
@@ -385,7 +370,7 @@ We have centuries of accumulated pedagogical wisdom telling us that the attempt,
 
 >我们积累了数百年的教学智慧，告诉我们，尝试，包括失败的尝试，才是学习的所在。
 
-## 【14】20260330 - 20260405
+## Vol.82 / 2026.04.05
 
 #### [dont let ai write for you](https://alexhwoods.com/dont-let-ai-write-for-you/)
 
@@ -399,7 +384,7 @@ The second order goal of writing is to become more capable. It is like working o
 
 >写作的第二级目标是提升能力。这就像锻炼一样。每次你在自己能做的边界上做一次，你就会变得更强壮。这既不舒服又费力。
 
-## 【13】20260323 - 20260329
+## Vol.81 / 2026.03.29
 
 #### [如何获得内心的安宁](https://www.geedea.pro/library/2026/how-to-find-peace/)
 
@@ -413,11 +398,7 @@ The second order goal of writing is to become more capable. It is like working o
 
 塞涅卡在《如何阅读？》中写到，**阅读不应该走马观花，要忠诚地阅读一位作者，参透他的思想。
 
-## 【12】20260316 - 20260322
-
-💁本周偷懒了！
-
-## 【11】20260309 - 20260315
+## Vol.79 / 2026.03.15
 
 #### [把无期变成有期](https://www.bmpi.dev/self/my-retirement-plan/)
 
@@ -435,7 +416,7 @@ The second order goal of writing is to become more capable. It is like working o
 
 > **退休不是由年龄决定的，更不是国家规定的 60 岁或 65 岁才能领取的通关文牒。** 退休是一种独立的财务状态，完全可以不依赖任何组织。
 
-## 【10】20260302 - 20260308
+## Vol.78 / 2026.03.08
 
 #### [Hoard things you know how to do](https://simonwillison.net/guides/agentic-engineering-patterns/hoard-things-you-know-how-to-do/)
 
@@ -463,7 +444,7 @@ The key idea here is that coding agents mean we only ever need to figure out a u
 
 > 关键思想是编码代理意味着我们只需要弄出 _一次_ 有用的技巧。如果这个技巧在某处有文档并附有可行的代码示例，我们的代理可以参考该示例，并用它来解决未来类似的项目。
 
-## 【09】20260223 - 20260301
+## Vol.77 / 2026.03.01
 
 #### [不必用自己的认知替人规划](https://blog.solazy.me/20260224/)
 
@@ -473,11 +454,11 @@ The key idea here is that coding agents mean we only ever need to figure out a u
 
 作为朋友，在对方抱怨时提供一点情绪价值或者倾听就已经足够；而作为管理者，把宝贵的资源和机会留给真正懂得它的价值、并且有强烈自我驱动力的人，才是对团队和自己最负责任的做法。认清自己的边界，尊重他人的命运，大概是我们走向成熟必须接受的一点。
 
-## 【07 08】20260209 - 20260222
+## Vol.76 / 2026.02.22
 
 春节放假啦！
 
-## 【06】20260202 - 20260208
+## Vol.75 / 2026.02.08
 
 #### [your job isnt disappearing its shrinking](https://newsletter.jantegze.com/p/your-job-isnt-disappearing-its-shrinking)
 
@@ -514,7 +495,7 @@ You have to save yourself. And the way you do that is by stopping trying to defe
 Monday morning will keep coming. The question is whether you’re still wondering what you’re supposed to be good at, or whether you’ve already built the answer.  
 >周一早晨还会继续。问题是你是否还在想自己应该擅长什么，还是已经找到了答案。
 
-## 【05】20260126 - 20260201
+## Vol.74 / 2026.02.01
 
 #### [they lied to you building software is really hard](https://blog.nordcraft.com/they-lied-to-you-building-software-is-really-hard)
 
@@ -536,7 +517,7 @@ Invest in yourself. 
 Your skills and experience as a developer have value. The harder it is to acquire a set of skills the more valuable they tend to be. Even though some of the things you will pick up along the way will become outdated, the experience you gained while using them will stay with you. Each language or technology you use makes the next one a little easier to learn.  
 >你作为开发者的技能和经验是有价值的。一套技能越难掌握，它们通常就越有价值。即使你在过程中学到的一些东西会变得过时，但你通过使用它们获得的经验会一直伴随你。你使用的每种语言或技术都会让下一种语言更容易学习。
 
-## 【04】2026019 - 20260125
+## Vol.73 / 2026.01.25
 
 #### [终其一生，我们都在与自己的惰性对抗](https://blog.solazy.me/20260122/)
 
@@ -562,15 +543,15 @@ Your skills and experience as a developer have value. The harder it is to acquir
 
 但即便如此，我们也不能因此就心安理得地投向惰性的怀抱。如果没有天赋，也不愿勤奋，彻底让惰性战胜了自己，那么任何正向的结果基本上也就彻底没戏了。所以，即便明知道勤奋可能无功而返，我依然选择在第二天补上昨天的债，继续在这条日更的路上和自己死磕。
 
-## 【03】20260112 - 20260118
+## Vol.72 / 2026.01.18
 
 。。。。
 
-## 【02】20260105 - 20260111
+## Vol.71 / 2026.01.11
 
 没有文章。。。
 
-## 【01】20251228 - 20260104
+## Vol.70 / 2026.01.04
 
 #### [how social media shortens your life](https://www.gurwinder.blog/p/how-social-media-shortens-your-life)
 

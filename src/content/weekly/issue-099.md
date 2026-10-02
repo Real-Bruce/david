@@ -1,12 +1,13 @@
 ---
-title: 第 099 期
-description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
+title: "the illusion of explanatory depth"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 4 个、网站工具 4 个、资料博文 2 篇。
 issue: 99
-pubDate: 2026/08/02
+pubDate: 2026-08-02
 tags:
   - 周刊
 draft: false
 ---
+
 ## 📜有价值的文章
 
 #### [the illusion of explanatory depth](https://thedecisionlab.com/biases/the-illusion-of-explanatory-depth)
@@ -97,4 +98,3 @@ JS 的 Markdown 引擎，使用 Rust 语言开发，可以快速把 Markdown 语
 #### [How Anthropic runs large-scale code migrations with Claude Code](https://claude.com/blog/ai-code-migration)
 
 Anthropic 官方发布的博客，讲团队怎样借助 Claude 将 Bun 项目从 Zig 代码升级为 Rust 的过程，对需要借助 AI 做老旧项目升级迁移来说很有参考价值。
-
