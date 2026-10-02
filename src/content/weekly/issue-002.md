@@ -1,5 +1,5 @@
 ---
-title: 第 002 期：设计灵感和阅读
+title: 设计灵感和阅读
 description: 一些关于排版、配色和写作体验的网站。
 issue: 2
 pubDate: 2026-09-27

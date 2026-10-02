@@ -1,10 +1,8 @@
 ---
-title: 第 100 期：2026/08/03 - 2026/08/09
-description: 收集整理每周看到的好玩有趣的内容，包含技术文章、资料博客，开源项目和网站工具
+title: Blog about things you don't understand yet
+description: 写作是清晰思考一个话题的最佳方式。
 issue: 100
-digest:
-  title: 从不懂的事开始写作，逛一座三维大教堂
-pubDate: 2026-08-03
+pubDate: 2026-08-09
 tags:
   - 周刊
 draft: false
