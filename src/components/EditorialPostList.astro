@@ -46,7 +46,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
               <h3>{post.title}</h3>
               <p>{post.description}</p>
             </a>
-            <a class="editorial-entry-arrow" href={post.href} aria-label={`阅读全文：${post.title}`}>↗</a>
+            <!--<a class="editorial-entry-arrow" href={post.href} aria-label={`阅读全文：${post.title}`}>↗</a>-->
             {post.tags.length > 0 && (
               <div class="editorial-entry-tags" aria-label="文章标签">
                 {post.tags.map(tag => <a href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}

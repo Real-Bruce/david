@@ -23,7 +23,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
     </header>
 
     <nav class="weekly-categories" aria-label="周刊推荐分类">
-      <span class="weekly-categories-label">分类浏览</span>
+      <!--<span class="weekly-categories-label">分类浏览</span>-->
       <div class="weekly-category-links">
         {archiveSummaries.map(summary => (
           <a href={withBase(`/weekly/archives/${summary.id}/`)}>
@@ -35,9 +35,9 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
 
     {posts.length > 0 ? (
       <section class="weekly-list" aria-labelledby="weekly-list-title">
-        <div class="weekly-list-head">
-          <h2 id="weekly-list-title">全部期数</h2>
-        </div>
+        <!--<div class="weekly-list-head">-->
+        <!--  <h2 id="weekly-list-title">全部期数</h2>-->
+        <!--</div>-->
         <ol class="weekly-entries">
           {posts.map(post => (
             <li>
@@ -47,7 +47,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
                   <time datetime={post.data.pubDate.toISOString()}>{dateText(post.data.pubDate)}</time>
                 </div>
                 <h3>{getWeeklyDigest(post).title}</h3>
-                <span class="weekly-entry-arrow" aria-hidden="true">↗</span>
+                <!--<span class="weekly-entry-arrow" aria-hidden="true">↗</span>-->
               </a>
             </li>
           ))}

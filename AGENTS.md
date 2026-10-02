@@ -1,21 +1,20 @@
 # AGENTS.md
 
-本文件面向后续维护者、协作者和自动化代理，用于说明当前项目的结构、约定和修改方式。
+本文件说明当前 Astro 博客的实际结构、页面行为和修改约定，供后续维护者与自动化代理使用。调整项目后，如实现与本文不一致，应同步更新本文。
 
-## 项目定位
+## 项目概况
 
-这是一个 Astro 静态博客，内容使用 Markdown 管理，构建产物为纯静态 HTML。当前站点默认中文，不做多语言路由。
+这是一个以 Markdown 管理内容、通过 Astro 构建为静态站点的中文个人博客。站点部署在 GitHub Pages 的 `/david/` 子路径下；没有多语言路由，也不使用客户端框架。
 
-## 技术栈
+技术栈：
 
-- **框架**：Astro 7
-- **内容**：Astro Content Collections
-- **搜索**：Pagefind
-- **字体**：霞鹜文楷 LXGW WenKai（全站统一），来自 `lxgw-wenkai-webfont` npm 包
-- **样式**：原生 CSS，集中在 `src/styles/global.css`
-- **部署**：GitHub Pages（GitHub Actions 自动构建）
+- Astro 7 与 Astro Content Collections
+- 原生 CSS，集中维护于 `src/styles/global.css`
+- Pagefind，随 `npm run build` 为静态站点生成搜索索引
+- LXGW WenKai（霞鹜文楷），由 `lxgw-wenkai-webfont` 提供
+- GitHub Actions 部署到 GitHub Pages
 
-不要在未明确要求时引入 React、Vue、Tailwind 或其他大型前端方案。
+未获明确要求时，不引入 React、Vue、Tailwind 或其他大型前端框架。
 
 ## 常用命令
 
@@ -24,288 +23,128 @@ npm install
 npm run dev
 npm run build
 npm run preview
+node --test tests/weekly.test.ts
 ```
 
-周刊导读逻辑的测试：`node --experimental-strip-types --test tests/weekly.test.ts`。
-
-修改代码或内容后，应至少执行：
-
-```bash
-npm run build
-```
-
-确认构建通过后再提交。
+工作流使用 Node.js 22。改动 Astro 源码、样式或内容后，提交前至少运行 `npm run build`；修改周刊导读逻辑时也运行对应测试。构建会生成 `dist/` 和 Pagefind 索引，不要手动编辑或提交生成产物。
 
 ## 目录职责
 
 ```text
-src/content.config.ts   # 内容集合和 schema
-src/site.config.ts      # 站点身份、联系方式
-src/layouts/            # 全局布局
-src/components/         # 可复用组件
-src/pages/              # 路由
-src/lib/posts.ts        # 内容排序、分组、路径工具
-src/styles/global.css   # 全局样式和设计变量
-src/content/            # Markdown 内容
+src/content.config.ts       # 内容集合与 front matter schema
+src/site.config.ts          # 站点名称、作者、简介与联系方式
+src/layouts/BaseLayout.astro # 全局 HTML、SEO、字体、导航与返回顶部按钮
+src/components/             # 页面复用组件
+src/pages/                  # 页面与动态路由
+src/lib/base.ts             # GitHub Pages 子路径链接辅助函数
+src/lib/posts.ts            # 已发布内容汇总、类型与链接工具
+src/lib/weekly.ts           # 周刊导读与正文推荐解析
+src/lib/weekly-archives.ts  # 周刊分类入口标题、顺序与数量
+src/styles/global.css       # 设计变量及全站样式
+src/content/                # 周刊、博客、随笔及周刊分类 Markdown
+public/                     # favicon、robots.txt 等静态资源
+tests/                      # Node.js 原生测试
+.github/workflows/          # GitHub Pages 构建与部署流程
 ```
 
-不要修改：
+不要直接修改构建输出或依赖目录：`dist/`、`.astro/`、`node_modules/`。
 
-- `dist/`
-- `.astro/`
-- `node_modules/`
+## 路由与页面行为
 
-## 当前页面约定
+- `/`：站点介绍、按期数倒序展示的前 5 篇已发布周刊，以及博客、随笔、归档入口；不突出单独一篇。
+- `/weekly/`：分类入口在上、全部周刊目录在下，按期数倒序排列。
+- `/weekly/[slug]/`：周刊正文；若 front matter 提供结构化 `links`，正文后显示“本期推荐”。
+- `/weekly/archives/[category]/`：渲染 `src/content/weekly/archives/` 中对应 Markdown 的完整内容。
+- `/blog/`：博客目录，按发布时间倒序，显示标题、摘要与标签。
+- `/blog/[slug]/`：博客长文详情，包含目录、阅读进度、阅读时长与标签（目录在有多个二级/三级标题时出现）。
+- `/notes/`：随笔目录，按发布时间倒序；可显示心情与地点。
+- `/notes/[slug]/`：随笔详情显示地点和标签，不显示心情。
+- `/archive/`：汇总周刊、博客和随笔，按年份、月份倒序分组，并集成 Pagefind 搜索。
+- `/tags/[tag]/`：展示带对应标签的已发布内容。
+- `/about/`：关于页面，使用标题与无序列表组织内容。
+- `/rss.xml`：RSS；`/sitemap-index.xml` 由 Astro sitemap 集成生成。
 
-- `/` 首页只展示最新周刊，并提供博客、随笔、归档入口。
-- `/weekly/` 周刊列表，依次展示轻量分类入口和按期数倒序排列的完整目录，不单独突出最新一期。
-- `/weekly/archives/xxx/` 周刊推荐分类详情，渲染 `src/content/weekly/archives/` 对应 Markdown 全文。
-- `/blog/` 博客列表，开放式编辑排版，按发布时间倒序展示全部长文、摘要和标签。
-- `/notes/` 随笔列表，开放式编辑排版，按发布时间倒序展示全部随笔及心情、地点信息。
-- `/archive/` 归档页，按「年份 → 月份」分组，并集成站内搜索。
-- `/tags/xxx/` 标签页，目录式条目列表。
-- `/about/` 关于页，采用「标题 + 无序列表」结构。
-- 站点没有独立搜索页，搜索能力集中在归档页。
-- 站点底部没有页脚。
+没有独立搜索页，也没有站点页脚。不要改变现有路由结构，除非用户明确要求。
 
-## 主要组件
+## 主要组件与工具
 
-| 组件 | 作用 |
+| 文件 | 职责 |
 | --- | --- |
-| `BaseLayout.astro` | 全局布局、SEO、字体、返回顶部按钮 |
-| `SiteHeader.astro` | 半浮动顶部导航 |
-| `PostCard.astro` | 目录式条目行，用于博客、随笔、标签与归档页 |
-| `EditorialPostList.astro` | 博客与随笔列表（按时间倒序的目录式条目） |
-| `TOC.astro` | 博客长文侧栏目录 |
-| `ReadingProgress.astro` | 阅读进度条 |
-| `ArchiveSearch.astro` | 归档页搜索 |
-| `BackToTop.astro` | 返回顶部按钮 |
+| `BaseLayout.astro` | 全局布局、SEO 元信息、字体预加载、导航与返回顶部按钮 |
+| `SiteHeader.astro` | 桌面与移动端主导航、归档和关于入口 |
+| `EditorialPostList.astro` | 博客、随笔、归档共用的开放式目录条目 |
+| `PostCard.astro` | 标签页条目 |
+| `TOC.astro` | 博客文章目录 |
+| `ReadingProgress.astro` | 博客与周刊详情页阅读进度 |
+| `ArchiveSearch.astro` | 归档页 Pagefind 搜索交互 |
+| `BackToTop.astro` | 返回顶部交互 |
 | `Icon.astro` | 通用 SVG 图标 |
-
-注意：
-
-- 全站不使用封面图，卡片和条目均为纯排版设计。
-- 首页以文字介绍、最新周刊目录和内容入口构成；周刊列表目录位于 `src/pages/weekly/index.astro`；博客与随笔列表使用 `EditorialPostList.astro`；标签与归档继续使用 `PostCard.astro`。
+| `src/lib/posts.ts` | 汇总已发布内容并生成内容路径 |
+| `src/lib/weekly.ts` | 生成周刊目录导读、解析推荐链接 |
+| `src/lib/weekly-archives.ts` | 生成周刊分类入口数据 |
 
 ## 内容约定
 
-内容集合在 `src/content.config.ts` 中定义：
+内容集合在 `src/content.config.ts` 定义：`weekly`、`blog`、`notes` 和 `weeklyArchives`。新增文章放入对应目录，按 schema 填写 front matter；无需手动维护列表。`draft: true` 的文章不会进入公开页面。
 
-- `weekly`
-- `weeklyArchives`（分类推荐 Markdown，路径为 `src/content/weekly/archives/*.md`）
-- `blog`
-- `notes`
+周刊、博客和随笔共用字段：
 
-除 `weeklyArchives` 外，文章集合的公共字段：
-
-```md
-title
-description
-pubDate
-tags
-draft
+```yaml
+title: 标题
+description: 一句话摘要
+pubDate: 2026-09-30
+tags: []
+draft: false
 ```
 
-周刊额外字段：
+集合专属字段：
 
-```md
-issue
-links
-digest # 可选，含 title 和最多两条 highlights，仅用于周刊列表
-```
+- 周刊：`issue`；`links`（可选推荐链接数组，含 `title`、合法 `url`，可选 `note`）；`digest`（可选，包含 `title` 和最多两条 `highlights`）。列表使用 `digest.title`；未提供 `digest` 时，`src/lib/weekly.ts` 从正文推荐标题生成导读，若无推荐则回退到 `description`。目前 `highlights` 字段不在页面中展示。
+- 博客：可选 `series`。
+- 随笔：可选 `mood`、`location`；心情仅出现在随笔列表，地点可出现在列表和详情。
+- `weeklyArchives`：`src/content/weekly/archives/*.md` 中的分类整合 Markdown，不使用文章 front matter。
 
-博客额外字段：
+`tags` 默认为空数组，`draft` 默认为 `false`。修改 schema 或新增集合时，检查并同步更新 `src/lib/posts.ts`、相关页面和测试。
 
-```md
-series
-```
+增加周刊分类时，同时添加分类 Markdown，并更新 `src/lib/weekly-archives.ts` 中的标题与排序。分类条目数由 Markdown 中的推荐链接自动统计。
 
-随笔额外字段：
+## 视觉与样式约定
 
-```md
-mood
-location
-```
+全站样式与设计变量集中在 `src/styles/global.css`，优先复用现有变量和组件样式，避免新增一次性、分散的 CSS。
 
-新增内容时：
+- 不使用封面卡片；以文字、摘要、元信息和开放式目录排版为主。
+- 周刊、博客、随笔列表保持一致的目录节奏，最新内容自然排在前面；使用各自的内容强调色（周刊暖橙、博客墨绿、随笔灰紫），避免蓝色强调色。
+- 首页保持简洁：介绍区、最近周刊目录、少量内容入口，并留出明确的区块间距。
+- 顶部导航为半浮动、非吸顶样式，带柔和阴影。
+- 页面隐藏滚动条时必须保留正常滚动能力。
+- 返回顶部按钮在向下滚动后出现，位于页面右侧约 `75vh`。
+- 归档维持「年份 → 月份」分组。
 
-1. 放入对应集合目录。
-2. 按现有 front matter 结构填写字段。
-3. 不需要手动维护索引或列表。
-4. `draft: true` 的内容不会发布。
+修改导航、列表、文章详情、归档或返回顶部样式时，先检查相应组件与 `global.css`，维持桌面端和移动端布局一致。
 
-分类整合直接更新 `src/content/weekly/archives/` 下的 Markdown；该集合不使用文章 front matter，新增分类时同步更新 `src/lib/weekly-archives.ts` 的标题和顺序。
+## 常见修改位置
 
-周刊可通过 `digest.title` 为目录条目编写一句导读；未填写时，从正文前两条推荐生成标题，无推荐时使用 `description`。`digest.highlights` 保留为可选内容数据，不在列表页单独突出显示，也不改变文章正文或周刊目录样式。
+- 站点身份、作者和联系方式：`src/site.config.ts`
+- 内容 schema：`src/content.config.ts`
+- 首页：`src/pages/index.astro`
+- 周刊列表与详情：`src/pages/weekly/index.astro`、`src/pages/weekly/[slug].astro`
+- 博客、随笔列表与详情：各自 `src/pages/blog/`、`src/pages/notes/`
+- 归档分组：`src/pages/archive.astro`
+- 归档搜索：`src/components/ArchiveSearch.astro`
+- 标签列表：`src/pages/tags/[tag].astro`
+- 全局视觉：`src/styles/global.css`
+- 周刊摘要解析与测试：`src/lib/weekly.ts`、`tests/weekly.test.ts`
+- 周刊分类入口：`src/lib/weekly-archives.ts` 与 `src/content/weekly/archives/`
 
-## 样式约定
+站内以绝对路径书写的链接统一通过 `src/lib/base.ts` 的 `withBase()` 生成，确保 `/david/` 子路径部署正常。Pagefind 的运行时导入路径应使用 `import.meta.env.BASE_URL`，不要写死站点路径。
 
-样式集中在：
+## Git 与部署
 
-```text
-src/styles/global.css
-```
-
-设计变量位于文件顶部的 `:root` 中，包括：
-
-- 背景
-- 文字
-- 卡片
-- 边框
-- 主色
-- 三种内容类型色（周刊暖橙 / 博客墨绿 / 随笔灰紫）
-- 圆角
-- 最大宽度
-- 字体
-
-修改视觉时应遵循以下原则：
-
-- 优先使用现有 CSS 变量。
-- 保持导航、按钮和排版的统一性。
-- 避免新增大量分散的局部样式。
-- 避免使用蓝色强调色。
-- 首页以简洁的最新周刊目录和快捷入口为主；周刊、博客与随笔列表采用一致的开放式目录排版，按时间或期数倒序排列，不额外突出单篇内容；博客使用墨绿强调，随笔使用灰紫强调。
-- 顶部保持半浮动、非吸顶、底部带柔和阴影。
-- 页面滚动条保持隐藏，但不要破坏滚动能力。
-- 返回顶部按钮位于右侧约 `75vh`，向下滚动后显示。
-- 归档页保持「年 → 月」分组。
-
-## 常见修改
-
-### 修改站点名称、作者
-
-编辑：
-
-```text
-src/site.config.ts
-```
-
-### 修改内容结构
-
-编辑：
-
-```text
-src/content.config.ts
-```
-
-如果新增集合，还需要同步更新：
-
-```text
-src/lib/posts.ts
-```
-
-### 修改全局视觉
-
-编辑：
-
-```text
-src/styles/global.css
-```
-
-优先调整 CSS 变量或现有组件样式，不要为一次性需求创建冗余样式。
-
-### 修改顶部导航
-
-编辑：
-
-```text
-src/components/SiteHeader.astro
-```
-
-当前顶部不显示站点描述，不使用分割线，整体是半浮动效果。
-
-### 修改列表样式
-
-编辑：
-
-```text
-src/components/PostCard.astro
-src/pages/weekly/index.astro
-src/styles/global.css
-```
-
-标签与归档继续使用 `PostCard.astro` 条目结构；博客与随笔列表共享 `EditorialPostList.astro`；首页周刊与周刊列表由 `src/pages/weekly/index.astro` 和 `src/lib/weekly.ts` 管理，分类入口数据位于 `src/lib/weekly-archives.ts`。
-
-### 修改归档分组
-
-编辑：
-
-```text
-src/pages/archive.astro
-```
-
-当前按年份和月份倒序分组。
-
-### 修改搜索
-
-编辑：
-
-```text
-src/components/ArchiveSearch.astro
-```
-
-搜索应保留在归档页，不要恢复独立搜索页。
-
-### 修改返回顶部按钮
-
-编辑：
-
-```text
-src/components/BackToTop.astro
-src/styles/global.css
-```
-
-当前按钮在向下滚动后出现，位置约为页面右侧 `75vh`。
-
-## Git 约定
-
-- 修改后先清理无用代码、无效样式和未使用文件。
-- 清理后运行 `npm run build`。
-- 构建通过后再提交。
-- 提交信息使用简洁英文祈使句。
+- 保持修改聚焦；清理无效样式和未使用代码时，先确认没有模板或脚本引用。
+- 源码或内容变更后运行 `npm run build`；周刊导读逻辑变更后运行 `node --test tests/weekly.test.ts`。
+- 提交信息使用简洁英文祈使句；仅在用户要求或任务明确包含提交时提交。
 - 不要提交 `dist/`、`.astro/` 或 `node_modules/`。
-- 保持每次提交聚焦一个主题。
 
-## 部署约定
+GitHub Pages 部署配置位于 `.github/workflows/deploy.yml`，使用 Node.js 22、`npm install` 和 `npm run build`，发布目录为 `dist/`。`astro.config.mjs` 的 `base: '/david'` 必须与部署仓库路径保持一致。
 
-部署配置位于：
-
-```text
-.github/workflows/deploy.yml
-```
-
-构建命令：
-
-```bash
-npm run build
-```
-
-输出目录：
-
-```text
-dist
-```
-
-站点部署在 GitHub Pages 子路径 `https://real-bruce.github.io/david/`：
-
-- `astro.config.mjs` 中 `base: '/david'` 与仓库路径对应
-- 站内链接统一通过 `src/lib/base.ts` 的 `withBase()` 添加前缀，新增链接时必须使用
-- 归档搜索的 pagefind 导入路径按 `import.meta.env.BASE_URL` 拼接，勿写死
-
-如需切换自定义域名，同步修改以下三个文件：
-
-```text
-astro.config.mjs
-public/robots.txt
-src/site.config.ts
-```
-
-## 维护提醒
-
-- 当前部署地址是 `https://real-bruce.github.io/david/`，仓库 `Real-Bruce/david` 与路由 `/weekly/` 不同名，URL 无双前缀问题。
-- 周刊已包含 `issue-070` 到 `issue-104`，以及两篇示例内容。
-- `links`（本期推荐）目前只有示例内容使用，真实期数未填写。
-- 站点默认中文，不做 i18n。
-- 不要新增页脚。
-- 不要把搜索拆回独立页面。
-- 不要改变现有路由结构，除非用户明确要求。
+如果更换正式域名，核对并同步更新 `astro.config.mjs`、`public/robots.txt` 和 `src/site.config.ts`。

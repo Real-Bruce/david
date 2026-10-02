@@ -84,5 +84,73 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? siteConfig.url);
     <SiteHeader />
     <slot />
     <BackToTop />
+    <script is:inline>
+      (() => {
+        const linkSelector = ".weekly-entry, .editorial-entry-content, .entry-link, .search-result a";
+        const cardSelector = ".weekly-entry, .editorial-entry, .entry, .search-result";
+        const storageKey = "blog:last-navigated-card";
+        let suppressedCard = document.querySelector("[data-return-suppressed]");
+
+        const suppressCard = (card) => {
+          if (!card) return;
+          card.setAttribute("data-return-suppressed", "");
+          suppressedCard = card;
+        };
+        const cardForLink = (link) => link.closest(cardSelector) || link;
+        const restoreSuppressedCard = () => {
+          try {
+            const saved = JSON.parse(sessionStorage.getItem(storageKey) || "null");
+            if (saved?.from !== location.href) return;
+            sessionStorage.removeItem(storageKey);
+            const link = Array.from(document.querySelectorAll(linkSelector))
+              .find((item) => item.href === saved.href);
+            suppressCard(link && cardForLink(link));
+          } catch {}
+        };
+        const releaseSuppressionIfOutside = (target) => {
+          if (!suppressedCard || (target instanceof Node && suppressedCard.contains(target))) return;
+          suppressedCard.removeAttribute("data-return-suppressed");
+          suppressedCard = null;
+        };
+
+        restoreSuppressedCard();
+
+        document.addEventListener("pointermove", (event) => {
+          releaseSuppressionIfOutside(event.target);
+        }, { passive: true });
+        document.addEventListener("pointerdown", (event) => {
+          releaseSuppressionIfOutside(event.target);
+        }, { passive: true });
+        document.addEventListener("focusin", (event) => {
+          if (!suppressedCard || !(event.target instanceof Element) || !event.target.matches(":focus-visible")) return;
+          suppressedCard.removeAttribute("data-return-suppressed");
+          suppressedCard = null;
+        });
+
+        document.addEventListener("click", (event) => {
+          const target = event.target;
+          if (
+            !(target instanceof Element) ||
+            event.button !== 0 ||
+            event.metaKey || event.ctrlKey || event.shiftKey || event.altKey
+          ) return;
+
+          const link = target.closest(linkSelector);
+          const targetName = link?.getAttribute("target");
+          if (!link || (targetName && targetName.toLowerCase() !== "_self")) return;
+
+          suppressCard(cardForLink(link));
+          try {
+            sessionStorage.setItem(storageKey, JSON.stringify({ from: location.href, href: link.href }));
+          } catch {}
+        }, true);
+
+        window.addEventListener("pagehide", () => {
+          if (suppressedCard?.contains(document.activeElement)) {
+            document.activeElement.blur?.();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

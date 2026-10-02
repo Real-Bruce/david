@@ -32,7 +32,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
                 <time datetime={post.data.pubDate.toISOString()}>{dateText(post.data.pubDate)}</time>
               </div>
               <h3>{digest.title}</h3>
-              <span class="weekly-entry-arrow" aria-hidden="true">↗</span>
+              <!--<span class="weekly-entry-arrow" aria-hidden="true">↗</span>-->
             </a>
           </li>
         ))}
