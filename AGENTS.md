@@ -42,6 +42,7 @@ src/lib/weekly.ts           # 周刊导读与正文推荐解析
 src/lib/weekly-archives.ts  # 周刊分类入口标题、顺序与数量
 src/styles/global.css       # 设计变量及全站样式
 src/content/                # 周刊、博客、随笔及周刊分类 Markdown
+template/                   # 周刊、博客、随笔的 Markdown 写作模板，不参与页面渲染
 public/                     # favicon、robots.txt 等静态资源
 tests/                      # Node.js 原生测试
 .github/workflows/          # GitHub Pages 构建与部署流程
@@ -53,7 +54,7 @@ tests/                      # Node.js 原生测试
 
 - `/`：站点介绍、按期数倒序展示的前 5 篇已发布周刊，以及博客、随笔、归档入口；不突出单独一篇。
 - `/weekly/`：分类入口在上、全部周刊目录在下，按期数倒序排列。
-- `/weekly/[slug]/`：周刊正文；若 front matter 提供结构化 `links`，正文后显示“本期推荐”。
+- `/weekly/[slug]/`：周刊正文；头部呈现标题、描述、期数（Vol.xxx）、发布日期与标签，与博客详情一致，为纯排版呈现，不使用卡片背景；若 front matter 提供结构化 `links`，正文后显示“本期推荐”。
 - `/weekly/archives/[category]/`：渲染 `src/content/weekly/archives/` 中对应 Markdown 的完整内容。
 - `/blog/`：博客目录，按发布时间倒序，显示标题、摘要与标签。
 - `/blog/[slug]/`：博客长文详情，包含目录、阅读进度、阅读时长与标签（目录在有多个二级/三级标题时出现）。
@@ -107,6 +108,8 @@ draft: false
 `tags` 默认为空数组，`draft` 默认为 `false`。修改 schema 或新增集合时，检查并同步更新 `src/lib/posts.ts`、相关页面和测试。
 
 增加周刊分类时，同时添加分类 Markdown，并更新 `src/lib/weekly-archives.ts` 中的标题与排序。分类条目数由 Markdown 中的推荐链接自动统计。
+
+`template/` 目录维护周刊、博客、随笔的 Markdown 写作模板；模板位于集合扫描范围之外，不会被内容集合加载或渲染。新建文章时复制对应模板到集合目录并填写 front matter。
 
 ## 视觉与样式约定
 
