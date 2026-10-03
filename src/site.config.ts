@@ -9,7 +9,7 @@ export const siteConfig = {
   locale: 'zh-CN',
   url: 'https://real-bruce.github.io/david',
   social: {
-    github: 'https://github.com/',
+    github: 'https://github.com/Real-Bruce',
     email: 'mailto:davidbruce1379@gmail.com'
   },
 };
