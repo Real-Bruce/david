@@ -1,0 +1,49 @@
+---
+title: "Advertising is a cancer on society"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 2 篇、开源项目 2 个、网站工具 2 个、资料博文 2 篇。
+issue: 33
+pubDate: 2025-02-16
+tags:
+  - 周刊
+draft: false
+---
+
+## 📜有价值的文章
+
+#### [Advertising is a cancer on society](https://jacek.zlydach.pl/blog/2019-07-31-ads-as-cancer.html)
+
+作者只是举出来漫天的广告产生的种种影响，但是并没有很好的解决办法，类似这种问题实在是数不胜数，自己确实也受到了广告的影响。结合自己最近看到的一句话：成功的销售就是关于不满——让人们意识到他们的处境有多糟糕，然后提供一种缓解痛苦的方法。意识到这一点以后再次面对广告或许能思考一下自己是否真的需要某种产品，除去被精神污染外，或许还能帮你节省一点金钱。
+
+#### [chinas-overlapping-tech-industrial](https://www.high-capacity.com/p/chinas-overlapping-tech-industrial)
+
+作者指出中国产业快速发展的原因，多产业链协同发展优势引发的复合效应。如：电池技术的发展，不仅能供应电动汽车的发展，也能促进手机、平板等移动设备的发展。国内正是由于存在很多这种优势上游产业，造就了产业生态的蓬勃发展，同时也让下游产业能不断的盈利并像新的领域扩张。
+
+## 🛸开源项目
+
+#### [timeshift](https://github.com/linuxmint/timeshift)
+
+Linux上的时间机器类似于MacOS的时间机器，通过定期拍摄文件系统的增量快照来保护您的系统。这些快照可以在以后恢复，以撤消对系统的所有更改。
+
+#### [bruno](https://github.com/usebruno/bruno)
+
+开源的api调试客户端，类似于postman，但是将所有的api数据仅保留在本地文件内，不会上传云端保护你的api安全，可以使用git等版本管理工具进行api管理。
+
+## 🚀网站&工具
+
+#### [wikitok](https://wikitok.cc/)
+
+仿照tiktok风格制作的 wiki 百科查看网站，每次滚动鼠标出现一个新的wiki知识，很有意思的一种交互方式。
+
+#### [How to make money](https://www.appeconomyinsights.com/)
+
+特斯拉、微软、台积电、Meta、苹果、谷歌最新财报拆解，如何赚钱和花钱的，来源于 App Economy Insights，挺值得一看。
+
+## ⛵资料&博文
+
+#### [quant-wiki](https://github.com/LLMQuant/quant-wiki)
+
+Quant Wiki 致力于打造一个免费开放、持续更新的 量化金融（quantitative finance） 知识分享平台。在这里，大家可以学习量化交易的核心知识、常用模型、算法设计，以及交易中的实战策略。我们为大家准备了丰富的资料，包括因子模型、事件驱动策略、执行成本优化等内容，帮助大家快速掌握量化投资领域的核心技能，迈向专业化道路。
+
+#### [《动手学习深度学习》](https://zh.d2l.ai/)
+
+案例和理论相结合，还有相关的视频课程，手把手教你入门深度学习。

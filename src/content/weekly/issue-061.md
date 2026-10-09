@@ -1,0 +1,61 @@
+---
+title: "llm brain rot"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 4 个、网站工具 4 个、资料博文 2 篇。
+issue: 61
+pubDate: 2025-11-02
+tags:
+  - 周刊
+draft: false
+---
+
+## 📜有价值的文章
+
+#### [llm brain rot](https://llm-brain-rot.github.io/)
+
+持续接触*垃圾网络文本*会导致大型语言模型 （LLM） 的持续认知能力下降，研究人员通过设置对照试验，测试结果很惊人，被垃圾内容训练的LLM表现出逻辑推理能力下降，道德的缺失和自恋倾向，即使使用健康的数据重新训练依旧无法恢复到正常水品。测试结果让我感到震惊，自己每天花在社交媒体上的时间也不少，会不会因为接触到太对的垃圾内容而导致***脑腐***，警惕各类垃圾内容输入，注意保护自己的大脑。
+
+## 🛸开源项目
+
+#### [term everything](https://github.com/mmulet/term.everything)
+
+很有趣的项目，在终端里运行窗口程序，甚至可以看视频。
+
+#### [xiaohongshu mcp](https://github.com/xpzouying/xiaohongshu-mcp)
+
+小红书MCP 服务器，可以通过 AI 在小红书发帖、获取推荐列表、搜索内容。
+
+#### [counterscale](https://github.com/benvinegar/counterscale)
+
+基于 Cloudflare Worker 的网站访问统计工具。
+
+#### [PicSharp](https://github.com/AkiraBit/PicSharp)
+
+图片文件压缩的开源桌面软件，跨平台，底层使用 Rust 语言编写。
+
+## 🚀网站&工具
+
+#### [css zen garden](https://csszengarden.com/)
+
+CSS禅意花园，网站展示了很多有趣的网站设计。
+
+#### [nuclear player](https://nuclearplayer.com/)
+
+跨平台的音乐播放器，免费无广告。
+
+#### [canarytokens](https://canarytokens.org/nest/)
+
+蜜罐服务器，能模拟各类url、dns、数据库、密码等，如果虚拟资源受到攻击会立即通知你。
+
+#### [kigen](https://kigen.design/color)
+
+配色生成器，快速生成合适的配色。
+
+## ⛵资料&博文
+
+#### [Burrows-Wheeler Transform 算法](https://sandbox.bio/concepts/bwt)
+
+关于 Burrows-Wheeler Transform 算法的介绍文章，核心操作是将字符顺序打乱，并将相同的字母排列在一起，并且打乱后的字符还支持逆运算，将字符串还原，很适合用来做压缩操作。
+
+#### [Nginx自动申请TLS证书](https://sconts.com/post/nginx-native-acme-support/)
+
+操作教程，写得比较清楚，怎么让 nginx 服务器自己去申请 HTTPS 证书。

@@ -1,0 +1,59 @@
+---
+title: "无聊的一周"
+description: 收集整理每周看到的好玩有趣的内容，本期收录开源项目 3 个、网站工具 3 个、资料博文 4 篇。
+issue: 27
+pubDate: 2025-01-05
+tags:
+  - 周刊
+draft: false
+---
+
+## 📜有价值的文章
+
+信息输入源太少了，建议增加输入源。
+
+## 🛸开源项目
+
+#### [懒猫书签](https://github.com/Alanrk/LazyCat-Bookmark-Cleaner)
+
+开源的chrome插件，分析你的浏览器书签，检查链接是否过期，还能生成你的书签画像，支持失效链接和空文件夹一键清理。
+
+#### [独立开发者出海工具收集站](https://github.com/yaolifeng0629/Awesome-independent-tools)
+
+这个仓库收集了很多网站开发维护工具，如原型设计工具、域名注册、图片视频处理、产品发布等一系列相关工具。
+
+#### [PowerToys](https://github.com/microsoft/PowerToys)
+
+微软官方开源的 Windows 系统工具集，有不少好玩实用的功能，如双击 ctrl 显示鼠标位置、更改按键映射、批量重命名等等，推荐 Windows 用户安装使用。
+
+## 🚀网站&工具
+
+#### [filepilot](https://filepilot.tech/)
+
+非官方的Windows文件管理工具，使用感觉比自带的要好不少，可以尝试一下。
+
+#### [copilot](https://github.com/copilot)
+
+github 出品的 copilot 可以免费使用了，免费用户每月有 2000 个代码建议、50 次对话。
+
+#### [futility closet](https://www.futilitycloset.com/)
+
+Futility Closet 是历史、文学、语言、艺术、哲学和数学方面的有趣奇珍异宝的集合，旨在帮助您尽可能愉快地浪费时间。这个网站提供了各种好玩有趣的内容，比如最近的一篇证明`a^2 – b^2 = (a + b)(a – b).` 的[文章](https://www.futilitycloset.com/2024/12/15/tidy-2/)，用到了图形方法解释，非常直观易理解。
+
+## ⛵资料&博文
+
+#### [《算法（第4版）》C++实现](https://github.com/landerrosette/algs4)
+
+《算法（第4版）》教科书介绍的算法的 C++ 语言实现，与原书的 Java 实现相对应。
+
+#### [Cursor教程](https://www.lookai.top/cn/cursor/instruction/instruction)
+
+Cursor的使用教程，详细介绍了Cursor的基本使用教程，帮你使用Cursor构建自己的idea。
+
+#### [万字长文：深入浅出RBAC权限设计](https://www.woshipm.com/pd/5576757.html)
+
+文章详细介绍了RBAC权限设计模型，RBAC权限设计的一般步骤，以及相关的数据模型应当如何设计，一篇很好的文章，推荐阅读。
+
+#### [Nginx配置指南](https://cloud.tencent.com/developer/article/2450465)
+
+介绍了Nginx 配置文件的基本构成，并提供了能让项目正常运行的基本配置，推荐对 Nginx 不是很理解的同学学习一下，帮你快速入门 Nginx 使用。

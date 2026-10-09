@@ -1,0 +1,57 @@
+---
+title: "my kid english learning"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 3 个、网站工具 3 个、资料博文 2 篇。
+issue: 35
+pubDate: 2025-03-02
+tags:
+  - 周刊
+draft: false
+---
+
+## 📜有价值的文章
+
+#### [my kid english learning](https://danieljia.com/posts/my-kid-english-learning/)
+
+作者介绍了自己孩子在英语学习上的一些心得，其中主要的方式就是循序渐进的接触，并让孩子沉浸其中，打造一个英语学习的氛围。
+从看绘本、点读本、理解现实世界物体的英语，到看一些有趣入门的动画短片，再到看涉及到大量英语单词场景的动画短片，而且动画片看完还要让孩子随时听刚刚看完的动画片，总之要时刻营造英语的学习环境。这个过程中家长也是要参与其中的，多用英语和孩子互动。
+看完这篇博文，忽然有个想法自己是不是也能打造一个英语的环境呢？沉浸其中学习起来是不是效率也会变得很高？
+
+## 🛸开源项目
+
+#### [pandas ai](https://github.com/sinaptik-ai/pandas-ai)
+
+PandaAI 是一个 Python 平台，可以轻松地用自然语言向数据提问。它可以帮助非技术用户以更自然的方式与他们的数据进行交互，并帮助技术用户在处理数据时节省时间和精力。
+
+#### [siri ultra](https://github.com/fatwang2/siri-ultra)
+
+Siri Ultra 是一个能在 iPhone 上使用的 AI 聊天快捷指令，无需下载任何 App，即可体验到最新的大模型。
+
+#### [link to image](https://github.com/wind-liang/link-to-image)
+
+简单易用的链接转二维码图片生成器。输入链接后，会自动生成一张包含二维码、网站标题和简介的图片。
+
+在线访问地址：[https://qr.windliang.wang/](https://qr.windliang.wang/)
+
+## 🚀网站&工具
+
+#### [min mail](https://minmail.app/cn)
+
+免费的临时邮箱，帮你注册一些并不重要的网站使用。
+
+#### [svgpepo](https://www.svgrepo.com/)
+
+提供超过 500,000 个开源许可的 SVG 矢量图标和图标的平台，用户可以搜索、探索、编辑和分享这些资源，适用于商业项目，且始终免费，无需担心遇到付费内容。
+
+#### [sqlnoir](https://www.sqlnoir.com/)
+
+通过数据库查询解密的游戏，每个谜题以案件的形式，要求通过给出的数据库进行各种查询来获得结果。算是一个「在实操中学习」的例子，甚至可以做成线上面试题，模拟现实工作中各种复杂的情况。
+
+## ⛵资料&博文
+
+#### [AI Myth book](https://github.com/Acmesec/theAIMythbook)
+
+涵盖了人工智能的基础知识、法律法规、经典人工智能模型、漏洞与攻击、防御方法、安全开发与运维、相关框架、会议讲座以及实践技能等。
+
+#### [自顶向下方式深度解读 DeepSeek-R1](https://bruceyuan.com/post/deepseek-r1-paper-reading-notes.html)
+
+一篇解读DeepSeek深度思考模式的文章，很值得读一读，相关的文章还有这篇[Understanding Reasoning LLMs](https://sebastianraschka.com/blog/2025/understanding-reasoning-llms.html)也很推荐。

@@ -1,0 +1,65 @@
+---
+title: "start-presentations-on-the-second"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 2 个、网站工具 4 个、资料博文 4 篇。
+issue: 29
+pubDate: 2025-01-19
+tags:
+  - 周刊
+draft: false
+---
+
+## 📜有价值的文章
+
+#### [start-presentations-on-the-second](https://tidyfirst.substack.com/p/start-presentations-on-the-second)
+
+文章介绍了一种新的技术分享汇报技巧：将第二页PPT放到前面。正常我们介绍一个新的技术，总是从背景先开始介绍，然后引入到技术，但是这样的汇报会变得很长，前期的铺垫很无趣观众可能会不感兴趣。如果我们交换一下顺序，先将引入新的技术，再介绍背景这样会带给观众参与感，让观众更愿意听你聊下去。下面是我摘抄的一些句子；
+
+Programmers have a pavlovian engineering response. Pose them a problem and they'll start trying to solve it. Give them a chance to co-engineer along with your presentation by making sure the first bite gets their saliva flowing. Then you can explain the rest of the problem and your brilliant solution knowing that they are there along with you.  
+
+>程序员有一个巴甫洛夫式的工程反应。向他们提出问题，他们就会开始尝试解决。给他们一个机会与您的演示文稿进行合作设计，确保第一口让他们的唾液流淌。然后，您可以解释问题的其余部分和您的出色解决方案，因为他们知道它们与您同在。
+
+## 🛸开源项目
+
+#### [fakemail](https://github.com/CH563/fakemail)
+
+基于 Cloudflare Workers 构建的临时电子邮箱服务，可以在 web 端查看接收的邮件。作者也提供了搭建好的网站，[地址在这里](https://mail.fakeact.fun/)
+
+#### [在线简历生成工具](https://github.com/Arman19941113/dnd-resume)
+
+拖拽式在线简历生成工具，基本功能是够用的。
+
+## 🚀网站&工具
+
+#### [文捕](https://www.blog-keeper.com/)
+
+在线博客文章解析下载工具，支持微信公众号/博客园/CSDN/掘金/简书/思否等平台，可以保存成多种格式。
+
+#### [datacommons](https://datacommons.org/)
+
+谷歌发布的数据网站，提供许多公开的数据集，以及配套的工具，让你可以检索和处理这些数据。
+
+#### [zcoloring](https://zcoloring.com/)
+
+通过AI在线生成涂色书，测试了一下生成的图片挺可爱的。
+
+#### [ai-voice-cloning](https://anyvoice.net/zh/ai-voice-cloning)
+
+AI声音克隆，只需要上传一段3s-10s的录音就能复制声音，感觉AI技术真的是越来越强了，未来或许大部分内容都是AI生成的，有种黑客帝国的感觉。
+
+## ⛵资料&博文
+
+#### [搭建免费的企业邮箱](https://javayhu.com/da-jian-mian-fei-de-qi-ye-you-xiang-gmail-resend-cloudflare/)
+
+文章介绍如何使用Gmail+Resend+Cloudflare搭建免费的企业邮箱，不仅支持接收企业域名邮件，同时支持发送企业域名邮件。
+
+#### [How to Think Like a Computer Scientist](https://levjj.github.io/thinkcspy/)
+
+一本编程入门教程，以 python 语言为例子，适合用来学习编程思想。
+
+#### [苹果生态玄学自指北](https://xream.notion.site/6fed380cf1d147c6a047bce452a8f2af#6b31ffdfcb0044c8b390f956ca2ba406)
+
+作者总结了一些常见的苹果生态问题解决方案，建议收藏备用。
+
+#### [一个副业应用的开发心得](https://javayhu.com/2018-nian-yi-ge-xiao-fu-ye-de-kai-fa-xin-de/)
+
+文章介绍一个副业的应用定位、收费模式、申请软著、上架商店、素材版权、收集反馈、账号体系、集成支付、宣传推广、统计分析等内容。对于个人开发者而言很有参考价值。

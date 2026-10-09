@@ -1,0 +1,77 @@
+---
+title: "21-facts-about-throwing-good-parties"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 4 个、网站工具 4 个、资料博文 3 篇。
+issue: 62
+pubDate: 2025-11-09
+tags:
+  - 周刊
+draft: false
+---
+
+## 📜有价值的文章
+
+#### [21-facts-about-throwing-good-parties](https://www.atvbt.com/21-facts-about-throwing-good-parties/)
+
+21条让派对变得有趣的建议，里面的很多建议都很实用，比如：
+
+Prioritize your ease of being over any other consideration: parties are like babies, if you’re stressed while holding them they’ll get stressed too. Every other decision is downstream of your serenity: e.g. it's better to have mediocre pizza from a happy host than fabulous hors d'oeuvres from a frazzled one.  
+> 优先考虑你的轻松程度：聚会就像婴儿一样，如果你在抱着他们时感到压力，他们也会感到压力。所有其他决定都是你平静的下游：例如，从快乐的主人那里吃平庸的披萨比从疲惫的主人那里吃美味的开胃小菜要好。
+
+Create as much circulation at your party as you can. People circulate more when standing than when sitting, so try to encourage standing for those who can e.g. by having high-top tables, or taking away chairs from around tables, or leaving shelves and counter-tops open for people to rest their plates and drinks.  
+> 在聚会上创造尽可能多的流通。人们站着时比坐着时的流动更多，所以尽量鼓励那些可以站着的人，例如，摆放高顶桌子，或者把桌子周围的椅子拿走，或者让架子和台面敞开，让人们休息他们的盘子和饮料。
+
+To leave a group conversation, just slowly step back and then step away. Don't draw attention to your leaving or you’ll be pulled back in. It feels mildly weird to do this but it’s worth it.  
+> 要离开群组对话，只需慢慢后退，然后离开。不要引起人们对你离开的注意，否则你会被拉回来。这样做感觉有点奇怪，但这是值得的。
+
+Throughout the party, prioritize introducing people to each other and hosting the people who are new or shy, even at the cost of getting less time hanging out with your best friends yourself. Parties are a public service, and the guests will (hopefully) pay you back for this by inviting you to parties of their own.  
+> 在整个聚会中，优先介绍彼此并接待新来的或害羞的人，即使以减少自己与最好的朋友出去玩的时间为代价。派对是一项公共服务，客人（希望）通过邀请您参加他们自己的派对来回报您。
+
+## 🛸开源项目
+
+#### [Open Speedy](https://github.com/game1024/OpenSpeedy)
+
+OpenSpeedy 是一款开源免费的游戏变速工具，让你的游戏突破帧率限制，提供更流畅丝滑的游戏加速体验。
+
+#### [act](https://github.com/nektos/act)
+
+可以在本地运行 GitHub Actions 的工具，安装后直接读取 .github/workflows/ 里面的文件去执行，相比每次改动去看云端的变化可以提高开发效率。
+
+#### [void](https://github.com/voideditor/void)
+
+开源版本的类 Cursor AI 代码编辑器，交互和 Cursor 挺像，可以使用任何模型，数据自己控制，也是 Fork 的 VS Code，配置可以无缝迁移。
+
+#### [wewe rss](https://github.com/cooderl/wewe-rss)
+
+微信公众号转 RSS，可以私有化部署，走的微信读书的方式，应该是目前最好用的公众号转 RSS 方式了。
+
+## 🚀网站&工具
+
+#### [pro notes](https://www.pronotes.app/)
+
+让 Mac 的 Notes 支持 markdown 的写法使用以及提供了不少便捷的操作。
+
+#### [single serving sites](https://singleservingsites.cool/)
+
+一个专注展示于特定功能或主题的微型网站。这些网站涵盖了从二维码、倒计时、设计工具、在线棋盘游戏到个性化的 CSS 风格、产品管理工具等多种类型，每个微型网站都有其独特的功能和目的。
+
+#### [通辽宇宙知识库](https://www.tongliaouniverse.cn/)
+
+一个关于世界上那些奇葩小国、硬核狠人与二次元谐音梗的互动知识库，懂得都懂。
+
+#### [next b convert](https://nextbconvert.com/)
+
+免费批量转换图像、音频和文档工具。
+
+## ⛵资料&博文
+
+#### [工程师如何更好的投资](https://tw93.fun/2025-07-17/money.html)
+
+如题，作者分享了一些适合工程师的投资方法。
+
+#### [self llm](https://github.com/datawhalechina/self-llm)
+
+本项目是一个围绕开源大模型、针对国内初学者、基于 Linux 平台的中国宝宝专属大模型教程，针对各类开源大模型提供包括环境配置、本地部署、高效微调等技能在内的全流程指导，简化开源大模型的部署、使用和应用流程，让更多的普通学生、研究者更好地使用开源大模型，帮助开源、自由的大模型更快融入到普通学习者的生活中。
+
+#### [巧解Docker镜像拉取失败](https://mp.weixin.qq.com/s/1kQlYQnKGZg6HVNgmDjQfg)
+
+因为国内拉取docker镜像经常失败，更换镜像源和使用公开的镜像仓库还存在不稳定的情况。作者提供了一种很有意思的解决方案，通过 github 的工作流和阿里云私人的镜像仓库完美解决问题，很有意思的一篇文章。

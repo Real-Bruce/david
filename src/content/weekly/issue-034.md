@@ -1,0 +1,77 @@
+---
+title: "不要停止思考"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 2 篇、开源项目 3 个、网站工具 2 个、资料博文 2 篇。
+issue: 34
+pubDate: 2025-02-23
+tags:
+  - 周刊
+draft: false
+---
+
+## 📜有价值的文章
+
+#### [不要停止思考](https://sspai.com/post/96120)
+
+作者在文中介绍了LLM对教育领域的影响，文中对处理和面对问题的处理方式带给我不少思考，所谓进步或者说成长就是解决问题能力的提升。学习知识的目的也是积累解决问题的手段，但是仅仅只做积累是不够的，还需应用频繁的应用，加强知识点之间的连接。所以学习的意义不在于掌握一座座知识点大楼，而是应当在大楼之间建立关联，最终的目标是提升解决问题的能力，很建议阅读。
+
+#### [50 years of travel tips](https://kk.org/thetechnium/50-years-of-travel-tips/)
+
+作者在文中总结了50多年来的旅行经验，很多内容都值得参考学习，其中最让我深刻的一句话就是：`You are aiming for experiences that simple money can’t buy.` 旅行最大的意义就在于体验，体验不一样的生活方式，体验新的景色。下面是我摘抄的内容：
+
+For a truly memorable trip, go without reservations, just winging it along the way. If you like somewhere, stay a day longer, or if you don’t, split a day earlier. If the train is full, take a bus. That freedom can be liberating.  
+
+>要想获得一次真正难忘的旅行，无需预订，只需沿途飞翔即可。如果你喜欢某个地方，可以多呆一天，如果你不喜欢，可以提前一天分开。如果火车已满，请乘坐公共汽车。这种自由可以是解放的。
+
+For the best travel experiences you need either a lot of money, or a lot of time. Of the two modes, it is far better to have more time than money. Although it tries, money cannot buy what time delivers. You have enough time to attend the rare festival, to learn some new words, to understand what the real prices are, to wait out the weather, or to get to that place that takes a week in a jeep. Time is the one resource you can give yourself, so take advantage of this if you are young without money.  
+
+>为了获得最佳的旅行体验，您需要大量金钱或大量时间。在这两种模式中，拥有更多的时间比拥有更多的金钱要好得多。尽管它努力，但金钱无法买到时间带来的东西。您有足够的时间参加这个难得的节日，学习一些新单词，了解真正的价格是多少，等待天气，或者到达那个需要坐吉普车一周的地方。时间是您可以给自己的一种资源，所以如果您年轻没有钱，请利用它。
+
+The best souvenirs from a trip are your memories of the trip so find a way to memorialize them; keep a journal, send updates to a friend, take a sketchbook, post some observations, make a photo book.   
+
+>旅行中最好的纪念品是你对旅行的回忆，所以想办法纪念它们;写日记，向朋友发送更新，拍速写本，发布一些观察结果，制作一本相册。
+
+When asking someone for a restaurant recommendation, don’t ask them where is a good place you should eat; ask them where they eat. Where did they eat the last time they ate out?  
+
+>当向某人询问餐厅推荐时，不要问他们哪里是你应该吃饭的好地方;问他们在哪里吃饭。他们上次外出就餐时在哪里吃饭？
+
+Here in brief is the method I’ve honed to optimize a two-week vacation: When you arrive in a new country, immediately proceed to the farthest, most remote, most distant place you intend to reach during the trip. If there is a small village, remote spa, a friend’s farm, or a wild place you plan on seeing on the trip, go there immediately. Do not stop near the airport. Do not rest overnight in the arrival city. Do not pause to acclimate. If at all possible proceed by plane, bus, jeep, car directly to the furthest point without interruption. Make it an overnight journey if you have to. Then once you reach your furthest point, unpack, explore, and work your way slowly back to the big city, wherever your international departure airport is.  
+
+>这里简要介绍一下我为优化两周假期而磨练的方法：当您到达一个新的国家时，立即前往您打算在旅途中到达的最远、最偏远、最遥远的地方。如果有一个小村庄、偏远的水疗中心、朋友的农场或您计划在旅途中参观的荒野，请立即前往。请勿在机场附近停留。不要在到达城市过夜。不要停下来适应。如果可能的话，乘坐飞机、公共汽车、吉普车、汽车直接到达最远的地方，不要中断。如果有必要，请进行一次过夜旅行。然后，一旦您到达最远的地方，打开行李，探索，然后慢慢返回大城市，无论您的国际出发机场在哪里。
+
+All big cities these days feel same-same on first arrival. In Laser-Back travel what happens is that you are immediately thrown into Very Different Otherness, the maximum difference that you will get on this trip. You go from your home to extreme differences so fast it is almost like the dissolve effect in a slide show. Bam! Your eyes are wide open. You are on your toes. All ears. And there at the end of the road (but your beginning), your inevitable mistakes are usually cheaper, easier to recover from, and more fun.
+
+>如今，所有大城市在初次抵达时都感觉相同。在 Laser-Back 旅行中发生的事情是你立即被扔进非常不同的他者性中，这是你在这次旅行中将获得的最大差异。你从家里到极端差异的速度如此之快，几乎就像幻灯片中的溶解效果。砰！你的眼睛睁得大大的。你要保持警惕。洗耳恭听。在路的尽头（但也是你的开始），你不可避免的错误通常会更便宜、更容易恢复、也更有趣。
+
+## 🛸开源项目
+
+#### [PeerAuth](https://github.com/ksze/PeerAuth)
+
+基于密码验证器实现的可以让任何两个人之间可以设置一个基于时间的独特一次性密码（TOTP），这样在两人远程视频或者打电话的时候，则可以要求提供密码验证器内的6位密码，如果两人的密码是一致的，则可以证明对方是真人。
+
+#### [gtrash](https://github.com/umlx5h/gtrash)
+
+Linux 和 Mac 系统的被删除文件的垃圾桶，可以在终端里面还原文件。
+
+#### [botgroup.chat](https://github.com/maojindao55/botgroup.chat)
+
+一个基于 React和 Cloudflare Pages(免费一键部署) 的多人 AI 聊天应用，支持多个 AI 角色同时参与对话，提供类似群聊的交互体验。体验地址：[https://botgroup.chat](https://botgroup.chat/)
+
+## 🚀网站&工具
+
+#### [香烟价格](https://www.cnxiangyan.com/)
+
+香烟价格查询网站，仅作参考不同地区可能售卖价格不同，帮你大致了解香烟价格。
+
+#### [唐韵](https://www.chinesepoems.org/)
+
+一款界面简洁的古诗词网站。
+
+## ⛵资料&博文
+
+#### [办一场婚礼大概要花多少钱](https://coala.top/archives/%E5%8A%9E%E4%B8%80%E5%9C%BA%E5%A9%9A%E7%A4%BC%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E9%92%B1%E6%88%91%E6%9D%A5%E5%BC%80%E6%BA%90%E6%88%91%E7%9A%84%E7%BB%93%E5%A9%9A%E8%AE%A1%E5%88%92#%E8%B4%B9%E7%94%A8%E6%B8%85%E5%8D%95)
+
+作者开源的办婚礼价格，包含婚纱照、酒店、请客、烟酒糖茶的各种价格，提供了很多参考，看完以后感觉好贵。 `-_-` 
+
+#### [AI-Guide-and-Demos-zh_CN](https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN)
+
+这是一个中文的 AI/LLM 大模型入门项目，项目将从简单的 API 调用入手，带你逐步深入大模型的世界。在此过程中，你将掌握 **AI 视频摘要**、**LLM 微调**和 **AI 图像生成**等技能。

@@ -1,0 +1,60 @@
+---
+title: "Everything Must Be Paid for Twice"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 2 个、网站工具 3 个、资料博文 1 篇。
+issue: 30
+pubDate: 2025-01-26
+tags:
+  - 周刊
+draft: false
+---
+
+## 📜有价值的文章
+
+#### [Everything Must Be Paid for Twice](https://www.raptitude.com/2022/01/everything-must-be-paid-for-twice/)
+
+作者提出了一个有趣的观点，每个商品都要支付两次价格，第一次是你得到商品付出的价格，第二次是你使用它付出的时间成本，只有你进行了第二次支付才算真正的消费了这个东西，而且第二次支付的成本比第一次支付要大的多。摘抄的一些句子：
+
+A new novel, for example, might require twenty dollars for its first price—and ten hours of dedicated reading time for its second. Only once the second price is being paid do you see any return on the first one. Paying only the first price is about the same as throwing money in the garbage.  
+>例如，一本新小说的第一个价格可能需要 20 美元，第二个价格可能需要 10 个小时的专门阅读时间。只有在支付第二个价格后，您才会看到第一个价格的任何回报。只支付第一个价格与把钱扔进垃圾桶差不多。
+
+we reflexively overindulge in entertainment and other low-second-price pleasures –- phone apps, streaming services, and processed food — even though their rewards are often only marginally better than doing nothing. This stuff is attractive because it takes little effort (and we’re tired from working to pay for so many first prices) but it can eat up a ton of time, depleting the second-price budget even further.
+>我们条件反射地过度沉迷于娱乐和其他低二价的乐趣——手机应用程序、流媒体服务和加工食品——尽管它们的回报通常只比什么都不做好一点。这些东西很有吸引力，因为它不需要付出多少努力（而且我们因为工作支付这么多第一价格而感到疲惫），但它会消耗大量时间，进一步耗尽第二价格的预算。
+
+The only solution I can think of is to consciously throw the switch the other way: avoid paying any more needless first prices, and set your lifestyle around paying certain second prices, so you can finally enjoy the long-promised prizes waiting in your bookshelf, storage room, and hard drive.
+>我能想到的唯一解决方案是有意识地把开关扔到另一个方向：避免再支付任何不必要的第一个价格，并围绕支付一定的第二个价格来设置你的生活方式，这样你终于可以享受在你的书架、储藏室和硬盘中等待已久的奖品。
+
+Figuring out how to pay the second price isn’t hard. You just have to notice that moment you usually think about packing it in, and stay with it instead of doing something else.  
+>弄清楚如何支付第二个价格并不难。你只需要注意到你通常会考虑打包的那一刻，并坚持下去而不是做其他事情。
+
+In other words, when you hit the weeds, you go into them instead of away. The awkward B major chord on the guitar – get your fingers in place anyway, and see if you can relax into the position just a bit more.
+>换句话说，当你碰到杂草时，你是进入它们而不是离开它们。吉他上尴尬的 B 大调和弦 - 无论如何都要把你的手指放在适当的位置，看看你是否可以再放松一下。
+
+## 🛸开源项目
+
+#### [nopecha extension](https://github.com/NopeCHALLC/nopecha-extension)
+
+NopeCHA 是一个**免费使用的**自动化 CAPTCHA 求解器，与多种 CAPTCHA 类型兼容，并通过 [NopeCHA API](https://developers.nopecha.com/) 由高级深度学习模型提供支持。
+
+#### [oh my wechat](https://github.com/chclt/oh-my-wechat/)
+
+为微信设计的备份阅读器，总体上还原了微信，但经过了无数的重新设计，看起来焕然一新以及，刚刚糊完（不是）做完的微信年度数据报告。
+
+## 🚀网站&工具
+
+#### [国际流星雨协会](https://www.imo.net/)
+
+国际流星雨协会的网站，提供了很多流星雨相关的图片和视频
+
+#### [ogimage](https://ogimage.click/)
+
+允许用户通过选择专业模板、自定义背景、渐变、网格叠加、噪声等属性来快速生成适用于社交媒体平台（如 Twitter、Facebook 和 LinkedIn）的吸引人的分享图片。用户可以无需注册即可免费使用所有功能，生成的图片可以导出为 PNG、JPEG 或 WebP 格式，并且支持多平台的优化尺寸。
+
+#### [Stay](https://staying.fun/zh/docs/getting-started)
+
+这个网站能将代码转换成可视动画，帮助你更好的理解数据结构和算法，网站还提供了很多很好的示例，比如：[冒泡排序](https://staying.fun/zh/docs/1d-array)。
+
+## ⛵资料&博文
+
+#### [自洽的程序员](https://github.com/zhangchenchen/self-consistent-coder)
+
+作者分享了自己如何调整心态，解决职场中遇到的种种问题，在线版本在[这里](https://self-consistent-coder.readthedocs.io/zh-cn/latest/)阅读

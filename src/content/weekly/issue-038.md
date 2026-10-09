@@ -1,0 +1,69 @@
+---
+title: "new series underrated soft skills"
+description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 2 个、网站工具 3 个、资料博文 2 篇。
+issue: 38
+pubDate: 2025-03-23
+tags:
+  - 周刊
+draft: false
+---
+
+## 📜有价值的文章
+
+#### [new series underrated soft skills](https://utopianengineeringsociety.substack.com/p/new-series-underrated-soft-skills)
+
+文中提到了工程师需要培养的软技能，作者指出魅力是很重要的一点，因为作为人类工程师，大部分时间还是需要和人沟通交流的，硬实力也就是专业技能固然重要，但是软实力也就是和人交往的能力也是很重要的，作者提到了几点培养魅力的方式。
+
+其中一些观点很有启发，下面是我摘抄的一些内容：
+you must keep one thing in mind:Charisma is all about how you make others feel
+>你必须记住一件事：魅力就是你让别人怎么感觉
+
+We tend to perceive people as charismatic only when they can connect with us meaningfully Humans are naturally wired for connection. We intuitively know whether we feel connected to someone or whether an interaction feels meaningful or not.
+>只有当人们能够与我们建立有意义的联系时，我们才会认为他们是有魅力的人类天生就喜欢联系。我们凭直觉知道我们是否觉得自己与某人有联系，或者互动是否有意义。
+
+**If you want to build charisma, start by establishing more meaningful connections**. This means being present and paying attention to other people:  
+>**如果您想建立魅力，请先建立更有意义的联系**。这意味着在场并关注其他人：
+
+- **Focus your attention on the other person.**
+- **Forget about yourself and your dilemmas for a second.**
+- **Develop a curiosity for what the other person is saying.**
+- **Connect by being vulnerable.**
+
+>**将注意力集中在对方身上。**
+>**暂时忘记你自己和你的困境。**
+>**培养对对方所说的话的好奇心。**
+>**通过脆弱来建立联系。**
+
+## 🛸开源项目
+
+#### [Telegram Files](https://github.com/jarvis2f/telegram-files)
+
+开源的 Telegram 文件下载器，支持多频道、多账户同时下载。
+
+#### [obsidian cloud sync](https://github.com/ai-bytedance/obsidian-cloud-sync)
+
+Obsidian 插件，支持将笔记自动同步到多种云盘服务，提供端到端加密保护，让您的笔记既安全又便捷，目前支持的云盘包括：百度云盘、阿里云盘、坚果云、OneDrive、iCloud。
+
+## 🚀网站&工具
+
+#### [search the arxiv](https://searchthearxiv.com/)
+
+基于 AI，使用自然语言搜索 arXiv 论文，关于arXiv的介绍 [arXiv wiki](https://en.wikipedia.org/wiki/ArXiv)官网在这里：[arxiv](https://arxiv.org/)
+
+#### [web design museum](https://www.webdesignmuseum.org/)
+
+Web设计博物馆，网站收录了自1991年以来的各种经典和有代表性的网页design案例。可以亲眼见证各大网站不同年代的网页设计，了解它们的历史和特点。
+
+#### [trend shift](https://trendshift.io/)
+
+这个网站提供了 Github 每日的趋势开源项目数据，并提供多种维度的筛序和搜索能力，帮助你了解最近的开源技术和项目。
+
+## ⛵资料&博文
+
+#### [elements of ai](https://course.elementsofai.com/)
+
+关于AI的公开课，帮你了解AI相关的知识。
+
+#### [best-virtual-credit-card](https://topstip.com/best-virtual-credit-card/)
+
+这个海外虚拟信用卡开卡平台推荐 Top10 虚拟数字银行卡汇总整理得挺全的，建议使用的时候选择综合能力更好的，同时不建议大额充值，只是解决自己海外支付的燃眉之急。
