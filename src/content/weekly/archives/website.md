@@ -1,5 +1,15 @@
 # website
 
+## Vol.105 / 2026.10.12
+
+#### [every noise](https://everynoise.com/)
+
+音乐流派探索，收录了 6000+ 种流派，通过散点图的方式展示流派。
+
+#### [web design museum](https://www.webdesignmuseum.org/all-websites)
+
+web 界面博物馆，可以根据年份、类型等浏览数千个网站在几十年前（最早到 1991 年）的界面设计。
+
 ## Vol.104 / 2026.09.06
 
 #### [glaze](https://www.glaze.app/)

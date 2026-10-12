@@ -1,36 +1,11 @@
 ## 📜有价值的文章
 
-#### [或许没人在意的细节](https://blog.solazy.me/20260920/)
-
-很多我们自以为天经地义、非改不可的细节，真实世界里的其他人压根就不在乎。
-
-这事儿其实没那么复杂，它本质上是一个关于「认知自嗨」和「真实杠杆」的问题。
-
-我们往往容易陷入一种手艺人式的自恋，把自己关注的维度，误以为是全世界通行的评价标准。做产品的喜欢死磕像素级的对齐和极端边缘场景，做运营的喜欢反复推敲文案里一个语气的修辞，开实体店的觉得每一个踢脚线的材质都在传递品牌精神。这种偏执在某些特定阶段确实能带来美感，但更多时候，它只是一种用来感动自己的安全感。
-
-因为死磕这些可见的细枝末节，往往比解决那些真正痛苦、真正决定生死的硬骨头要容易得多。
-
-当你的精力、预算、时间都极度有限的时候，过度追求那些只有同行和强迫症才会注意到的细节，本质上是一种商业上的怯懦。你在**用低杠杆的审美偏执，去逃避高杠杆的生存竞争**。
-
-生活和工作其实是一回事。以前做东西，总想着把所有死角都填满，生怕别人看出一丝破绽，结果往往是把自己耗得精疲力竭，核心的事情反而推不动。
-
-有些细节是地基，不扎实房子就会塌，比如做饭的卫生、做系统的稳定性、做商业的现金流；而有些细节，无非就是遮阳棚上印错的那串罗马音，留着它不体面，但天确实塌不下来。
-
-学会区分这两者，并且敢于在无关紧要的事情上由着它粗糙，大概才是一个人真正建立起业务边界感和精力掌控力的开始。其他那些旁人压根不在意的杂音，随它去吧。
 
 ## 🛸开源项目
-
-#### [Launch Next](https://github.com/RoversX/LaunchNext)
-
-macOS Tahoe 移除了 Launchpad，新的界面很难用，这个项目是它的开源替代品。
 
 #### [lynxdb](https://github.com/lynxbase/lynxdb)
 
 一个二进制文件完成日志分析，没有其他外部依赖，使用 Lynx Flow 查询语言。
-
-#### [opencli](https://github.com/jackwener/opencli)
-
-把网站、浏览器会话、Electron 应用和本地工具，统一变成适合人类与 AI Agent 使用的确定性接口。复用浏览器登录态，先自动化真实操作，再把高频流程沉淀成可复用的 CLI 命令。
 
 #### [nanobot](https://github.com/HKUDS/nanobot)
 
@@ -39,10 +14,6 @@ macOS Tahoe 移除了 Launchpad，新的界面很难用，这个项目是它的�
 #### [magic resume](https://github.com/JOYCEQL/magic-resume)
 
 Magic Resume 是一个现代化的在线简历编辑器，让创建专业简历变得简单有趣。基于 TanStack Start 和 Motion 构建，支持实时预览和自定义主题。
-
-#### [skills manager](https://github.com/xingkongliang/skills-manager)
-
-一个 macOS 桌面应用，统一管理 Skill 文件，保存在目录 ~/.skills-manager 目录，然后一键同步到各种 AI 工具。
 
 #### [no agents](https://codeberg.org/rossabaker/no-agents.md)
 
@@ -148,10 +119,6 @@ macOS 原生 CLI 工具，用于以声明方式管理文件类型和 URL 方案�
 
 用 Swift 写的原生菜单栏收纳工具，基于 macOS 27 系统自带的隐藏能力。
 
-#### [video-transcript](https://github.com/anghunk/video-transcript)
-
-完全运行在浏览器中的视频字幕工具。导入本地 MP4 后，可以使用 Whisper 在本机识别语音，在时间轴上编辑字幕与时间点，统一设置字幕样式，并导出已经烧录字幕的 MP4。
-
 #### [PecoFence](https://github.com/DayuanJiang/PecoFence)
 
 win11 桌面文件收纳管理软件，内置 AI Cli 可以直接和 AI 讲出你的排版要求。
@@ -169,10 +136,6 @@ win11 桌面文件收纳管理软件，内置 AI Cli 可以直接和 AI 讲出�
 macOS 命令行工具，配合 Claude Code 和 Codex 的 Skill，可以在每个窗口顶部绘制一个箭头和一个标志，告知你需要操作的内容，操作完成后箭头自动消失。
 
 ## 🚀网站&工具
-
-#### [every noise](https://everynoise.com/)
-
-音乐流派探索，收录了 6000+ 种流派，通过散点图的方式展示流派。
 
 #### [Free Music Archive](https://freemusicarchive.org/)
 
@@ -257,10 +220,6 @@ AI 图片提示词库，包含了多种海报、插画风格的提示词信息�
 #### [cosmos daily](https://cosmosdaily.co/)
 
 这个网站将 4500 年间的天象事件和世界历史联系在一起。
-
-#### [cchistory](https://cchistory.mariozechner.at/)
-
-这个工具可以查看 Claude Code 历史每个版本的系统提示的变化。
 
 #### [drake equation](https://mendiak.github.io/drake.equation/)
 
@@ -349,10 +308,6 @@ AI 对话自动化构建文生图工作流，自动生成处理节点，支持�
 #### [Visual Paradigm Online](https://online.visual-paradigm.com/cn/diagrams/templates/floor-plan/)
 
 通过这个工具可以在线绘制各种平面图，比如房屋、宴会的布局，无需登录。
-
-#### [web design museum](https://www.webdesignmuseum.org/all-websites)
-
-web 界面博物馆，可以根据年份、类型等浏览数千个网站在几十年前（最早到 1991 年）的界面设计。
 
 #### [pairckle](https://pairckle.jakeo.dev/)
 

@@ -1,5 +1,11 @@
 # blogs
 
+## Vol.105 / 2026.10.12
+
+#### [cchistory](https://cchistory.mariozechner.at/)
+
+这个工具可以查看 Claude Code 历史每个版本的系统提示的变化，适合研究 AI Coding 演进的朋友们。
+
 ## Vol.104 / 2026.09.06
 
 #### [GPS Glitched Across The US by as Much as 33 Feet. Scientists Have Never Seen This Before.](https://www.sciencealert.com/gps-glitched-across-the-us-by-as-much-as-33-feet-scientists-have-never-seen-this-before)

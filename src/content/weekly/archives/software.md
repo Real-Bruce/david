@@ -1,5 +1,23 @@
 # software
 
+## Vol.105 / 2026.10.12
+
+#### [Launch Next](https://github.com/RoversX/LaunchNext)
+
+macOS Tahoe 移除了 Launchpad，新的界面很难用，这个项目是它的开源替代品。
+
+#### [opencli](https://github.com/jackwener/opencli)
+
+把网站、浏览器会话、Electron 应用和本地工具，统一变成适合人类与 AI Agent 使用的确定性接口。复用浏览器登录态，先自动化真实操作，再把高频流程沉淀成可复用的 CLI 命令。
+
+#### [video-transcript](https://github.com/anghunk/video-transcript)
+
+完全运行在浏览器中的视频字幕工具。导入本地 MP4 后，可以使用 Whisper 在本机识别语音，在时间轴上编辑字幕与时间点，统一设置字幕样式，并导出已经烧录字幕的 MP4。
+
+#### [skills manager](https://github.com/xingkongliang/skills-manager)
+
+一个 macOS 桌面应用，统一管理 Skill 文件，保存在目录 ~/.skills-manager 目录，然后一键同步到各种 AI 工具。
+
 ## Vol.104 / 2026.09.06
 
 #### [open-connector](https://github.com/oomol-lab/open-connector)
