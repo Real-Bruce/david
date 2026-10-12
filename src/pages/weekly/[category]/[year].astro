@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ReadingProgress from '../../../components/ReadingProgress.astro';
+import { getWeeklyArchiveCategories } from '../../../lib/weekly-archives';
+import { getArchiveYear, countArchiveEntries } from '../../../lib/weekly-archive-data';
+import { withBase } from '../../../lib/base';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const categories = getWeeklyArchiveCategories();
+  const entries = await getCollection('weeklyArchives');
+
+  return categories.flatMap(category => category.years.flatMap(({ year }) => {
+    const entry = entries.find(item =>
+      (item.id.split('/').pop() ?? '') === category.id &&
+      getArchiveYear(item.id, item.body ?? '') === year
+    );
+    if (!entry) return [];
+
+    return [{
+      params: { category: category.id, year: String(year) },
+      props: { entry, category, year, yearTotal: countArchiveEntries(entry.body ?? '') }
+    }];
+  }));
+}
+
+const { entry, category, year, yearTotal } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout
+  title={`${category.title}推荐整合 · ${year}`}
+  description={`周刊 ${year} 年收录的${category.title}推荐，共 ${yearTotal} 条。`}
+>
+  <ReadingProgress />
+  <main class="article weekly-archive-page">
+    <header class="page-head">
+      <div class="page-head-row">
+        <h1>{category.title}推荐整合</h1>
+        <span class="page-head-meta">{year} 年 · {yearTotal} 条</span>
+      </div>
+      <p class="page-head-desc"><a href={withBase('/weekly/')}>← 返回全部周刊</a></p>
+    </header>
+    <nav class="weekly-archive-years" aria-label="归档年份">
+      {category.years.map(item => (
+        item.year === year ? (
+          <span aria-current="page">{item.year}</span>
+        ) : (
+          <a href={withBase(`/weekly/${category.id}/${item.year}/`)}>{item.year}</a>
+        )
+      ))}
+    </nav>
+    <div class="prose weekly-archive-content">
+      <Content />
+    </div>
+  </main>
+</BaseLayout>

@@ -23,7 +23,7 @@ npm install
 npm run dev
 npm run build
 npm run preview
-node --test tests/weekly.test.ts
+node --test tests/*.test.ts
 ```
 
 工作流使用 Node.js 22。改动 Astro 源码、样式或内容后，提交前至少运行 `npm run build`；修改周刊导读逻辑时也运行对应测试。构建会生成 `dist/` 和 Pagefind 索引，不要手动编辑或提交生成产物。
@@ -39,7 +39,8 @@ src/pages/                  # 页面与动态路由
 src/lib/base.ts             # GitHub Pages 子路径链接辅助函数
 src/lib/posts.ts            # 已发布内容汇总、类型与链接工具
 src/lib/weekly.ts           # 周刊导读与正文推荐解析
-src/lib/weekly-archives.ts  # 周刊分类入口标题、顺序与数量
+src/lib/weekly-archives.ts  # 周刊分类归档的年份分组数据
+src/lib/weekly-archive-data.ts # 归档年份提取与条目统计纯函数
 src/styles/global.css       # 设计变量及全站样式
 src/content/                # 周刊、博客、随笔及周刊分类 Markdown
 template/                   # 周刊、博客、随笔的 Markdown 写作模板，不参与页面渲染
@@ -55,7 +56,8 @@ tests/                      # Node.js 原生测试
 - `/`：站点介绍、按期数倒序展示的前 5 篇已发布周刊，以及博客、随笔、归档入口；不突出单独一篇。
 - `/weekly/`：分类入口在上、全部周刊目录在下，按期数倒序排列。
 - `/weekly/[slug]/`：周刊正文；头部呈现标题、描述、期数（Vol.xxx）、发布日期与标签，与博客详情一致，为纯排版呈现，不使用卡片背景；若 front matter 提供结构化 `links`，正文后显示“本期推荐”。
-- `/weekly/archives/[category]/`：渲染 `src/content/weekly/archives/` 中对应 Markdown 的完整内容。
+- `/weekly/[category]/[year]/`：渲染指定年份的分类整合内容，页头带年份胶囊导航（倒序、当前年高亮）。
+- `/weekly/archives/[category]/`：旧版分类归档入口，重定向到 `/weekly/[category]/{最新年}/`。
 - `/blog/`：博客目录，按发布时间倒序，显示标题、摘要与标签。
 - `/blog/[slug]/`：博客长文详情，包含目录、阅读进度、阅读时长与标签（目录在有多个二级/三级标题时出现）。
 - `/notes/`：随笔目录，按发布时间倒序；可显示心情与地点。
@@ -82,7 +84,8 @@ tests/                      # Node.js 原生测试
 | `Icon.astro` | 通用 SVG 图标 |
 | `src/lib/posts.ts` | 汇总已发布内容并生成内容路径 |
 | `src/lib/weekly.ts` | 生成周刊目录导读、解析推荐链接 |
-| `src/lib/weekly-archives.ts` | 生成周刊分类入口数据 |
+| `src/lib/weekly-archives.ts` | 汇总周刊分类归档的年份分组与入口数据 |
+| `src/lib/weekly-archive-data.ts` | 归档年份提取、条目统计等纯函数（可被 Node 测试直接引用） |
 
 ## 内容约定
 
@@ -103,11 +106,13 @@ draft: false
 - 周刊：`issue`；`links`（可选推荐链接数组，含 `title`、合法 `url`，可选 `note`）；`digest`（可选，包含 `title` 和最多两条 `highlights`）。列表使用 `digest.title`；未提供 `digest` 时，`src/lib/weekly.ts` 从正文推荐标题生成导读，若无推荐则回退到 `description`。目前 `highlights` 字段不在页面中展示。
 - 博客：可选 `series`。
 - 随笔：可选 `mood`、`location`；心情仅出现在随笔列表，地点可出现在列表和详情。
-- `weeklyArchives`：`src/content/weekly/archives/*.md` 中的分类整合 Markdown，不使用文章 front matter。
+- `weeklyArchives`：`src/content/weekly/archives/**/*.md` 中的分类整合 Markdown，不使用文章 front matter。根目录 `*.md` 为当前年，年份文件夹（如 `2025/`、`2024/`）为历年归档；年份判定规则：文件夹名优先，根目录文件从首个 `## Vol.xx / YYYY.MM.DD` 标题提取。
 
 `tags` 默认为空数组，`draft` 默认为 `false`。修改 schema 或新增集合时，检查并同步更新 `src/lib/posts.ts`、相关页面和测试。
 
-增加周刊分类时，同时添加分类 Markdown，并更新 `src/lib/weekly-archives.ts` 中的标题与排序。分类条目数由 Markdown 中的推荐链接自动统计。
+增加周刊分类时，同时添加分类 Markdown，并更新 `src/lib/weekly-archive-data.ts` 中的标题与排序。分类条目数由 Markdown 中的推荐链接自动统计。
+
+年度滚动（每年 1 月首发周刊时）：把根目录的 4 个分类 Markdown 移入 `archives/{上一年}/`，再新建空的根目录分类文件。归档页 URL 均为显式年份 `/weekly/[category]/{year}/`，历史年份 URL 永不失效；旧路径 `/weekly/archives/[category]/` 自动重定向到最新年。归档年份与分组逻辑变更后运行 `node --test tests/*.test.ts`。
 
 `template/` 目录维护周刊、博客、随笔的 Markdown 写作模板；模板位于集合扫描范围之外，不会被内容集合加载或渲染。新建文章时复制对应模板到集合目录并填写 front matter。
 
@@ -136,15 +141,15 @@ draft: false
 - 归档搜索：`src/components/ArchiveSearch.astro`
 - 标签列表：`src/pages/tags/[tag].astro`
 - 全局视觉：`src/styles/global.css`
-- 周刊摘要解析与测试：`src/lib/weekly.ts`、`tests/weekly.test.ts`
-- 周刊分类入口：`src/lib/weekly-archives.ts` 与 `src/content/weekly/archives/`
+- 周刊摘要解析与测试：`src/lib/weekly.ts`、`tests/weekly.test.ts`；归档年份与统计：`src/lib/weekly-archive-data.ts`、`tests/weekly-archives.test.ts`
+- 周刊分类入口：`src/lib/weekly-archives.ts`、`src/lib/weekly-archive-data.ts` 与 `src/content/weekly/archives/`
 
 站内以绝对路径书写的链接统一通过 `src/lib/base.ts` 的 `withBase()` 生成，确保 `/david/` 子路径部署正常。Pagefind 的运行时导入路径应使用 `import.meta.env.BASE_URL`，不要写死站点路径。
 
 ## Git 与部署
 
 - 保持修改聚焦；清理无效样式和未使用代码时，先确认没有模板或脚本引用。
-- 源码或内容变更后运行 `npm run build`；周刊导读逻辑变更后运行 `node --test tests/weekly.test.ts`。
+- 源码或内容变更后运行 `npm run build`；周刊导读逻辑变更后运行 `node --test tests/*.test.ts`。
 - 提交信息使用简洁英文祈使句；仅在用户要求或任务明确包含提交时提交。
 - 不要提交 `dist/`、`.astro/` 或 `node_modules/`。
 

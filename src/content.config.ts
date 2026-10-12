@@ -44,7 +44,7 @@ const notes = defineCollection({
 });
 
 const weeklyArchives = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/weekly/archives' })
+  loader: glob({ pattern: '**/*.md', base: './src/content/weekly/archives' })
 });
 
 export const collections = { weekly, weeklyArchives, blog, notes };

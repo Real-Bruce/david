@@ -813,6 +813,12 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 .weekly-archive-page { padding-bottom: 80px; }
 .weekly-archive-page .page-head { padding-inline: 0; }
 .weekly-archive-page .page-head-desc a:hover { color: var(--weekly); }
+.weekly-archive-years { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; margin-top: 20px; padding-bottom: 4px; }
+.weekly-archive-years a,
+.weekly-archive-years span[aria-current] { display: inline-flex; align-items: center; padding-bottom: 3px; border-bottom: 1px solid transparent; font-family: var(--font-mono); font-size: 13px; }
+.weekly-archive-years a { color: var(--muted); transition: color .18s ease, border-color .18s ease; }
+.weekly-archive-years a:hover { color: var(--weekly); border-bottom-color: currentColor; }
+.weekly-archive-years span[aria-current] { color: var(--weekly); border-bottom-color: currentColor; }
 .weekly-archive-content { margin-top: 24px; }
 .weekly-archive-content > h1 { display: none; }
 

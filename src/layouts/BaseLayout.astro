@@ -31,15 +31,20 @@ import { withBase } from '../lib/base';
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
 }
 
 const {
   title,
-  description = siteConfig.description
+  description = siteConfig.description,
+  canonicalPath
 } = Astro.props;
 
 const pageTitle = title ? `${title} · ${siteConfig.title}` : siteConfig.title;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? siteConfig.url);
+const canonicalURL = new URL(
+  canonicalPath ?? Astro.url.pathname,
+  Astro.site ?? siteConfig.url
+);
 ---
 
 <!doctype html>

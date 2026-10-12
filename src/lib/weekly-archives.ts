@@ -1,37 +1,47 @@
 /// <reference types="vite/client" />
 
-export interface WeeklyArchiveSummary {
-  id: string;
-  title: string;
-  total: number;
-}
+import {
+  getArchiveYear,
+  countArchiveEntries,
+  getCategoryTitle,
+  compareCategories,
+  type WeeklyArchiveCategory,
+  type WeeklyArchiveYear
+} from './weekly-archive-data';
 
-const archiveFiles = import.meta.glob('../content/weekly/archives/*.md', {
+export type { WeeklyArchiveCategory, WeeklyArchiveYear };
+
+const archiveFiles = import.meta.glob('../content/weekly/archives/**/*.md', {
   query: '?raw',
   import: 'default',
   eager: true
 }) as Record<string, string>;
 
-const categoryTitles: Record<string, string> = {
-  article: '文章',
-  blogs: '博客',
-  software: '软件',
-  website: '网站'
-};
+export { getArchiveYear, countArchiveEntries };
 
-const categoryOrder = ['article', 'blogs', 'software', 'website'];
+/**
+ * 汇总周刊分类归档：根目录文件为当前年，年份文件夹为历年。
+ * years 按年份倒序，total 为跨年总和。
+ */
+export function getWeeklyArchiveCategories(): WeeklyArchiveCategory[] {
+  const byCategory = new Map<string, WeeklyArchiveYear[]>();
 
-export function getWeeklyArchiveSummaries(): WeeklyArchiveSummary[] {
-  const summaries = Object.entries(archiveFiles).map(([filePath, content]) => {
+  for (const [filePath, content] of Object.entries(archiveFiles)) {
     const id = filePath.split('/').pop()?.replace(/\.md$/, '') ?? '';
-    const total = [...content.matchAll(/^#### \[(.+?)\]\((.+?)\)$/gm)].length;
+    const year = getArchiveYear(filePath, content);
+    if (!id || year === null) continue;
 
-    return {
-      id,
-      title: categoryTitles[id] ?? id,
-      total
-    };
-  });
+    const years = byCategory.get(id) ?? [];
+    years.push({ year, total: countArchiveEntries(content) });
+    byCategory.set(id, years);
+  }
 
-  return summaries.sort((a, b) => categoryOrder.indexOf(a.id) - categoryOrder.indexOf(b.id));
+  const categories: WeeklyArchiveCategory[] = [...byCategory.entries()].map(([id, years]) => ({
+    id,
+    title: getCategoryTitle(id),
+    years: years.sort((a, b) => b.year - a.year),
+    total: years.reduce((sum, item) => sum + item.total, 0)
+  }));
+
+  return categories.sort((a, b) => compareCategories(a.id, b.id));
 }

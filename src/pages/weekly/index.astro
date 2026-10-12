@@ -1,14 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getWeeklyDigest } from '../../lib/weekly';
-import { getWeeklyArchiveSummaries } from '../../lib/weekly-archives';
+import { getWeeklyArchiveCategories } from '../../lib/weekly-archives';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('weekly', ({ data }) => !data.draft))
   .sort((a, b) => b.data.issue - a.data.issue);
 
-const archiveSummaries = getWeeklyArchiveSummaries();
+const archiveSummaries = getWeeklyArchiveCategories();
 const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-', '.');
 ---
 
@@ -26,7 +26,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
       <!--<span class="weekly-categories-label">分类浏览</span>-->
       <div class="weekly-category-links">
         {archiveSummaries.map(summary => (
-          <a href={withBase(`/weekly/archives/${summary.id}/`)}>
+          <a href={withBase(`/weekly/${summary.id}/${summary.years[0].year}/`)}>
             {summary.title}<span aria-hidden="true">↗</span>
           </a>
         ))}
