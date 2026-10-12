@@ -4,6 +4,7 @@ import { getWeeklyDigest } from '../../lib/weekly';
 import { getWeeklyArchiveCategories } from '../../lib/weekly-archives';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
+import ExternalLinkIcon from '../../components/ExternalLinkIcon.astro';
 
 const posts = (await getCollection('weekly', ({ data }) => !data.draft))
   .sort((a, b) => b.data.issue - a.data.issue);
@@ -27,7 +28,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
       <div class="weekly-category-links">
         {archiveSummaries.map(summary => (
           <a href={withBase(`/weekly/${summary.id}/${summary.years[0].year}/`)}>
-            {summary.title}<span aria-hidden="true">↗</span>
+            {summary.title}<ExternalLinkIcon />
           </a>
         ))}
       </div>
@@ -47,7 +48,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
                   <time datetime={post.data.pubDate.toISOString()}>{dateText(post.data.pubDate)}</time>
                 </div>
                 <h3>{getWeeklyDigest(post).title}</h3>
-                <!--<span class="weekly-entry-arrow" aria-hidden="true">↗</span>-->
+                <!--<ExternalLinkIcon />-->
               </a>
             </li>
           ))}

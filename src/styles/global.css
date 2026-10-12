@@ -217,6 +217,9 @@ main { padding-top: 32px; }
   box-shadow: var(--card-shadow-hover), 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
   transform: translateY(-1px);
 }
+
+.external-link-icon { display: inline-block; vertical-align: -0.18em; margin-left: 0.12em; color: inherit; }
+
 /* ---------- 页面标题区 ---------- */
 .page-head {
   padding: 44px var(--intro-content-inset) 0px;
@@ -811,15 +814,17 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 }
 
 .weekly-archive-page { padding-bottom: 80px; }
-.weekly-archive-page .page-head { padding-inline: 0; }
-.weekly-archive-page .page-head-desc a:hover { color: var(--weekly); }
-.weekly-archive-years { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; margin-top: 20px; padding-bottom: 4px; }
+.weekly-archive-page .article-header h1 { margin-top: 34px; line-height: 1.2; }
+.weekly-archive-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 14px 24px; }
+.weekly-archive-back { color: var(--muted); font-size: 14px; white-space: nowrap; transition: color .18s ease; }
+.weekly-archive-back:hover { color: var(--weekly); }
+.weekly-archive-years { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; margin-top: 30px; padding-bottom: 4px; }
 .weekly-archive-years a,
 .weekly-archive-years span[aria-current] { display: inline-flex; align-items: center; padding-bottom: 3px; border-bottom: 1px solid transparent; font-family: var(--font-mono); font-size: 13px; }
 .weekly-archive-years a { color: var(--muted); transition: color .18s ease, border-color .18s ease; }
 .weekly-archive-years a:hover { color: var(--weekly); border-bottom-color: currentColor; }
 .weekly-archive-years span[aria-current] { color: var(--weekly); border-bottom-color: currentColor; }
-.weekly-archive-content { margin-top: 24px; }
+.weekly-archive-content { margin-top: 34px; }
 .weekly-archive-content > h1 { display: none; }
 
 @media (max-width: 700px) {
@@ -840,6 +845,9 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   .article-header .article-meta { margin-top: 22px; padding-top: 14px; }
   .article-context { margin-top: 16px; gap: 8px 18px; }
   .article-header + .prose { margin-top: 28px; }
+  .weekly-archive-page .article-header h1 { margin-top: 24px; }
+  .weekly-archive-years { margin-top: 22px; }
+  .weekly-archive-content { margin-top: 26px; }
 }
 
 /* 悬停与键盘选中时，条目像纸张一样轻轻浮起 */

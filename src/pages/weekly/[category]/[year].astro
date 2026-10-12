@@ -34,12 +34,15 @@ const { Content } = await render(entry);
 >
   <ReadingProgress />
   <main class="article weekly-archive-page">
-    <header class="page-head">
-      <div class="page-head-row">
-        <h1>{category.title}推荐整合</h1>
-        <span class="page-head-meta">{year} 年 · {yearTotal} 条</span>
+    <header class="article-header article-header-weekly">
+      <div class="meta">
+        <span class="kind kind-weekly">{category.title}</span>
+        <span>{year} 年 · {yearTotal} 条</span>
       </div>
-      <p class="page-head-desc"><a href={withBase('/weekly/')}>← 返回全部周刊</a></p>
+      <div class="weekly-archive-head">
+        <h1>{category.title}推荐整合</h1>
+        <a class="weekly-archive-back" href={withBase('/weekly/')}>← 返回</a>
+      </div>
     </header>
     <nav class="weekly-archive-years" aria-label="归档年份">
       {category.years.map(item => (

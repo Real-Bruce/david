@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getWeeklyDigest } from '../lib/weekly';
 import { withBase } from '../lib/base';
 import { getCollection } from 'astro:content';
+import ExternalLinkIcon from '../components/ExternalLinkIcon.astro';
 
 const weeklyPosts = (await getCollection('weekly', ({ data }) => !data.draft))
   .sort((a, b) => b.data.issue - a.data.issue);
@@ -32,7 +33,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
                 <time datetime={post.data.pubDate.toISOString()}>{dateText(post.data.pubDate)}</time>
               </div>
               <h3>{digest.title}</h3>
-              <!--<span class="weekly-entry-arrow" aria-hidden="true">↗</span>-->
+              <!--<ExternalLinkIcon />-->
             </a>
           </li>
         ))}
@@ -40,9 +41,9 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
     </section>
 
     <nav class="home-more" aria-label="更多内容">
-      <a href={withBase('/blog/')}>博客 <span aria-hidden="true">↗</span></a>
-      <a href={withBase('/notes/')}>随笔 <span aria-hidden="true">↗</span></a>
-      <a href={withBase('/archive/')}>归档 <span aria-hidden="true">↗</span></a>
+      <a href={withBase('/blog/')}>博客 <ExternalLinkIcon /></a>
+      <a href={withBase('/notes/')}>随笔 <ExternalLinkIcon /></a>
+      <a href={withBase('/archive/')}>归档 <ExternalLinkIcon /></a>
     </nav>
   </main>
 </BaseLayout>
