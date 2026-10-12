@@ -10,7 +10,7 @@ const sharedFields = {
 };
 
 const weekly = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/weekly' }),
+  loader: glob({ pattern: ['*.md', '!collect.md'], base: './src/content/weekly' }),
   schema: z.object({
     ...sharedFields,
     issue: z.number(),

@@ -89,7 +89,7 @@ tests/                      # Node.js 原生测试
 
 ## 内容约定
 
-内容集合在 `src/content.config.ts` 定义：`weekly`、`blog`、`notes` 和 `weeklyArchives`。新增文章放入对应目录，按 schema 填写 front matter；无需手动维护列表。`draft: true` 的文章不会进入公开页面。
+内容集合在 `src/content.config.ts` 定义：`weekly`、`blog`、`notes` 和 `weeklyArchives`。新增文章放入对应目录，按 schema 填写 front matter；无需手动维护列表。`draft: true` 的文章不会进入公开页面。`src/content/weekly/collect.md` 是素材收集文件，通过 glob 排除规则不参与集合解析与构建，不要在其中添加 front matter，也不要修改排除规则。
 
 周刊、博客和随笔共用字段：
 
