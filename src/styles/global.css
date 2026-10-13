@@ -360,24 +360,55 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 .weekly-issue { font-family: var(--font-mono); color: var(--weekly); }
 .weekly-desc { margin: 18px 0 0; color: var(--muted); font-size: 16px; line-height: 1.8; }
 
-/* 周刊推荐链接 */
+/* 周刊推荐链接（书签卡片） */
 .link-list { display: grid; gap: 12px; }
 
-.link-item {
-  padding: 20px 22px;
+.link-card {
+  display: block;
+  padding: 18px 22px;
+  border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--card);
-  box-shadow: var(--card-shadow);
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
-.link-item:hover {
+.link-card:hover {
   transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--weekly) 38%, var(--border));
   box-shadow: var(--card-shadow-hover), 0 18px 34px -22px color-mix(in srgb, var(--weekly) 22%, transparent);
 }
-.link-item strong { display: block; margin-bottom: 6px; }
-.link-item a { color: var(--accent); word-break: break-all; }
-.link-item p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+
+.link-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.link-card-title {
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.link-card-domain {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--tint);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .03em;
+}
+
+.link-card-desc {
+  display: block;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
 
 /* ==========================================================================
    博客·随笔轨道：正式条目列表（像一本书的目录）
@@ -444,8 +475,9 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
    ========================================================================== */
 .article {
   --article-accent: var(--accent);
-  width: min(700px, calc(100% - 40px));
+  max-width: 68ch;
   margin: 56px auto 90px;
+  padding-inline: clamp(20px, 4vw, 40px);
 }
 
 .article h1 {
@@ -545,11 +577,11 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 .toc-item.sub { padding-left: 14px; font-size: 12.5px; }
 
 /* ---------- 正文排版（核心） ---------- */
-.prose { font-size: 17.5px; line-height: 1.9; }
+.prose { font-size: 17.5px; line-height: 1.8; }
 
 .prose h2 {
   position: relative;
-  margin: 2.1em 0 1em;
+  margin: 2.5em 0 .8em;
   padding-left: .72em;
   font-size: 26px;
   letter-spacing: .02em;
@@ -566,11 +598,11 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   background: color-mix(in srgb, var(--article-accent, var(--accent)) 72%, transparent);
 }
 
-.prose h3 { margin: 2.1em 0 .9em; font-size: 20px; letter-spacing: .01em; }
+.prose h3 { margin: 2.5em 0 .8em; font-size: 20px; letter-spacing: .01em; }
 
 .prose h4 { margin: 1.8em 0 .8em; font-size: 17px; }
 
-.prose p { margin: 1.15em 0; }
+.prose p { margin: 0 0 1.25em; line-height: 1.8; }
 
 .prose ul, .prose ol { padding-left: 1.5em; margin: 1.1em 0; }
 .prose li { margin: .45em 0; }
@@ -580,10 +612,17 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
   text-underline-offset: 4px;
-  transition: text-decoration-color .18s ease;
+  background-image: linear-gradient(120deg, color-mix(in srgb, var(--accent) 14%, transparent), color-mix(in srgb, var(--accent) 30%, transparent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 100%;
+  transition: text-decoration-color .18s ease, background-size .28s ease;
 }
 
-.prose a:hover { text-decoration-color: var(--accent); }
+.prose a:hover {
+  text-decoration-color: var(--accent);
+  background-size: 100% 100%;
+}
 
 .prose blockquote {
   margin: 1.8em 0;
@@ -592,13 +631,14 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   border-radius: 0 10px 10px 0;
   background: var(--tint);
   color: var(--muted);
+  font-style: normal;
 }
 
 .prose blockquote p { margin: .5em 0; }
 
 .prose code {
-  padding: 2px 6px;
-  border-radius: 5px;
+  padding: .2em .4em;
+  border-radius: .25rem;
   background: var(--tint);
   border: 1px solid var(--border);
   font-family: var(--font-mono);
@@ -606,12 +646,47 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 }
 
 .prose pre {
+  position: relative;
   padding: 22px;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--tint);
   overflow-x: auto;
   line-height: 1.7;
+}
+
+/* 代码块复制按钮 */
+.code-copy {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .18s ease, color .18s ease, border-color .18s ease;
+}
+
+.prose pre:hover .code-copy,
+.code-copy:focus-visible {
+  opacity: 1;
+}
+
+.code-copy:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.code-copy.is-copied {
+  color: var(--blog);
+  border-color: var(--blog);
+  opacity: 1;
 }
 
 .prose pre code { padding: 0; border: 0; background: transparent; font-size: .84em; }

@@ -47,11 +47,13 @@ const { Content } = await render(post);
         <h2 class="section-title">本期推荐</h2>
         <div class="link-list">
           {post.data.links.map(item => (
-            <article class="link-item">
-              <strong>{item.title}</strong>
-              <a href={item.url} target="_blank" rel="noopener noreferrer">{item.url}</a>
-              {item.note && <p>{item.note}</p>}
-            </article>
+            <a class="link-card" href={item.url} target="_blank" rel="noopener noreferrer">
+              <span class="link-card-header">
+                <span class="link-card-title">{item.title}</span>
+                <span class="link-card-domain">{new URL(item.url).hostname}</span>
+              </span>
+              {item.note && <span class="link-card-desc">{item.note}</span>}
+            </a>
           ))}
         </div>
       </section>
