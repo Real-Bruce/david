@@ -56,23 +56,54 @@ const utilityNav = [
       </nav>
 
       <nav class="mobile-nav" aria-label="移动端主导航">
-        <details>
-          <summary
-            class:list={['icon-button', 'mobile-nav-trigger', { active: primaryActive }]}
-            aria-label="主导航"
-            title="主导航"
-          >
-            <Icon name="menu" />
-          </summary>
-          <div class="mobile-nav-list">
-            {primaryNav.map(link => (
-              <a href={withBase(link.href)} class:list={[{ active: isActive(link.href) }]}>
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </details>
+        <button
+          type="button"
+          class:list={['icon-button', 'mobile-nav-trigger', { active: primaryActive }]}
+          aria-label="打开主导航"
+          aria-expanded="false"
+          aria-controls="mobile-nav-panel"
+        >
+          <span class="mobile-nav-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+        <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+        <div class="mobile-nav-list" id="mobile-nav-panel">
+          {primaryNav.map(link => (
+            <a href={withBase(link.href)} class:list={[{ active: isActive(link.href) }]}>
+              {link.label}
+            </a>
+          ))}
+        </div>
       </nav>
     </div>
   </div>
 </header>
+
+<script>
+  // 移动端浮层菜单：按钮切换、遮罩/链接/Esc 收起
+  const mobileNav = document.querySelector<HTMLElement>('.mobile-nav');
+  const trigger = mobileNav?.querySelector<HTMLButtonElement>('.mobile-nav-trigger');
+
+  if (mobileNav && trigger) {
+    const setOpen = (open: boolean) => {
+      mobileNav.classList.toggle('is-open', open);
+      trigger.setAttribute('aria-expanded', String(open));
+      trigger.setAttribute('aria-label', open ? '关闭主导航' : '打开主导航');
+    };
+
+    trigger.addEventListener('click', () => {
+      setOpen(!mobileNav.classList.contains('is-open'));
+    });
+
+    mobileNav.querySelector('.mobile-nav-backdrop')?.addEventListener('click', () => setOpen(false));
+    mobileNav.querySelectorAll('.mobile-nav-list a').forEach(link => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') setOpen(false);
+    });
+  }
+</script>

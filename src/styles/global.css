@@ -170,10 +170,50 @@ main { padding-top: 32px; }
 .nav-text { display: flex; gap: 22px; }
 .nav-icons { display: flex; gap: 10px; }
 
-.mobile-nav { display: none; }
-.mobile-nav details { position: relative; }
-.mobile-nav summary { list-style: none; cursor: pointer; }
-.mobile-nav summary::-webkit-details-marker { display: none; }
+.mobile-nav { display: none; position: relative; }
+
+/* 汉堡按钮：不小于 40x40 的点击热区 */
+.mobile-nav-trigger {
+  min-width: 40px;
+  min-height: 40px;
+  cursor: pointer;
+}
+
+/* 汉堡图标三条横线 */
+.mobile-nav-bars {
+  display: grid;
+  gap: 5px;
+}
+
+.mobile-nav-bars span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform .22s ease, opacity .18s ease;
+}
+
+/* 展开时平滑过渡为 X 形态 */
+.mobile-nav.is-open .mobile-nav-bars span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-nav.is-open .mobile-nav-bars span:nth-child(2) { opacity: 0; }
+.mobile-nav.is-open .mobile-nav-bars span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* 半透明背景遮罩 */
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 38;
+  background: rgb(0 0 0 / 32%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+
+.mobile-nav.is-open .mobile-nav-backdrop {
+  opacity: 1;
+  visibility: visible;
+}
 
 .icon-button {
   position: relative;
@@ -854,7 +894,7 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
     position: absolute;
     top: calc(100% + 10px);
     right: 0;
-    z-index: 30;
+    z-index: 39;
     min-width: 168px;
     padding: 8px;
     display: grid;
@@ -862,6 +902,16 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
     background: var(--card);
     border-radius: 12px;
     box-shadow: var(--card-shadow-hover);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+  }
+
+  .mobile-nav.is-open .mobile-nav-list {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   .mobile-nav-list a {
@@ -886,6 +936,16 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   .home-more { margin-top: 18px; }
   .entry-link { padding: 20px var(--list-content-inset) 14px; }
   .entry .tags { padding: 0 var(--list-content-inset) 14px; }
+}
+
+/* ---------- 移动端视口安全边距（< 768px） ---------- */
+@media (max-width: 767px) {
+  /* 手机端由 body 统一提供 1rem 左右安全边距，防止内容贴边 */
+  body { padding-inline: 1rem; }
+  /* 取消容器自身的额外内缩，避免与 body 边距叠加成双倍留白 */
+  .container,
+  .article-layout { width: 100%; }
+  .article { padding-inline: 0; }
 }
 
 .weekly-archive-page { padding-bottom: 80px; }
