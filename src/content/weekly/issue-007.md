@@ -2,7 +2,7 @@
 title: "turning the tables on ai"
 description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 1 个、网站工具 4 个、资料博文 4 篇。
 issue: 7
-pubDate: 2024-08-01
+pubDate: 2024-08-11
 tags:
   - 周刊
 draft: false
