@@ -178,18 +178,31 @@ const canonicalURL = new URL(
           textarea.remove();
         };
 
+        // 按钮已移到 <pre> 外层容器，取文本时不会混入按钮上的 "Copy"
+        const readCode = (pre) => {
+          const code = pre.querySelector("code");
+          return (code || pre).textContent || "";
+        };
+
         blocks.forEach((pre) => {
-          if (pre.querySelector(".code-copy")) return;
+          // Astro 的 Shiki 在 <pre> 上输出内联 overflow-x:auto，内联样式压过任何选择器，
+          // 因此把 <pre> 包进不滚动的 .code-block，按钮挂在容器上才能始终留在可视区。
+          let wrap = pre.parentElement;
+          if (!wrap || !wrap.classList.contains("code-block")) {
+            wrap = document.createElement("div");
+            wrap.className = "code-block";
+            pre.parentNode.insertBefore(wrap, pre);
+            wrap.appendChild(pre);
+          }
+          if (wrap.querySelector(".code-copy")) return;
           const button = document.createElement("button");
           button.type = "button";
           button.className = "code-copy";
           button.textContent = "Copy";
           button.setAttribute("aria-label", "复制代码");
           button.addEventListener("click", async () => {
-            const code = pre.querySelector("code");
-            const text = code ? code.innerText : pre.innerText;
             try {
-              await copyText(text.replace(/\n$/, ""));
+              await copyText(readCode(pre).replace(/\n$/, ""));
               button.textContent = "Copied";
               button.classList.add("is-copied");
             } catch {
@@ -200,7 +213,7 @@ const canonicalURL = new URL(
               button.classList.remove("is-copied");
             }, 1600);
           });
-          pre.appendChild(button);
+          wrap.appendChild(button);
         });
       })();
     </script>
