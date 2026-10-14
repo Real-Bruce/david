@@ -5,24 +5,36 @@
 </button>
 
 <script is:inline>
-  const button = document.getElementById('back-to-top');
-  let lastY = window.scrollY;
+  (() => {
+    const button = document.getElementById("back-to-top");
+    if (!button) return;
 
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    const movingDown = y > lastY + 4;
-    const movingUp = y < lastY - 4;
+    // anchorY 只在跨过阈值时更新，用于累积位移：
+    // 高刷新率触控板每次 scroll 事件可能只有 1~3px，
+    // 若直接和上一次 scrollY 比较，两个方向分支都不成立，按钮永远不会出现。
+    let anchorY = window.scrollY;
 
-    if (movingDown && y > 320) {
-      button.classList.add('show');
-    } else if (movingUp || y < 240) {
-      button.classList.remove('show');
-    }
+    const onScroll = () => {
+      const y = window.scrollY;
 
-    lastY = y;
-  }, { passive: true });
+      if (y > anchorY + 4) {
+        anchorY = y;
+        if (y > 320) button.classList.add("show");
+      } else if (y < anchorY - 4) {
+        anchorY = y;
+        button.classList.remove("show");
+      }
 
-  button.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+      if (y < 240) {
+        anchorY = y;
+        button.classList.remove("show");
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    button.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    onScroll();
+  })();
 </script>
