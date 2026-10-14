@@ -1,12 +1,9 @@
----
----
-
 <div class="reading-progress" aria-hidden="true">
   <div class="reading-progress-bar"></div>
 </div>
 
 <script>
-  const bar = document.querySelector('.reading-progress-bar');
+  const bar = document.querySelector<HTMLDivElement>('.reading-progress-bar');
 
   const update = () => {
     if (!bar) return;
