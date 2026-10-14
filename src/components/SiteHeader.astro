@@ -3,9 +3,14 @@ import { siteConfig } from '../site.config';
 import { withBase } from '../lib/base';
 import Icon from './Icon.astro';
 
-const currentPath = Astro.url.pathname.replace(/\/$/, '/') || '/';
-const normalize = (href: string) => href === '/' ? '/' : href.replace(/\/$/, '/') + '/';
-const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(normalize(href));
+/** 统一补齐 base 前缀与结尾斜杠，否则 /david 子路径部署下当前页永远匹配不上。 */
+const withTrailingSlash = (path: string) => (path.endsWith('/') ? path : `${path}/`);
+const currentPath = withTrailingSlash(Astro.url.pathname);
+const homePath = withTrailingSlash(withBase('/'));
+const normalize = (href: string) => withTrailingSlash(withBase(href));
+const isActive = (href: string) =>
+  href === '/' ? currentPath === homePath : currentPath.startsWith(normalize(href));
+const currentAttr = (href: string) => (isActive(href) ? 'page' : undefined);
 
 const primaryNav = [
   { href: '/weekly/', label: '周刊' },
@@ -36,7 +41,11 @@ const utilityNav = [
     <div class="header-actions">
       <nav class="nav nav-text" aria-label="主导航">
         {primaryNav.map(link => (
-          <a href={withBase(link.href)} class:list={[{ active: isActive(link.href) }]}>
+          <a
+            href={withBase(link.href)}
+            class:list={[{ active: isActive(link.href) }]}
+            aria-current={currentAttr(link.href)}
+          >
             {link.label}
           </a>
         ))}
@@ -47,6 +56,7 @@ const utilityNav = [
           <a
             href={withBase(link.href)}
             class:list={['icon-button', { active: isActive(link.href) }]}
+            aria-current={currentAttr(link.href)}
             aria-label={link.label}
             title={link.label}
           >
@@ -72,7 +82,11 @@ const utilityNav = [
         <div class="mobile-nav-backdrop" aria-hidden="true"></div>
         <div class="mobile-nav-list" id="mobile-nav-panel">
           {primaryNav.map(link => (
-            <a href={withBase(link.href)} class:list={[{ active: isActive(link.href) }]}>
+            <a
+              href={withBase(link.href)}
+              class:list={[{ active: isActive(link.href) }]}
+              aria-current={currentAttr(link.href)}
+            >
               {link.label}
             </a>
           ))}
