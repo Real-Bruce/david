@@ -1,4 +1,6 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+// astro:content 再导出的 z 在 Astro 7 已标记弃用，改用官方的 astro/zod
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 const sharedFields = {
@@ -20,7 +22,7 @@ const weekly = defineCollection({
     }).optional(),
     links: z.array(z.object({
       title: z.string(),
-      url: z.string().url(),
+      url: z.url(),
       note: z.string().optional()
     })).default([])
   })
