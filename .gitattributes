@@ -1,2 +1,37 @@
-# 统一换行符：src/content 下的 Markdown 一律使用 LF
-src/content/**/*.md text eol=lf
+# 统一换行符：仓库内所有文本文件一律使用 LF，禁止 CRLF
+* text=auto eol=lf
+
+# 显式声明常见文本类型，避免依赖内容探测
+*.astro text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+*.js    text eol=lf
+*.mjs   text eol=lf
+*.cjs   text eol=lf
+*.ts    text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.svg   text eol=lf
+*.txt   text eol=lf
+*.xml   text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+
+# 二进制资源：永不转换换行符
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.avif  binary
+*.ico   binary
+*.pdf   binary
+*.mp3   binary
+*.mp4   binary
+*.webm  binary
+*.zip   binary
