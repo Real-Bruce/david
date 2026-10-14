@@ -3,6 +3,19 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
+/**
+ * 每个集合的 loader 都显式指定 base，且都指向 src/content 下的具体子目录。
+ *
+ * 这正是 src/content/template/（写作模板）与 src/content/weekly/collect.md（素材储备）
+ * 不被解析的原因：Astro 7 的内容集合完全由这里的 loader 决定，不存在
+ * 「src/content 下自动成为集合」的规则，没有 base 覆盖到的目录既不会产生条目，
+ * 也不会生成路由。
+ *
+ * 新增集合时不要把 base 放宽到 './src/content'，否则带示例 front matter 的写作模板
+ * 会被当成正式文章解析（例如 issue: 0 的周刊模板会凭空多出一期）。
+ * tests/content-templates.test.ts 会守住这条约定。
+ */
+
 const sharedFields = {
   title: z.string(),
   description: z.string(),
