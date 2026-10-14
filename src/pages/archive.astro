@@ -7,8 +7,10 @@ import { getPublishedPosts, getPostHref, getPostKind, type AnyPost } from '../li
 const posts = await getPublishedPosts();
 
 const groupedPosts = posts.reduce((acc, post) => {
-  const year = String(post.data.pubDate.getFullYear());
-  const month = String(post.data.pubDate.getMonth() + 1).padStart(2, '0');
+  // 统一用 UTC 取值：条目日期由 EditorialPostList 经 toISOString() 以 UTC 显示，
+  // 若这里用构建机本地时区，在 UTC 负时区上会把月初文章分到上个月甚至上一年。
+  const year = String(post.data.pubDate.getUTCFullYear());
+  const month = String(post.data.pubDate.getUTCMonth() + 1).padStart(2, '0');
 
   if (!acc.has(year)) acc.set(year, new Map<string, AnyPost[]>());
   const yearMap = acc.get(year)!;
