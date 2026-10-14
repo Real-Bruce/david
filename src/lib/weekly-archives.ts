@@ -27,8 +27,12 @@ export function getWeeklyArchiveCategories(): WeeklyArchiveCategory[] {
   const byCategory = new Map<string, WeeklyArchiveYear[]>();
 
   for (const [filePath, content] of Object.entries(archiveFiles)) {
-    const id = filePath.split('/').pop()?.replace(/\.md$/, '') ?? '';
-    const year = getArchiveYear(filePath, content);
+    // glob key 形如 '../content/weekly/archives/2025/website.md'，
+    // 先归一成与内容集合一致的 entryId（'2025/website' | 'website'），
+    // 保证与 pages/weekly/[category]/[year].astro 的 getStaticPaths 判定同源。
+    const entryId = filePath.replace(/^.*\/archives\//, '').replace(/\.md$/, '');
+    const id = entryId.split('/').pop() ?? '';
+    const year = getArchiveYear(entryId, content);
     if (!id || year === null) continue;
 
     const years = byCategory.get(id) ?? [];

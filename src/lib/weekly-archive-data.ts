@@ -10,7 +10,11 @@ export interface WeeklyArchiveCategory {
   total: number;
 }
 
-const yearFromFolder = /^(\d{4})\//;
+// 只要「直接父目录」是 4 位年份即命中，因此同时接受内容集合 id（'2025/website'）
+// 与 import.meta.glob 的完整 key（'../content/weekly/archives/2025/website.md'）。
+// 旧写法 /^(\d{4})\// 被 ^ 锚死，传入 glob key 时永远不匹配，
+// 「年份文件夹优先」会静默失效并回落到正文标题取年 —— 年度滚动跨年时就会算错年份。
+const yearFromFolder = /(\d{4})\/[^/]+$/;
 const yearFromContent = /^## Vol\.\d+ \/ (\d{4})\./m;
 const entryPattern = /^#### \[(.+?)\]\((.+?)\)$/gm;
 
@@ -18,6 +22,8 @@ const entryPattern = /^#### \[(.+?)\]\((.+?)\)$/gm;
  * 解析归档文件年份：
  * - 位于年份文件夹（如 2025/website.md）时直接取文件夹名；
  * - 位于根目录（当前年）时从首个期数标题「## Vol.xx / YYYY.MM.DD」提取。
+ *
+ * entryId 传内容集合 id 或 import.meta.glob 的文件路径均可。
  */
 export function getArchiveYear(entryId: string, content: string): number | null {
   const folder = entryId.match(yearFromFolder);
@@ -44,6 +50,16 @@ export function getCategoryTitle(id: string): string {
   return categoryTitles[id] ?? id;
 }
 
+/**
+ * 已登记分类按 categoryOrder 排序；未登记的新分类排到最后并按名称稳定排序。
+ * 直接相减 indexOf 会让未登记分类得到 -1，从而静默插到「文章」前面。
+ */
 export function compareCategories(a: string, b: string): number {
-  return categoryOrder.indexOf(a) - categoryOrder.indexOf(b);
+  const ia = categoryOrder.indexOf(a);
+  const ib = categoryOrder.indexOf(b);
+  if (ia === -1 || ib === -1) {
+    if (ia === ib) return a.localeCompare(b);
+    return ia === -1 ? 1 : -1;
+  }
+  return ia - ib;
 }
