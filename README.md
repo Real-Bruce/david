@@ -75,8 +75,8 @@ src/
       archives/           # 周刊分类整合 Markdown
     blog/                 # 博客 Markdown
     notes/                # 随笔 Markdown
+    template/             # 周刊、博客、随笔写作模板（无 loader 覆盖，不解析、不渲染）
 
-template/                 # 周刊、博客、随笔写作模板（不参与渲染）
 tests/                    # Node.js 原生测试
 public/                   # favicon、robots.txt 等静态资源
 .github/workflows/        # GitHub Pages 构建与部署流程
@@ -175,7 +175,7 @@ location: 可选地点
 ## 写作建议
 
 - 新文章直接放入对应集合目录，文件名使用小写英文、数字和连字符。
-- 新建文章时可复制 `template/` 中对应模板到集合目录再填写 front matter。
+- 新建文章时可复制 `src/content/template/` 中对应模板到集合目录再填写 front matter。
 - 首页、归档页、标签页都会自动读取内容，不需要手动登记。
 - 修改 schema 或新增集合时，同步检查 `src/lib/posts.ts`、相关页面和测试。
 

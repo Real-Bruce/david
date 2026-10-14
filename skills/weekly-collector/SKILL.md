@@ -39,7 +39,7 @@ agent_created: true
 
 ## 生成周刊的步骤
 
-1. 读取 `template/weekly-template.md`，了解 front matter 结构与正文栏目（模板已在该目录，勿在 skill 内重复存放模板内容）。
+1. 读取 `src/content/template/weekly-template.md`，了解 front matter 结构与正文栏目（模板已在该目录，勿在 skill 内重复存放模板内容）。
 2. 读取 `src/content/weekly/collect.md`，挑选本期要收录的素材。
 3. 确定新期数：列出 `src/content/weekly/issue-*.md`，取最大期数 +1。
 4. 创建 `src/content/weekly/issue-XXX.md`，填写 front matter（`draft: false` 表示发布，草稿则 `draft: true`），正文按模板栏目组织，为每条素材补写一句话介绍，可在 `links` 字段填写本期推荐链接。

@@ -48,7 +48,7 @@ src/lib/weekly-archives.ts  # 周刊分类归档的年份分组数据
 src/lib/weekly-archive-data.ts # 归档年份提取与条目统计纯函数
 src/styles/global.css       # 设计变量及全站样式
 src/content/                # 周刊、博客、随笔及周刊分类 Markdown
-template/                   # 周刊、博客、随笔的 Markdown 写作模板，不参与页面渲染
+src/content/template/       # 周刊、博客、随笔的 Markdown 写作模板，无 loader 覆盖，不解析也不渲染
 public/                     # favicon、robots.txt 等静态资源
 tests/                      # Node.js 原生测试
 .github/workflows/          # GitHub Pages 构建与部署流程
@@ -122,7 +122,9 @@ draft: false
 
 年度滚动（每年 1 月首发周刊时）：把根目录的 4 个分类 Markdown 移入 `archives/{上一年}/`，再新建空的根目录分类文件。归档页 URL 均为显式年份 `/weekly/[category]/{year}/`，历史年份 URL 永不失效；旧路径 `/weekly/archives/[category]/` 自动重定向到最新年。归档年份与分组逻辑变更后运行 `npm run test`。
 
-`template/` 目录维护周刊、博客、随笔的 Markdown 写作模板；模板位于集合扫描范围之外，不会被内容集合加载或渲染。新建文章时复制对应模板到集合目录并填写 front matter。
+`src/content/template/` 目录维护周刊、博客、随笔的 Markdown 写作模板。Astro 7 的内容集合完全由 `src/content.config.ts` 里的 loader 决定，**不存在「`src/content/` 下自动成为集合」的规则**；四个 loader 的 `base` 都指向具体子目录，没有一个覆盖 `src/content/template/`，所以模板既不会产生条目也不会生成路由——尽管模板自身带着 `issue: 0` 这类示例 front matter。
+
+因此**新增集合时不要把 `base` 放宽到 `'./src/content'`**，否则模板会被当成正式文章解析。`tests/content-templates.test.ts` 会守住这条约定（同时守住 `collect.md` 的排除规则）。新建文章时复制对应模板到集合目录并填写 front matter。
 
 ## 视觉与样式约定
 
@@ -148,6 +150,7 @@ draft: false
 
 - 站点身份、作者和联系方式：`src/site.config.ts`
 - 内容 schema：`src/content.config.ts`
+- 写作模板：`src/content/template/`（不被任何 loader 解析，见「内容约定」）
 - 首页：`src/pages/index.astro`
 - 周刊列表与详情：`src/pages/weekly/index.astro`、`src/pages/weekly/[slug].astro`
 - 博客、随笔列表与详情：各自 `src/pages/blog/`、`src/pages/notes/`
