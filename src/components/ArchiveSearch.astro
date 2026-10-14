@@ -10,28 +10,63 @@
 </div>
 
 <script>
-  const input = document.getElementById('archive-search-input');
+  interface PagefindData {
+    url: string;
+    excerpt: string;
+    meta?: { title?: string };
+  }
+
+  interface PagefindSearchResult {
+    data: () => Promise<PagefindData>;
+  }
+
+  interface PagefindIndex {
+    options?: () => Promise<unknown>;
+    search: (query: string) => Promise<{ results: PagefindSearchResult[] } | null>;
+  }
+
   const resultsBox = document.getElementById('archive-search-results');
   const archiveList = document.getElementById('archive-list');
-  let pagefind = null;
+  const searchInput = document.getElementById('archive-search-input');
 
-  async function ensureIndex() {
+  const HTML_ESCAPES: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  };
+
+  /** 标题与 URL 必须转义；excerpt 由 Pagefind 生成，需要保留其中的 <mark> 高亮标签。 */
+  const escapeHtml = (value: string) => value.replace(/[&<>"']/g, ch => HTML_ESCAPES[ch] ?? ch);
+
+  let pagefind: PagefindIndex | null = null;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+
+  async function ensureIndex(): Promise<PagefindIndex | null> {
     if (pagefind) return pagefind;
     try {
       const base = import.meta.env.BASE_URL;
-      const pagefindUrl = `${base.endsWith("/") ? base : `${base}/`}pagefind/pagefind.js`;
+      const pagefindUrl = `${base.endsWith('/') ? base : `${base}/`}pagefind/pagefind.js`;
       // 用 new Function 绕过 Vite 的动态导入改写，保持运行时按 URL 导入
-      const importPagefind = new Function("url", "return import(url)");
-      pagefind = await importPagefind(pagefindUrl);
-      await pagefind.options?.();
-      return pagefind;
-    } catch (error) {
-      resultsBox.innerHTML = '<p class="empty">搜索索引暂不可用，请先执行完整构建。</p>';
+      const importPagefind = new Function('url', 'return import(url)') as
+        (url: string) => Promise<PagefindIndex>;
+      const index = await importPagefind(pagefindUrl);
+      await index.options?.();
+      // options() 成功后再缓存，失败时不留下半初始化的索引
+      pagefind = index;
+      return index;
+    } catch {
+      if (resultsBox) {
+        resultsBox.innerHTML = '<p class="empty">搜索索引暂不可用，请先执行完整构建。</p>';
+      }
       return null;
     }
   }
 
-  async function search(value) {
+  async function search(value: string) {
+    if (!resultsBox) return;
+
     if (!value.trim()) {
       resultsBox.innerHTML = '';
       if (archiveList) archiveList.hidden = false;
@@ -43,24 +78,31 @@
     const index = await ensureIndex();
     if (!index) return;
 
-    const results = await index.search(value);
-    if (!results?.results?.length) {
+    const found = await index.search(value);
+    if (!found?.results?.length) {
       resultsBox.innerHTML = '<p class="empty">没有找到相关内容。</p>';
       return;
     }
 
-    const items = await Promise.all(results.results.slice(0, 24).map(result => result.data()));
-    resultsBox.innerHTML = items.map(item => `
-      <article class="search-result">
-        <h3><a href="${item.url}">${item.meta?.title || item.url}</a></h3>
+    const items = await Promise.all(found.results.slice(0, 24).map(result => result.data()));
+    resultsBox.innerHTML = items
+      .map(item => {
+        const url = escapeHtml(item.url);
+        const title = escapeHtml(item.meta?.title || item.url);
+        return `<article class="search-result">
+        <h3><a href="${url}">${title}</a></h3>
         <p class="empty">${item.excerpt}</p>
-      </article>
-    `).join('');
+      </article>`;
+      })
+      .join('');
   }
 
-  let timer;
-  input.addEventListener('input', event => {
-    clearTimeout(timer);
-    timer = setTimeout(() => search(event.target.value), 180);
-  });
+  // instanceof 收窄后的类型可以在闭包内保持，避免 event.target 为 EventTarget 的取值问题
+  if (searchInput instanceof HTMLInputElement) {
+    searchInput.addEventListener('input', () => {
+      clearTimeout(timer);
+      const value = searchInput.value;
+      timer = setTimeout(() => search(value), 180);
+    });
+  }
 </script>
