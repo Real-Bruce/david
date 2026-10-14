@@ -23,10 +23,15 @@ npm install
 npm run dev
 npm run build
 npm run preview
-node --test tests/*.test.ts
+npm run check
+npm run test
 ```
 
-工作流使用 Node.js 22。改动 Astro 源码、样式或内容后，提交前至少运行 `npm run build`；修改周刊导读逻辑时也运行对应测试。构建会生成 `dist/` 和 Pagefind 索引，不要手动编辑或提交生成产物。
+工作流使用 Node.js 22。改动 Astro 源码、样式或内容后，提交前依次运行 `npm run check`（类型检查）、`npm run test`（Node 原生测试）与 `npm run build`；CI 按同样顺序执行，任一步失败即中断部署。
+
+`npm run check` 依赖 devDependencies 中的 `@astrojs/check` 与 `typescript`。**`typescript` 必须锁在 6.x**：`astro check` 尚不支持 TypeScript 7，装成 7 会直接报错退出。`npm run test` 等价于 `node --test "tests/*.test.ts"`（glob 交给 Node 自己展开，PowerShell/cmd 下不要写成不带引号的 `tests/*.test.ts`）。
+
+构建会生成 `dist/` 和 Pagefind 索引，不要手动编辑或提交生成产物。
 
 ## 目录职责
 
@@ -47,6 +52,8 @@ template/                   # 周刊、博客、随笔的 Markdown 写作模板�
 public/                     # favicon、robots.txt 等静态资源
 tests/                      # Node.js 原生测试
 .github/workflows/          # GitHub Pages 构建与部署流程
+.gitattributes              # 全仓库 LF 换行策略
+.editorconfig               # 编辑器缩进与 LF 约定
 ```
 
 不要直接修改构建输出或依赖目录：`dist/`、`.astro/`、`node_modules/`。
@@ -82,6 +89,7 @@ tests/                      # Node.js 原生测试
 | `ArchiveSearch.astro` | 归档页 Pagefind 搜索交互 |
 | `BackToTop.astro` | 返回顶部交互 |
 | `Icon.astro` | 通用 SVG 图标 |
+| `ExternalLinkIcon.astro` | 外链箭头图标（纯装饰，`aria-hidden`） |
 | `src/lib/posts.ts` | 汇总已发布内容并生成内容路径 |
 | `src/lib/weekly.ts` | 生成周刊目录导读、解析推荐链接 |
 | `src/lib/weekly-archives.ts` | 汇总周刊分类归档的年份分组与入口数据 |
@@ -89,7 +97,7 @@ tests/                      # Node.js 原生测试
 
 ## 内容约定
 
-内容集合在 `src/content.config.ts` 定义：`weekly`、`blog`、`notes` 和 `weeklyArchives`。新增文章放入对应目录，按 schema 填写 front matter；无需手动维护列表。`draft: true` 的文章不会进入公开页面。`src/content/weekly/collect.md` 是素材收集文件，通过 glob 排除规则不参与集合解析与构建，不要在其中添加 front matter，也不要修改排除规则。
+内容集合在 `src/content.config.ts` 定义：`weekly`、`blog`、`notes` 和 `weeklyArchives`。schema 用的 `z` 从 `astro/zod` 导入（`astro:content` 再导出的 `z` 在 Astro 7 已弃用）。新增文章放入对应目录，按 schema 填写 front matter；无需手动维护列表。`draft: true` 的文章不会进入公开页面。`src/content/weekly/collect.md` 是素材收集文件，通过 glob 排除规则不参与集合解析与构建，不要在其中添加 front matter，也不要修改排除规则。
 
 周刊、博客和随笔共用字段：
 
@@ -103,16 +111,16 @@ draft: false
 
 集合专属字段：
 
-- 周刊：`issue`；`links`（可选推荐链接数组，含 `title`、合法 `url`，可选 `note`）；`digest`（可选，包含 `title` 和最多两条 `highlights`）。列表使用 `digest.title`；未提供 `digest` 时，`src/lib/weekly.ts` 从正文推荐标题生成导读，若无推荐则回退到 `description`。目前 `highlights` 字段不在页面中展示。
+- 周刊：`issue`；`links`（可选推荐链接数组，含 `title`、合法 `url`，可选 `note`）；`digest`（可选，包含 `title` 和最多两条 `highlights`）。列表使用 `digest.title`；未提供 `digest` 时，`src/lib/weekly.ts` 从正文推荐标题生成导读，若无推荐则回退到 `description`。目前 `highlights` 字段不在页面中展示；`links` 与 `digest` 至今没有任何一期实际填写，`/weekly/[slug]/` 的「本期推荐」区块属于预留能力，改动它无法靠现有内容验证，需自行补样例。
 - 博客：可选 `series`。
 - 随笔：可选 `mood`、`location`；心情仅出现在随笔列表，地点可出现在列表和详情。
-- `weeklyArchives`：`src/content/weekly/archives/**/*.md` 中的分类整合 Markdown，不使用文章 front matter。根目录 `*.md` 为当前年，年份文件夹（如 `2025/`、`2024/`）为历年归档；年份判定规则：文件夹名优先，根目录文件从首个 `## Vol.xx / YYYY.MM.DD` 标题提取。
+- `weeklyArchives`：`src/content/weekly/archives/**/*.md` 中的分类整合 Markdown，不使用文章 front matter。根目录 `*.md` 为当前年，年份文件夹（如 `2025/`、`2024/`）为历年归档；年份判定规则：文件夹名优先，根目录文件从首个 `## Vol.xx / YYYY.MM.DD` 标题提取。`getArchiveYear()` 的 `entryId` 同时接受内容集合 id（`2025/website`）与 `import.meta.glob` 的完整 key（`../content/weekly/archives/2025/website.md`）——「文件夹名优先」靠 `/(\d{4})\/[^/]+$/` 匹配直接父目录实现，不要改回 `^` 锚定的写法，否则 glob 调用路径会静默退化成正文取年，跨年时算错年份。
 
 `tags` 默认为空数组，`draft` 默认为 `false`。修改 schema 或新增集合时，检查并同步更新 `src/lib/posts.ts`、相关页面和测试。
 
-增加周刊分类时，同时添加分类 Markdown，并更新 `src/lib/weekly-archive-data.ts` 中的标题与排序。分类条目数由 Markdown 中的推荐链接自动统计。
+增加周刊分类时，同时添加分类 Markdown，并更新 `src/lib/weekly-archive-data.ts` 中的 `categoryTitles` 与 `categoryOrder`。未登记的分类会排到最后并以原始英文 id 作为标题显示，因此别忘了登记。分类条目数由 Markdown 中的推荐链接自动统计。
 
-年度滚动（每年 1 月首发周刊时）：把根目录的 4 个分类 Markdown 移入 `archives/{上一年}/`，再新建空的根目录分类文件。归档页 URL 均为显式年份 `/weekly/[category]/{year}/`，历史年份 URL 永不失效；旧路径 `/weekly/archives/[category]/` 自动重定向到最新年。归档年份与分组逻辑变更后运行 `node --test tests/*.test.ts`。
+年度滚动（每年 1 月首发周刊时）：把根目录的 4 个分类 Markdown 移入 `archives/{上一年}/`，再新建空的根目录分类文件。归档页 URL 均为显式年份 `/weekly/[category]/{year}/`，历史年份 URL 永不失效；旧路径 `/weekly/archives/[category]/` 自动重定向到最新年。归档年份与分组逻辑变更后运行 `npm run test`。
 
 `template/` 目录维护周刊、博客、随笔的 Markdown 写作模板；模板位于集合扫描范围之外，不会被内容集合加载或渲染。新建文章时复制对应模板到集合目录并填写 front matter。
 
@@ -127,6 +135,12 @@ draft: false
 - 页面隐藏滚动条时必须保留正常滚动能力。
 - 返回顶部按钮在向下滚动后出现，位于页面右侧约 `75vh`。
 - 归档维持「年份 → 月份」分组。
+- 目录（TOC）只在 `≥1001px` 的侧栏吸顶。`≤1000px` 时 `.article-layout` 折叠为单列，TOC 必须回到文档流；若继续 `position: sticky`，它会钉在视口顶部跟着读者滚完整篇文章并遮住正文。
+- 代码块复制按钮挂在 `.code-block` 容器上，而不是 `<pre>` 内部。Astro 的 Shiki 会在 `<pre>` 上输出**内联** `overflow-x: auto`，内联样式压过任何选择器（`!important` 除外），按钮若放在 `<pre>` 里就会跟着代码横向滚出可视区。`.code-block` 由 `BaseLayout.astro` 的脚本在运行时包裹，不加边框和内边距，靠外边距折叠维持原有间距。按钮默认 `opacity: 0` 靠 `:hover` / `:focus-within` 揭开，因此必须保留 `@media (hover: none)` 兜底，否则触屏上永远不可见。
+- 响应式规则集中在文件末尾：`@media (max-width: 760px)`（头部与移动导航）与「窄屏排版」区块（`767px` 安全边距 + 合并后的单个 `700px`）。窄屏区块必须位于 `.weekly-archive-*` 等基础规则之后——同优先级靠后胜出，提前会让移动端间距被基础值覆盖。不要为同一断点再开第二个块。
+- 列表条目当前不带右侧箭头图标，`.weekly-entry` / `.editorial-entry` 是两列网格。若要恢复箭头，需同时补回 `grid-template-areas` 的第三列与对应样式，别只加模板。
+- 站点外壳（`SiteHeader`、`BackToTop`）带 `data-pagefind-ignore`，避免品牌名与导航文字被 Pagefind 索引进每一页。新增全局外壳组件时同样处理。
+- Astro 不会移除模板里的 HTML 注释：`<!-- -->` 包裹的 JSX 会原样进入 `dist` 并泄漏模板源码。废弃代码直接删除，靠 Git 保留历史。
 
 修改导航、列表、文章详情、归档或返回顶部样式时，先检查相应组件与 `global.css`，维持桌面端和移动端布局一致。
 
@@ -143,16 +157,21 @@ draft: false
 - 全局视觉：`src/styles/global.css`
 - 周刊摘要解析与测试：`src/lib/weekly.ts`、`tests/weekly.test.ts`；归档年份与统计：`src/lib/weekly-archive-data.ts`、`tests/weekly-archives.test.ts`
 - 周刊分类入口：`src/lib/weekly-archives.ts`、`src/lib/weekly-archive-data.ts` 与 `src/content/weekly/archives/`
+- Markdown 管线与 sitemap：`astro.config.mjs`（`markdown.processor: unified({ rehypePlugins })`、`sitemap({ filter })`）
+- RSS 频道地址：`src/pages/rss.xml.js`（`site` 必须经 `withBase('/')` 拼出，否则频道链接会丢掉 `/david`）
 
 站内以绝对路径书写的链接统一通过 `src/lib/base.ts` 的 `withBase()` 生成，确保 `/david/` 子路径部署正常。Pagefind 的运行时导入路径应使用 `import.meta.env.BASE_URL`，不要写死站点路径。
 
 ## Git 与部署
 
 - 保持修改聚焦；清理无效样式和未使用代码时，先确认没有模板或脚本引用。
-- 源码或内容变更后运行 `npm run build`；周刊导读逻辑变更后运行 `node --test tests/*.test.ts`。
+- 源码或内容变更后依次运行 `npm run check`、`npm run test` 与 `npm run build`。
 - 提交信息使用简洁英文祈使句；仅在用户要求或任务明确包含提交时提交。
 - 不要提交 `dist/`、`.astro/` 或 `node_modules/`。
+- **换行符一律 LF，禁止 CRLF。** `.gitattributes` 用 `* text=auto eol=lf` 加上按扩展名的显式声明强制归一，`.editorconfig` 负责让编辑器产出 LF。新增文件后确认工作区没有 CRLF；从外部粘贴或 Windows 编辑器另存后尤其要检查。
 
-GitHub Pages 部署配置位于 `.github/workflows/deploy.yml`，使用 Node.js 22、`npm install` 和 `npm run build`，发布目录为 `dist/`。`astro.config.mjs` 的 `base: '/david'` 必须与部署仓库路径保持一致。
+GitHub Pages 部署配置位于 `.github/workflows/deploy.yml`，使用 Node.js 22，依次执行 `npm install`、`npm run check`、`npm run test`、`npm run build`，发布目录为 `dist/`。`astro.config.mjs` 的 `base: '/david'` 必须与部署仓库路径保持一致。
+
+`sitemap({ filter })` 会排除 `/weekly/archives/*`：这些是自带 `noindex` 的重定向壳页，收进 sitemap 会与 `noindex` 自相矛盾。
 
 如果更换正式域名，核对并同步更新 `astro.config.mjs`、`public/robots.txt` 和 `src/site.config.ts`。

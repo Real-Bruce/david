@@ -17,10 +17,10 @@ npm install
 npm run dev
 ```
 
-本地开发地址：
+本地开发地址（`astro.config.mjs` 里设了 `base: '/david'`，根路径是 404，必须带子路径）：
 
 ```text
-http://localhost:4321
+http://localhost:4321/david/
 ```
 
 构建和预览：
@@ -39,8 +39,9 @@ npm run preview
 | `npm run dev` | 启动本地开发服务器 |
 | `npm run build` | 构建静态站点并生成搜索索引 |
 | `npm run preview` | 预览构建结果 |
+| `npm run check` | 类型检查（`astro check`，需 TypeScript 6.x） |
+| `npm run test` | 运行周刊导读与归档解析测试 |
 | `npm run astro` | 直接调用 Astro CLI |
-| `node --test tests/*.test.ts` | 运行周刊导读与归档解析测试 |
 
 ## 技术栈
 
@@ -66,6 +67,8 @@ src/
     posts.ts              # 已发布内容汇总
     weekly.ts             # 周刊导读与推荐链接解析
     weekly-archives.ts    # 周刊分类入口数据
+    weekly-archive-data.ts # 归档年份提取与条目统计纯函数
+    rehype-pangu.mjs      # 中西文自动空格 rehype 插件
   styles/                 # 全局样式与设计变量
   content/
     weekly/               # 周刊 Markdown
@@ -77,6 +80,8 @@ template/                 # 周刊、博客、随笔写作模板（不参与渲�
 tests/                    # Node.js 原生测试
 public/                   # favicon、robots.txt 等静态资源
 .github/workflows/        # GitHub Pages 构建与部署流程
+.gitattributes            # 全仓库 LF 换行策略
+.editorconfig             # 编辑器缩进与 LF 约定
 ```
 
 不要手动编辑或提交构建产物：`dist/`、`.astro/`、`node_modules/`。
@@ -203,7 +208,9 @@ src/site.config.ts
 部署使用 GitHub Actions 推送到 GitHub Pages：
 
 1. 仓库推送到 GitHub 的 `main` 分支后自动触发构建部署。
-2. 构建流程位于 `.github/workflows/deploy.yml`，使用 Node.js 22、`npm install` 和 `npm run build`，发布目录为 `dist/`。
+2. 构建流程位于 `.github/workflows/deploy.yml`，使用 Node.js 22，依次执行 `npm install`、`npm run check`、`npm run test`、`npm run build`，发布目录为 `dist/`；任一步失败都会中断部署。
 3. `astro.config.mjs` 中的 `base: '/david'` 必须与部署仓库路径保持一致。
 
-修改源码或内容后，提交前至少运行 `npm run build` 验证；修改周刊导读逻辑时运行 `node --test tests/weekly.test.ts`。不要提交 `dist/`、`.astro/` 或 `node_modules/`。
+修改源码或内容后，提交前依次运行 `npm run check`、`npm run test` 和 `npm run build` 验证。不要提交 `dist/`、`.astro/` 或 `node_modules/`。
+
+仓库内所有文本文件统一使用 **LF** 换行，由 `.gitattributes` 与 `.editorconfig` 共同约束，不要提交 CRLF。
