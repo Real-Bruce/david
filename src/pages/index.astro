@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 import { getWeeklyDigest } from '../lib/weekly';
 import { withBase } from '../lib/base';
 import { getCollection } from 'astro:content';
@@ -21,7 +22,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
 
     <section class="home-weekly" aria-labelledby="home-weekly-title">
       <div class="weekly-list-head">
-        <h2 id="home-weekly-title">周刊</h2>
+        <h2 id="home-weekly-title" class="home-weekly-icon tint-weekly"><Icon name="weekly" size={26} /><span class="sr-only">周刊</span></h2>
         <a class="section-more" href={withBase('/weekly/')}>查看全部 →</a>
       </div>
       <ol class="weekly-entries">

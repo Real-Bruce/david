@@ -1,5 +1,6 @@
 ---
 import { withBase } from '../lib/base';
+import Icon from './Icon.astro';
 
 interface EditorialPost {
   href: string;
@@ -39,8 +40,18 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
               {kind === 'archive' && post.postKind && (
                 <span class="editorial-entry-type">{typeLabels[post.postKind]}</span>
               )}
-              {isNotes && post.mood && <span>心情 · {post.mood}</span>}
-              {isNotes && post.location && <span>地点 · {post.location}</span>}
+              {isNotes && post.mood && (
+                <span class="entry-mood-item">
+                  <Icon name="mood" size={14} />
+                  <span>{post.mood}</span>
+                </span>
+              )}
+              {isNotes && post.location && (
+                <span class="entry-location">
+                  <Icon name="location" size={14} />
+                  <span>{post.location}</span>
+                </span>
+              )}
             </div>
             <a class="editorial-entry-content" href={post.href}>
               <h3>{post.title}</h3>

@@ -87,6 +87,7 @@ body {
 
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 h1, h2, h3 {
   font-family: var(--font-serif);
@@ -332,6 +333,11 @@ main { padding-top: 32px; }
 .kind-weekly { color: var(--weekly); }
 .kind-blog { color: var(--blog); }
 .kind-notes { color: var(--notes); }
+.kind-icon { display: inline-flex; align-items: center; }
+.kind-icon svg { flex: none; }
+.tint-weekly { color: var(--weekly); }
+.tint-blog { color: var(--blog); }
+.tint-notes { color: var(--notes); }
 
 /* ---------- 标签 ---------- */
 .tags { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -353,11 +359,23 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 .weekly-page { width: min(1040px, calc(100% - 40px)); padding-bottom: 80px; }
 .weekly-page .page-head { padding: 40px var(--intro-content-inset) 20px; }
 .weekly-heading { display: flex; align-items: baseline; gap: 20px; }
+.page-head-icon { display: inline-flex; align-self: center; }
+.page-head-icon svg { flex: none; width: clamp(30px, 4.5vw, 38px); height: clamp(30px, 4.5vw, 38px); }
+/* 视觉尺寸补偿：按各图标实际占位高度微调，使三者看起来一样大 */
+.page-head-icon.tint-weekly svg { width: calc(clamp(30px, 4.5vw, 38px) * 1.06); height: calc(clamp(30px, 4.5vw, 38px) * 1.06); }
+.page-head-icon.tint-blog svg { width: calc(clamp(30px, 4.5vw, 38px) * 0.93); height: calc(clamp(30px, 4.5vw, 38px) * 0.93); }
+.page-head-icon.tint-notes svg { width: calc(clamp(30px, 4.5vw, 38px) * 0.96); height: calc(clamp(30px, 4.5vw, 38px) * 0.96); }
+.section-head { display: flex; align-items: center; gap: 20px; }
+.section-head-text { min-width: 0; }
+.section-head .page-head-desc { margin-top: 6px; }
 .weekly-count { color: var(--muted); font-size: 13px; font-weight: 400; }
 .weekly-categories { margin-top: 20px; padding: 0 var(--list-content-inset) 12px; }
 .weekly-list { margin-top: 26px; }
 .weekly-list-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 0 var(--list-content-inset) 12px; }
 .weekly-list-head h2 { margin: 0; font-size: 23px; font-weight: 500; }
+.home-weekly .weekly-list-head { align-items: center; }
+.home-weekly-icon { display: inline-flex; align-items: center; }
+.home-weekly-icon svg { flex: none; width: clamp(22px, 3vw, 26px); height: clamp(22px, 3vw, 26px); }
 .weekly-entries, .editorial-entries { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .weekly-entry { display: grid; grid-template-columns: 132px minmax(0, 1fr); grid-template-areas: "meta title"; align-items: center; gap: 28px; padding: 18px var(--list-content-inset); border-radius: 14px; transition: background-color .18s ease; }
 
@@ -381,6 +399,8 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 
 .editorial-entry-meta { grid-area: meta; display: flex; flex-direction: column; gap: 4px; color: var(--muted); font-size: 12px; }
 .editorial-entry-meta time { font-size: 12px; white-space: nowrap; }
+.entry-location, .entry-mood-item { display: inline-flex; align-items: center; gap: 5px; }
+.entry-location svg, .entry-mood-item svg { flex: none; color: var(--notes); }
 .editorial-entry-content { grid-area: content; min-width: 0; color: inherit; }
 .editorial-entry-content h3 { margin: 0; font-size: 18px; font-weight: 400; line-height: 1.55; overflow-wrap: anywhere; }
 .editorial-entry-content p { display: -webkit-box; overflow: hidden; margin: 5px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; -webkit-box-orient: vertical; -webkit-line-clamp: 1; }
@@ -569,7 +589,8 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 .article-header .tag:hover { color: var(--article-accent); border-color: var(--article-accent); }
 .article-context { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 20px; color: var(--muted); font-size: 14px; }
 .article-context-item { display: inline-flex; flex-wrap: wrap; gap: 8px; }
-.article-context-label { color: var(--article-accent); font-size: 12px; }
+.article-context-location { align-items: center; gap: 7px; }
+.article-context-location svg { flex: none; color: var(--article-accent); }
 .article-header + .prose { margin-top: 36px; }
 
 @media (max-width: 1000px) {
@@ -973,6 +994,7 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   .entry-link { padding: 20px var(--list-content-inset) 14px; }
   .entry .tags { padding: 0 var(--list-content-inset) 14px; }
   .weekly-page .page-head { padding-top: 28px; }
+  .section-head { gap: 14px; }
   .weekly-categories { margin-top: 18px; padding-bottom: 12px; }
   .weekly-entry { grid-template-columns: minmax(0, 1fr); grid-template-areas: "meta" "title"; gap: 8px; padding: 18px var(--list-content-inset); }
   .weekly-entry-meta { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 6px 16px; }

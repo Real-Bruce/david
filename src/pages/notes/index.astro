@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
 import EditorialPostList from '../../components/EditorialPostList.astro';
 import { getCollection } from 'astro:content';
 import { withBase } from '../../lib/base';
@@ -11,11 +12,16 @@ const posts = (await getCollection('notes', ({ data }) => !data.draft))
 <BaseLayout title="随笔" description="随时记录的碎片想法与短篇随笔。">
   <main class="container editorial-page">
     <header class="page-head">
-      <div class="weekly-heading">
-        <h1>随笔</h1>
-        <span class="weekly-count">{posts.length} 条记录</span>
+      <div class="section-head">
+        <span class="page-head-icon tint-notes"><Icon name="notes" size={38} /></span>
+        <div class="section-head-text">
+          <div class="weekly-heading">
+            <h1>随笔</h1>
+            <span class="weekly-count">{posts.length} 条记录</span>
+          </div>
+          <p class="page-head-desc">不追求完整结构，记录当下的心情、地点和一闪而过的念头。</p>
+        </div>
       </div>
-      <p class="page-head-desc">不追求完整结构，记录当下的心情、地点和一闪而过的念头。</p>
     </header>
 
     <EditorialPostList

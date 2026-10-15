@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection, render } from 'astro:content';
 import { withBase } from '../../lib/base';
 
@@ -16,7 +17,7 @@ const { Content } = await render(post);
   <main class="article article-notes">
     <header class="article-header article-header-notes">
       <div class="meta">
-        <span class="kind kind-notes">随笔</span>
+        <span class="kind-icon tint-notes"><Icon name="notes" size={18} /><span class="sr-only">随笔</span></span>
         <time datetime={post.data.pubDate.toISOString()}>
           {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
         </time>
@@ -26,8 +27,8 @@ const { Content } = await render(post);
 
       {post.data.location && (
         <div class="article-context" aria-label="随笔地点">
-          <span class="article-context-item">
-            <span class="article-context-label">地点</span>
+          <span class="article-context-item article-context-location">
+            <Icon name="location" size={16} />
             <span>{post.data.location}</span>
           </span>
         </div>

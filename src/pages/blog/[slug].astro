@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
 import TOC from '../../components/TOC.astro';
 import ReadingProgress from '../../components/ReadingProgress.astro';
 import { getCollection, render } from 'astro:content';
@@ -25,7 +26,7 @@ const readingTime = Math.max(1, Math.ceil(charCount / 400));
     <div class="article-main">
       <header class="article-header article-header-blog">
         <div class="meta">
-          <span class="kind kind-blog">博客</span>
+          <span class="kind-icon tint-blog"><Icon name="blog" size={18} /><span class="sr-only">博客</span></span>
           <time datetime={post.data.pubDate.toISOString()}>
             {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
           </time>
