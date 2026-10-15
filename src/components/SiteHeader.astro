@@ -13,9 +13,9 @@ const isActive = (href: string) =>
 const currentAttr = (href: string) => (isActive(href) ? 'page' : undefined);
 
 const primaryNav = [
-  { href: '/weekly/', label: '周刊' },
-  { href: '/blog/', label: '博客' },
-  { href: '/notes/', label: '随笔' }
+  { href: '/weekly/', label: 'Weekly' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/notes/', label: 'Notes' }
 ];
 const primaryActive = primaryNav.some(link => isActive(link.href));
 

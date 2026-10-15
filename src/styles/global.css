@@ -115,7 +115,7 @@ main { padding-top: 32px; }
   justify-content: space-between;
   gap: 24px;
   font-style: italic;
-  /*font-family: math;*/
+  font-family: math;
 }
 
 .brand {
@@ -129,7 +129,7 @@ main { padding-top: 32px; }
 }
 
 .brand-title,
-.brand-title-short { white-space: nowrap; font-family: math;}
+.brand-title-short { white-space: nowrap; font-family: math; font-style: italic;}
 .brand-title-short { display: none; }
 
 .brand-mark {
