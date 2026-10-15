@@ -1,4 +1,104 @@
+# robots.txt —— 按「爬虫用途」分类放行，而不是一个开关全开或全关
+#
+# 策略参考：https://tw93.fun/2026-05-01/ai-visibility.html
+#   放行「搜索/检索爬虫」与「用户触发爬虫」：它们决定 AI 能否搜到本站、能否替用户读取本页；
+#   屏蔽「模型训练爬虫」「退出标识」「不表明身份的爬虫」：不影响 AI 搜索结果，只影响内容是否进入训练语料。
+#   传统搜索引擎（Googlebot、Bingbot、Baiduspider 等）由文末的 User-agent: * 兜底放行。
+#
+# 语法注意：# 注释必须独占一行。写在 User-agent / Allow / Disallow 之后的行内注释
+# 会被当成值的一部分，规则随之失效。
+#
+# 部署注意：本站发布在 GitHub Pages 子路径 real-bruce.github.io/david/，
+# 本文件的实际地址是 /david/robots.txt，而爬虫只读取域名根 /robots.txt。
+# 在迁到独立域名（或把站点放进 real-bruce.github.io 根仓库）之前，这些规则不会真正生效；
+# 文件仍按根部署写法维护，迁移后可直接使用。tests/robots.test.ts 会校验规则分组与 Sitemap 地址。
+
+# ---- 搜索 / 检索类 AI 爬虫：放行 ----
+# OAI-SearchBot     OpenAI，ChatGPT 联网搜索
+# Claude-SearchBot  Anthropic，Claude 联网搜索
+# PerplexityBot     Perplexity，搜索与引用抓取
+# DuckAssistBot     DuckDuckGo，AI 回答
+# Applebot          Apple，Siri / Spotlight 搜索（训练另由 Applebot-Extended 控制）
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: DuckAssistBot
+User-agent: Applebot
+Allow: /
+
+# ---- 用户触发类 AI 爬虫：放行 ----
+# 只在用户把本站链接贴进对话（例如「总结一下这个页面」）时抓取；
+# 屏蔽它们会让 AI 完全读不到被分享的正文。
+# ChatGPT-User          OpenAI
+# Claude-User           Anthropic
+# Perplexity-User       Perplexity
+# Google-Agent          Google AI Mode / Gemini 代用户抓取
+# meta-externalfetcher  Meta AI 代用户抓取
+User-agent: ChatGPT-User
+User-agent: Claude-User
+User-agent: Perplexity-User
+User-agent: Google-Agent
+User-agent: meta-externalfetcher
+Allow: /
+
+# ---- 模型训练爬虫：屏蔽 ----
+# 屏蔽这段只表示内容不进入训练语料，不影响上面的搜索/检索与用户触发抓取。
+# 若愿意让内容参与模型训练，删掉本段即可。
+# 注意 GPTBot（训练）与 OAI-SearchBot（检索）是两个独立 UA，分开处理。
+# GPTBot              OpenAI 训练
+# anthropic-ai        Anthropic 训练（旧 UA）
+# ClaudeBot           Anthropic 训练
+# Claude-Web          Anthropic 训练（旧 UA）
+# CCBot               Common Crawl 公共语料
+# Meta-ExternalAgent  Meta 训练
+# FacebookBot         Meta 训练（旧 UA）
+# Amazonbot           Amazon
+# cohere-ai           Cohere 训练
+# AI2Bot              Allen Institute for AI
+# Ai2Bot-Dolma        Allen Institute for AI 训练语料
+# Diffbot             Diffbot 知识图谱
+# ImagesiftBot        Imagesift 图像语料
+# omgili / omgilibot  Webz.io 语料
+# TimpiBot            Timpi 语料
+User-agent: GPTBot
+User-agent: anthropic-ai
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: CCBot
+User-agent: Meta-ExternalAgent
+User-agent: FacebookBot
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: omgili
+User-agent: omgilibot
+User-agent: TimpiBot
+Disallow: /
+
+# ---- 退出标识：不是真实爬虫，只是「不参与 AI 训练」的声明 ----
+# Google-Extended     退出 Gemini / Vertex AI 训练，不影响 Google 搜索收录
+# Applebot-Extended   退出 Apple 模型训练，不影响 Applebot 搜索抓取
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Disallow: /
+
+# ---- 不表明身份 / 不保证遵守规则的爬虫：尽力屏蔽 ----
+# 这类爬虫可能伪装 UA，robots.txt 挡不住，写在这里主要是表明态度。
+# Bytespider  字节跳动
+# Grok        xAI（未公布稳定 UA，名称如有变化需同步）
+User-agent: Bytespider
+User-agent: Grok
+Disallow: /
+
+# ---- 默认放行所有守规矩的爬虫 ----
 User-agent: *
 Allow: /
 
+# 站点地图：搜索引擎与 AI 爬虫都靠它发现全站页面
 Sitemap: https://real-bruce.github.io/david/sitemap-index.xml
+
+# 面向 AI 的站点概要（llms.txt 提案）：站点定位、关键页面与全部内容索引
+# https://real-bruce.github.io/david/llms.txt
