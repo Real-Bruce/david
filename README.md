@@ -4,6 +4,8 @@
 
 站点地址：<https://real-bruce.github.io/david/>
 
+说明性内容以本文件为准；面向自动化代理的约束与陷阱清单在 [AGENTS.md](AGENTS.md)，两边不要重复维护同一份说明。
+
 当前站点以中文内容为主，包含三类内容：
 
 - **周刊**：每周整理有趣网站、工具、文章和灵感，已发布 issue-001 至 issue-104。
@@ -60,7 +62,7 @@ src/
   content.config.ts       # 内容集合与 front matter 校验
   site.config.ts          # 站点名称、作者、简介与联系方式
   layouts/                # 全局布局
-  components/             # 页面复用组件
+  components/             # 页面复用组件：SiteHeader、EditorialPostList（博客/随笔/归档共用）、PostCard、TOC、ReadingProgress、ArchiveSearch、BackToTop、Icon、ExternalLinkIcon
   pages/                  # Astro 路由
   lib/                    # 内容读取与工具函数
     base.ts               # GitHub Pages 子路径链接辅助
@@ -68,6 +70,7 @@ src/
     weekly.ts             # 周刊导读与推荐链接解析
     weekly-archives.ts    # 周刊分类入口数据
     weekly-archive-data.ts # 归档年份提取与条目统计纯函数
+    llms.ts                # llms.txt 渲染纯函数
     rehype-pangu.mjs      # 中西文自动空格 rehype 插件
   styles/                 # 全局样式与设计变量
   content/
@@ -78,7 +81,7 @@ src/
     template/             # 周刊、博客、随笔写作模板（无 loader 覆盖，不解析、不渲染）
 
 tests/                    # Node.js 原生测试
-public/                   # favicon、robots.txt 等静态资源
+public/                   # favicon、robots.txt（AI 爬虫分类放行策略）等静态资源
 .github/workflows/        # GitHub Pages 构建与部署流程
 .gitattributes            # 全仓库 LF 换行策略
 .editorconfig             # 编辑器缩进与 LF 约定
@@ -88,20 +91,21 @@ public/                   # favicon、robots.txt 等静态资源
 
 ## 页面结构
 
-- `/` 首页：站点介绍、按期数倒序的最近 5 篇周刊，以及博客、随笔、归档入口
+- `/` 首页：站点介绍、按期数倒序的最近 5 篇周刊，以及博客、随笔、归档入口；不单独突出某一篇
 - `/weekly/` 周刊列表：分类入口在上、全部周刊目录在下，按期数倒序
-- `/weekly/[slug]/` 周刊正文：头部为标题、描述、期数（Vol.xxx）、发布日期与标签；含结构化推荐链接时正文后显示「本期推荐」
+- `/weekly/[slug]/` 周刊正文：头部为标题、描述、期数（Vol.xxx）、发布日期与标签，与博客详情一致，纯排版呈现、不使用卡片背景；含结构化推荐链接时正文后显示「本期推荐」
 - `/weekly/[category]/[year]/` 指定年份的周刊分类整合页，页头带年份胶囊导航（倒序、当前年高亮）
 - `/weekly/archives/[category]/` 旧版分类归档入口，自动重定向到最新显式年份页
 - `/blog/` 博客列表：按发布时间倒序，显示标题、摘要与标签
-- `/blog/[slug]/` 博客长文详情：包含目录、阅读进度、阅读时长与标签
+- `/blog/[slug]/` 博客长文详情：包含目录、阅读进度、阅读时长与标签，目录仅在正文有多个二级/三级标题时出现
 - `/notes/` 随笔列表：按发布时间倒序，可显示心情与地点
-- `/notes/[slug]/` 随笔详情：显示地点和标签
-- `/archive/` 时间归档：按年份、月份倒序分组，集成 Pagefind 站内搜索
+- `/notes/[slug]/` 随笔详情：显示地点和标签，不显示心情
+- `/archive/` 时间归档：按年份、月份倒序分组，集成 Pagefind 站内搜索（站点没有独立搜索页）
 - `/tags/[tag]/` 标签页
 - `/about/` 关于页
 - `/rss.xml` RSS
 - `/sitemap-index.xml` 站点地图
+- `/llms.txt` 面向 AI 的站点概要与全内容索引，构建时由内容集合生成
 
 ## 内容模型
 
@@ -184,6 +188,8 @@ location: 可选地点
 - 全站样式与设计变量集中在 `src/styles/global.css`。
 - 不使用封面卡片，以文字、摘要、元信息和开放式目录排版为主。
 - 周刊、博客、随笔使用各自的内容强调色（周刊暖橙、博客墨绿、随笔灰紫），避免蓝色强调色。
+- 首页保持简洁：介绍区、最近周刊目录、少量内容入口，区块之间留出明确间距。
+- 三类列表保持一致的目录节奏，最新内容自然排在前面。
 - 顶部为半浮动导航栏，带底部柔和阴影。
 - 页面不显示滚动条，但保留滚动能力。
 - 归档页按「年份 → 月份」分组，站内搜索集成在归档页中。
@@ -202,6 +208,22 @@ astro.config.mjs
 public/robots.txt
 src/site.config.ts
 ```
+
+## 爬虫与 AI 可见性
+
+`public/robots.txt` 按爬虫用途分类放行，而不是一个开关全开或全关：
+
+- 放行搜索/检索类（`OAI-SearchBot`、`Claude-SearchBot`、`PerplexityBot`、`DuckAssistBot`、`Applebot`）与用户触发类（`ChatGPT-User`、`Claude-User`、`Perplexity-User`、`Google-Agent`、`meta-externalfetcher`）AI 爬虫；
+- 屏蔽训练类（`GPTBot`、`ClaudeBot`、`CCBot`、`Meta-ExternalAgent` 等）、退出标识（`Google-Extended`、`Applebot-Extended`）与不表明身份的爬虫（`Bytespider`、`Grok`）；
+- 传统搜索引擎由文末 `User-agent: *` 兜底放行，不要给它加 `Disallow`。
+
+屏蔽训练爬虫只决定内容是否进入训练语料，不影响 AI 搜索与引用；愿意参与训练时删掉对应分组即可。注释必须独占一行，写在指令后面会被当成值的一部分而让规则失效。
+
+`/llms.txt` 在构建时由 `src/pages/llms.txt.ts` 生成（渲染逻辑在 `src/lib/llms.ts`），给 AI 一份站点概要：站点定位与作者的 About 段落、站点入口、按年份整合的周刊分类，以及全部已发布周刊、博客、随笔的绝对链接与摘要。条目全部来自内容集合，新增文章后无需手动登记。
+
+这两项由 `tests/robots.test.ts` 与 `tests/llms.test.ts` 守住：UA 分组归属、放行与屏蔽名单不重叠、`Sitemap` 地址与 `astro.config.mjs` 的 `site + base` 一致，以及 llms.txt 的行格式与空分区处理。
+
+需要注意部署位置：站点发布在 GitHub Pages 子路径下，`robots.txt` 的实际地址是 `/david/robots.txt`，而爬虫只读域名根 `/robots.txt`，`llms.txt` 规范同样建议放在根目录。在迁到独立域名（或把站点放进 `real-bruce.github.io` 根仓库）之前，这两个文件按根部署写法维护、内容保持正确，但不会被爬虫真正读取；`Sitemap` 行是绝对地址，不受子路径影响。
 
 ## 部署
 
