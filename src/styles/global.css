@@ -376,9 +376,8 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 .weekly-list { margin-top: 26px; }
 .weekly-list-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 0 var(--list-content-inset) 12px; }
 .weekly-list-head h2 { margin: 0; font-size: 23px; font-weight: 500; }
-.home-weekly .weekly-list-head { align-items: center; }
-.home-weekly-icon { display: inline-flex; align-items: center; }
-.home-weekly-icon svg { flex: none; width: clamp(22px, 3vw, 26px); height: clamp(22px, 3vw, 26px); }
+/* 与各列表页 .section-head（数量 + 描述两行）的高度一致，块头 icon 的垂直位置跨页对齐 */
+.home-page .weekly-list-head { align-items: center; min-height: 57px; }
 .weekly-entries, .editorial-entries { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .weekly-entry { display: grid; grid-template-columns: 132px minmax(0, 1fr); grid-template-areas: "meta title"; align-items: center; gap: 28px; padding: 18px var(--list-content-inset); border-radius: 14px; transition: background-color .18s ease; }
 
@@ -838,12 +837,22 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 .archive-month { margin: 18px 0 0; }
 .archive-month-title { margin: 0 0 2px; color: var(--muted); font-size: 12px; font-weight: 500; letter-spacing: .08em; }
 /* ---------- 首页：目录式预览与简洁入口 ---------- */
-.home-page { padding-bottom: 52px; }
-.home-intro { padding: 40px var(--intro-content-inset) 48px; }
-.home-weekly { margin: 0; }
+/* 分块不用卡片底色，与背景保持一体，靠间距与标题行区分 */
+/* 顶部留白 = main 的 32px + 列表页 page-head 的 40px 上内边距，
+   让首页块头与各列表页页头从同一高度开始 */
+.home-page { padding-top: 72px; padding-bottom: 52px; }
+.home-section + .home-section { margin-top: 36px; }
+.home-section-title { display: inline-flex; align-items: center; gap: 20px; }
+.home-page .weekly-entries { gap: 4px; }
+.home-page .weekly-entry { padding: 12px var(--list-content-inset); }
 .home-page a:focus-visible { outline: 2px solid var(--weekly); outline-offset: 5px; border-radius: 2px; }
+.home-blog a:focus-visible { outline-color: var(--blog); }
+.home-blog .weekly-entry:not([data-return-suppressed]):hover h3,
+.home-blog .weekly-entry:not([data-return-suppressed]):focus-within h3 { color: var(--blog); }
+.home-notes a:focus-visible { outline-color: var(--notes); }
+.home-notes .weekly-entry:not([data-return-suppressed]):hover h3,
+.home-notes .weekly-entry:not([data-return-suppressed]):focus-within h3 { color: var(--notes); }
 
-.home-more,
 .weekly-category-links {
   display: flex;
   flex-wrap: wrap;
@@ -851,12 +860,6 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   gap: 10px 28px;
 }
 
-.home-more {
-  margin-top: 20px;
-  padding: 0 var(--list-content-inset) 12px;
-}
-
-.home-more a,
 .weekly-category-links a {
   display: inline-flex;
   align-items: center;
@@ -868,9 +871,7 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   transition: color .18s ease, border-color .18s ease;
 }
 
-.home-more a span,
 .weekly-category-links a span { font-family: var(--font-mono); font-size: 12px; }
-.home-more a:hover,
 .weekly-category-links a:hover { color: var(--accent); border-bottom-color: currentColor; }
 /* ---------- 返回顶部 ---------- */
 .back-to-top {
@@ -990,10 +991,10 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   main { padding-top: 24px; }
   .page-head { padding: 36px var(--intro-content-inset) 24px; }
   .page-head + .entry-list { margin-top: 28px; }
-  .home-page .home-intro { padding-top: 36px; padding-bottom: 36px; }
-  .home-more,
+  .home-page { padding-top: 52px; }
+  .home-section + .home-section { margin-top: 28px; }
+  .home-section-title { gap: 14px; }
   .weekly-category-links { gap: 10px 22px; }
-  .home-more { margin-top: 18px; }
   .entry-link { padding: 20px var(--list-content-inset) 14px; }
   .entry .tags { padding: 0 var(--list-content-inset) 14px; }
   .weekly-page .page-head { padding-top: 28px; }

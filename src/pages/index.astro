@@ -4,25 +4,36 @@ import Icon from '../components/Icon.astro';
 import { getWeeklyDigest } from '../lib/weekly';
 import { withBase } from '../lib/base';
 import { getCollection } from 'astro:content';
-import ExternalLinkIcon from '../components/ExternalLinkIcon.astro';
 
 const weeklyPosts = (await getCollection('weekly', ({ data }) => !data.draft))
   .sort((a, b) => b.data.issue - a.data.issue);
 
-const latest = weeklyPosts.slice(0, 5).map(post => ({ post, digest: getWeeklyDigest(post) }));
+const blogPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const notePosts = (await getCollection('notes', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const latestWeekly = weeklyPosts.slice(0, 5).map(post => ({ post, digest: getWeeklyDigest(post) }));
+const latestBlog = blogPosts.slice(0, 3);
+const latestNotes = notePosts.slice(0, 2);
 const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-', '.');
 ---
 
 <BaseLayout description="记录每周发现、长期思考与随手灵感。">
   <main class="container home-page">
 
-    <section class="home-weekly" aria-labelledby="home-weekly-title">
+    <section class="home-section home-weekly" aria-labelledby="home-weekly-title">
       <div class="weekly-list-head">
-        <h2 id="home-weekly-title" class="home-weekly-icon tint-weekly"><Icon name="weekly" size={26} /><span class="sr-only">周刊</span></h2>
+        <h2 id="home-weekly-title" class="home-section-title">
+          <span class="page-head-icon tint-weekly"><Icon name="weekly" size={38} /></span>
+          <span class="sr-only">周刊</span>
+          <span class="weekly-count">共 {weeklyPosts.length} 期</span>
+        </h2>
         <a class="section-more" href={withBase('/weekly/')}>查看全部 →</a>
       </div>
       <ol class="weekly-entries">
-        {latest.map(({ post, digest }) => (
+        {latestWeekly.map(({ post, digest }) => (
           <li>
             <a class="weekly-entry" href={withBase(`/weekly/${post.id}/`)}>
               <div class="weekly-entry-meta">
@@ -36,10 +47,50 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
       </ol>
     </section>
 
-    <nav class="home-more" aria-label="更多内容">
-      <a href={withBase('/blog/')}>博客 <ExternalLinkIcon /></a>
-      <a href={withBase('/notes/')}>随笔 <ExternalLinkIcon /></a>
-      <a href={withBase('/archive/')}>归档 <ExternalLinkIcon /></a>
-    </nav>
+    <section class="home-section home-blog" aria-labelledby="home-blog-title">
+      <div class="weekly-list-head">
+        <h2 id="home-blog-title" class="home-section-title">
+          <span class="page-head-icon tint-blog"><Icon name="blog" size={38} /></span>
+          <span class="sr-only">博客</span>
+          <span class="weekly-count">{blogPosts.length} 篇长文</span>
+        </h2>
+        <a class="section-more" href={withBase('/blog/')}>查看全部 →</a>
+      </div>
+      <ol class="weekly-entries">
+        {latestBlog.map(post => (
+          <li>
+            <a class="weekly-entry" href={withBase(`/blog/${post.id}/`)}>
+              <div class="weekly-entry-meta">
+                <time datetime={post.data.pubDate.toISOString()}>{dateText(post.data.pubDate)}</time>
+              </div>
+              <h3>{post.data.title}</h3>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="home-section home-notes" aria-labelledby="home-notes-title">
+      <div class="weekly-list-head">
+        <h2 id="home-notes-title" class="home-section-title">
+          <span class="page-head-icon tint-notes"><Icon name="notes" size={38} /></span>
+          <span class="sr-only">随笔</span>
+          <span class="weekly-count">{notePosts.length} 条记录</span>
+        </h2>
+        <a class="section-more" href={withBase('/notes/')}>查看全部 →</a>
+      </div>
+      <ol class="weekly-entries">
+        {latestNotes.map(post => (
+          <li>
+            <a class="weekly-entry" href={withBase(`/notes/${post.id}/`)}>
+              <div class="weekly-entry-meta">
+                <time datetime={post.data.pubDate.toISOString()}>{dateText(post.data.pubDate)}</time>
+              </div>
+              <h3>{post.data.title}</h3>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
   </main>
 </BaseLayout>
