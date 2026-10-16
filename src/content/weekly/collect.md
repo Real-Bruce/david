@@ -135,6 +135,10 @@ win11 桌面文件收纳管理软件，内置 AI Cli 可以直接和 AI 讲出�
 
 macOS 命令行工具，配合 Claude Code 和 Codex 的 Skill，可以在每个窗口顶部绘制一个箭头和一个标志，告知你需要操作的内容，操作完成后箭头自动消失。
 
+#### [CNEquity](https://github.com/rootSunc/CNEquity)
+
+股票行情、期货合约、财报、公司事件和资金面等多源数据整理为本地 Parquet 数据湖，提供增量采集、失败续跑、质量审计与统一查询。适合反复回测、积累历史数据。提供个人研究者和AI Agent一套完整的金融数据解决方案。
+
 ## 🚀网站&工具
 
 #### [Free Music Archive](https://freemusicarchive.org/)
