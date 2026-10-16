@@ -5,13 +5,14 @@ import TOC from '../../components/TOC.astro';
 import ReadingProgress from '../../components/ReadingProgress.astro';
 import { getCollection, render } from 'astro:content';
 import { withBase } from '../../lib/base';
+import ArticleNavigation from '../../components/ArticleNavigation.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
-  return posts.map(post => ({ params: { slug: post.id }, props: { post } }));
+  const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return posts.map((post, index) => ({ params: { slug: post.id }, props: { post, previous: posts[index - 1], next: posts[index + 1] } }));
 }
 
-const { post } = Astro.props;
+const { post, previous, next } = Astro.props;
 const { Content, headings } = await render(post);
 
 const charCount = post.body ? post.body.replace(/\s/g, '').length : 0;
@@ -45,6 +46,10 @@ const readingTime = Math.max(1, Math.ceil(charCount / 400));
       <div class="prose">
         <Content />
       </div>
+      <ArticleNavigation
+        previous={previous && { href: withBase(`/blog/${previous.id}/`), title: previous.data.title }}
+        next={next && { href: withBase(`/blog/${next.id}/`), title: next.data.title }}
+      />
     </div>
   </main>
 </BaseLayout>

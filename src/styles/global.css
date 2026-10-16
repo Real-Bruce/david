@@ -411,6 +411,16 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 .editorial-entry-tags a:hover { color: var(--editorial-color); text-decoration: underline; text-underline-offset: 4px; }
 .editorial-entry:not([data-return-suppressed]):hover .editorial-entry-content h3, .editorial-entry:not([data-return-suppressed]) .editorial-entry-content:focus-visible h3 { color: var(--editorial-color); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
 .editorial-list a:focus-visible { outline: 2px solid var(--editorial-color); outline-offset: 5px; border-radius: 2px; }
+.pagination { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 34px; color: var(--muted); font-size: 13px; }
+.pagination a { color: inherit; transition: color .18s ease; }
+.pagination a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.pagination-current { font-family: var(--font-mono); font-size: 12px; }
+.article-navigation { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); }
+.article-navigation a { display: flex; flex-direction: column; gap: 7px; color: inherit; min-width: 0; }
+.article-navigation a span { color: var(--muted); font-size: 12px; }
+.article-navigation strong { font-size: 15px; font-weight: 400; line-height: 1.6; overflow-wrap: anywhere; }
+.article-navigation a:hover strong { color: var(--article-accent); text-decoration: underline; text-underline-offset: 4px; }
+.article-navigation-next { text-align: right; align-items: flex-end; }
 /* ---------- 周刊文章头部（与博客详情一致的纯排版） ---------- */
 .weekly-article { margin-top: 56px; }
 .article-header-weekly { --article-accent: var(--weekly); }
@@ -840,7 +850,8 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 /* 分块不用卡片底色，与背景保持一体，靠间距与标题行区分 */
 /* 顶部留白 = main 的 32px + 列表页 page-head 的 40px 上内边距，
    让首页块头与各列表页页头从同一高度开始 */
-.home-page { padding-top: 72px; padding-bottom: 52px; }
+.home-page { padding-top: 56px; padding-bottom: 52px; }
+.home-intro { margin: 0 var(--list-content-inset) 34px; color: color-mix(in srgb, var(--muted) 88%, var(--bg)); font-size: 15px; line-height: 1.9; }
 .home-section + .home-section { margin-top: 36px; }
 .home-section-title { display: inline-flex; align-items: center; gap: 20px; }
 .home-page .weekly-entries { gap: 4px; }
@@ -991,7 +1002,8 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
   main { padding-top: 24px; }
   .page-head { padding: 36px var(--intro-content-inset) 24px; }
   .page-head + .entry-list { margin-top: 28px; }
-  .home-page { padding-top: 52px; }
+  .home-page { padding-top: 40px; }
+  .home-intro { margin-bottom: 28px; font-size: 14px; }
   .home-section + .home-section { margin-top: 28px; }
   .home-section-title { gap: 14px; }
   .weekly-category-links { gap: 10px 22px; }

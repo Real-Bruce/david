@@ -6,12 +6,15 @@ import { getWeeklyArchiveCategories } from '../../lib/weekly-archives';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
 import ExternalLinkIcon from '../../components/ExternalLinkIcon.astro';
+import Pagination from '../../components/Pagination.astro';
 
 const posts = (await getCollection('weekly', ({ data }) => !data.draft))
   .sort((a, b) => b.data.issue - a.data.issue);
 
 const archiveSummaries = getWeeklyArchiveCategories();
 const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-', '.');
+const pageSize = 10;
+const pagePosts = posts.slice(0, pageSize);
 ---
 
 <BaseLayout title="周刊" description="每周收集的有趣网站、工具和阅读材料。">
@@ -41,7 +44,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
     {posts.length > 0 ? (
       <section class="weekly-list" aria-labelledby="weekly-list-title">
         <ol class="weekly-entries">
-          {posts.map(post => (
+          {pagePosts.map(post => (
             <li>
               <a class="weekly-entry" href={withBase(`/weekly/${post.id}/`)}>
                 <div class="weekly-entry-meta">
@@ -57,5 +60,6 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
     ) : (
       <p class="weekly-empty">第一期正在路上，回头来看看。</p>
     )}
+    <Pagination currentPage={1} totalPages={Math.ceil(posts.length / pageSize)} basePath={withBase('/weekly')} />
   </main>
 </BaseLayout>

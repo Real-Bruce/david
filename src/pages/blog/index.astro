@@ -4,9 +4,12 @@ import Icon from '../../components/Icon.astro';
 import EditorialPostList from '../../components/EditorialPostList.astro';
 import { getCollection } from 'astro:content';
 import { withBase } from '../../lib/base';
+import Pagination from '../../components/Pagination.astro';
+const pageSize = 10;
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const pagePosts = posts.slice(0, pageSize);
 ---
 
 <BaseLayout title="博客" description="完整的长文博客与技术、生活方式记录。">
@@ -25,7 +28,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 
     <EditorialPostList
       kind="blog"
-      posts={posts.map(post => ({
+      posts={pagePosts.map(post => ({
         href: withBase(`/blog/${post.id}/`),
         title: post.data.title,
         description: post.data.description,
@@ -33,5 +36,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
         tags: post.data.tags
       }))}
     />
+    <Pagination currentPage={1} totalPages={Math.ceil(posts.length / pageSize)} basePath={withBase('/blog')} />
   </main>
 </BaseLayout>

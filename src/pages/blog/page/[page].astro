@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Icon from '../../../components/Icon.astro';
+import EditorialPostList from '../../../components/EditorialPostList.astro';
+import Pagination from '../../../components/Pagination.astro';
+import { getCollection } from 'astro:content';
+import { withBase } from '../../../lib/base';
+export async function getStaticPaths() { const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()); const pageSize = 10; return Array.from({ length: Math.ceil(posts.length / pageSize) - 1 }, (_, i) => ({ params: { page: String(i + 2) }, props: { posts, currentPage: i + 2 } })); }
+const { posts, currentPage } = Astro.props; const pageSize = 10; const pagePosts = posts.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+---
+<BaseLayout title={`博客 · 第 ${currentPage} 页`} description="完整的长文博客与技术、生活方式记录。"><main class="container editorial-page"><header class="page-head"><div class="section-head"><span class="page-head-icon tint-blog"><Icon name="blog" size={38} /></span><div class="section-head-text"><div class="weekly-heading"><span class="weekly-count">{posts.length} 篇长文</span></div><p class="page-head-desc">成体系的长文，适合沉淀思考、方案和复盘。</p></div></div></header><EditorialPostList kind="blog" posts={pagePosts.map(post => ({ href: withBase(`/blog/${post.id}/`), title: post.data.title, description: post.data.description, date: post.data.pubDate, tags: post.data.tags }))} /><Pagination currentPage={currentPage} totalPages={Math.ceil(posts.length / pageSize)} basePath={withBase('/blog')} /></main></BaseLayout>

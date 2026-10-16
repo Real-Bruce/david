@@ -4,9 +4,12 @@ import Icon from '../../components/Icon.astro';
 import EditorialPostList from '../../components/EditorialPostList.astro';
 import { getCollection } from 'astro:content';
 import { withBase } from '../../lib/base';
+import Pagination from '../../components/Pagination.astro';
+const pageSize = 10;
 
 const posts = (await getCollection('notes', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const pagePosts = posts.slice(0, pageSize);
 ---
 
 <BaseLayout title="随笔" description="随时记录的碎片想法与短篇随笔。">
@@ -25,7 +28,7 @@ const posts = (await getCollection('notes', ({ data }) => !data.draft))
 
     <EditorialPostList
       kind="notes"
-      posts={posts.map(post => ({
+      posts={pagePosts.map(post => ({
         href: withBase(`/notes/${post.id}/`),
         title: post.data.title,
         description: post.data.description,
@@ -35,5 +38,6 @@ const posts = (await getCollection('notes', ({ data }) => !data.draft))
         location: post.data.location
       }))}
     />
+    <Pagination currentPage={1} totalPages={Math.ceil(posts.length / pageSize)} basePath={withBase('/notes')} />
   </main>
 </BaseLayout>
