@@ -1,6 +1,6 @@
 ---
-import { withBase } from '../lib/base';
 import Icon from './Icon.astro';
+import { withBase } from '../lib/base';
 
 interface EditorialPost {
   href: string;
@@ -8,6 +8,7 @@ interface EditorialPost {
   description: string;
   date: Date;
   tags: string[];
+  issue?: number;
   mood?: string;
   location?: string;
   postKind?: 'weekly' | 'blog' | 'notes';
@@ -20,7 +21,7 @@ interface Props {
 
 const { kind, posts } = Astro.props;
 const isNotes = kind === 'notes';
-const typeLabels = { weekly: '周刊', blog: '博客', notes: '随笔' };
+const typeLabels = { weekly: 'Weekly', blog: 'Blog', notes: 'Notes' };
 const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-', '.');
 ---
 
@@ -34,12 +35,11 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
               'editorial-entry',
               kind === 'archive' && post.postKind && `editorial-entry-${post.postKind}`
             ]}
+            data-kind={post.postKind}
+            data-search={`${post.title} ${post.description} ${post.tags.join(' ')}`}
           >
             <div class="editorial-entry-meta">
-              <time datetime={post.date.toISOString()}>{dateText(post.date)}</time>
-              {kind === 'archive' && post.postKind && (
-                <span class="editorial-entry-type">{typeLabels[post.postKind]}</span>
-              )}
+              <time datetime={post.date.toISOString()}>{kind === 'archive' ? dateText(post.date).slice(5) : dateText(post.date)}</time>
               {isNotes && post.mood && (
                 <span class="entry-mood-item">
                   <Icon name="mood" size={14} />
@@ -53,11 +53,17 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
                 </span>
               )}
             </div>
+            {kind === 'archive' && post.postKind && (
+              <span class="editorial-entry-type" aria-label={post.postKind === 'weekly' && post.issue ? `Weekly · Vol.${post.issue}` : typeLabels[post.postKind]} title={post.postKind === 'weekly' && post.issue ? `Weekly · Vol.${post.issue}` : typeLabels[post.postKind]}>
+                <Icon name={post.postKind} size={14} />
+                {post.postKind === 'weekly' && post.issue ? `Vol.${post.issue}` : null}
+              </span>
+            )}
             <a class="editorial-entry-content" href={post.href}>
               <h3>{post.title}</h3>
-              <p>{post.description}</p>
+              {kind !== 'archive' || post.postKind === 'blog' ? <p>{post.description}</p> : null}
             </a>
-            {post.tags.length > 0 && (
+            {kind !== 'archive' && post.tags.length > 0 && (
               <div class="editorial-entry-tags" aria-label="文章标签">
                 {post.tags.map(tag => <a href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}
               </div>

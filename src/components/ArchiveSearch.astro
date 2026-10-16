@@ -5,6 +5,7 @@
     type="search"
     placeholder="搜索标题、内容或标签"
     autocomplete="off"
+    aria-label="搜索归档标题、内容或标签"
   />
   <div id="archive-search-results" class="search-results" aria-live="polite"></div>
 </div>
@@ -28,6 +29,8 @@
   const resultsBox = document.getElementById('archive-search-results');
   const archiveList = document.getElementById('archive-list');
   const searchInput = document.getElementById('archive-search-input');
+  const countBox = document.getElementById('archive-result-count');
+  const filterControls = document.getElementById('archive-filter-controls');
 
   const HTML_ESCAPES: Record<string, string> = {
     '&': '&amp;',
@@ -42,6 +45,29 @@
 
   let pagefind: PagefindIndex | null = null;
   let timer: ReturnType<typeof setTimeout> | undefined;
+  let activeKind = 'all';
+  let fallbackSearch = false;
+
+  function updateSearchCopy() {
+    if (!(searchInput instanceof HTMLInputElement)) return;
+    const copy = fallbackSearch ? '搜索标题、摘要或标签' : '搜索标题、内容或标签';
+    searchInput.placeholder = copy;
+    searchInput.setAttribute('aria-label', copy);
+  }
+
+  function emptyState() {
+    return '<p class="empty">没有找到相关内容，试试其他关键词，或 <button class="archive-clear-search" type="button">清除搜索</button>。</p>';
+  }
+
+  function bindClearSearch() {
+    resultsBox?.querySelector<HTMLButtonElement>('.archive-clear-search')?.addEventListener('click', () => {
+      if (searchInput instanceof HTMLInputElement) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+      search('');
+    });
+  }
 
   async function ensureIndex(): Promise<PagefindIndex | null> {
     if (pagefind) return pagefind;
@@ -55,10 +81,14 @@
       await index.options?.();
       // options() 成功后再缓存，失败时不留下半初始化的索引
       pagefind = index;
+      fallbackSearch = false;
+      updateSearchCopy();
       return index;
     } catch {
+      fallbackSearch = true;
+      updateSearchCopy();
       if (resultsBox) {
-        resultsBox.innerHTML = '<p class="empty">搜索索引暂不可用，请先执行完整构建。</p>';
+        resultsBox.innerHTML = '';
       }
       return null;
     }
@@ -70,21 +100,43 @@
     if (!value.trim()) {
       resultsBox.innerHTML = '';
       if (archiveList) archiveList.hidden = false;
+      filterLocal('');
       return;
     }
 
-    if (archiveList) archiveList.hidden = true;
+    filterLocal(value);
+
+    if (archiveList) archiveList.hidden = false;
 
     const index = await ensureIndex();
-    if (!index) return;
+    if (!index) {
+      filterLocal(value);
+      resultsBox.innerHTML += '<p class="empty archive-search-scope">当前搜索范围：标题、摘要和标签。</p>';
+      if (!entriesHaveResults(value)) resultsBox.innerHTML = `${emptyState()}<p class="empty archive-search-scope">当前搜索范围：标题、摘要和标签。</p>`;
+      bindClearSearch();
+      return;
+    }
 
     const found = await index.search(value);
     if (!found?.results?.length) {
-      resultsBox.innerHTML = '<p class="empty">没有找到相关内容。</p>';
+      resultsBox.innerHTML = emptyState();
+      bindClearSearch();
       return;
     }
 
     const items = await Promise.all(found.results.slice(0, 24).map(result => result.data()));
+    const matchedUrls = new Set(items.map(item => new URL(item.url, window.location.origin).pathname));
+    const entries = [...document.querySelectorAll<HTMLElement>('.archive-year .editorial-entry')];
+    entries.forEach(entry => {
+      const href = entry.querySelector<HTMLAnchorElement>('.editorial-entry-content')?.href;
+      entry.hidden = (activeKind !== 'all' && entry.dataset.kind !== activeKind)
+        || !href
+        || !matchedUrls.has(new URL(href, window.location.origin).pathname);
+    });
+    document.querySelectorAll<HTMLElement>('.archive-month, .archive-year').forEach(group => {
+      group.hidden = !group.querySelector('.editorial-entry:not([hidden])');
+    });
+    if (countBox) countBox.textContent = `${activeKind === 'all' ? '搜索结果' : activeKind[0].toUpperCase() + activeKind.slice(1)} · ${entries.filter(entry => !entry.hidden).length} 篇`;
     resultsBox.innerHTML = items
       .map(item => {
         const url = escapeHtml(item.url);
@@ -97,6 +149,28 @@
       .join('');
   }
 
+  function entriesHaveResults(value: string) {
+    const query = value.trim().toLocaleLowerCase();
+    return [...document.querySelectorAll<HTMLElement>('.archive-year .editorial-entry')]
+      .some(entry => !entry.hidden && entry.dataset.search?.toLocaleLowerCase().includes(query));
+  }
+
+  function filterLocal(value: string) {
+    const query = value.trim().toLocaleLowerCase();
+    const entries = [...document.querySelectorAll<HTMLElement>('.archive-year .editorial-entry')];
+    entries.forEach(entry => {
+      entry.hidden = (activeKind !== 'all' && entry.dataset.kind !== activeKind)
+        || !entry.dataset.search?.toLocaleLowerCase().includes(query);
+    });
+    document.querySelectorAll<HTMLElement>('.archive-month, .archive-year').forEach(group => {
+      group.hidden = !group.querySelector('.editorial-entry:not([hidden])');
+    });
+    const visibleCount = entries.filter(entry => !entry.hidden).length;
+    if (countBox) countBox.textContent = activeKind === 'all' && !query ? `已归档 ${entries.length} 篇` : `${activeKind === 'all' ? '搜索结果' : activeKind[0].toUpperCase() + activeKind.slice(1)} · ${visibleCount} 篇`;
+    resultsBox!.innerHTML = visibleCount > 0 ? '' : emptyState();
+    if (visibleCount === 0) bindClearSearch();
+  }
+
   // instanceof 收窄后的类型可以在闭包内保持，避免 event.target 为 EventTarget 的取值问题
   if (searchInput instanceof HTMLInputElement) {
     searchInput.addEventListener('input', () => {
@@ -105,4 +179,17 @@
       timer = setTimeout(() => search(value), 180);
     });
   }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-filter-kind]').forEach(button => {
+    button.addEventListener('click', () => {
+      document.querySelectorAll<HTMLButtonElement>('[data-filter-kind]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      activeKind = button.dataset.filterKind ?? 'all';
+      filterLocal(searchInput instanceof HTMLInputElement ? searchInput.value : '');
+      const rect = filterControls?.getBoundingClientRect();
+      if (rect && (rect.top < 0 || rect.bottom > window.innerHeight)) {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: window.scrollY + rect.top - 24, behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
+    });
+  });
 </script>

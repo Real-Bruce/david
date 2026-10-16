@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import EditorialPostList from '../components/EditorialPostList.astro';
 import ArchiveSearch from '../components/ArchiveSearch.astro';
 import { getPublishedPosts, getPostHref, getPostKind, type AnyPost } from '../lib/posts';
+import { getWeeklyDigest } from '../lib/weekly';
+import Icon from "../components/Icon.astro";
 
 const posts = await getPublishedPosts();
 
@@ -28,15 +30,24 @@ const archiveYears = [...groupedPosts.keys()]
       .sort((a, b) => Number(b) - Number(a))
       .map(month => ({ month, posts: groupedPosts.get(year)!.get(month)! }))
   }));
+const years = archiveYears.map(({ year }) => year);
 ---
 
 <BaseLayout title="归档" description="按时间浏览全部博客、周刊和随笔，也可以直接搜索。">
   <main class="container editorial-page archive-page">
     <header class="page-head">
       <div class="weekly-heading">
-        <h1>档案馆</h1>
-        <span class="weekly-count">共 {posts.length} 篇</span>
+        <span id="archive-result-count" class="weekly-count" aria-live="polite">已归档 {posts.length} 篇</span>
       </div>
+      <nav id="archive-filter-controls" class="archive-filters" aria-label="归档筛选">
+        <div class="archive-type-filters" role="group" aria-label="内容类型">
+          <button type="button" data-filter-kind="all" data-tooltip="All" aria-label="All" title="All" aria-pressed="true"><Icon name="archive" size={16} /></button>
+          <button type="button" data-filter-kind="weekly" data-tooltip="Weekly" aria-label="Weekly" title="Weekly"><Icon name="weekly" size={16} /></button>
+          <button type="button" data-filter-kind="blog" data-tooltip="Blog" aria-label="Blog" title="Blog"><Icon name="blog" size={16} /></button>
+          <button type="button" data-filter-kind="notes" data-tooltip="Notes" aria-label="Notes" title="Notes"><Icon name="notes" size={16} /></button>
+        </div>
+        <div class="archive-year-links" aria-label="年份跳转">{years.map(year => <a href={`#archive-year-${year}`}>{year}</a>)}</div>
+      </nav>
     </header>
 
     <section class="section archive-search-section">
@@ -45,7 +56,7 @@ const archiveYears = [...groupedPosts.keys()]
 
     <div id="archive-list" class="archive-groups">
       {archiveYears.map(({ year, months }) => (
-        <section class="archive-year">
+        <section class="archive-year" id={`archive-year-${year}`} data-year={year}>
           <header class="archive-year-heading">
             <h2>{year}</h2>
           </header>
@@ -57,11 +68,12 @@ const archiveYears = [...groupedPosts.keys()]
                 kind="archive"
                 posts={monthPosts.map(post => ({
                   href: getPostHref(post),
-                  title: post.data.title,
+                  title: getPostKind(post) === 'weekly' ? getWeeklyDigest(post as Extract<AnyPost, { collection: 'weekly' }>).title : post.data.title,
                   description: post.data.description,
                   date: post.data.pubDate,
                   tags: post.data.tags,
-                  postKind: getPostKind(post)
+                  postKind: getPostKind(post),
+                  issue: getPostKind(post) === 'weekly' ? (post as Extract<AnyPost, { collection: 'weekly' }>).data.issue : undefined
                 }))}
               />
             </section>

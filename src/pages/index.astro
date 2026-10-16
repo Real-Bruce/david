@@ -29,7 +29,7 @@ const dateText = (date: Date) => date.toISOString().slice(0, 10).replaceAll('-',
         <h2 id="home-weekly-title" class="home-section-title">
           <span class="page-head-icon tint-weekly"><Icon name="weekly" size={38} /></span>
           <span class="sr-only">周刊</span>
-          <span class="weekly-count">共 {weeklyPosts.length} 期</span>
+          <span class="weekly-count">{weeklyPosts.length} 期周刊</span>
         </h2>
         <a class="section-more" href={withBase('/weekly/')}>查看全部 →</a>
       </div>

@@ -2,7 +2,7 @@
 title: "如果没有人读博客，为什么要写呢？"
 description: 收集整理每周看到的好玩有趣的内容，本期收录文章 1 篇、开源项目 3 个、网站工具 2 个、资料博文 2 篇。
 issue: 36
-pubDate: 2025-03-02
+pubDate: 2025-03-09
 tags:
   - 周刊
 draft: false
