@@ -6,7 +6,6 @@ tags:
   - 博客
   - Astro
   - 架构
-draft: false
 ---
 
 ## 为什么选择静态站点

@@ -5,7 +5,6 @@ pubDate: 2026-10-14
 tags:
   - 随笔
   - 思考
-draft: false
 mood: 平静
 location: 北京
 ---
