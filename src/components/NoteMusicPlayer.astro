@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { parseNeteaseSong } from '../lib/note-music';
+interface Props {
+  music: NonNullable<CollectionEntry<'notes'>['data']['music']>;
+}
+const { music } = Astro.props;
+const song = parseNeteaseSong(music.url);
+---
+{song && <details class="note-music">
+  <summary class="note-music-summary">
+    <span class="note-music-title">{music.title}{music.artist && <span class="note-music-artist">{music.artist}</span>}</span>
+  </summary>
+  <div class="note-music-expanded">
+    <note-music-embed class="note-music-embed">
+      <iframe src={song.playerUrl} title={`网易云音乐官方播放器：${music.title}`}
+        width="330" height="86" allow="autoplay" loading="lazy"></iframe>
+    </note-music-embed>
+  </div>
+</details>}
+
+<script>
+  // Scale only the viewport. Playback and its state belong to the official iframe.
+  class NoteMusicEmbed extends HTMLElement {
+    private observer?: ResizeObserver;
+    private controller?: AbortController;
+    connectedCallback() {
+      this.observer?.disconnect();
+      this.controller?.abort();
+      this.controller = new AbortController();
+      const measure = () => {
+        if (!this.closest('details')?.open || this.clientWidth <= 0) return;
+        const iframe = this.querySelector('iframe');
+        if (!iframe) return;
+        const scale = Math.min(1, this.clientWidth / 330);
+        iframe.style.width = '330px';
+        iframe.style.transform = `scale(${scale})`;
+        this.style.height = `${86 * scale}px`;
+      };
+      this.observer = new ResizeObserver(measure);
+      this.observer.observe(this);
+      this.closest('details')?.addEventListener('toggle', measure, { signal: this.controller.signal });
+      measure();
+    }
+    disconnectedCallback() {
+      this.observer?.disconnect();
+      this.controller?.abort();
+    }
+  }
+  if (!customElements.get('note-music-embed')) customElements.define('note-music-embed', NoteMusicEmbed);
+</script>

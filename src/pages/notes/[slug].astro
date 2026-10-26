@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import NoteMusicPlayer from '../../components/NoteMusicPlayer.astro';
 import Icon from '../../components/Icon.astro';
 import { getCollection, render } from 'astro:content';
 import { withBase } from '../../lib/base';
@@ -35,12 +36,15 @@ const { Content } = await render(post);
         </div>
       )}
 
-      {post.data.tags.length > 0 && (
+      {(post.data.tags.length > 0 || post.data.mood) && (
         <div class="article-meta" aria-label="文章标签">
+          {post.data.mood && <span class="tag" aria-label={`心情：${post.data.mood}`}>{post.data.mood}</span>}
           {post.data.tags.map(tag => <a class="tag" href={withBase(`/tags/${tag}/`)}>#{tag}</a>)}
         </div>
       )}
     </header>
+
+    {post.data.music && <NoteMusicPlayer music={post.data.music} />}
 
     <div class="prose">
       <Content />

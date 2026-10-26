@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 // astro:content 再导出的 z 在 Astro 7 已标记弃用，改用官方的 astro/zod
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
+import { parseNeteaseSong } from './lib/note-music';
 
 /**
  * 每个集合的 loader 都显式指定 base，且都指向 src/content 下的具体子目录。
@@ -49,12 +50,20 @@ const blog = defineCollection({
   })
 });
 
+const noteMusic = z.object({
+  type: z.literal('netease'),
+  url: z.string().refine(value => parseNeteaseSong(value) !== null, '请填写 HTTPS 网易云单曲链接'),
+  title: z.string().trim().min(1),
+  artist: z.string().trim().optional()
+}).strict();
+
 const notes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/notes' }),
   schema: z.object({
     ...sharedFields,
     mood: z.string().optional(),
-    location: z.string().optional()
+    location: z.string().optional(),
+    music: noteMusic.optional()
   })
 });
 
