@@ -23,6 +23,7 @@
 | 路由与每个页面的行为 | `README.md`「页面结构」，实现看 `src/pages/` |
 | front matter 字段与内容集合 | `README.md`「内容模型」，schema 看 `src/content.config.ts` |
 | 周刊分类归档与年度滚动 | `README.md`「周刊分类归档」，实现看 `src/lib/weekly-archives.ts`、`src/lib/weekly-archive-data.ts` |
+| 生成新一期周刊的完整流程 | `skills/weekly-collector/SKILL.md`：定期数 → 圈定当周新素材 → issue、归档、collect 三处同步 |
 | 设计原则与视觉现状 | `README.md`「设计现状」，样式集中在 `src/styles/global.css` |
 | 爬虫与 AI 可见性策略 | `README.md`「爬虫与 AI 可见性」，文件是 `public/robots.txt` 与 `/llms.txt` |
 | 部署、CI 与换域名清单 | `README.md`「部署」「站点配置」，工作流 `.github/workflows/deploy.yml` |
@@ -39,6 +40,13 @@
 - `getArchiveYear()` 的「文件夹名优先」靠 `/(\d{4})\/[^/]+$/` 匹配直接父目录，因此 `entryId` 同时接受集合 id（`2025/website`）与 `import.meta.glob` 的完整 key。**不要改回 `^` 锚定的写法**，否则 glob 调用路径会静默退化成正文取年，跨年时算错年份。
 - 新增周刊分类时，同步更新 `src/lib/weekly-archive-data.ts` 的 `categoryTitles` 与 `categoryOrder`：未登记的分类会排到最后，并直接用英文 id 当标题显示。
 - 修改 schema 或新增集合后，检查并同步更新 `src/lib/posts.ts`、相关页面和测试。
+
+## 陷阱：周刊发布
+
+- 生成新一期周刊是**三处同步**，只建 issue 文件会让分类归档与期刊内容脱节：新建 `src/content/weekly/issue-XXX.md`；把本期条目按分类插到 `src/content/weekly/archives/` 根目录四个分类文件（`article/blogs/software/website.md`）顶部，小节标题 `## Vol.XXX / YYYY.MM.DD`，Vol 期数与 issue 一致；再从 `collect.md` 删除已用素材。完整步骤见 `skills/weekly-collector/SKILL.md`。
+- 本期素材取「上次发布提交之后新进 `collect.md` 的条目」（`git log -1 -- src/content/weekly/issue-*.md` 定位上次发布，再 diff `collect.md`），不是从历史库存里挑：旧库存是跨期储备，历史上每期只消化当周新素材。
+- 根目录归档文件即当前年，年份由文件内首个 `## Vol.` 标题推导；每年 1 月首发前先把根目录 4 个文件移入 `archives/{上一年}/`（年度滚动细节见 README「周刊分类归档」）。
+- 发布提交沿用惯例信息 `Publish weekly issue XXX and archive entries`，一并包含 issue、四个归档文件与 `collect.md`；仍然仅在用户要求时提交。
 
 ## 陷阱：样式与布局
 
