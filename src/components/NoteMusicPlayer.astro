@@ -13,18 +13,28 @@ const song = parseNeteaseSong(music.url);
   </summary>
   <div class="note-music-expanded">
     <note-music-embed class="note-music-embed">
-      <iframe src={song.playerUrl} title={`网易云音乐官方播放器：${music.title}`}
+      <iframe src={song.playerUrl} data-mobile-src={song.mobilePlayerUrl} title={`网易云音乐官方播放器：${music.title}`}
         width="330" height="86" allow="autoplay" loading="lazy"></iframe>
     </note-music-embed>
   </div>
 </details>}
 
 <script>
+  import { isMobileMusicClient } from '../lib/note-music';
   // Scale only the viewport. Playback and its state belong to the official iframe.
   class NoteMusicEmbed extends HTMLElement {
     private observer?: ResizeObserver;
     private controller?: AbortController;
     connectedCallback() {
+      const frame = this.querySelector('iframe');
+      // Select once while the details is closed, before lazy loading can navigate.
+      // Do not change src on later expand/collapse or reconnect.
+      if (frame?.dataset.mobileSrc) {
+        if (isMobileMusicClient(navigator.userAgent, navigator.platform, navigator.maxTouchPoints)) {
+          frame.src = frame.dataset.mobileSrc;
+        }
+        delete frame.dataset.mobileSrc;
+      }
       this.observer?.disconnect();
       this.controller?.abort();
       this.controller = new AbortController();

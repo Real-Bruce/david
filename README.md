@@ -179,7 +179,7 @@ music:
 
 `type` 只能是 `netease`，`url` 和非空 `title` 必填，`artist` 可省略。卡片摘要仅展示歌名和歌手，不显示封面、心情、说明文案或操作提示。`mood` 保留在随笔顶层，与文章标签放在一起。
 
-网易云仅接受 HTTPS 的 `music.163.com/song?id=…` 或 `music.163.com/#/song?id=…` 单曲链接，允许额外分享参数，但只保留唯一的正整数歌曲 ID，生成官方外链地址。不支持歌单、短链接、其他域名或 iframe HTML。
+网易云仅接受 HTTPS 的 `music.163.com/song?id=…` 或 `music.163.com/#/song?id=…` 单曲链接，允许额外分享参数，但只保留唯一的正整数歌曲 ID，生成桌面和移动端各自的官方 HTTPS 外链地址。组件在首次加载前为移动浏览器选择 `/m/outchain/player`，桌面使用 `/outchain/player`，避免网易云在不匹配的入口间跳转到 HTTP 而被 HTTPS 页面拦截。不支持歌单、短链接、其他域名或 iframe HTML。
 
 卡片默认收起，点击摘要或通过键盘 Enter / 空格展开，显示官方播放器。使用原生 `details / summary`，无 JavaScript 时仍可展开、收起和访问播放器；重新进入页面默认收起。展开不自动播放（`auto=0`），收起仅隐藏播放器，保留 iframe 实例，不主动中断已经开始的播放。
 
