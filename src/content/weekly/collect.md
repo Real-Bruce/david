@@ -1,5 +1,6 @@
-## 📜有价值的文章
+# collect
 
+## 📜有价值的文章
 
 ## 🛸开源项目
 
@@ -138,10 +139,6 @@ macOS 命令行工具，配合 Claude Code 和 Codex 的 Skill，可以在每个
 #### [CNEquity](https://github.com/rootSunc/CNEquity)
 
 股票行情、期货合约、财报、公司事件和资金面等多源数据整理为本地 Parquet 数据湖，提供增量采集、失败续跑、质量审计与统一查询。适合反复回测、积累历史数据。提供个人研究者和AI Agent一套完整的金融数据解决方案。
-
-#### [iPhone-use](https://github.com/zhongerxin/iPhone-use)
-
-让 Codex、WorkBuddy 或豆包工作通过 USB 操作你的真实 iPhone。用自然语言描述任务，助手就能打开 App、读取页面、点击、滚动、输入文字、整理列表，并在侧边栏展示手机屏幕。
 
 ## 🚀网站&工具
 
@@ -311,7 +308,7 @@ AI 对话自动化构建文生图工作流，自动生成处理节点，支持�
 
 #### [complexity explorables](https://complexity-explorables.org/)
 
-复杂性探索，一组关于生物学、物理学、数学、社会科学、流行病学、生态学及其他领域的复杂系统互动式可探索性解释合集.....
+复杂性探索，一组关于生物学、物理学、数学、社会科学、流行病学、生态学及其他领域的复杂系统互动式可探索性解释合集…..
 
 #### [Visual Paradigm Online](https://online.visual-paradigm.com/cn/diagrams/templates/floor-plan/)
 
@@ -620,13 +617,5 @@ AI 生成的油画，它模仿人类的油画笔触，一笔笔绘制。
 #### [iminafleeting](https://iminafleeting.com/?v=en-INTL)
 
 帮你‘假装在开会’的工具，专门用来应对那些总想偷你时间的人。
-
-#### [lapla](https://world.lapla.si/zh/)
-
-动态知识讲解交互网站，目前有119 幅图版，分在自然、思想、技术三层的九个展厅里。每一页都是一件可以转动、可以拆开的模型。
-
-#### [godbolt](https://godbolt.org/)
-
-在线编译器，可以实时查看代码的汇编输出，支持多种编程语言和编译器选项。
 
 ## ⛵资料&博文

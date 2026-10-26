@@ -1,5 +1,19 @@
 # software
 
+## Vol.106 / 2026.10.26
+
+#### [iPhone-use](https://github.com/zhongerxin/iPhone-use)
+
+让 Codex、WorkBuddy 或豆包工作通过 USB 操作你的真实 iPhone。用自然语言描述任务，助手就能打开 App、读取页面、点击、滚动、输入文字、整理列表，并在侧边栏展示手机屏幕。
+
+#### [silkpulse](https://github.com/2234839/silkpulse)
+
+在页面里插一个 script 标签，console、网络、报错实时上报到网页控制台。方便你远程调试网页或者接入AI排查前端问题。
+
+#### [archify](https://github.com/tt-a1i/archify)
+
+一个SKILL项目，可以将你的想法、内容或者代码仓库转换成一个可交互的网页。
+
 ## Vol.105 / 2026.10.12
 
 #### [Launch Next](https://github.com/RoversX/LaunchNext)

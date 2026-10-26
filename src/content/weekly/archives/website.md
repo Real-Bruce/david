@@ -1,5 +1,15 @@
 # website
 
+## Vol.106 / 2026.10.26
+
+#### [lapla](https://world.lapla.si/zh/)
+
+动态知识讲解交互网站，目前有119 幅图版，分在自然、思想、技术三层的九个展厅里。每一页都是一件可以转动、可以拆开的模型。
+
+#### [godbolt](https://godbolt.org/)
+
+在线编译器，可以实时查看代码的汇编输出，支持多种编程语言和编译器选项。
+
 ## Vol.105 / 2026.10.12
 
 #### [every noise](https://everynoise.com/)

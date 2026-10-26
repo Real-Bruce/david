@@ -1,5 +1,15 @@
 # blogs
 
+## Vol.106 / 2026.10.26
+
+#### [rust guide](https://google.github.io/styleguide/rustguide.html)
+
+Google内部的Rust开发指南，旨在统一 Android、Chromium、Fuchsia 等核心项目中的代码规范。指南不仅关注代码格式，更深入 API 设计与实现细节，强调代码的可读性和可维护性应优于编写便利性。
+
+#### [Learn Vim](https://github.com/iggredible/Learn-Vim)
+
+开源的Vim编辑器学习使用教程。
+
 ## Vol.105 / 2026.10.12
 
 #### [cchistory](https://cchistory.mariozechner.at/)
