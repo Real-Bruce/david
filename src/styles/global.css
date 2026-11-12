@@ -772,7 +772,7 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 
 .prose pre code { padding: 0; border: 0; background: transparent; font-size: .84em; }
 
-.prose img { display: block; margin: 1.8em auto; border-radius: 10px; }
+.prose img { display: block; height: auto; margin: 1.8em auto; border-radius: 10px; }
 
 .prose hr { width: 30px; height: 4px; margin: 2.6em auto; border: 0; border-radius: 999px; background: color-mix(in srgb, var(--article-accent, var(--accent)) 38%, var(--border)); }
 
