@@ -791,6 +791,36 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); }
 
 .prose th { background: var(--tint); }
 
+.prose .image-figure {
+  margin: 1.6em 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.image-figure > figcaption {
+  padding: .55rem clamp(.75rem, 2vw, 1rem);
+  border-bottom: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
+  background: var(--tint);
+  color: var(--article-accent, var(--fg));
+  font-size: .88em;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.image-figure-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: clamp(.5rem, 1.5vw, .85rem);
+  padding: clamp(.5rem, 1.5vw, .85rem);
+}
+
+.prose .image-figure-media img { margin: 0; border-radius: 8px; }
+.prose .image-figure-media > a { max-width: 100%; border-bottom: 0; }
+
 /* ---------- 阅读进度 ---------- */
 .reading-progress {
   position: fixed;
