@@ -140,6 +140,22 @@ macOS 命令行工具，配合 Claude Code 和 Codex 的 Skill，可以在每个
 
 股票行情、期货合约、财报、公司事件和资金面等多源数据整理为本地 Parquet 数据湖，提供增量采集、失败续跑、质量审计与统一查询。适合反复回测、积累历史数据。提供个人研究者和AI Agent一套完整的金融数据解决方案。
 
+#### [survival-llm](https://github.com/anonnerdfrenzy/survival-llm)
+
+私有化部署的应急资源查询库，无需联网完全本地操作。询问它如何在停电时保持食物安全，治疗烧伤或净化水：它会搜索 医疗、紧急情况、操作和百科全书文章的离线库，从中找到答案， 并显示每个答案的确切来源。
+
+#### [wud](https://github.com/getwud/wud)
+
+轻量级的主动式容器更新监控和自动化工具。它持续扫描您的容器环境，检测公共和私有注册中心的映像更新，执行语义版本分析，可以通过IM渠道发送各类通知。
+
+#### [Oleafly](https://github.com/Oleafly/Oleafly)
+
+Oleafly 是一款功能强大的编辑器，用于以 LaTeX、Typst 和 Markdown 撰写研究论文和学位论文。一个项目的源文件、PDF、引文、图形、检查和 Git 历史都集中在一处。
+
+#### [cloud mail](https://github.com/maillab/cloud-mail)
+
+基于 Cloudflare 的一站式邮箱服务平台。只需要一个域名，就可以搭建自己的邮箱服务，可部署到 Cloudflare Workers。
+
 ## 🚀网站&工具
 
 #### [Free Music Archive](https://freemusicarchive.org/)
@@ -610,6 +626,14 @@ SSH 连接工具
 
 苹果开发的二维码背景自定义工具，可使用 Apple 提供模板或自定义模板。
 
+#### [ai pose gallery](https://ai-pose-gallery.anhao.app/)
+
+通过几千种动作、服饰和人脸来生成让AI参考的人像。
+
+#### [shisei](https://shisei.indaloop.app/)
+
+提供了近三百套线稿姿势参考图， 包含 5 个不同角度机位角度图以及深度图和法线图，帮助 AI 绘图时候进行参考。
+
 #### [stillwet](https://stillwet.art/)
 
 AI 生成的油画，它模仿人类的油画笔触，一笔笔绘制。
@@ -618,4 +642,56 @@ AI 生成的油画，它模仿人类的油画笔触，一笔笔绘制。
 
 帮你‘假装在开会’的工具，专门用来应对那些总想偷你时间的人。
 
+#### [learn arduino red](https://learn-arduino-red.vercel.app/zh/#board)
+
+在线构建的 Arduino 学习工具，可以在浏览器中模拟 Arduino 电路和编程环境，交互做的非常好。
+
+#### [game art style](https://gameartstyle.loopyhop.com/)
+
+游戏美术风格收集网站，收集了各种类型的美术风格还提供了参考的游戏，感觉可以作为AI开发游戏时的参考样式。
+
+#### [esp labs web](https://esp-labs-web.pages.dev/#/?lang=zh)
+
+在线学习ESP-32的网站，网站的交互式学习设计非常有意思。
+
+#### [ghibli search](https://ghibli-search.anini.workers.dev/)
+
+输入问文本搜索吉卜力工作室的电影画面。
+
+#### [词光](https://0xlei.tech/words/#/)
+
+免费开源的雅思单词在线学习网站，给每个单词配上插画帮助记忆，学会的单词还会变成点亮的星星。
+
+#### [motion prompt](https://showheyohtaki.github.io/motion-prompt/)
+
+各类常见的动画、转场效果的示例动画，提供对应的Prompt，帮助你快速构建动画效果。
+
+#### [public domain review](https://publicdomainreview.org/)
+
+收集挖掘历史上那些有趣、冷门的公共领域作品的非营利在线刊物。
+
+#### [cola skill](https://colaskill.com/zh/)
+
+这个网站收集整理了很多实用有趣的Skill。
+
+#### [hackertube](https://hackertube.org/)
+
+汇集了"黑客新闻"论坛上提到的所有 Youtube 视频，可以用来寻找值得看的科技视频。
+
 ## ⛵资料&博文
+
+#### [floodfill](https://t3x.org/files/floodfill.pdf)
+
+一种基于16种闲置色彩值实现的Floodfill算法，很巧妙的省去了堆栈的使用。
+
+#### [How To Live Better](https://github.com/eternity4719/HowToLiveBetter)
+
+高性价比人生指南，讲怎么活得久、怎么少生病，出了意外怎么救。讲怎么少花冤枉钱，哪些事会让人被骗、摊上官司。讲没工作没钱时能去领什么，开店、开公司、做网站要办什么手续。也讲恋爱结婚生孩子、出国和学手艺。法律、医保、社保这些制度上的内容，按中国大陆的现行规定写。
+
+#### [AI Coding 最佳实践](https://tw93.fun/2026-10-29/practice.html)
+
+TW93最新的博客，讲 AI Coding实践的建议，很值得看看。
+
+#### [Start Doing Graph Theory](https://vertex.degree/)
+
+一本关于图论学习的在线教材

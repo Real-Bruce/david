@@ -50,7 +50,7 @@ npm run preview
 - Astro 7 与 Astro Content Collections
 - 原生 CSS，集中维护于 `src/styles/global.css`
 - Pagefind，随 `npm run build` 生成静态搜索索引
-- LXGW WenKai（霞鹜文楷），由 `lxgw-wenkai-webfont` 提供
+- LXGW WenKai（霞鹜文楷），由 `lxgw-wenkai-webfont` 提供；开发及构建时通过 `src/lib/postcss-font-display.mjs` 将其 `font-display` 设为 `optional`，保留 Unicode 分片按需加载，不做固定批量预加载。首次访问或慢网时，未及时就绪的分片使用系统回退字体，避免阅读中途切换；缓存可用时使用文楷。不同设备、缓存状态下的字体外观可能不同。
 - GitHub Actions 部署到 GitHub Pages
 
 不使用 React、Vue、Tailwind 或其他大型前端框架。

@@ -3,11 +3,17 @@ import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
 import rehypeImageFigures from './src/lib/rehype-image-figures.mjs';
 import rehypePangu from './src/lib/rehype-pangu.mjs';
+import fontDisplay from './src/lib/postcss-font-display.mjs';
 
 export default defineConfig({
   site: 'https://real-bruce.github.io',
   base: '/david',
   trailingSlash: 'ignore',
+  vite: {
+    css: {
+      postcss: { plugins: [fontDisplay()] }
+    }
+  },
   integrations: [
     // /weekly/archives/* 只是重定向壳页，且自带 <meta name="robots" content="noindex">，
     // 收进 sitemap 会与 noindex 自相矛盾。
